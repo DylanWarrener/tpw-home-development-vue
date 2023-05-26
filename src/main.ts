@@ -1,18 +1,21 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import { createVuetify } from "vuetify";
+import { createI18n } from "vue-i18n";
 
-// Vuetify
+// Vuetify styles
 import "vuetify/styles";
 import "@mdi/font/css/materialdesignicons.css";
-import { createVuetify } from "vuetify";
+
+// Vuetify icons
 import { aliases, mdi } from "vuetify/iconsets/mdi";
-//import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
-//import { createI18n, useI18n } from "vue-i18n";
+
+// Vuetify components & directives
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
 // Localisation
-import en from "./locale/en.json";
+import en from "./locales/en.json";
 
 // Routes
 import router from "./router";
@@ -22,21 +25,19 @@ import App from "./app.vue";
 
 const app = createApp(App);
 const pinia = createPinia();
-/*
-const i18n = new createI18n({
-	llegacy: false, // Vuetify does not support the legacy mode of vue-i18n
+const i18n = createI18n({
 	locale: "en",
-	messages: { en },
+	message: {
+		en: {
+			test: "Testing localisation",
+		},
+	},
 });
-*/
 const vuetify = createVuetify({
 	icons: {
 		defaultSet: "mdi",
 		aliases,
 		sets: { mdi },
-	},
-	locale: {
-		//adapter: createVueI18nAdapter({ i18n, useI18n }),
 	},
 	components,
 	directives,
@@ -44,7 +45,6 @@ const vuetify = createVuetify({
 
 app.use(router);
 app.use(pinia);
-//app.use(i18n);
 app.use(vuetify);
-
+app.use(i18n);
 app.mount("#app");

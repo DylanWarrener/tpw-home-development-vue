@@ -1,0 +1,33 @@
+{
+    "header": {
+		"navgation": {
+			"logo": {
+				"name": "TPW Home Development"
+			},
+			"links": {},
+			"text": {
+				"home": "Home",
+				"kitchens": "Kitchens",
+				"bathrooms": "Bathrooms",
+				"newBuilds": "Newbuilds",
+				"extensions": "Extensions",
+				"refurbishments": "Refurbishments",
+				"contact": "Contact",
+				"news": "News",
+				"about": "About"
+			}
+		}
+	},
+	"pages": {
+		"home": {},
+		"kitchens": {},
+		"bathrooms": {},
+		"newBuilds": {},
+		"extensions": {},
+		"refurbishments": {},
+		"contact": {},
+		"news": {},
+		"about": {}
+	},
+	"footer": {}
+}
