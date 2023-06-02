@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// Child components
-import Home from "./pages/pages-home.vue";
-import Kitchens from "./pages/pages-kitchen.vue";
-import Bathrooms from "./pages/pages-bathroom.vue";
-import Newbuilds from "./pages/pages-newbuild.vue";
-import Extensions from "./pages/pages-extension.vue";
-import Refurbishments from "./pages/pages-refurbishment.vue";
-import Contact from "./pages/pages-contact.vue";
-import About from "./pages/pages-about.vue";
+// Child components -> dynamically imported (only imported when requested to reduce bundle size)
+const Home = () => import("./pages/pages-home.vue");
+const Kitchens = () => import("./pages/pages-kitchen.vue");
+const Bathrooms = () => import("./pages/pages-bathroom.vue");
+const Newbuilds = () => import("./pages/pages-newbuild.vue");
+const Extensions = () => import("./pages/pages-extension.vue");
+const Refurbishments = () => import("./pages/pages-refurbishment.vue");
+const Contact = () => import("./pages/pages-contact.vue");
+const About = () => import("./pages/pages-about.vue");
 
 // Routes
 const router = createRouter({
