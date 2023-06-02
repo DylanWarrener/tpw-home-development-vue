@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Extension interface
 import IExtensionBaseData, { IExtensionTextualData } from "@/interfaces/interface-extension";
 
-export const useExtensionStore = defineStore("extensionStore", {
+const useExtensionStore = defineStore("extensionStore", {
 	state: (): IExtensionBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useExtensionStore = defineStore("extensionStore", {
 		},
 	},
 });
+
+export default useExtensionStore;

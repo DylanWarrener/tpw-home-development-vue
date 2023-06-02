@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Kitchen interface
 import IKitchenBaseData, { IKitchenTextualData } from "@/interfaces/interface-kitchen";
 
-export const useKitchenStore = defineStore("kitchenStore", {
+const useKitchenStore = defineStore("kitchenStore", {
 	state: (): IKitchenBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useKitchenStore = defineStore("kitchenStore", {
 		},
 	},
 });
+
+export default useKitchenStore;

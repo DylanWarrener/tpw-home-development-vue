@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Header interface
 import IHeaderData, { ITextualData } from "@/interfaces/interface-header";
 
-export const useHeaderStore = defineStore("headerStore", {
+const useHeaderStore = defineStore("headerStore", {
 	state: (): IHeaderData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useHeaderStore = defineStore("headerStore", {
 		},
 	},
 });
+
+export default useHeaderStore;

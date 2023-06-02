@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Refurbishment interface
 import IRefubishmentBaseData, { IRefubishmentTextualData } from "@/interfaces/interface-refurbishment";
 
-export const useRefurbishmentStore = defineStore("refurbishmentStore", {
+const useRefurbishmentStore = defineStore("refurbishmentStore", {
 	state: (): IRefubishmentBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useRefurbishmentStore = defineStore("refurbishmentStore", {
 		},
 	},
 });
+
+export default useRefurbishmentStore;

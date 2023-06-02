@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Newbuild interface
 import INewbuildBaseData, { INewbuildTextualData } from "@/interfaces/interface-newbuild";
 
-export const useNewbuildStore = defineStore("newbuildStore", {
+const useNewbuildStore = defineStore("newbuildStore", {
 	state: (): INewbuildBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useNewbuildStore = defineStore("newbuildStore", {
 		},
 	},
 });
+
+export default useNewbuildStore;

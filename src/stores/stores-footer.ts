@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Footer interface
 import IFooterData, { IFooterTextualData } from "@/interfaces/interface-footer";
 
-export const useFooterStore = defineStore("footerStore", {
+const useFooterStore = defineStore("footerStore", {
 	state: (): IFooterData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useFooterStore = defineStore("footerStore", {
 		},
 	},
 });
+
+export default useFooterStore;

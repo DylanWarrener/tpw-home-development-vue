@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Bathroom interface
 import IBathroomBaseData, { IBathroomTextualData } from "@/interfaces/interface-bathroom";
 
-export const useBathroomStore = defineStore("bathroomStore", {
+const useBathroomStore = defineStore("bathroomStore", {
 	state: (): IBathroomBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useBathroomStore = defineStore("bathroomStore", {
 		},
 	},
 });
+
+export default useBathroomStore;

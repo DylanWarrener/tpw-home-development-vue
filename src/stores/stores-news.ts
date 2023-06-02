@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // News interface
 import INewsBaseData, { INewsTextualData } from "@/interfaces/interface-news";
 
-export const useNewsStore = defineStore("newsStore", {
+const useNewsStore = defineStore("newsStore", {
 	state: (): INewsBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useNewsStore = defineStore("newsStore", {
 		},
 	},
 });
+
+export default useNewsStore;

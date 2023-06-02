@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // Home interface
 import IHomeBaseData, { IHomeTextualData } from "@/interfaces/interface-home";
 
-export const useHomeStore = defineStore("homeStore", {
+const useHomeStore = defineStore("homeStore", {
 	state: (): IHomeBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useHomeStore = defineStore("homeStore", {
 		},
 	},
 });
+
+export default useHomeStore;

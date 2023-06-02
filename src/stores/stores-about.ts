@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 // About interface
 import IAboutBaseData, { IAboutTextualData } from "@/interfaces/interface-about";
 
-export const useAboutStore = defineStore("aboutStore", {
+const useAboutStore = defineStore("aboutStore", {
 	state: (): IAboutBaseData => ({
 		textualData: {},
 	}),
@@ -16,3 +16,5 @@ export const useAboutStore = defineStore("aboutStore", {
 		},
 	},
 });
+
+export default useAboutStore;
