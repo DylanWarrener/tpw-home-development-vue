@@ -15,7 +15,8 @@ import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
 // Localisation
-import en from "./locales/en.json";
+//import en from "./locales/en.json";
+import en from "./locales/en.js";
 
 // Routes
 import router from "./router";
@@ -27,11 +28,7 @@ const app = createApp(App);
 const pinia = createPinia();
 const i18n = createI18n({
 	locale: "en",
-	message: {
-		en: {
-			test: "Testing localisation",
-		},
-	},
+	messages: { en },
 });
 const vuetify = createVuetify({
 	icons: {

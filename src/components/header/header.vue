@@ -1,5 +1,5 @@
 <template>
-	<v-app-bar>Navigation</v-app-bar>
+	<v-app-bar>{{ $t("welcome") }}</v-app-bar>
 </template>
 
 <script lang="ts">
