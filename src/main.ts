@@ -2,10 +2,10 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 
 // Localisation
-import vuei18n from "./vue-i18n.ts";
+import vuei18n from "./vue-i18n";
 
 // Vuetify
-import vuetify from "./vuetify.ts";
+import vuetify from "./vuetify";
 
 // Routes
 import router from "./router";
