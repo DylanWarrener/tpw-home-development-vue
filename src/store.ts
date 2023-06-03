@@ -15,7 +15,7 @@ import useErrorStore from "./stores/stores-error";
 import useFooterStore from "./stores/stores-footer";
 
 // Common interface
-import IBaseData, { ICommonTextualData } from "@/interfaces/common/interface-common";
+import IBaseData from "./interfaces/common/interface-common";
 
 // Main store
 const parentStore = defineStore("commonStore", {
