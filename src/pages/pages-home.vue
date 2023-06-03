@@ -1,5 +1,9 @@
 <template>
-	<div>Home</div>
+	<v-container fluid>
+		<v-row>
+			<v-col>Home</v-col>
+		</v-row>
+	</v-container>
 </template>
 
 <script lang="ts">
