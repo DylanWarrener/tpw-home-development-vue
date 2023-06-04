@@ -1,7 +1,7 @@
 <template>
 	<v-container fluid>
-		<v-row>
-			<v-col>Home</v-col>
+		<v-row dense>
+			<v-col cols="12">Home</v-col>
 		</v-row>
 	</v-container>
 </template>
