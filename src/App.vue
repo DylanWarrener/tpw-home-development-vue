@@ -7,7 +7,7 @@
 			density="compact"
 			scroll-behavior="hide elevate">
 
-			<template v-slot:prepend>
+			<template #prepend>
 				<v-app-bar-nav-icon
 					variant="text"
 					@click.stop="navMenuClicked">
@@ -16,11 +16,30 @@
 
 			<v-app-bar-title>{{ $t("welcome") }}</v-app-bar-title>
 			
-			<template v-slot:append>
+			<template #append>
 				<v-btn icon="mdi-dots-vertical"></v-btn>
 			</template>
 		</v-app-bar>
-		<header-component :drawer="drawer"></header-component>
+		<v-navigation-drawer 
+			v-model="drawer"
+			location="top"
+			temporary>
+			<v-list nav>
+				<v-list-item 
+					to="/"
+					prepend-icon="mdi-home"
+					title="Home"
+					value="home">
+				</v-list-item>
+				<v-list-item 
+					to="/kitchens"
+					prepend-icon="mdi-kitchen"
+					title="Kitchens"
+					value="kitchens">
+				</v-list-item>
+			</v-list>
+		</v-navigation-drawer>
+		<header-component></header-component>
 		<v-main>
 			<router-view></router-view>
 		</v-main>
@@ -51,6 +70,12 @@ export default defineComponent({
 	data(): ICommonData {
 		return {
 			drawer: false,
+			items: [
+				{ title: 'Foo', value: 'foo' },
+				{ title: 'Bar', value: 'bar' },
+				{ title: 'Fizz', value: 'fizz' },
+				{ title: 'Buzz', value: 'buzz' },
+			],
 		}
 	},
 });
