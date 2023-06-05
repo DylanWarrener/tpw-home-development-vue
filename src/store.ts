@@ -15,15 +15,23 @@ import useErrorStore from "./stores/stores-error";
 import useFooterStore from "./stores/stores-footer";
 
 // Common interface
-import IBaseData from "./interfaces/common/interface-common";
+import IBaseState from "./interfaces/common/interface-common";
 
 // Main store
 const parentStore = defineStore("commonStore", {
-	state: (): IBaseData => {
-		return {};
-	},
-	getters: {},
-	actions: {},
+  state: (): IBaseState => {
+    return {
+      drawer: false,
+    };
+  },
+  getters: {
+	getDrawer: (state): boolean => state.drawer,
+  },
+  actions: {
+	setDrawer(data: boolean): void {
+		this.drawer = data;
+	}
+  },
 });
 
 // Other stores

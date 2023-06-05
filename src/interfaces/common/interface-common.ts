@@ -1,8 +1,5 @@
-import { INavigationData } from "./interface-navigation";
+export default interface IBaseData {}
 
-export default interface ICommonData {
-    drawer: boolean | null;
-    items: INavigationData[];
+export default interface IBaseState {
+    drawer: boolean;
 }
-
-export default interface ICommonState {}
