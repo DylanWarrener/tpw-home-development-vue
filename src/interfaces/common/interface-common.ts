@@ -1,5 +1,3 @@
-export default interface IBaseData {}
+export default interface IBaseState {}
 
-export default interface IBaseState {
-    drawer: boolean;
-}
+export interface IBaseData {}
