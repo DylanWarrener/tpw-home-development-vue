@@ -1,20 +1,21 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
 
-// Localisation
-import vuei18n from "./vue-i18n";
+// Routes
+import router from "./router";
+
+// Pinia store
+import pinia from "./pinia";
 
 // Vuetify
 import vuetify from "./vuetify";
 
-// Routes
-import router from "./router";
+// Localisation
+import vuei18n from "./vue-i18n";
 
 // Parent component
 import App from "./app.vue";
 
 const app = createApp(App);
-const pinia = createPinia();
 
 app.use(router);
 app.use(pinia);

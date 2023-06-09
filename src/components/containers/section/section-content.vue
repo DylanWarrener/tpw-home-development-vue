@@ -1,11 +1,11 @@
 <template>
-	<v-footer class="text-primary">Footer</v-footer>
+	<p>Section stuff</p>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-	name: "footer-component",
+	name: "section-content-component",
 });
 </script>

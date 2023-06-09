@@ -18,20 +18,10 @@ import useFooterStore from "./stores/stores-footer";
 import IBaseState from "./interfaces/common/interface-common";
 
 // Main store
-const parentStore = defineStore("commonStore", {
-  state: (): IBaseState => {
-    return {
-      drawer: false,
-    };
-  },
-  getters: {
-	getDrawer: (state): boolean => state.drawer,
-  },
-  actions: {
-	setDrawer(data: boolean): void {
-		this.drawer = data;
-	}
-  },
+const parentStore = defineStore("base-store", {
+	state: (): IBaseState => ({}),
+	getters: {},
+	actions: {},
 });
 
 // Other stores
