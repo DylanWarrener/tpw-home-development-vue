@@ -1,18 +1,18 @@
 import { defineStore } from "pinia";
 
 // Header interface
-import IHeaderData, { ITextualData } from "@/interfaces/interface-header";
+import IHeaderState from "../interfaces/common/header/interface-header";
 
-const useHeaderStore = defineStore("headerStore", {
-	state: (): IHeaderData => ({
-		textualData: {},
+const useHeaderStore = defineStore("header-store", {
+	state: (): IHeaderState => ({
+		drawer: false,
 	}),
 	getters: {
-		getTextualData: (state): ITextualData => state.textualData,
+		getDrawer: (state): boolean => state.drawer,
 	},
 	actions: {
-		setTextualData(data: any): void {
-			this.textualData = data;
+		setDrawer(newValue: any): void {
+			this.drawer = newValue;
 		},
 	},
 });
