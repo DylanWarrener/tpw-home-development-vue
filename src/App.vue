@@ -1,25 +1,5 @@
 <template>
-	<v-layout>
-		<!--<v-system-bar color="blue"></v-system-bar>-->
-		<v-app-bar 
-			prominent
-			color="primary" 
-			density="compact"
-			scroll-behavior="hide elevate">
-
-			<template #prepend>
-				<v-app-bar-nav-icon
-					variant="text"
-					@click.stop="drawer = !drawer">
-				</v-app-bar-nav-icon>
-			</template>
-
-			<v-app-bar-title>{{ $t("welcome") }}</v-app-bar-title>
-			
-			<template #append>
-				<v-btn icon="mdi-dots-vertical"></v-btn>
-			</template>
-		</v-app-bar>
+	<v-layout class="d-flex flex-column">
 		<header-component></header-component>
 		<v-main>
 			<router-view></router-view>
@@ -31,6 +11,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+// Store
+import parentStore from "./store";
+
 import Header from "./components/header/header.vue";
 import Footer from "./components/footer/footer.vue";
 
@@ -40,6 +23,15 @@ export default defineComponent({
 		"header-component": Header,
 		"footer-component": Footer,
 	},
-	methods: {}
+	setup() {
+		const storeBase = parentStore();
+		return { storeBase };
+	},
 });
 </script>
+
+<style lang="scss">
+.border {
+	border: 2px solid black;
+}
+</style>
