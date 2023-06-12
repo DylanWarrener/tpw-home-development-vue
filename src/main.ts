@@ -1,16 +1,16 @@
 import { createApp } from "vue";
 
 // Routes
-import router from "./router";
+import router from "./plugins/router/router";
 
 // Pinia store
-import pinia from "./pinia";
+import pinia from "./plugins/pinia/pinia";
 
 // Vuetify
-import vuetify from "./vuetify";
+import vuetify from "./plugins/vuetify/vuetify";
 
 // Localisation
-import vuei18n from "./vue-i18n";
+import vuei18n from "./plugins/vuei18n/vue-i18n";
 
 // Parent component
 import App from "./app.vue";
