@@ -1,16 +1,5 @@
-export interface IQuoteBoxTextualData {
-    heading: string
-    quote: string
-}
+export default interface IKitchenTextualData {}
 
-export interface ICanvasTextualData {
-    quoteBox: IQuoteBoxTextualData 
-}
+export interface IKitchenState {}
 
-export interface IKitchenTextualData {
-    canvas: ICanvasTextualData
-}
-
-export default interface IKitchenBaseData {
-    textualData: IKitchenTextualData
-}
+export interface IKitchenData {}

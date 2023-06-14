@@ -1,20 +1,12 @@
 import { defineStore } from "pinia";
 
 // Kitchen interface
-import IKitchenBaseData, { IKitchenTextualData } from "@/interfaces/interface-kitchen";
+import { IKitchenState } from "../interfaces/kitchen/interface-kitchen";
 
 const useKitchenStore = defineStore("kitchenStore", {
-	state: (): IKitchenBaseData => ({
-		textualData: {},
-	}),
-	getters: {
-		getTextualData: (state): IKitchenTextualData => state.textualData,
-	},
-	actions: {
-		setTextualData(data: any) {
-			this.textualData = data;
-		},
-	},
+	state: (): IKitchenState => ({}),
+	getters: {},
+	actions: {},
 });
 
 export default useKitchenStore;

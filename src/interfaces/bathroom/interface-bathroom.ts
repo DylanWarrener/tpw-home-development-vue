@@ -1,16 +1,5 @@
-export interface IQuoteBoxTextualData {
-    heading: string
-    quote: string
-}
+export default interface IBathroomTextualData {}
 
-export interface ICanvasTextualData {
-    quoteBox: IQuoteBoxTextualData 
-}
+export interface IBathroomState {}
 
-export interface IBathroomTextualData {
-    canvas: ICanvasTextualData
-}
-
-export default interface IBathroomBaseData {
-    textualData: IBathroomTextualData
-}
+export interface IBathroomData {}

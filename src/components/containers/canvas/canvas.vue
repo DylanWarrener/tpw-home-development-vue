@@ -3,7 +3,7 @@
 		<v-container class="d-flex fill-height">
 			<v-row align="center">
 				<v-col align="center" cols="12">
-					<card-component title="Title" subtitle="Subtitle" btn-text="BtnText">
+					<card-component :title="title" :subtitle="subtitle" :btn-text="btnText">
 						<template #content> Content </template>
 					</card-component>
 				</v-col>
@@ -23,6 +23,9 @@ export default defineComponent({
 	name: "be-inspired-component",
 	props: {
 		src: { type: String, required: true },
+		title: { type: String, required: true },
+		subtitle: { type: String, required: false },
+		btnText: { type: String, required: true },
 	},
 	components: {
 		"section-component": Section,

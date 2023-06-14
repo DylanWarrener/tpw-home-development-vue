@@ -1,5 +1,5 @@
 <template>
-	<section-component></section-component>
+	<section-component title="Process of elimination content"></section-component>
 </template>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
 	<v-card width="400">
 		<v-card-item>
 			<v-card-title>{{ title }}</v-card-title>
-			<v-card-subtitle>{{ subtitle }}</v-card-subtitle>
+			<v-card-subtitle v-if="subtitle">{{ subtitle }}</v-card-subtitle>
 		</v-card-item>
 		<v-card-text>
 			<slot name="content"></slot>
@@ -21,7 +21,7 @@ export default defineComponent({
 	name: "card-component",
 	props: {
 		title: { type: String, required: true },
-		subtitle: { type: String, required: true },
+		subtitle: { type: String, required: false },
 		btnText: { type: String, required: true },
 	},
 });

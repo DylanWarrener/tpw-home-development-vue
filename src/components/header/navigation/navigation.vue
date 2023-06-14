@@ -13,7 +13,7 @@ import { defineComponent } from "vue";
 import parentStore, { childStores } from "../../../store";
 
 // Interface
-import INavigationData from "../../../interfaces/common/header/navigation/interface-navigation";
+import { ICommonNavigationData } from "../../../interfaces/header/navigation/interface-header-navigation";
 
 export default defineComponent({
 	name: "navigation-component",
@@ -32,56 +32,56 @@ export default defineComponent({
 		const storeHeader = childStores.useHeaderStore();
 		return { storeBase, storeHeader };
 	},
-	data(): INavigationData {
+	data(): ICommonNavigationData {
 		return {
 			navigation: [
 				{
 					id: 0,
-					title: this.$t("header.navigation.text.home"),
-					icon: this.$t("header.navigation.icons.home"),
-					link: this.$t("header.navigation.links.home"),
+					title: this.$t("header.navigation.page.name.home"),
+					icon: this.$t("header.navigation.page.icon.home"),
+					link: this.$t("header.navigation.page.link.home"),
 				},
 				{
 					id: 1,
-					title: this.$t("header.navigation.text.kitchen"),
-					icon: this.$t("header.navigation.icons.kitchen"),
-					link: this.$t("header.navigation.links.kitchen"),
+					title: this.$t("header.navigation.page.name.kitchen"),
+					icon: this.$t("header.navigation.page.icon.kitchen"),
+					link: this.$t("header.navigation.page.link.kitchen"),
 				},
 				{
 					id: 2,
-					title: this.$t("header.navigation.text.bathroom"),
-					icon: this.$t("header.navigation.icons.bathroom"),
-					link: this.$t("header.navigation.links.bathroom"),
+					title: this.$t("header.navigation.page.name.bathroom"),
+					icon: this.$t("header.navigation.page.icon.bathroom"),
+					link: this.$t("header.navigation.page.link.bathroom"),
 				},
 				{
 					id: 3,
-					title: this.$t("header.navigation.text.newbuild"),
-					icon: this.$t("header.navigation.icons.newbuild"),
-					link: this.$t("header.navigation.links.newbuild"),
+					title: this.$t("header.navigation.page.name.newbuild"),
+					icon: this.$t("header.navigation.page.icon.newbuild"),
+					link: this.$t("header.navigation.page.link.newbuild"),
 				},
 				{
 					id: 4,
-					title: this.$t("header.navigation.text.extension"),
-					icon: this.$t("header.navigation.icons.extension"),
-					link: "/extensions",
+					title: this.$t("header.navigation.page.name.extension"),
+					icon: this.$t("header.navigation.page.icon.extension"),
+					link: this.$t("header.navigation.page.link.extension"),
 				},
 				{
 					id: 5,
-					title: this.$t("header.navigation.text.refurbishment"),
-					icon: this.$t("header.navigation.icons.refurbishment"),
-					link: "/refurbishments",
+					title: this.$t("header.navigation.page.name.refurbishment"),
+					icon: this.$t("header.navigation.page.icon.refurbishment"),
+					link: this.$t("header.navigation.page.link.refurbishment"),
 				},
 				{
 					id: 6,
-					title: this.$t("header.navigation.text.contact"),
-					icon: this.$t("header.navigation.icons.contact"),
-					link: this.$t("header.navigation.links.contact"),
+					title: this.$t("header.navigation.page.name.contact"),
+					icon: this.$t("header.navigation.page.icon.contact"),
+					link: this.$t("header.navigation.page.link.contact"),
 				},
 				{
 					id: 7,
-					title: this.$t("header.navigation.text.about"),
-					icon: this.$t("header.navigation.icons.about"),
-					link: this.$t("header.navigation.links.about"),
+					title: this.$t("header.navigation.page.name.about"),
+					icon: this.$t("header.navigation.page.icon.about"),
+					link: this.$t("header.navigation.page.link.about"),
 				},
 			],
 		};

@@ -1,15 +1,5 @@
-export interface IQuoteBoxStrings {
-	btnText: string
-    quote: string
-    heading: string
-}
+export default interface IHomeTextualData {}
 
-export interface IHomeTextualData {  
-    canvas: {
-        quoteBox: IQuoteBoxStrings
-    }
-}
+export interface IHomeState {}
 
-export default interface IHomeBaseData {
-    textualData: IHomeTextualData
-}
+export interface IHomeData {}

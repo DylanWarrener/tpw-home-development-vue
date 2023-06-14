@@ -1,16 +1,19 @@
 <template>
 	<v-sheet class="w-100 h-100 border">
-		<canvas-component :src="src"></canvas-component>
-		<be-inspired-component></be-inspired-component>
-		<portfolio-component></portfolio-component>
-		<reviews-component></reviews-component>
-		<process-of-elimination-component></process-of-elimination-component>
-		<latest-news-component></latest-news-component>
+		<canvas-component v-if="isCanvasComponentActive" :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></canvas-component>
+		<be-inspired-component v-if="isBeInspiredComponentActive"></be-inspired-component>
+		<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
+		<reviews-component v-if="isReviewComponentActive"></reviews-component>
+		<process-of-elimination-component v-if="isProcessOfEliminationActive"></process-of-elimination-component>
+		<latest-news-component v-if="isLatestNewsComponentActive"></latest-news-component>
 	</v-sheet>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
+// Store
+import parentStore from "../../../store";
 
 // Components
 import Canvas from "../canvas/canvas.vue";
@@ -24,6 +27,29 @@ export default defineComponent({
 	name: "page-content-component",
 	props: {
 		src: { type: String, required: true },
+		title: { type: String, required: true },
+		subtitle: { type: String, required: false },
+		btnText: { type: String, required: true },
+	},
+	computed: {
+		isCanvasComponentActive(): boolean {
+			return this.storeCommon.getIsCanvasComponentActive;
+		},
+		isBeInspiredComponentActive(): boolean {
+			return this.storeCommon.getIsBeInspiredComponentActive;
+		},
+		isPortfolioComponentActive(): boolean {
+			return this.storeCommon.getIsPortfolioComponentActive;
+		},
+		isReviewComponentActive(): boolean {
+			return this.storeCommon.getIsReviewComponentActive;
+		},
+		isProcessOfEliminationActive(): boolean {
+			return this.storeCommon.getIsProcessOfEliminationActive;
+		},
+		isLatestNewsComponentActive(): boolean {
+			return this.storeCommon.getIsLatestNewsComponentActive;
+		},
 	},
 	components: {
 		"canvas-component": Canvas,
@@ -32,6 +58,10 @@ export default defineComponent({
 		"reviews-component": Reviews,
 		"process-of-elimination-component": ProcessOfElimination,
 		"latest-news-component": LatestNews,
+	},
+	setup() {
+		const storeCommon = parentStore();
+		return { storeCommon };
 	},
 });
 </script>

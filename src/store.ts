@@ -15,13 +15,46 @@ import useErrorStore from "./stores/stores-error";
 import useFooterStore from "./stores/stores-footer";
 
 // Common interface
-import IBaseState from "./interfaces/common/interface-common";
+import { ICommonState } from "./interfaces/common/interface-common";
 
 // Main store
-const parentStore = defineStore("base-store", {
-	state: (): IBaseState => ({}),
-	getters: {},
-	actions: {},
+const parentStore = defineStore("common-store", {
+	state: (): ICommonState => ({
+		isCanvasComponentActive: true,
+		isBeInspiredComponentActive: true,
+		isPortfolioComponentActive: true,
+		isReviewComponentActive: true,
+		isProcessOfEliminationActive: true,
+		isLatestNewsComponentActive: true,
+	}),
+	getters: {
+		getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
+		getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
+		getIsPortfolioComponentActive: (state): boolean => state.isPortfolioComponentActive,
+		getIsReviewComponentActive: (state): boolean => state.isReviewComponentActive,
+		getIsProcessOfEliminationActive: (state): boolean => state.isProcessOfEliminationActive,
+		getIsLatestNewsComponentActive: (state): boolean => state.isLatestNewsComponentActive,
+	},
+	actions: {
+		setIsCanvasComponentActive(newValue: any): void {
+			this.isCanvasComponentActive = newValue;
+		},
+		setIsBeInspiredComponentActive(newValue: any): void {
+			this.isBeInspiredComponentActive = newValue;
+		},
+		setIsPortfolioComponentActive(newValue: any): void {
+			this.isPortfolioComponentActive = newValue;
+		},
+		setIsReviewComponentActive(newValue: any): void {
+			this.isReviewComponentActive = newValue;
+		},
+		setIsProcessOfEliminationActive(newValue: any): void {
+			this.isProcessOfEliminationActive = newValue;
+		},
+		setIsLatestNewsComponentActive(newValue: any): void {
+			this.isLatestNewsComponentActive = newValue;
+		},
+	},
 });
 
 // Other stores

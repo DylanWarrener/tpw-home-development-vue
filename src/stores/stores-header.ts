@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Header interface
-import IHeaderState from "../interfaces/common/header/interface-header";
+import { IHeaderState } from "../interfaces/header/interface-header";
 
 const useHeaderStore = defineStore("header-store", {
 	state: (): IHeaderState => ({

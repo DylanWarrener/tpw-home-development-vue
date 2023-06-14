@@ -1,16 +1,5 @@
-export interface IQuoteBoxTextualData {
-    heading: string
-    quote: string
-}
+export default interface IAboutTextualData {}
 
-export interface ICanvasTextualData {
-    quoteBox: IQuoteBoxTextualData 
-}
+export interface IAboutState {}
 
-export interface IAboutTextualData {
-    canvas: ICanvasTextualData
-}
-
-export default interface IAboutBaseData {
-    textualData: IAboutTextualData
-}
+export interface IAboutData {}

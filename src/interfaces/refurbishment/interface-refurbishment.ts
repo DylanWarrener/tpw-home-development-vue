@@ -1,16 +1,5 @@
-export interface IQuoteBoxTextualData {
-    heading: string
-    quote: string
-}
+export default interface IRefurbishmentTextualData {}
 
-export interface ICanvasTextualData {
-    quoteBox: IQuoteBoxTextualData 
-}
+export interface IRefurbishmentState {}
 
-export interface IRefubishmentTextualData {
-    canvas: ICanvasTextualData
-}
-
-export default interface IRefubishmentBaseData {
-    textualData: IRefubishmentTextualData
-}
+export interface IRefurbishmentData {}

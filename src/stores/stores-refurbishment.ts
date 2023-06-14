@@ -1,20 +1,12 @@
 import { defineStore } from "pinia";
 
 // Refurbishment interface
-import IRefubishmentBaseData, { IRefubishmentTextualData } from "@/interfaces/interface-refurbishment";
+import IRefurbishmentState from "../interfaces/refurbishment/interface-refurbishment";
 
 const useRefurbishmentStore = defineStore("refurbishmentStore", {
-	state: (): IRefubishmentBaseData => ({
-		textualData: {},
-	}),
-	getters: {
-		getTextualData: (state): IRefubishmentTextualData => state.textualData,
-	},
-	actions: {
-		setTextualData(data: any) {
-			this.textualData = data;
-		},
-	},
+	state: (): IRefurbishmentState => ({}),
+	getters: {},
+	actions: {},
 });
 
 export default useRefurbishmentStore;

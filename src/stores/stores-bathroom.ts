@@ -1,20 +1,12 @@
 import { defineStore } from "pinia";
 
 // Bathroom interface
-import IBathroomBaseData, { IBathroomTextualData } from "@/interfaces/interface-bathroom";
+import IBathroomState from "../interfaces/bathroom/interface-bathroom";
 
 const useBathroomStore = defineStore("bathroomStore", {
-	state: (): IBathroomBaseData => ({
-		textualData: {},
-	}),
-	getters: {
-		getTextualData: (state): IBathroomTextualData => state.textualData,
-	},
-	actions: {
-		setTextualData(data: any) {
-			this.textualData = data;
-		},
-	},
+	state: (): IBathroomState => ({}),
+	getters: {},
+	actions: {},
 });
 
 export default useBathroomStore;

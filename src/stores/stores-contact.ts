@@ -1,20 +1,12 @@
 import { defineStore } from "pinia";
 
 // Contact interface
-import IContactBaseData, { IContactTextualData } from "@/interfaces/interface-contact";
+import IContactState from "../interfaces/contact/interface-contact";
 
 const useContactStore = defineStore("contactStore", {
-	state: (): IContactBaseData => ({
-		textualData: {},
-	}),
-	getters: {
-		getTextualData: (state): IContactTextualData => state.textualData,
-	},
-	actions: {
-		setTextualData(data: any) {
-			this.textualData = data;
-		},
-	},
+	state: (): IContactState => ({}),
+	getters: {},
+	actions: {},
 });
 
 export default useContactStore;

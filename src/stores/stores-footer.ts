@@ -1,20 +1,12 @@
 import { defineStore } from "pinia";
 
 // Footer interface
-import IFooterData, { IFooterTextualData } from "@/interfaces/interface-footer";
+import IFooterState from "../interfaces/footer/interface-footer";
 
 const useFooterStore = defineStore("footerStore", {
-	state: (): IFooterData => ({
-		textualData: {},
-	}),
-	getters: {
-		getTextualData: (state): IFooterTextualData => state.textualData,
-	},
-	actions: {
-		setTextualData(data: any): void {
-			this.textualData = data;
-		},
-	},
+	state: (): IFooterState => ({}),
+	getters: {},
+	actions: {},
 });
 
 export default useFooterStore;

@@ -1,6 +1,7 @@
-import { IHeaderTextualData } from "../header/interface-header";
+import ICommonTextualData from "../interface-common";
+import IHeaderTextualData from "../../header/interface-header";
 import IMainTextualData from "../main/interface-main";
-import IFooterTextualData from "../footer/interface-footer";
+import IFooterTextualData from "../../footer/interface-footer";
 
 export default interface ITextualData {
 	common: ICommonTextualData;
@@ -8,5 +9,3 @@ export default interface ITextualData {
 	main: IMainTextualData;
 	footer: IFooterTextualData;
 }
-
-export interface ICommonTextualData {}

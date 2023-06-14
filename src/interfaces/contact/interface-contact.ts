@@ -1,16 +1,5 @@
-export interface IQuoteBoxTextualData {
-    heading: string
-    quote: string
-}
+export default interface IContactTextualData {}
 
-export interface ICanvasTextualData {
-    quoteBox: IQuoteBoxTextualData 
-}
+export interface IContactState {}
 
-export interface IContactTextualData {
-    canvas: ICanvasTextualData
-}
-
-export default interface IContactBaseData {
-    textualData: IContactTextualData
-}
+export interface IContactData {}

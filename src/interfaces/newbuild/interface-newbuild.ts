@@ -1,16 +1,5 @@
-export interface IQuoteBoxTextualData {
-    heading: string
-    quote: string
-}
+export default interface INewbuildTextualData {}
 
-export interface ICanvasTextualData {
-    quoteBox: IQuoteBoxTextualData 
-}
+export interface INewbuildState {}
 
-export interface INewbuildTextualData {
-    canvas: ICanvasTextualData
-}
-
-export default interface INewbuildBaseData {
-    textualData: INewbuildTextualData
-}
+export interface INewbuildData {}

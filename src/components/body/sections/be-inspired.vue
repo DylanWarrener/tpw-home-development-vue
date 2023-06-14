@@ -1,5 +1,5 @@
 <template>
-	<section-component></section-component>
+	<section-component title="Be inspired content"></section-component>
 </template>
 
 <script lang="ts">

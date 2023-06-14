@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Home interface
-import IHomeState from "../interfaces/home/interface-home";
+import { IHomeState } from "../interfaces/home/interface-home";
 
 const useHomeStore = defineStore("homeStore", {
 	state: (): IHomeState => ({}),
