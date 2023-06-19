@@ -1,15 +1,20 @@
 import ICommonCardTextualData from "./card/interface-common-card";
-import ICommonPageTextualData from "./page/interface-common-page";
+import ICommonDropdownTextualData from "./dropdown/interface-dropdown";
 import ICommonIconTextualData from "./icon/interface-common-icon";
+import ICommonPageTextualData from "./page/interface-common-page";
+import ICommonSectionTextualData from "./section/interface-common-section";
 
 export default interface ICommonTextualData {
 	card: ICommonCardTextualData;
-	page: ICommonPageTextualData;
+	dropdown: ICommonDropdownTextualData;
 	icon: ICommonIconTextualData;
+	page: ICommonPageTextualData;
+	section: ICommonSectionTextualData;
 }
 
 // Pinia state interfaces
 export interface ICommonState {
+	// Page section state
 	isCanvasComponentActive: boolean;
 	isBeInspiredComponentActive: boolean;
 	isPortfolioComponentActive: boolean;

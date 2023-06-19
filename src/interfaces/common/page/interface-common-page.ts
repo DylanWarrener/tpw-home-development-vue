@@ -36,3 +36,11 @@ export interface ICommonPageCardTextualData {
 	contact: IContactCardTextualData;
 	about: IAboutCardTextualData;
 }
+
+export interface ICommonPageDropdownTextualData {
+	kitchen: string;
+	bathroom: string;
+	newbuild: string;
+	extension: string;
+	refurbishment: string;
+}
