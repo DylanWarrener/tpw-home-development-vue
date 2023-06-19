@@ -1,5 +1,5 @@
 <template>
-	<v-card width="400">
+	<v-card color="primary" class="rounded-shaped" width="100%">
 		<v-card-item>
 			<v-card-title>{{ title }}</v-card-title>
 			<v-card-subtitle v-if="subtitle">{{ subtitle }}</v-card-subtitle>
@@ -9,7 +9,7 @@
 		</v-card-text>
 		<v-card-actions>
 			<v-spacer></v-spacer>
-			<v-btn variant="text" color="primary">{{ btnText }}</v-btn>
+			<v-btn variant="text">{{ btnText }}</v-btn>
 		</v-card-actions>
 	</v-card>
 </template>
