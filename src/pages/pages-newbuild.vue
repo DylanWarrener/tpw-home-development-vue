@@ -15,7 +15,7 @@ import { defineComponent } from "vue";
 import parentStore, { childStores } from "../store";
 
 // Components
-import Page from "../components/containers/page/page-content.vue";
+import Page from "../components/containers/page/page.vue";
 
 // Images
 import NewbuildPNG from "../assets/png/newbuilds/newbuild.jpg";
