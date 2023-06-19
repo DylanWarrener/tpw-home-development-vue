@@ -8,10 +8,44 @@ const en: ITextualData = {
 		card: {
 			btnText: btnCardText,
 		},
+		dropdown: {
+			carousel: {
+				items: {
+					kitchen: pageNameData.kitchen,
+					bathroom: pageNameData.bathroom,
+					newbuild: pageNameData.newbuild,
+					extension: pageNameData.extension,
+					refurbishment: pageNameData.refurbishment,
+				},
+				label: "Choose environment",
+			},
+		},
+		icon: {},
 		page: {
 			name: pageNameData,
 		},
-		icon: {},
+		section: {
+			beInspired: {
+				title: "Be Inspired",
+				subtitle: "See what our most popular options are.",
+			},
+			portfolio: {
+				title: "Portfolio",
+				subtitle: "See what we have done already.",
+			},
+			reviews: {
+				title: "Reviews",
+				subtitle: "See what other people think.",
+			},
+			processOfElimination: {
+				title: "Process of Elimination",
+				subtitle: "See how we plan you in.",
+			},
+			latestNews: {
+				title: "Latest News",
+				subtitle: "See what is happening right now.",
+			},
+		},
 	},
 	header: {
 		appBar: {
