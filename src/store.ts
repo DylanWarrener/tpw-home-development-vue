@@ -20,6 +20,7 @@ import { ICommonState } from "./interfaces/common/interface-common";
 // Main store
 const parentStore = defineStore("common-store", {
 	state: (): ICommonState => ({
+		// Page section state
 		isCanvasComponentActive: true,
 		isBeInspiredComponentActive: true,
 		isPortfolioComponentActive: true,
@@ -28,6 +29,7 @@ const parentStore = defineStore("common-store", {
 		isLatestNewsComponentActive: true,
 	}),
 	getters: {
+		// Page section getters
 		getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
 		getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
 		getIsPortfolioComponentActive: (state): boolean => state.isPortfolioComponentActive,
@@ -36,6 +38,7 @@ const parentStore = defineStore("common-store", {
 		getIsLatestNewsComponentActive: (state): boolean => state.isLatestNewsComponentActive,
 	},
 	actions: {
+		// Page section setters
 		setIsCanvasComponentActive(newValue: any): void {
 			this.isCanvasComponentActive = newValue;
 		},
