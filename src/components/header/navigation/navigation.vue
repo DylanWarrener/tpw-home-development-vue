@@ -1,5 +1,5 @@
 <template>
-	<v-navigation-drawer v-model="drawer" location="top" temporary>
+	<v-navigation-drawer temporary color="primary" location="top" v-model="drawer">
 		<v-list nav>
 			<v-list-item v-for="item in navigation" :key="item.id" :prepend-icon="item.icon" :title="item.title" :to="item.link"></v-list-item>
 		</v-list>
