@@ -24,14 +24,14 @@ export default defineComponent({
 		"footer-component": Footer,
 	},
 	setup() {
-		const storeBase = parentStore();
-		return { storeBase };
+		const storeCommon = parentStore();
+		return { storeCommon };
 	},
 });
 </script>
 
 <style lang="scss">
 .border {
-	border: 2px solid black;
+	border: 2px solid white;
 }
 </style>
