@@ -1,10 +1,11 @@
-import { ICommonPageStringTextualData, ICommonPageDropdownTextualData } from "../interfaces/common/page/interface-common-page";
+import { ICommonCarouselDropdownItemsTextualData } from "../interfaces/common/carousel/interface-common-carousel";
+import { ICommonPageStringTextualData } from "../interfaces/common/page/interface-common-page";
 
 // Card
 export const btnCardText = "Be Inspired?";
 
 // Page
-export const pageNameData: ICommonPageStringTextualData = {
+export const pageName: ICommonPageStringTextualData = {
 	home: "Home",
 	kitchen: "Kitchens",
 	bathroom: "Bathrooms",
@@ -15,10 +16,10 @@ export const pageNameData: ICommonPageStringTextualData = {
 	about: "About",
 };
 
-export const pageDropdownData: ICommonPageDropdownTextualData = {
-	kitchen: pageNameData.kitchen,
-	bathroom: pageNameData.bathroom,
-	newbuild: pageNameData.newbuild,
-	extension: pageNameData.extension,
-	refurbishment: pageNameData.refurbishment,
-};
+export const carouselDropdownItems: string[] = [
+	pageName.kitchen,
+	pageName.bathroom,
+	pageName.newbuild,
+	pageName.extension,
+	pageName.refurbishment,
+];
