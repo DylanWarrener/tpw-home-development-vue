@@ -9,7 +9,7 @@
 			<v-btn :icon="icon"></v-btn>
 		</template>
 	</v-app-bar>
-	<navigation-component></navigation-component>
+	<header-navigation-component></header-navigation-component>
 </template>
 
 <script lang="ts">
@@ -19,12 +19,12 @@ import { defineComponent } from "vue";
 import parentStore, { childStores } from "../../store";
 
 // Components
-import Nav from "../header/navigation/navigation.vue";
+import HeaderNav from "./navigation/header-navigation.vue";
 
 export default defineComponent({
 	name: "header-component",
 	components: {
-		"navigation-component": Nav,
+		"header-navigation-component": HeaderNav,
 	},
 	computed: {
 		// Pinia state
