@@ -41,6 +41,8 @@ import {
 	VDivider,
 	VCarousel,
 	VCarouselItem,
+	VTextField,
+	VIcon,
 	VFooter,
 } from "vuetify/components";
 
@@ -88,6 +90,8 @@ const vuetify = createVuetify({
 		VDivider,
 		VCarousel,
 		VCarouselItem,
+		VTextField,
+		VIcon,
 		VFooter,
 	},
 	directives: {
