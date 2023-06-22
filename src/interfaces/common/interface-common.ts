@@ -21,10 +21,6 @@ export interface ICommonState {
 	isReviewComponentActive: boolean;
 	isProcessOfEliminationActive: boolean;
 	isLatestNewsComponentActive: boolean;
-
-	// Theme state
-	isLightThemeActive: boolean;
-	themeColor: string;
 }
 
 // Vue local data interfaces
