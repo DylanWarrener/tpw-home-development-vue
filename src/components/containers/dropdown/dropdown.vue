@@ -4,33 +4,48 @@
 		class="w-auto h-auto"
 		variant="underlined"
 		density="compact"
+		:base-color="txtColor"
+		color="accent"
+		:bg-color="bkColor"
+		theme="blue"
 		:items="items"
 		:label="label"
 		v-model="value"
-		@change="changed"
 	></v-select>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 
-// Interface
-import { ICommonPageDropdownTextualData } from "../../../interfaces/common/page/interface-common-page";
+// Store
+import parentStore from "../../../store";
 
 export default defineComponent({
 	name: "dropdown-component",
 	props: {
-		items: { type: Object as () => ICommonPageDropdownTextualData, required: true },
+		items: { type: Array as PropType<string[]>, required: true },
 		label: { type: String, required: true },
 	},
-	methods: {
-		changed(): void {
-			this.$emit("value", this.value);
+	computed: {
+		bkColor(): string {
+			return this.storeCommon.isLightThemeActive ? "white" : "black";
 		},
+		txtColor(): string {
+			return this.storeCommon.isLightThemeActive ? "black" : "white";
+		},
+	},
+	watch: {
+		value(newValue: string): void {
+			this.$emit("value", newValue);
+		},
+	},
+	setup() {
+		const storeCommon = parentStore();
+		return { storeCommon };
 	},
 	data() {
 		return {
-			value: this.items.kitchen,
+			value: this.items[0],
 		};
 	},
 });
