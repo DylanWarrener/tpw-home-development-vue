@@ -21,11 +21,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+// Store
+import parentStore from "../../../store";
+
 export default defineComponent({
 	name: "section-content-component",
 	props: {
 		title: { type: String, required: false },
 		subtitle: { type: String, required: false },
+	},
+	setup() {
+		const storeCommon = parentStore();
+
+		return { storeCommon };
 	},
 });
 </script>
