@@ -3,7 +3,13 @@
 		<v-container class="d-flex fill-height">
 			<v-row>
 				<v-col cols="12" align="center">
-					<card-component :title="title" :subtitle="subtitle" :btn-text="btnText"></card-component>
+					<card-component
+						color="primary"
+						class="rounded-shaped"
+						:title="title"
+						:subtitle="subtitle"
+						:btn-text="btnText"
+					></card-component>
 				</v-col>
 			</v-row>
 		</v-container>
