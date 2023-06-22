@@ -1,5 +1,5 @@
 <template>
-	<v-card color="primary" class="rounded-shaped" width="100%">
+	<v-card :color="color" :class="class" width="100%">
 		<v-card-item>
 			<v-card-title>{{ title }}</v-card-title>
 			<v-card-subtitle v-if="subtitle">{{ subtitle }}</v-card-subtitle>
@@ -20,9 +20,11 @@ import { defineComponent } from "vue";
 export default defineComponent({
 	name: "card-component",
 	props: {
+		color: { type: String, required: true },
+		class: { type: String, required: true },
 		title: { type: String, required: true },
 		subtitle: { type: String, required: false },
-		btnText: { type: String, required: true },
+		btnText: { type: String, required: false },
 	},
 });
 </script>
