@@ -1,9 +1,13 @@
-import { ICommonPageDropdownTextualData } from "../interface-common-page";
+import { ICommonCarouselImagesData } from "../../carousel/interface-common-carousel";
 
+// Locale textual data
 export default interface ICommonBeInspiredTextualData {}
 
-export default interface ICommonBeInspiredState {}
+// Pinia state
+export interface ICommonBeInspiredState {}
 
-export default interface ICommonBeInspiredData {
-	items: ICommonPageDropdownTextualData;
+// Vue data
+export interface ICommonBeInspiredData {
+	items: string[];
+	images: ICommonCarouselImagesData[];
 }

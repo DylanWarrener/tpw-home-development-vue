@@ -1,5 +1,5 @@
 import ICommonCardTextualData from "./card/interface-common-card";
-import ICommonDropdownTextualData from "./dropdown/interface-dropdown";
+import ICommonDropdownTextualData from "./dropdown/interface-common-dropdown";
 import ICommonIconTextualData from "./icon/interface-common-icon";
 import ICommonPageTextualData from "./page/interface-common-page";
 import ICommonSectionTextualData from "./section/interface-common-section";
@@ -21,6 +21,10 @@ export interface ICommonState {
 	isReviewComponentActive: boolean;
 	isProcessOfEliminationActive: boolean;
 	isLatestNewsComponentActive: boolean;
+
+	// Theme state
+	isLightThemeActive: boolean;
+	themeColor: string;
 }
 
 // Vue local data interfaces

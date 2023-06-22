@@ -9,6 +9,7 @@ import {
 	IAboutCardTextualData,
 } from "../card/interface-common-card";
 
+// Locale textual data
 export default interface ICommonPageTextualData {
 	name: ICommonPageStringTextualData;
 	link?: ICommonPageStringTextualData;
@@ -35,12 +36,4 @@ export interface ICommonPageCardTextualData {
 	refurbishment: IRefurbishmentCardTextualData;
 	contact: IContactCardTextualData;
 	about: IAboutCardTextualData;
-}
-
-export interface ICommonPageDropdownTextualData {
-	kitchen: string;
-	bathroom: string;
-	newbuild: string;
-	extension: string;
-	refurbishment: string;
 }

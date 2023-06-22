@@ -6,7 +6,10 @@ export default interface ICommonSectionTextualData {
 	latestNews: ICommonSectionLatestNewsTextualData;
 }
 
-export interface ICommonSectionBeInspiredTextualData extends ICommonSectionContentTextualData {}
+export interface ICommonSectionBeInspiredTextualData extends ICommonSectionContentTextualData {
+	style: ICommonSectionContentTextualData;
+	theme: ICommonSectionContentTextualData;
+}
 
 export interface ICommonSectionPortfolioTextualData extends ICommonSectionContentTextualData {}
 
