@@ -1,6 +1,12 @@
 <template>
 	<v-sheet class="w-100 h-100">
-		<canvas-component v-if="isCanvasComponentActive" :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></canvas-component>
+		<canvas-component
+			v-if="isCanvasComponentActive"
+			:src="src"
+			:title="title"
+			:subtitle="subtitle"
+			:btn-text="btnText"
+		></canvas-component>
 		<be-inspired-component v-if="isBeInspiredComponentActive"></be-inspired-component>
 		<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
 		<reviews-component v-if="isReviewComponentActive"></reviews-component>
@@ -31,6 +37,14 @@ export default defineComponent({
 		subtitle: { type: String, required: false },
 		btnText: { type: String, required: true },
 	},
+	components: {
+		"canvas-component": Canvas,
+		"be-inspired-component": BeInspired,
+		"portfolio-component": Portfolio,
+		"reviews-component": Reviews,
+		"process-of-elimination-component": ProcessOfElimination,
+		"latest-news-component": LatestNews,
+	},
 	computed: {
 		isCanvasComponentActive(): boolean {
 			return this.storeCommon.getIsCanvasComponentActive;
@@ -50,14 +64,6 @@ export default defineComponent({
 		isLatestNewsComponentActive(): boolean {
 			return this.storeCommon.getIsLatestNewsComponentActive;
 		},
-	},
-	components: {
-		"canvas-component": Canvas,
-		"be-inspired-component": BeInspired,
-		"portfolio-component": Portfolio,
-		"reviews-component": Reviews,
-		"process-of-elimination-component": ProcessOfElimination,
-		"latest-news-component": LatestNews,
 	},
 	setup() {
 		const storeCommon = parentStore();
