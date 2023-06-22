@@ -1,16 +1,19 @@
 <template>
-	<section-component :title="title" :subtitle="subtitle">
+	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
 		<template #content>
-			<v-container fluid class="pt-16">
-				<v-row dense no-gutters class="d-flex flex-column">
-					<v-col>
-						<dropdown-component></dropdown-component>
-					</v-col>
-					<v-col>
-						<carousel-component></carousel-component>
-					</v-col>
-				</v-row>
-			</v-container>
+			<v-row dense>
+				<v-col cols="6">
+					<v-row dense class="d-flex flex-column">
+						<v-col cols="12">THEY LOVE IT</v-col>
+						<v-col cols="12">
+							<v-sheet border="md" class="pa-6 text-white mx-auto" color="#141518" max-width="400">
+								<h2 class="text-h5 mb-6">You reconciled this account</h2>
+							</v-sheet>
+						</v-col>
+					</v-row>
+				</v-col>
+				<v-col cols="6"> Content </v-col>
+			</v-row>
 		</template>
 	</section-component>
 </template>

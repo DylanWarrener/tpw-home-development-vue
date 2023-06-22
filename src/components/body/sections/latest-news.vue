@@ -1,5 +1,5 @@
 <template>
-	<section-component :title="title" :subtitle="subtitle">
+	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
 		<template #content>
 			<v-container fluid class="pt-16">
 				<v-row dense no-gutters class="d-flex flex-column">

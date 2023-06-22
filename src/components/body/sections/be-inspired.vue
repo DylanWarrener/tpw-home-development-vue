@@ -1,15 +1,43 @@
 <template>
-	<section-component :title="sectionTitle" :subtitle="sectionSubtitle">
+	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
 		<template #content>
-			<v-container fluid class="pt-16">
+			<v-container fluid class="pt-8">
 				<v-row dense>
 					<v-col cols="4">
-						<dropdown-component :items="dropdownItems" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
+						<dropdown-component
+							:items="items"
+							:label="lblDropdown"
+							@value="dropdownValue"
+						></dropdown-component>
+					</v-col>
+				</v-row>
+				<v-row dense style="height: 700px">
+					<v-col cols="12" class="h-100">
+						<carousel-component class="h-100" :images="carouselImages"></carousel-component>
 					</v-col>
 				</v-row>
 				<v-row dense>
 					<v-col cols="12">
-						<carousel-component :images="images"></carousel-component>
+						<section-component :subtitle="styleSubtitle">
+							<template #title>
+								<h2>{{ styleTitle }}</h2>
+							</template>
+							<template #content>
+								<card-style-component></card-style-component>
+							</template>
+						</section-component>
+					</v-col>
+				</v-row>
+				<v-row dense>
+					<v-col cols="12">
+						<section-component :subtitle="themeSubtitle">
+							<template #title>
+								<h2>{{ themeTitle }}</h2>
+							</template>
+							<template #content>
+								<card-theme-component></card-theme-component>
+							</template>
+						</section-component>
 					</v-col>
 				</v-row>
 			</v-container>
@@ -24,16 +52,30 @@ import { defineComponent } from "vue";
 import parentStore from "../../../store";
 
 // Interface
-import ICommonBeInspiredData from "../../../interfaces/common/page/beInspired/interface-common-be-inspired";
-import { ICommonPageDropdownTextualData } from "../../../interfaces/common/page/interface-common-page";
+import { ICommonBeInspiredData } from "../../../interfaces/common/page/beInspired/interface-common-be-inspired";
+import { ICommonCarouselImagesData } from "../../../interfaces/common/carousel/interface-common-carousel";
 
 // Data
-import { pageDropdownData } from "../../../utils/utils-common-text";
+import { carouselDropdownItems } from "../../../utils/utils-common-text";
+
+// Kitchen images
+import AscotLightGreyDustPNG from "../../../assets/png/kitchens/ascot-light-gret-dust.jpg";
+import CambridgeFirGreenPNG from "../../../assets/png/kitchens/cambridge-fir-green.jpg";
+import CartmelMusselPNG from "../../../assets/png/kitchens/cartmel-mussel.jpg";
+import GranthamChalkstoneFirGreenPNG from "../../../assets/png/kitchens/grantham-chalkstone-fir-green.jpg";
+import LinearWhiteHalifaxOakPNG from "../../../assets/png/kitchens/linear-white-halifax-oak.jpg";
+import LucenteGlossCreamPNG from "../../../assets/png/kitchens/lucente-gloss-cream.jpg";
+import NewmarketIndigoBluePNG from "../../../assets/png/kitchens/newmarket-indigo-blue.jpg";
+import OxfordWhitePNG from "../../../assets/png/kitchens/oxford-white.jpg";
+import StrattoDustGreyPNG from "../../../assets/png/kitchens/stratto-dust-grey.jpg";
+import VivoPtoOnyxGreyPNG from "../../../assets/png/kitchens/vivo-pto-onyx-grey.jpg";
 
 // Components
 import Section from "../../containers/section/section.vue";
 import Carousel from "../../containers/carousel/carousel.vue";
 import Dropdown from "../../containers/dropdown/dropdown.vue";
+import CardStyle from "../../containers/card/card-styles.vue";
+import CardTheme from "../../containers/card/card-themes.vue";
 
 export default defineComponent({
 	name: "be-inspired-component",
@@ -41,36 +83,123 @@ export default defineComponent({
 		"section-component": Section,
 		"carousel-component": Carousel,
 		"dropdown-component": Dropdown,
+		"card-style-component": CardStyle,
+		"card-theme-component": CardTheme,
 	},
 	computed: {
 		// Text
-		sectionTitle(): string {
+		title(): string {
 			return this.$t("common.section.beInspired.title");
 		},
-		sectionSubtitle(): string {
+		styleTitle(): string {
+			return this.$t("common.section.beInspired.style.title");
+		},
+		themeTitle(): string {
+			return this.$t("common.section.beInspired.theme.title");
+		},
+		subtitle(): string {
 			return this.$t("common.section.beInspired.subtitle");
+		},
+		styleSubtitle(): string {
+			return this.$t("common.section.beInspired.style.subtitle");
+		},
+		themeSubtitle(): string {
+			return this.$t("common.section.beInspired.theme.subtitle");
 		},
 		lblDropdown(): string {
 			return this.$t("common.dropdown.carousel.label");
 		},
 
-		// Data
-		dropdownItems(): ICommonPageDropdownTextualData {
-			return this.items;
+		// Theme
+		bkColor(): string {
+			const isLightTheme: boolean = this.storeCommon.isLightThemeActive;
+			const background: string = "background-color: ";
+			return isLightTheme ? `${background}white` : `${background}black`;
+		},
+
+		// Images
+		carouselImages(): ICommonCarouselImagesData[] {
+			return this.images;
 		},
 	},
 	methods: {
 		dropdownValue(newValue: string): void {
 			switch (newValue) {
 				case this.$t("common.dropdown.carousel.items.kitchen"):
+					this.images = [
+						{
+							id: 0,
+							src: AscotLightGreyDustPNG,
+						},
+						{
+							id: 1,
+							src: CambridgeFirGreenPNG,
+						},
+						{
+							id: 2,
+							src: CartmelMusselPNG,
+						},
+						{
+							id: 3,
+							src: GranthamChalkstoneFirGreenPNG,
+						},
+						{
+							id: 4,
+							src: LinearWhiteHalifaxOakPNG,
+						},
+						{
+							id: 5,
+							src: LucenteGlossCreamPNG,
+						},
+						{
+							id: 6,
+							src: NewmarketIndigoBluePNG,
+						},
+						{
+							id: 7,
+							src: OxfordWhitePNG,
+						},
+						{
+							id: 8,
+							src: StrattoDustGreyPNG,
+						},
+						{
+							id: 9,
+							src: VivoPtoOnyxGreyPNG,
+						},
+					];
 					break;
 				case this.$t("common.dropdown.carousel.items.bathroom"):
+					this.images = [
+						{
+							id: 0,
+							src: AscotLightGreyDustPNG,
+						},
+					];
 					break;
 				case this.$t("common.dropdown.carousel.items.newbuild"):
+					this.images = [
+						{
+							id: 0,
+							src: AscotLightGreyDustPNG,
+						},
+					];
 					break;
 				case this.$t("common.dropdown.carousel.items.extension"):
+					this.images = [
+						{
+							id: 0,
+							src: AscotLightGreyDustPNG,
+						},
+					];
 					break;
 				case this.$t("common.dropdown.carousel.items.refurbishment"):
+					this.images = [
+						{
+							id: 0,
+							src: AscotLightGreyDustPNG,
+						},
+					];
 					break;
 			}
 		},
@@ -81,9 +210,56 @@ export default defineComponent({
 	},
 	data(): ICommonBeInspiredData {
 		return {
-			items: pageDropdownData,
-			images: [],
+			items: carouselDropdownItems,
+			images: [
+				{
+					id: 0,
+					src: AscotLightGreyDustPNG,
+				},
+				{
+					id: 1,
+					src: CambridgeFirGreenPNG,
+				},
+				{
+					id: 2,
+					src: CartmelMusselPNG,
+				},
+				{
+					id: 3,
+					src: GranthamChalkstoneFirGreenPNG,
+				},
+				{
+					id: 4,
+					src: LinearWhiteHalifaxOakPNG,
+				},
+				{
+					id: 5,
+					src: LucenteGlossCreamPNG,
+				},
+				{
+					id: 6,
+					src: NewmarketIndigoBluePNG,
+				},
+				{
+					id: 7,
+					src: OxfordWhitePNG,
+				},
+				{
+					id: 8,
+					src: StrattoDustGreyPNG,
+				},
+				{
+					id: 9,
+					src: VivoPtoOnyxGreyPNG,
+				},
+			],
 		};
 	},
 });
 </script>
+
+<style>
+.background {
+	background-color: white;
+}
+</style>
