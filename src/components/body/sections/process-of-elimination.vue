@@ -1,7 +1,7 @@
 <template>
 	<section-component class="bg-section-secondary" :title="title" :subtitle="subtitle">
 		<template #content>
-			<div class="d-flex flex-column flex-1-0" style="border: 2px solid red">
+			<div class="d-flex flex-column flex-1-0">
 				<!-- Discovery -->
 				<slide-component title="Discovery">
 					<template #content>Content</template>
