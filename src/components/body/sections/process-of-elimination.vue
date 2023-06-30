@@ -3,52 +3,24 @@
 		<template #content>
 			<div class="d-flex flex-column flex-1-0" style="border: 2px solid red">
 				<!-- Discovery -->
-				<div class="d-flex flex-row sticky-row">
-					<div class="flex-0-1 sticky-column">
-						<div class="sticky-column-height">
-							<div class="sticky-container">
-								<h3 class="text-uppercase text-vertical">Discovery</h3>
-							</div>
-						</div>
-					</div>
-					<div class="d-flex flex-row flex-1-0">Column 2</div>
-				</div>
+				<slide-component title="Discovery">
+					<template #content>Content</template>
+				</slide-component>
 
 				<!-- Strategy -->
-				<div class="d-flex flex-row sticky-row">
-					<div class="flex-0-1 sticky-column">
-						<div class="sticky-column-height">
-							<div class="sticky-container">
-								<h3 class="text-uppercase text-vertical">Strategy</h3>
-							</div>
-						</div>
-					</div>
-					<div class="d-flex flex-row flex-1-0">Column 2</div>
-				</div>
+				<slide-component title="Strategy">
+					<template #content>Content</template>
+				</slide-component>
 
 				<!-- Design -->
-				<div class="d-flex flex-row sticky-row">
-					<div class="flex-0-1 sticky-column">
-						<div class="sticky-column-height">
-							<div class="sticky-container">
-								<h3 class="text-uppercase text-vertical">Design</h3>
-							</div>
-						</div>
-					</div>
-					<div class="d-flex flex-row flex-1-0">Column 2</div>
-				</div>
+				<slide-component title="Strategy">
+					<template #content>Design</template>
+				</slide-component>
 
 				<!-- Build -->
-				<div class="d-flex flex-row sticky-row">
-					<div class="flex-0-1 sticky-column">
-						<div class="sticky-column-height">
-							<div class="sticky-container">
-								<h3 class="text-uppercase text-vertical">Build</h3>
-							</div>
-						</div>
-					</div>
-					<div class="d-flex flex-row flex-1-0">Column 2</div>
-				</div>
+				<slide-component title="Strategy">
+					<template #content>Build</template>
+				</slide-component>
 			</div>
 		</template>
 	</section-component>
@@ -59,11 +31,13 @@ import { defineComponent } from "vue";
 
 // Components
 import Section from "../../containers/section/section.vue";
+import Slide from "../../containers/slide/slide.vue";
 
 export default defineComponent({
 	name: "process-of-elimination-component",
 	components: {
 		"section-component": Section,
+		"slide-component": Slide,
 	},
 	computed: {
 		title(): string {
