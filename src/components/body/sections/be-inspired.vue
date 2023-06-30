@@ -1,14 +1,10 @@
 <template>
 	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
 		<template #content>
-			<v-container fluid class="pt-8">
+			<v-container fluid>
 				<v-row dense>
 					<v-col cols="4">
-						<dropdown-component
-							:items="items"
-							:label="lblDropdown"
-							@value="dropdownValue"
-						></dropdown-component>
+						<dropdown-component :items="items" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
 					</v-col>
 				</v-row>
 				<v-row dense style="height: 700px">
@@ -23,7 +19,8 @@
 								<h2>{{ styleTitle }}</h2>
 							</template>
 							<template #content>
-								<card-style-component></card-style-component>
+								Style cards go here
+								<!--<card-style-component></card-style-component>-->
 							</template>
 						</section-component>
 					</v-col>
@@ -35,7 +32,8 @@
 								<h2>{{ themeTitle }}</h2>
 							</template>
 							<template #content>
-								<card-theme-component></card-theme-component>
+								Theme cards go here
+								<!--<card-theme-component></card-theme-component>-->
 							</template>
 						</section-component>
 					</v-col>
@@ -108,13 +106,6 @@ export default defineComponent({
 		},
 		lblDropdown(): string {
 			return this.$t("common.dropdown.carousel.label");
-		},
-
-		// Theme
-		bkColor(): string {
-			const isLightTheme: boolean = this.storeCommon.isLightThemeActive;
-			const background: string = "background-color: ";
-			return isLightTheme ? `${background}white` : `${background}black`;
 		},
 
 		// Images

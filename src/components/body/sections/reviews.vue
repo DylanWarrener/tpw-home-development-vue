@@ -1,19 +1,24 @@
 <template>
-	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
+	<section-component class="bg-section-primary overflow-hidden" :title="title" :subtitle="subtitle">
 		<template #content>
-			<v-row dense>
-				<v-col cols="6">
-					<v-row dense class="d-flex flex-column">
-						<v-col cols="12">THEY LOVE IT</v-col>
-						<v-col cols="12">
-							<v-sheet border="md" class="pa-6 text-white mx-auto" color="#141518" max-width="400">
-								<h2 class="text-h5 mb-6">You reconciled this account</h2>
-							</v-sheet>
-						</v-col>
-					</v-row>
-				</v-col>
-				<v-col cols="6"> Content </v-col>
-			</v-row>
+			<div class="d-flex flex-1-1 justify-center align-center">
+				<card-rating-component></card-rating-component>
+			</div>
+			<div
+				class="pa-4 d-flex flex-row flex-wrap flex-1-1 justify-space-evenly overflow-auto"
+				style="gap: 16px; max-height: 80vh"
+			>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+				<card-review-component></card-review-component>
+			</div>
 		</template>
 	</section-component>
 </template>
@@ -23,11 +28,15 @@ import { defineComponent } from "vue";
 
 // Components
 import Section from "../../containers/section/section.vue";
+import CardReview from "../../containers/card/card-review.vue";
+import CardRating from "../../containers/card/card-rating.vue";
 
 export default defineComponent({
 	name: "reviews-component",
 	components: {
 		"section-component": Section,
+		"card-review-component": CardReview,
+		"card-rating-component": CardRating,
 	},
 	computed: {
 		title(): string {

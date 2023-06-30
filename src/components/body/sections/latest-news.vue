@@ -1,21 +1,13 @@
 <template>
-	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
-		<template #content>
-			<v-container fluid class="pt-16">
-				<v-row dense no-gutters class="d-flex flex-column">
-					<v-col>
-						<dropdown-component></dropdown-component>
-					</v-col>
-					<v-col>
-						<carousel-component></carousel-component>
-					</v-col>
-				</v-row>
-			</v-container>
-		</template>
-	</section-component>
+	<div style="min-height: 2000px">Content</div>
 </template>
 
 <script lang="ts">
+/*
+<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
+		<template #content> Content </template>
+	</section-component>
+*/
 import { defineComponent } from "vue";
 
 // Components
