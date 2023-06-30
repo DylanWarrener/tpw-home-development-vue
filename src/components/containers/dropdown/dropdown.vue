@@ -4,9 +4,9 @@
 		class="w-auto h-auto"
 		variant="underlined"
 		density="compact"
-		:base-color="txtColor"
+		base-color="accent"
 		color="accent"
-		:bg-color="bkColor"
+		bg-color="default"
 		theme="blue"
 		:items="items"
 		:label="label"
@@ -25,14 +25,6 @@ export default defineComponent({
 	props: {
 		items: { type: Array as PropType<string[]>, required: true },
 		label: { type: String, required: true },
-	},
-	computed: {
-		bkColor(): string {
-			return this.storeCommon.isLightThemeActive ? "white" : "black";
-		},
-		txtColor(): string {
-			return this.storeCommon.isLightThemeActive ? "black" : "white";
-		},
 	},
 	watch: {
 		value(newValue: string): void {

@@ -1,15 +1,30 @@
 <template>
-	<v-card :color="color" :class="class" width="100%">
-		<v-card-item>
-			<v-card-title>{{ title }}</v-card-title>
-			<v-card-subtitle v-if="subtitle">{{ subtitle }}</v-card-subtitle>
+	<v-card class="pa-4 d-flex flex-column" min-width="300px">
+		<v-card-item class="pa-0">
+			<!-- Title -->
+			<v-card-title>
+				<slot name="title">
+					{{ title }}
+				</slot>
+			</v-card-title>
+
+			<!-- Subtitle -->
+			<v-card-subtitle>
+				<slot name="subtitle">
+					{{ subtitle }}
+				</slot>
+			</v-card-subtitle>
 		</v-card-item>
-		<v-card-text>
+
+		<!-- Content -->
+		<v-card-text class="pa-0">
 			<slot name="content"></slot>
 		</v-card-text>
-		<v-card-actions>
+
+		<!-- Actions -->
+		<v-card-actions class="pa-0" v-if="btnText">
 			<v-spacer></v-spacer>
-			<v-btn variant="text">{{ btnText }}</v-btn>
+			<button-component class="bg-default text-accent" :text="btnText"></button-component>
 		</v-card-actions>
 	</v-card>
 </template>
@@ -17,12 +32,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+// Components
+import Button from "../buttons/button.vue";
+
 export default defineComponent({
 	name: "card-component",
+	components: {
+		"button-component": Button,
+	},
 	props: {
-		color: { type: String, required: true },
-		class: { type: String, required: true },
-		title: { type: String, required: true },
+		cardStyle: { type: String, required: false },
+		title: { type: String, required: false },
 		subtitle: { type: String, required: false },
 		btnText: { type: String, required: false },
 	},
