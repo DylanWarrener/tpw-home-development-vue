@@ -1,11 +1,18 @@
+// Use when finished website
 import ITextualData from "../interfaces/common/locale/interface-locale";
 
 // Common page name data
 import { btnCardText, pageName } from "../utils/utils-common-text";
 
-const en: ITextualData = {
+const en = {
 	common: {
 		card: {
+			rating: {
+				title: "Rating overview",
+				btnText: "See all reviews",
+				max: "/5",
+				total: "Total ratings",
+			},
 			btnText: btnCardText,
 		},
 		dropdown: {
@@ -46,7 +53,7 @@ const en: ITextualData = {
 				subtitle: "See what other people think.",
 			},
 			processOfElimination: {
-				title: "Process of Elimination",
+				title: "Plan of Action",
 				subtitle: "See how we plan you in.",
 			},
 			latestNews: {
