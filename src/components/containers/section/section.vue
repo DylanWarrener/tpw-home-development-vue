@@ -1,21 +1,24 @@
 <template>
-	<v-container fluid>
-		<v-row dense class="d-flex flex-column">
-			<v-col cols="12" align="center">
-				<slot name="title">
-					<h1>{{ title }}</h1>
-				</slot>
-			</v-col>
-			<v-col cols="12" align="center">
-				<slot name="subtitle">
-					<i>{{ subtitle }}</i>
-				</slot>
-			</v-col>
-			<v-col cols="12" align="center">
-				<slot name="content"></slot>
-			</v-col>
-		</v-row>
-	</v-container>
+	<div class="pa-4 d-flex flex-column text-center">
+		<!-- Title slot -->
+		<div class="flex-0-0">
+			<slot name="title">
+				<h1>{{ title }}</h1>
+			</slot>
+		</div>
+
+		<!-- Subtitle slot -->
+		<div class="pa-4 flex-0-0">
+			<slot name="subtitle">
+				<i>{{ subtitle }}</i>
+			</slot>
+		</div>
+
+		<!-- Content slot -->
+		<div class="d-flex flex-row flex-wrap flex-1-0 justify-center align-center" style="gap: 16px">
+			<slot name="content"></slot>
+		</div>
+	</div>
 </template>
 
 <script lang="ts">
@@ -32,7 +35,6 @@ export default defineComponent({
 	},
 	setup() {
 		const storeCommon = parentStore();
-
 		return { storeCommon };
 	},
 });
