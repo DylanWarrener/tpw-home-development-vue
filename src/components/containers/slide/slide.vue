@@ -43,7 +43,6 @@ export default defineComponent({
 }
 
 .sticky-column-height {
-	border: 2px solid orange;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -52,7 +51,6 @@ export default defineComponent({
 }
 
 .sticky-container {
-	border: 2px solid black;
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -60,7 +58,6 @@ export default defineComponent({
 }
 
 .text-vertical {
-	border: 2px solid green;
 	position: sticky;
 	top: 0;
 	left: 0;
