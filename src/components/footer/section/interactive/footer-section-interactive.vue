@@ -1,11 +1,126 @@
 <template>
 	<v-row no-gutters>
-		<v-col cols="12">
+		<!-- Logo stuff -->
+		<v-col class="pa-4">
+			<h3 class="pb-4 text-default text-uppercase text-center">Logo here</h3>
+			<p><i>Some text that display information about TPW Home Developments.</i></p>
+			<div style="max-width: 300px">
+				<v-text-field
+					clearable
+					label="Email address"
+					placeholder="person@gmail.com"
+					variant="underlined"
+				></v-text-field>
+				<v-btn class="w-100">Subscribe</v-btn>
+			</div>
+		</v-col>
+		<v-divider vertical></v-divider>
+
+		<!-- Navigation stuff -->
+		<v-col class="pa-4" cols="5">
+			<v-row no-gutters>
+				<v-col class="">
+					<h3 class="text-default text-uppercase text-center">Pages</h3>
+					<v-list
+						density="compact"
+						base-color="default"
+						active-color="accent"
+						bg-color="primary"
+						:items="pageItems"
+					></v-list>
+				</v-col>
+				<v-col class="">
+					<h3 class="text-default text-uppercase text-center">Information</h3>
+					<v-list
+						class="bg-primary"
+						density="compact"
+						active-color="accent"
+						:items="informationItems"
+					></v-list>
+				</v-col>
+			</v-row>
+		</v-col>
+		<v-divider vertical></v-divider>
+
+		<!-- Get in touch stuff -->
+		<v-col class="pa-4">
+			<h3 class="pb-4 text-default text-uppercase text-center">Get in Touch</h3>
+			<!-- Address -->
+			<v-row no-gutters>
+				<v-col class="d-flex justify-center align-center" cols="2">
+					<v-icon icon="mdi-map-marker-radius"></v-icon>
+				</v-col>
+				<v-col>
+					<p>41 Snowley Park, Whittlesey</p>
+					<p>Peterborough, Cambridgeshire</p>
+					<p>PE7 1JQ</p>
+				</v-col>
+			</v-row>
+			<v-divider class="my-4"></v-divider>
+
+			<!-- Email -->
+			<v-row no-gutters>
+				<v-col class="d-flex justify-center align-center" cols="2">
+					<v-icon icon="mdi-email-fast"></v-icon>
+				</v-col>
+				<v-col>
+					<p>somepersonemail@gmail.com</p>
+				</v-col>
+			</v-row>
+			<v-divider class="my-4"></v-divider>
+
+			<!-- Mobile -->
+			<v-row no-gutters>
+				<v-col class="d-flex justify-center align-center" cols="2">
+					<v-icon icon="mdi-phone"></v-icon>
+				</v-col>
+				<v-col>
+					<p>(+44) 07464 599 396</p>
+				</v-col>
+			</v-row>
+			<v-divider class="my-4"></v-divider>
+
+			<!-- Socials -->
+			<v-row no-gutters>
+				<v-col class="d-flex justify-center align-center" cols="4">
+					<p>Follow Us:</p>
+				</v-col>
+				<v-col class="d-flex flex-row" style="gap: 16px">
+					<v-btn icon density="comfortable">
+						<v-icon>
+							<template #default>
+								<svg-component :svg-content="facebookSvg"></svg-component>
+							</template>
+						</v-icon>
+					</v-btn>
+					<v-btn icon density="comfortable">
+						<v-icon>
+							<template #default>
+								<svg-component :svg-content="facebookSvg"></svg-component>
+							</template>
+						</v-icon>
+					</v-btn>
+					<v-btn icon density="comfortable">
+						<v-icon>
+							<template #default>
+								<svg-component :svg-content="facebookSvg"></svg-component>
+							</template>
+						</v-icon>
+					</v-btn>
+				</v-col>
+			</v-row>
+		</v-col>
+	</v-row>
+</template>
+
+<script lang="ts">
+/*
+<v-col cols="12">
 			<v-row no-gutters>
 				<v-col cols="2">
 					<h3 class="text-default border-bottom">Logo here</h3>
 				</v-col>
-				<v-col cols="6">
+				<v-col>
 					<h3 class="text-default border-bottom">Navigation</h3>
 				</v-col>
 				<v-col>
@@ -17,7 +132,7 @@
 		<v-col cols="12">
 			<v-row no-gutters>
 				<!-- Col 1 -->
-				<v-col class="pl-4" cols="2">
+				<v-col class="pa-4" cols="2">
 					<p class="pb-4"><i>Some text that display information about TPW Home Developments.</i></p>
 					<div style="max-width: 300px">
 						<v-text-field
@@ -31,7 +146,7 @@
 				</v-col>
 
 				<!-- Col 2 -->
-				<v-col class="pl-4" cols="6">
+				<v-col class="pa-4">
 					<v-row no-gutters>
 						<v-col>
 							<h5 class="text-default">Pages</h5>
@@ -56,7 +171,7 @@
 				</v-col>
 
 				<!-- Col 3 -->
-				<v-col class="pl-4">
+				<v-col class="pa-4">
 					<v-row no-gutters>
 						<v-col class="d-flex" cols="2">
 							<v-icon icon="mdi-email-fast"></v-icon>
@@ -87,24 +202,41 @@
 					</v-row>
 					<v-divider class="my-4" style="max-width: 50%"></v-divider>
 					<v-row no-gutters>
-						<v-col class="d-flex align-center" cols="2">
-							<h5 class="text-default">Follow us:</h5>
+						<v-col class="d-flex align-center" cols="5">
+							<h5 class="pr-4 text-default">Follow us:</h5>
 						</v-col>
 						<v-col>
-							<v-row no-gutters style="gap: 16px">
-								<v-btn icon="mdi-home" density="comfortable"></v-btn>
-								<v-btn icon="mdi-home" density="comfortable"></v-btn>
-								<v-btn icon="mdi-home" density="comfortable"></v-btn>
-							</v-row>
+							<v-btn icon density="comfortable">
+								<v-icon>
+									<template #default>
+										<svg-component :svg-content="facebookSvg"></svg-component>
+									</template>
+								</v-icon>
+							</v-btn>
+						</v-col>
+						<v-col>
+							<v-btn icon density="comfortable">
+								<v-icon>
+									<template #default>
+										<svg-component :svg-content="facebookSvg"></svg-component>
+									</template>
+								</v-icon>
+							</v-btn>
+						</v-col>
+						<v-col>
+							<v-btn icon density="comfortable">
+								<v-icon>
+									<template #default>
+										<svg-component :svg-content="facebookSvg"></svg-component>
+									</template>
+								</v-icon>
+							</v-btn>
 						</v-col>
 					</v-row>
 				</v-col>
 			</v-row>
 		</v-col>
-	</v-row>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Component
@@ -112,12 +244,8 @@ import FooterSectionInteractiveDefaultFirst from "../interactive/defaults/footer
 import FooterSectionInteractiveDefaultSecond from "../interactive/defaults/footer-section-interactive-default-second.vue";
 import FooterSectionInteractiveDefaultThird from "../interactive/defaults/footer-section-interactive-default-third.vue";
 import Button from "../../../containers/buttons/button.vue";
-
-// Icons
-import Facebook from "../../../../assets/svg/socials/facebook.svg";
-import Instagram from "../../../../assets/svg/socials/instagram.svg";
-import LinkedIn from "../../../../assets/svg/socials/linkedin.svg";
-import Twitter from "../../../../assets/svg/socials/twitter.svg";
+import SVG from "../../../containers/svg/svg.vue";
+import Facebook from "../../../../assets/svg/socials/facebook.svg?raw";
 
 export default defineComponent({
 	name: "footer-section-interactive-component",
@@ -126,6 +254,12 @@ export default defineComponent({
 		"footer-section-interactive-default-second-component": FooterSectionInteractiveDefaultSecond,
 		"footer-section-interactive-default-third-component": FooterSectionInteractiveDefaultThird,
 		"button-component": Button,
+		"svg-component": SVG,
+	},
+	computed: {
+		facebookSvg() {
+			return Facebook;
+		},
 	},
 	data() {
 		return {

@@ -1,6 +1,8 @@
 <template>
 	<v-row no-gutters>
-		<v-col class="d-flex"> Copyright stuff </v-col>
+		<v-col>
+			<p class="text-center">&copy; {{ new Date().getFullYear() }} TPW Home Developments</p>
+		</v-col>
 	</v-row>
 </template>
 
