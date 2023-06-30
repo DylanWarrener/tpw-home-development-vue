@@ -1,7 +1,7 @@
 <template>
 	<v-container fluid class="pa-0">
 		<v-row class="ma-0 pa-0">
-			<v-col cols="12" class="d-flex pa-0">
+			<v-col class="pa-0" cols="12">
 				<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></page-component>
 			</v-col>
 		</v-row>
