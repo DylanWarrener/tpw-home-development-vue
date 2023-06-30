@@ -31,12 +31,7 @@
 				</v-col>
 				<v-col class="">
 					<h3 class="text-default text-uppercase text-center">Information</h3>
-					<v-list
-						class="bg-primary"
-						density="compact"
-						active-color="accent"
-						:items="informationItems"
-					></v-list>
+					<v-list class="bg-primary" density="compact" active-color="accent" :items="informationItems"></v-list>
 				</v-col>
 			</v-row>
 		</v-col>

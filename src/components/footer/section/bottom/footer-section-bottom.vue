@@ -1,7 +1,8 @@
 <template>
 	<v-row no-gutters>
 		<v-col>
-			<p class="text-center">&copy; {{ new Date().getFullYear() }} TPW Home Developments</p>
+			<p class="text-center">&copy; {{ new Date().getFullYear() }} {{ copyrightText }}</p>
+			<p class="text-center">{{ location }}</p>
 		</v-col>
 	</v-row>
 </template>
@@ -11,5 +12,13 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
 	name: "footer-section-bottom-component",
+	computed: {
+		copyrightText(): string {
+			return this.$t("footer.copyrightText");
+		},
+		location(): string {
+			return this.$t("footer.location");
+		},
+	},
 });
 </script>
