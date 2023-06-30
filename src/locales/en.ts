@@ -143,7 +143,10 @@ const en = {
 			},
 		},
 	},
-	footer: {},
+	footer: {
+		copyrightText: "TPW Home Developments, All Rights Reserved",
+		location: "United Kingdom - Cambridgeshire - March",
+	},
 };
 
 export default en;
