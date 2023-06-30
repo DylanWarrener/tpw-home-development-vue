@@ -17,6 +17,7 @@ const themeLight: ICommonThemes = {
 		background: "",
 		surface: "",
 		button: "",
+		border: "",
 		error: "",
 		warning: "",
 		info: "",
@@ -42,6 +43,7 @@ export const themeDark: ICommonThemes = {
 		background: "",
 		surface: "",
 		button: "",
+		border: "",
 		error: "",
 		warning: "",
 		info: "",
@@ -58,6 +60,7 @@ themeLight.colors.warning = themeLight.colors.yellow;
 themeLight.colors.info = themeLight.colors.yellow;
 themeLight.colors.success = themeLight.colors.green;
 themeLight.colors.button = themeLight.colors.black;
+themeLight.colors.border = themeLight.colors.black;
 themeLight.colors["section-primary"] = themeLight.colors.white;
 themeLight.colors["section-secondary"] = themeLight.colors.secondary;
 
@@ -68,6 +71,7 @@ themeDark.colors.warning = themeDark.colors.yellow;
 themeDark.colors.info = themeDark.colors.yellow;
 themeDark.colors.success = themeDark.colors.green;
 themeDark.colors.button = themeDark.colors.white;
+themeDark.colors.border = themeDark.colors.white;
 themeDark.colors["section-primary"] = themeDark.colors.black;
 themeDark.colors["section-secondary"] = themeDark.colors.secondary;
 
