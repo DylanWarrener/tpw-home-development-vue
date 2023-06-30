@@ -43,6 +43,8 @@ import {
 	VCarouselItem,
 	VTextField,
 	VIcon,
+	VRating,
+	VProgressLinear,
 	VFooter,
 } from "vuetify/components";
 
@@ -92,6 +94,8 @@ const vuetify = createVuetify({
 		VCarouselItem,
 		VTextField,
 		VIcon,
+		VRating,
+		VProgressLinear,
 		VFooter,
 	},
 	directives: {
