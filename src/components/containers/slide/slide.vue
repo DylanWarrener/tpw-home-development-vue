@@ -1,5 +1,5 @@
 <template>
-	<div class="d-flex flex-row sticky-row">
+	<div class="my-4 d-flex flex-row sticky-row">
 		<!-- Slide title -->
 		<div class="sticky-column">
 			<div class="sticky-column-height">
@@ -15,8 +15,8 @@
 
 		<!-- Slide content -->
 		<div
-			class="pr-4 py-4 d-flex flex-column flex-1-1 justify-center align-left overflow-hidden"
-			style="padding-left: 25%; gap: 16px; border: 2px solid white"
+			class="pr-4 d-flex flex-column flex-1-1 justify-space-evenly align-left overflow-hidden"
+			style="gap: 16px; padding-left: 25%; border: 2px solid white"
 		>
 			<slot name="content"></slot>
 		</div>
@@ -38,7 +38,7 @@ export default defineComponent({
 <style scoped>
 .sticky-row {
 	border: 2px solid green;
-	min-height: 600px;
+	min-height: 300px;
 }
 
 .sticky-column {
@@ -53,7 +53,7 @@ export default defineComponent({
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 90%;
+	height: 100%;
 	width: 100%;
 }
 
@@ -62,15 +62,15 @@ export default defineComponent({
 	position: sticky;
 	top: 0;
 	left: 0;
-	padding-top: 150px;
+	padding-top: 150%;
 }
 
 .text-vertical {
 	position: sticky;
 	top: 0;
 	left: 0;
-	transform-origin: top right;
-	transform: translate(-50%, 0) rotate(-90deg);
+	transform-origin: right center;
+	transform: translate(-50%, -50%) rotate(-90deg);
 	letter-spacing: 2px;
 }
 </style>
