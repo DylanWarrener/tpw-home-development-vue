@@ -5,7 +5,7 @@
 			<div class="sticky-column-height">
 				<div class="sticky-container">
 					<slot name="title">
-						<h3 class="text-uppercase text-vertical" style="border: 2px solid green">
+						<h3 class="text-uppercase text-vertical">
 							<b class="pr-4" style="font-size: 30px">{{ slideNumber }}.</b>{{ title }}
 						</h3>
 					</slot>
@@ -62,15 +62,16 @@ export default defineComponent({
 	position: sticky;
 	top: 0;
 	left: 0;
-	padding-top: 150%;
+	padding-top: 200%;
 }
 
 .text-vertical {
+	border: 2px solid green;
 	position: sticky;
 	top: 0;
 	left: 0;
 	transform-origin: right center;
-	transform: translate(-50%, -50%) rotate(-90deg);
+	transform: translate(0, -100%) rotate(-90deg);
 	letter-spacing: 2px;
 }
 </style>
