@@ -54,45 +54,75 @@ export default defineComponent({
 					id: "1",
 					title: "Discovery",
 					content: [
-						{ id: "1.1", title: "Schedule a consultation", text: "Text goes here" },
-						{ id: "1.2", title: "Prepare for the consultation", text: "Text goes here" },
-						{ id: "1.3", title: "Introductions and rapport-building", text: "Text goes here" },
-						{ id: "1.4", title: "Active listeningn", text: "Text goes here" },
-						{ id: "1.5", title: "Ask open-ended questions", text: "Text goes here" },
-						{ id: "1.6", title: "Discuss budget and timeline", text: "Text goes here" },
-						{ id: "1.7", title: "Explore potential challenges", text: "Text goes here" },
-						{ id: "1.8", title: "Provide guidance and suggestions", text: "Text goes here" },
-						{ id: "1.9", title: "Review previous work and portfolio", text: "Text goes here" },
-						{ id: "1.10", title: "Recap and next steps", text: "Text goes here" },
+						{ 
+							id: "1.1.", 
+							title: "Schedule a Consultation", 
+							text: "We offer consultations in person, over the phone, or via video conferencing. Our objective during the consultation is to gain a thorough understanding of your requirements, actively listen to your ideas, gather comprehensive information, and engage in discussions about budget, timeline, and challenges." 
+						},
+						{ 
+							id: "1.2.", 
+							title: "Preparation for the Consultation", 
+							text: "To prepare for the consultation, we thoroughly equip ourselves to comprehend and address your requirements. This involves reviewing pertinent documents and materials, such as property information and sample designs. By familiarizing ourselves with these details beforehand, we can engage in an informed discussion during the consultation, offering tailored advice and recommendations based on your specific needs. Our primary aim is to optimize our time together and provide you with comprehensive guidance and solutions." 
+						},
+						{ 
+							id: "1.3.", 
+							title: "Introductions & Rapport-building", 
+							text: "In the initial phase of our interaction, we place great emphasis on creating a positive connection and building rapport. We introduce ourselves to make you feel at ease and comfortable. By cultivating a friendly and welcoming atmosphere, our aim is to foster open communication and establish a collaborative working relationship. We strive to ensure that you feel heard, valued, and confident in entrusting us." 
+						},
+						{ 
+							id: "1.4.", 
+							title: "Discuss Budget & Timeline", 
+							text: "Text goes here" 
+						},
+						{ 
+							id: "1.5.", 
+							title: "Explore Potential Challenges", 
+							text: "Text goes here" 
+						},
+						{ 
+							id: "1.6.", 
+							title: "Provide Guidance & Suggestions", 
+							text: "Text goes here" 
+						},
+						{
+							id: "1.7.", 
+							title: "Review Previous Work & Portfolio", 
+							text: "Text goes here" 
+						},
+						{
+							id: "1.8.", 
+							title: "Recap & Next Steps", 
+							text: "Text goes here" 
+						},
 					],
 				},
 				{
 					id: "2",
 					title: "Strategy",
 					content: [
-						{ id: "2.1", title: "Site evaluation", text: "Text goes here" },
-						{ id: "2.2", title: "Feasibility study", text: "Text goes here" },
+						{ id: "2.01.", title: "Site evaluation", text: "Text goes here" },
+						{ id: "2.02.", title: "Feasibility study", text: "Text goes here" },
 					],
 				},
 				{
 					id: "3",
 					title: "Design",
 					content: [
-						{ id: "3.1", title: "Conceptual design", text: "Text goes here" },
-						{ id: "3.2", title: "Budget and financing", text: "Text goes here" },
-						{ id: "3.3", title: "Detailed design and planning", text: "Text goes here" },
-						{ id: "3.4", title: "Permit acquisition", text: "Text goes here" },
+						{ id: "3.01.", title: "Conceptual design", text: "Text goes here" },
+						{ id: "3.02.", title: "Budget and financing", text: "Text goes here" },
+						{ id: "3.03.", title: "Detailed design and planning", text: "Text goes here" },
+						{ id: "3.04.", title: "Permit acquisition", text: "Text goes here" },
 					],
 				},
 				{
 					id: "4",
 					title: "Build",
 					content: [
-						{ id: "4.1", title: "Contractor selection", text: "Text goes here" },
-						{ id: "4.2", title: "Construction management", text: "Text goes here" },
-						{ id: "4.3", title: "Quality control and inspections", text: "Text goes here" },
-						{ id: "4.4", title: "Project completion and handover", text: "Text goes here" },
-						{ id: "4.5", title: "Customer support and satisfaction", text: "Text goes here" },
+						{ id: "4.01.", title: "Contractor selection", text: "Text goes here" },
+						{ id: "4.02.", title: "Construction management", text: "Text goes here" },
+						{ id: "4.03.", title: "Quality control and inspections", text: "Text goes here" },
+						{ id: "4.04.", title: "Project completion and handover", text: "Text goes here" },
+						{ id: "4.05.", title: "Customer support and satisfaction", text: "Text goes here" },
 					],
 				},
 			],
