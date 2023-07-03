@@ -8,7 +8,7 @@
 		</div>
 
 		<!-- Subtitle slot -->
-		<div class="pa-4 flex-0-0">
+		<div class="flex-0-0">
 			<slot name="subtitle">
 				<i>{{ subtitle }}</i>
 			</slot>
