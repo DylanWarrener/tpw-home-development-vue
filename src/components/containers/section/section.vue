@@ -1,5 +1,5 @@
 <template>
-	<div class="pa-4 d-flex flex-column text-center" style="border: 2px solid red">
+	<div ref="section" class="pa-4 d-flex flex-column text-center" style="border: 2px solid red">
 		<!-- Title slot -->
 		<div class="flex-0-0">
 			<slot name="title">
