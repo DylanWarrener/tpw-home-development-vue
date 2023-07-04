@@ -19,7 +19,7 @@ import { ICommonState } from "./interfaces/common/interface-common";
 
 // Main store
 const parentStore = defineStore("common-store", {
-	state: (): ICommonState => ({
+	state: () => ({
 		// Page section state
 		isCanvasComponentActive: true,
 		isBeInspiredComponentActive: true,
@@ -27,6 +27,9 @@ const parentStore = defineStore("common-store", {
 		isReviewComponentActive: true,
 		isProcessOfEliminationActive: true,
 		isLatestNewsComponentActive: true,
+
+		// Card state
+		isCardClicked: false,
 	}),
 	getters: {
 		// Page section getters
@@ -36,6 +39,9 @@ const parentStore = defineStore("common-store", {
 		getIsReviewComponentActive: (state): boolean => state.isReviewComponentActive,
 		getIsProcessOfEliminationActive: (state): boolean => state.isProcessOfEliminationActive,
 		getIsLatestNewsComponentActive: (state): boolean => state.isLatestNewsComponentActive,
+
+		// Card state
+		getIsCardClicked: (state): boolean => state.isCardClicked,
 	},
 	actions: {
 		// Page section setters
@@ -56,6 +62,11 @@ const parentStore = defineStore("common-store", {
 		},
 		setIsLatestNewsComponentActive(newValue: any): void {
 			this.isLatestNewsComponentActive = newValue;
+		},
+
+		// Card state
+		setIsCardClicked(newValue: any): void {
+			this.isCardClicked = newValue;
 		},
 	},
 });
