@@ -6,6 +6,7 @@
 			:title="title"
 			:subtitle="subtitle"
 			:btn-text="btnText"
+			@card-clicked="handleClick"
 		></canvas-component>
 		<be-inspired-component v-if="isBeInspiredComponentActive"></be-inspired-component>
 		<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
@@ -28,6 +29,9 @@ import Portfolio from "../../body/sections/portfolio.vue";
 import Reviews from "../../body/sections/reviews.vue";
 import ProcessOfElimination from "../../body/sections/process-of-elimination.vue";
 import LatestNews from "../../body/sections/latest-news.vue";
+
+// Utils
+import { scrollToElement } from "../../../utils/utils";
 
 export default defineComponent({
 	name: "page-content-component",
@@ -63,6 +67,13 @@ export default defineComponent({
 		},
 		isLatestNewsComponentActive(): boolean {
 			return this.storeCommon.getIsLatestNewsComponentActive;
+		},
+	},
+	methods: {
+		handleClick(): void {
+			//const beInspiredRef = this.$refs["section"];
+			//scrollToElement(beInspiredRef);
+			console.log(this.$refs);
 		},
 	},
 	setup() {
