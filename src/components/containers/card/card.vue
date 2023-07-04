@@ -1,17 +1,17 @@
 <template>
-	<v-card class="pa-4 d-flex flex-column" min-width="300px">
-		<v-card-item class="pa-0">
+	<v-card color="primary" class="pa-4 d-flex flex-column" min-width="300px">
+		<v-card-item>
 			<!-- Title -->
-			<v-card-title>
+			<v-card-title class="pa-2">
 				<slot name="title">
-					{{ title }}
+					<h1>{{ title }}</h1>
 				</slot>
 			</v-card-title>
 
 			<!-- Subtitle -->
-			<v-card-subtitle>
+			<v-card-subtitle class="pa-4">
 				<slot name="subtitle">
-					{{ subtitle }}
+					<h3>{{ subtitle }}</h3>
 				</slot>
 			</v-card-subtitle>
 		</v-card-item>
@@ -24,13 +24,16 @@
 		<!-- Actions -->
 		<v-card-actions class="pa-0" v-if="btnText">
 			<v-spacer></v-spacer>
-			<button-component class="bg-default text-accent" :text="btnText"></button-component>
+			<button-component :text="btnText" @click="handleClick"></button-component>
 		</v-card-actions>
 	</v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
+// Store
+import parentStore from "../../../store";
 
 // Components
 import Button from "../buttons/button.vue";
@@ -45,6 +48,15 @@ export default defineComponent({
 		title: { type: String, required: false },
 		subtitle: { type: String, required: false },
 		btnText: { type: String, required: false },
+	},
+	methods: {
+		handleClick(): void {
+			this.$emit("cardClicked");
+		},
+	},
+	setup() {
+		const storeCommon = parentStore();
+		return { storeCommon };
 	},
 });
 </script>
