@@ -4,11 +4,11 @@
 			<v-row>
 				<v-col cols="12" align="center">
 					<card-component
-						color="primary"
 						class="rounded-shaped"
+						:btn-text="btnText"
 						:title="title"
 						:subtitle="subtitle"
-						:btn-text="btnText"
+						@card-clicked="handleClick"
 					></card-component>
 				</v-col>
 			</v-row>
@@ -34,6 +34,11 @@ export default defineComponent({
 	components: {
 		"section-component": Section,
 		"card-component": Card,
+	},
+	methods: {
+		handleClick(): void {
+			return this.$emit("cardClicked");
+		},
 	},
 });
 </script>
