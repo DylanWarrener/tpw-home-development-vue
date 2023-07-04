@@ -1,5 +1,5 @@
 <template>
-	<v-btn :class="class">
+	<v-btn class="bg-default text-button" :class="class">
 		{{ text }}
 	</v-btn>
 </template>
@@ -12,11 +12,6 @@ export default defineComponent({
 	props: {
 		class: { type: String, required: false },
 		text: { type: String, required: false },
-	},
-	computed: {
-		defaultClass(): string {
-			return this.class ? this.class : "bg-default text-button";
-		},
 	},
 });
 </script>
