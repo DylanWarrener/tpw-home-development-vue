@@ -54,7 +54,7 @@ import { ICommonBeInspiredData } from "../../../interfaces/common/page/beInspire
 import { ICommonCarouselImagesData } from "../../../interfaces/common/carousel/interface-common-carousel";
 
 // Data
-import { carouselDropdownItems } from "../../../utils/utils-common-text";
+import { carouselDropdownItems } from "../../../utils/text/utils-common-text";
 
 // Kitchen images
 import AscotLightGreyDustPNG from "../../../assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -254,3 +254,4 @@ export default defineComponent({
 	background-color: white;
 }
 </style>
+../../../utils/text/utils-common-text
