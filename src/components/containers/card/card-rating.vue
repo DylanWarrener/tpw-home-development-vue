@@ -1,5 +1,5 @@
 <template>
-	<card-component variant="outlined" max-width="300px" min-height="450px" max-height="500px" :btn-text="btnText">
+	<card-component variant="outlined" max-width="300px" min-height="450px" max-height="600px" :btn-text="btnText">
 		<template #title>
 			<h3 class="text-center text-uppercase">{{ title }}</h3>
 		</template>
