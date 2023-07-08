@@ -1,6 +1,6 @@
 <template>
 	<v-card color="primary" class="pa-4 d-flex flex-column" min-width="300px">
-		<v-card-item v-if="title && subtitle">
+		<v-card-item v-if="title || subtitle">
 			<!-- Title -->
 			<v-card-title class="pa-2">
 				<slot name="title">
