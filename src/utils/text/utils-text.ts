@@ -5,21 +5,21 @@ import { ICommonPageStringTextualData } from "../../interfaces/common/page/inter
 export const btnCardText = "Be Inspired?";
 
 // Page
-export const pageName: ICommonPageStringTextualData = {
-	home: "Home",
-	kitchen: "Kitchens",
-	bathroom: "Bathrooms",
-	newbuild: "Newbuilds",
-	extension: "Extensions",
-	refurbishment: "Refurbishments",
-	contact: "Contact",
-	about: "About",
+export const pageNames: ICommonPageStringTextualData = {
+  home: "Home",
+  kitchen: "Kitchens",
+  bathroom: "Bathrooms",
+  newbuild: "Newbuilds",
+  extension: "Extensions",
+  refurbishment: "Refurbishments",
+  contact: "Contact",
+  about: "About",
 };
 
 export const carouselDropdownItems: string[] = [
-	pageName.kitchen,
-	pageName.bathroom,
-	pageName.newbuild,
-	pageName.extension,
-	pageName.refurbishment,
+  pageNames.kitchen,
+  pageNames.bathroom,
+  pageNames.newbuild,
+  pageNames.extension,
+  pageNames.refurbishment,
 ];
