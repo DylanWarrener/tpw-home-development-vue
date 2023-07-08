@@ -2,7 +2,7 @@
 import ITextualData from "../interfaces/common/locale/interface-locale";
 
 // Common page name data
-import { btnCardText, pageName } from "../utils/text/utils-common-text";
+import { btnCardText, pageName } from "../utils/text/utils-text";
 
 const en = {
 	common: {
