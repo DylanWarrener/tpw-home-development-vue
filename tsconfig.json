@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     /* Type Checking */
+    "noImplicitAny": false,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -13,6 +14,9 @@
 
     /* Emit */
     "noEmit": true,
+
+    /* JavaScript support */
+    "allowJs": true,
 
     /* Interop Constraints */
     "forceConsistentCasingInFileNames": true,
@@ -27,6 +31,6 @@
     /* Completeness */
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/utils/events/utils-event-bus.js", "src/utils/event/utils-event-bus.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
