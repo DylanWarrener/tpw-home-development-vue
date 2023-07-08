@@ -2,7 +2,7 @@
 import ITextualData from "../interfaces/common/locale/interface-locale";
 
 // Common page name data
-import { btnCardText, pageName } from "../utils/text/utils-text";
+import { btnCardText, pageNames } from "../utils/text/utils-text";
 
 const en = {
 	common: {
@@ -18,18 +18,18 @@ const en = {
 		dropdown: {
 			carousel: {
 				items: {
-					kitchen: pageName.kitchen,
-					bathroom: pageName.bathroom,
-					newbuild: pageName.newbuild,
-					extension: pageName.extension,
-					refurbishment: pageName.refurbishment,
+					kitchen: pageNames.kitchen,
+					bathroom: pageNames.bathroom,
+					newbuild: pageNames.newbuild,
+					extension: pageNames.extension,
+					refurbishment: pageNames.refurbishment,
 				},
 				label: "Choose environment",
 			},
 		},
 		icon: {},
-		page: {
-			name: pageName,
+		pages: {
+			name: pageNames,
 		},
 		section: {
 			beInspired: {
@@ -64,16 +64,14 @@ const en = {
 	},
 	header: {
 		appBar: {
-			icon: {
+			icons: {
 				verticalDots: "mdi-dots-vertical",
 			},
-			page: {
-				name: pageName,
-			},
+			titles: pageNames
 		},
 		navigation: {
 			page: {
-				name: pageName,
+				name: pageNames,
 				link: {
 					home: "/",
 					kitchen: "/kitchens",
@@ -99,44 +97,44 @@ const en = {
 	},
 	main: {
 		card: {
-			page: {
+			pages: {
 				home: {
 					title: "Change by Choice, not by Chance",
 					subtitle: "Assemble your dream home with our team of experts.",
 					btnText: btnCardText,
 				},
 				kitchen: {
-					title: pageName.kitchen,
+					title: pageNames.kitchen,
 					subtitle: "Hash your recipies with our interactive entities.",
 					btnText: btnCardText,
 				},
 				bathroom: {
-					title: pageName.bathroom,
+					title: pageNames.bathroom,
 					subtitle: "Own your restroom with our pristine collections.",
 					btnText: btnCardText,
 				},
 				newbuild: {
-					title: pageName.newbuild,
+					title: pageNames.newbuild,
 					subtitle: "Structure new homes with our hasty reinforced foundations.",
 					btnText: btnCardText,
 				},
 				extension: {
-					title: pageName.extension,
+					title: pageNames.extension,
 					subtitle: "Mammoth your space with our innovative styles.",
 					btnText: btnCardText,
 				},
 				refurbishment: {
-					title: pageName.refurbishment,
+					title: pageNames.refurbishment,
 					subtitle: "Enlighten and re-establish your home with our ingenuious designs.",
 					btnText: btnCardText,
 				},
 				contact: {
-					title: pageName.contact,
+					title: "Contact",
 					subtitle: "",
 					btnText: "Contact Us?",
 				},
 				about: {
-					title: pageName.about,
+					title: "About",
 					subtitle: "",
 					btnText: "See Team?",
 				},
