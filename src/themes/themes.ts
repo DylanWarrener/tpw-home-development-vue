@@ -1,10 +1,12 @@
 // Interfaces
 import ICommonThemes from "../interfaces/common/theme/interface-common-theme";
 
+const defaultTempColour: string = "#FFFFFF";
+
 const themeLight: ICommonThemes = {
   dark: false,
   colors: {
-    default: "#FFFFFF",
+    default: defaultTempColour,
     primary: "#3d3a4f",
     secondary: "#777494",
     accent: "#7f017f",
@@ -14,23 +16,23 @@ const themeLight: ICommonThemes = {
     red: "#FF0000",
     green: "#00FF00",
     blue: "#0000FF",
-    background: "#FFFFFF",
-    surface: "#FFFFFF",
-    button: "#FFFFFF",
-    border: "#FFFFFF",
-    error: "#FFFFFF",
-    warning: "#FFFFFF",
-    info: "#FFFFFF",
-    success: "#FFFFFF",
-    "section-primary": "#FFFFFF",
-    "section-secondary": "#FFFFFF",
+    background: defaultTempColour,
+    surface: defaultTempColour,
+    button: defaultTempColour,
+    border: defaultTempColour,
+    error: defaultTempColour,
+    warning: defaultTempColour,
+    info: defaultTempColour,
+    success: defaultTempColour,
+    "section-primary": defaultTempColour,
+    "section-secondary": defaultTempColour,
   },
 };
 
 export const themeDark: ICommonThemes = {
   dark: true,
   colors: {
-    default: "#FFFFFF",
+    default: defaultTempColour,
     primary: "#777494",
     secondary: "#3d3a4f",
     accent: "#7f017f",
@@ -40,16 +42,16 @@ export const themeDark: ICommonThemes = {
     red: "#FF0000",
     green: "#00FF00",
     blue: "#0000FF",
-    background: "#FFFFFF",
-    surface: "#FFFFFF",
-    button: "#FFFFFF",
-    border: "#FFFFFF",
-    error: "#FFFFFF",
-    warning: "#FFFFFF",
-    info: "#FFFFFF",
-    success: "#FFFFFF",
-    "section-primary": "#FFFFFF",
-    "section-secondary": "#FFFFFF",
+    background: defaultTempColour,
+    surface: defaultTempColour,
+    button: defaultTempColour,
+    border: defaultTempColour,
+    error: defaultTempColour,
+    warning: defaultTempColour,
+    info: defaultTempColour,
+    success: defaultTempColour,
+    "section-primary": defaultTempColour,
+    "section-secondary": defaultTempColour,
   },
 };
 
