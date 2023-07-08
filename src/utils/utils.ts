@@ -1,6 +1,7 @@
 // Void functions
-export const scrollToElement = (ref: any): void => {
-	ref.$el.scrollIntoView({
-		behavior: "smooth",
-	});
+export const scrollToElement = (elementsTopBorder: number): void => {
+  window.scrollTo({
+    top: elementsTopBorder,
+    behavior: "smooth",
+  });
 };
