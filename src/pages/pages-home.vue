@@ -1,11 +1,5 @@
 <template>
-	<v-container fluid class="pa-0">
-		<v-row class="ma-0 pa-0">
-			<v-col class="pa-0" cols="12">
-				<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></page-component>
-			</v-col>
-		</v-row>
-	</v-container>
+	<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></page-component>
 </template>
 
 <script lang="ts">
@@ -30,13 +24,13 @@ export default defineComponent({
 			return HomePNG;
 		},
 		title(): string {
-			return this.$t("main.card.page.home.title");
+			return this.$t("main.card.pages.home.title");
 		},
 		subtitle(): string {
-			return this.$t("main.card.page.home.subtitle");
+			return this.$t("main.card.pages.home.subtitle");
 		},
 		btnText(): string {
-			return this.$t("main.card.page.home.btnText");
+			return this.$t("main.card.pages.home.btnText");
 		},
 	},
 	setup() {

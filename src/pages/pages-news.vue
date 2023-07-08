@@ -6,7 +6,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import parentStore, { childStores } from "../store";
+import { parentStore, childStores } from "../plugins/pinia/pinia";
 
 export default defineComponent({
 	name: "news-page-component",

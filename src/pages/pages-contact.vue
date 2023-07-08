@@ -1,18 +1,12 @@
 <template>
-	<v-container fluid class="pa-0">
-		<v-row class="ma-0 pa-0">
-			<v-col cols="12" class="d-flex pa-0">
-				<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></page-component>
-			</v-col>
-		</v-row>
-	</v-container>
+	<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></page-component>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 // Stores
-import parentStore, { childStores } from "../store";
+import { parentStore, childStores } from "../plugins/pinia/pinia";
 
 // Components
 import Page from "../components/containers/page/page.vue";
@@ -30,13 +24,13 @@ export default defineComponent({
 			return ContactPNG;
 		},
 		title(): string {
-			return this.$t("main.card.page.contact.title");
+			return this.$t("main.card.pages.contact.title");
 		},
 		subtitle(): string {
-			return this.$t("main.card.page.contact.subtitle");
+			return this.$t("main.card.pages.contact.subtitle");
 		},
 		btnText(): string {
-			return this.$t("main.card.page.contact.btnText");
+			return this.$t("main.card.pages.contact.btnText");
 		},
 	},
 	setup() {
