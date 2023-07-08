@@ -1,4 +1,4 @@
-import { ICommonCarouselDropdownItemsTextualData } from "../../interfaces/common/carousel/interface-common-carousel";
+//import { ICommonCarouselDropdownItemsTextualData } from "../../interfaces/common/carousel/interface-common-carousel";
 import { ICommonPageStringTextualData } from "../../interfaces/common/page/interface-common-page";
 
 // Card
