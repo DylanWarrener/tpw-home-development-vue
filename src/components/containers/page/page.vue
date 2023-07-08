@@ -1,18 +1,24 @@
 <template>
-	<v-sheet class="w-100 h-100">
-		<canvas-component
-			v-if="isCanvasComponentActive"
-			:src="src"
-			:title="title"
-			:subtitle="subtitle"
-			:btn-text="btnText"
-		></canvas-component>
-		<be-inspired-component id="be-inspired" v-if="isBeInspiredComponentActive"></be-inspired-component>
-		<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
-		<reviews-component v-if="isReviewComponentActive"></reviews-component>
-		<process-of-elimination-component v-if="isProcessOfEliminationActive"></process-of-elimination-component>
-		<latest-news-component v-if="isLatestNewsComponentActive"></latest-news-component>
-	</v-sheet>
+	<v-container fluid class="pa-0">
+		<v-row class="ma-0 pa-0">
+			<v-col class="pa-0" cols="12">
+				<v-sheet class="w-100 h-100">
+					<canvas-component
+						v-if="isCanvasComponentActive"
+						:src="src"
+						:title="title"
+						:subtitle="subtitle"
+						:btn-text="btnText"
+					></canvas-component>
+					<be-inspired-component id="be-inspired" v-if="isBeInspiredComponentActive"></be-inspired-component>
+					<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
+					<reviews-component v-if="isReviewComponentActive"></reviews-component>
+					<process-of-elimination-component v-if="isProcessOfEliminationActive"></process-of-elimination-component>
+					<latest-news-component v-if="isLatestNewsComponentActive"></latest-news-component>
+				</v-sheet>
+			</v-col>
+		</v-row>
+	</v-container>
 </template>
 
 <script lang="ts">
@@ -67,18 +73,6 @@ export default defineComponent({
 		isLatestNewsComponentActive(): boolean {
 			return this.storeCommon.getIsLatestNewsComponentActive;
 		},
-	},
-	methods: {
-		handleCardClicked(): void {
-			const sectionElement = document.getElementById('be-inspired');
-			const sectionElementPosition = sectionElement!.offsetTop;
-    		console.log(sectionElementPosition);
-
-			window.scrollTo({
-				top: sectionElementPosition,
-				behavior: 'smooth'
-			});
-		}
 	},
 	setup() {
 		const storeCommon = parentStore();
