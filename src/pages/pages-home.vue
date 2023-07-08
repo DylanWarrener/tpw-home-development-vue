@@ -12,7 +12,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import parentStore, { childStores } from "../store";
+import { parentStore, childStores } from "../plugins/pinia/pinia";
 
 // Components
 import Page from "../components/containers/page/page.vue";

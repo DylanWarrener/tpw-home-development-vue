@@ -1,6 +1,6 @@
 <template>
 	<v-card color="primary" class="pa-4 d-flex flex-column" min-width="300px">
-		<v-card-item>
+		<v-card-item v-if="title && subtitle">
 			<!-- Title -->
 			<v-card-title class="pa-2">
 				<slot name="title">
@@ -33,7 +33,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import parentStore from "../../../store";
+import { parentStore } from "../../../plugins/pinia/pinia";
 
 // Components
 import Button from "../buttons/button.vue";
@@ -51,7 +51,16 @@ export default defineComponent({
 	},
 	methods: {
 		handleClick(): void {
-			this.$emit("cardClicked");
+			// Get current app bar height
+			const appBarHeight: number = this.storeCommon.getAppBarHeight;
+
+			// Navigate page to be-inspired section component
+			const beInspiredSectionElement = document.getElementById('be-inspired');
+			const beInspiredSectionElementPosition = beInspiredSectionElement!.offsetTop - appBarHeight;
+			window.scrollTo({
+				top: beInspiredSectionElementPosition,
+				behavior: 'smooth'
+			});
 		},
 	},
 	setup() {

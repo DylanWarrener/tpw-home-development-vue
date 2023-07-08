@@ -14,7 +14,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import parentStore, { childStores } from "../../../store";
+import { parentStore } from "../../../plugins/pinia/pinia";
 
 // Interface
 import { ICommonNavigationData } from "../../../interfaces/header/navigation/interface-header-navigation";
@@ -22,9 +22,8 @@ import { ICommonNavigationData } from "../../../interfaces/header/navigation/int
 export default defineComponent({
 	name: "navigation-component",
 	setup() {
-		const storeBase = parentStore();
-		const storeHeader = childStores.useHeaderStore();
-		return { storeBase, storeHeader };
+		const storeCommon = parentStore();
+		return { storeCommon };
 	},
 	data(): ICommonNavigationData {
 		return {

@@ -16,7 +16,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import parentStore, { childStores } from "../../../store";
+import { parentStore } from "../../../plugins/pinia/pinia";
 
 // Components
 import Nav from "../../containers/navigation/navigation.vue";
@@ -32,17 +32,16 @@ export default defineComponent({
 	computed: {
 		drawer: {
 			get(): boolean {
-				return this.storeHeader.getDrawer;
+				return this.storeCommon.getDrawer;
 			},
 			set(newValue: boolean) {
-				this.storeHeader.setDrawer(newValue);
+				this.storeCommon.setDrawer(newValue);
 			},
 		},
 	},
 	setup() {
 		const storeCommon = parentStore();
-		const storeHeader = childStores.useHeaderStore();
-		return { storeCommon, storeHeader };
+		return { storeCommon };
 	},
 	data(): ICommonNavigationData {
 		return {

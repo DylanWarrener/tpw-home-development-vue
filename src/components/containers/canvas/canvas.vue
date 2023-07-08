@@ -1,5 +1,5 @@
 <template>
-	<v-parallax class="w-100 h-screen" :src="src">
+	<v-parallax class="parallax" :src="src">
 		<v-container class="d-flex fill-height">
 			<v-row>
 				<v-col cols="12" align="center">
@@ -8,7 +8,6 @@
 						:btn-text="btnText"
 						:title="title"
 						:subtitle="subtitle"
-						@card-clicked="handleClick"
 					></card-component>
 				</v-col>
 			</v-row>
@@ -37,8 +36,16 @@ export default defineComponent({
 	},
 	methods: {
 		handleClick(): void {
-			return this.$emit("cardClicked");
+			this.$emit("cardClicked");
 		},
 	},
 });
 </script>
+
+<style scoped>
+.parallax {
+	width: 100%;
+	min-height: 100vh;
+	max-height: 100vh;
+}
+</style>

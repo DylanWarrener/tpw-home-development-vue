@@ -47,14 +47,14 @@
 import { defineComponent } from "vue";
 
 // Store
-import parentStore from "../../../store";
+import { parentStore } from "../../../plugins/pinia/pinia";
 
 // Interface
 import { ICommonBeInspiredData } from "../../../interfaces/common/page/beInspired/interface-common-be-inspired";
 import { ICommonCarouselImagesData } from "../../../interfaces/common/carousel/interface-common-carousel";
 
 // Data
-import { carouselDropdownItems } from "../../../utils/text/utils-common-text";
+import { carouselDropdownItems } from "../../../utils/text/utils-text";
 
 // Kitchen images
 import AscotLightGreyDustPNG from "../../../assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -255,3 +255,4 @@ export default defineComponent({
 }
 </style>
 ../../../utils/text/utils-common-text
+../../../utils/text/utils-text

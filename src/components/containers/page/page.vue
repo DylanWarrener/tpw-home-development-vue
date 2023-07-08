@@ -6,9 +6,8 @@
 			:title="title"
 			:subtitle="subtitle"
 			:btn-text="btnText"
-			@card-clicked="handleClick"
 		></canvas-component>
-		<be-inspired-component v-if="isBeInspiredComponentActive"></be-inspired-component>
+		<be-inspired-component id="be-inspired" v-if="isBeInspiredComponentActive"></be-inspired-component>
 		<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
 		<reviews-component v-if="isReviewComponentActive"></reviews-component>
 		<process-of-elimination-component v-if="isProcessOfEliminationActive"></process-of-elimination-component>
@@ -20,7 +19,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import parentStore from "../../../store";
+import { parentStore } from "../../../plugins/pinia/pinia";
 
 // Components
 import Canvas from "../canvas/canvas.vue";
@@ -31,7 +30,7 @@ import ProcessOfElimination from "../../body/sections/process-of-elimination.vue
 import LatestNews from "../../body/sections/latest-news.vue";
 
 // Utils
-import { scrollToElement } from "../../../utils/utils";
+//import { scrollToElement } from "../../../utils/utils";
 
 export default defineComponent({
 	name: "page-content-component",
@@ -70,15 +69,20 @@ export default defineComponent({
 		},
 	},
 	methods: {
-		handleClick(): void {
-			//const beInspiredRef = this.$refs["section"];
-			//scrollToElement(beInspiredRef);
-			console.log(this.$refs);
-		},
+		handleCardClicked(): void {
+			const sectionElement = document.getElementById('be-inspired');
+			const sectionElementPosition = sectionElement!.offsetTop;
+    		console.log(sectionElementPosition);
+
+			window.scrollTo({
+				top: sectionElementPosition,
+				behavior: 'smooth'
+			});
+		}
 	},
 	setup() {
 		const storeCommon = parentStore();
 		return { storeCommon };
-	},
+	}
 });
 </script>

@@ -1,10 +1,12 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
-	<v-app-bar prominent color="primary" density="compact" scroll-behavior="hide elevate">
+	<v-app-bar prominent color="primary" scroll-behavior="hide" :height="height">
 		<template #prepend>
 			<v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 		</template>
-		<v-app-bar-title>{{ title }}</v-app-bar-title>
+		<v-app-bar-title>
+			{{ title }}
+		</v-app-bar-title>
 		<template #append>
 			<v-btn :icon="icon"></v-btn>
 		</template>
@@ -16,7 +18,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import parentStore, { childStores } from "../../store";
+import { parentStore } from "../../plugins/pinia/pinia";
 
 // Components
 import HeaderNav from "./navigation/header-navigation.vue";
@@ -27,20 +29,7 @@ export default defineComponent({
 		"header-navigation-component": HeaderNav,
 	},
 	computed: {
-		// Pinia state
-		drawer: {
-			get(): boolean {
-				return this.storeHeader.getDrawer;
-			},
-			set(newValue: boolean) {
-				this.storeHeader.setDrawer(newValue);
-			},
-		},
-
-		// Localisation
-		icon(): string {
-			return this.$t("header.appBar.icons.verticalDots");
-		},
+		// Text
 		title(): string {
 			const txtHome: string = this.$t("header.appBar.text.home");
 			const txtKitchen: string = this.$t("header.appBar.text.kitchen");
@@ -79,11 +68,35 @@ export default defineComponent({
 			}
 			return retVal;
 		},
+
+		// Style
+		height: {
+			get(): number {
+				return this.storeCommon.getAppBarHeight;
+			}, 
+			set(newValue: number): void{
+				this.storeCommon.setAppBarHeight(newValue);
+			}
+		},
+
+		// Icons
+		icon(): string {
+			return this.$t("header.appBar.icons.verticalDots");
+		},
+
+		// Conditional
+		drawer: {
+			get(): boolean {
+				return this.storeCommon.getDrawer;
+			},
+			set(newValue: boolean): void {
+				this.storeCommon.setDrawer(newValue);
+			},
+		}
 	},
 	setup() {
-		const storeBase = parentStore();
-		const storeHeader = childStores.useHeaderStore();
-		return { storeBase, storeHeader };
-	},
+		const storeCommon = parentStore();
+		return { storeCommon };
+	}
 });
 </script>
