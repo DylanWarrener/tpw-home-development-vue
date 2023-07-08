@@ -32,11 +32,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-// Store
+// Stores
 import { parentStore } from "../../../plugins/pinia/pinia";
 
 // Components
 import Button from "../buttons/button.vue";
+
+// Utils
+import { scrollToElement } from "../../../utils/utils";
 
 export default defineComponent({
 	name: "card-component",
@@ -51,16 +54,10 @@ export default defineComponent({
 	},
 	methods: {
 		handleClick(): void {
-			// Get current app bar height
-			const appBarHeight: number = this.storeCommon.getAppBarHeight;
-
 			// Navigate page to be-inspired section component
 			const beInspiredSectionElement = document.getElementById('be-inspired');
-			const beInspiredSectionElementPosition = beInspiredSectionElement!.offsetTop - appBarHeight;
-			window.scrollTo({
-				top: beInspiredSectionElementPosition,
-				behavior: 'smooth'
-			});
+			
+			scrollToElement(beInspiredSectionElement!.offsetTop - this.storeCommon.getAppBarHeight);
 		},
 	},
 	setup() {
