@@ -1,5 +1,9 @@
 <template>
-	<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText"></page-component>
+	<page-component :src="src" :title="title" :subtitle="subtitle" :btn-text="btnText">
+		<template #content>
+			<section-component class="bg-section-primary" :title="title" :subtitle="subtitle"></section-component>
+		</template>
+	</page-component>
 </template>
 
 <script lang="ts">
@@ -10,6 +14,7 @@ import { parentStore, childStores } from "../plugins/pinia/pinia";
 
 // Components
 import Page from "../components/containers/page/page.vue";
+import Section from "../components/containers/section/section.vue";
 
 // Images
 import ContactPNG from "../assets/png/contact/contact.jpg";
@@ -18,6 +23,7 @@ export default defineComponent({
 	name: "contact-page-component",
 	components: {
 		"page-component": Page,
+		"section-component": Section
 	},
 	computed: {
 		src(): string {
