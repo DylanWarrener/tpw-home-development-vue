@@ -1,5 +1,5 @@
 <template>
-	<v-navigation-drawer temporary color="primary" location="top" v-model="drawer">
+	<v-navigation-drawer temporary color="bg-navigation" location="top" v-model="drawer">
 		<v-list nav>
 			<v-list-item
 				v-for="item in navigation"
