@@ -1,6 +1,6 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
-	<v-app-bar prominent color="primary" density="compact" scroll-behavior="hide">
+	<v-app-bar prominent class="text-default" color="background" density="compact" scroll-behavior="hide">
 		<template #prepend>
 			<v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 		</template>
