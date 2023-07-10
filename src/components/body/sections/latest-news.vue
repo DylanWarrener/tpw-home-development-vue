@@ -1,13 +1,12 @@
 <template>
-	<div style="min-height: 2000px">Content</div>
+	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
+		<template #content>
+			Content
+		</template>
+	</section-component>
 </template>
 
 <script lang="ts">
-/*
-<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
-		<template #content> Content </template>
-	</section-component>
-*/
 import { defineComponent } from "vue";
 
 // Components
