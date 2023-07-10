@@ -1,5 +1,5 @@
 <template>
-	<v-container fluid class="bg-primary">
+	<v-container fluid class="bg-footer">
 		<!--<footer-section-top-component></footer-section-top-component>-->
 		<!--<v-divider class="my-4"></v-divider>-->
 		<footer-section-interactive-component></footer-section-interactive-component>
