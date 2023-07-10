@@ -1,5 +1,5 @@
 <template>
-	<v-btn class="bg-default text-button" :class="class">
+	<v-btn class="bg-transparent text-button" :class="class">
 		{{ text }}
 	</v-btn>
 </template>
