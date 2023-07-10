@@ -1,5 +1,5 @@
 <template>
-	<v-card color="primary" class="pa-4 d-flex flex-column" min-width="300px">
+	<v-card class="pa-4 d-flex flex-column text-default" color="background" min-width="300px">
 		<v-card-item v-if="title || subtitle">
 			<!-- Title -->
 			<v-card-title class="pa-2">
@@ -24,7 +24,7 @@
 		<!-- Actions -->
 		<v-card-actions class="pa-0" v-if="btnText">
 			<v-spacer></v-spacer>
-			<button-component :text="btnText" @click="handleClick"></button-component>
+			<button-component variant="outlined" :text="btnText" @click="handleClick"></button-component>
 		</v-card-actions>
 	</v-card>
 </template>
