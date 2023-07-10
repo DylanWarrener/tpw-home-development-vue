@@ -3,6 +3,7 @@
 		<v-row class="ma-0 pa-0">
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
+					<!-- Canvas -->
 					<canvas-component
 						v-if="isCanvasComponentActive"
 						:src="src"
@@ -10,10 +11,23 @@
 						:subtitle="subtitle"
 						:btn-text="btnText"
 					></canvas-component>
+
+					<!-- Other -->
+					<slot name="content"></slot>
+
+					<!-- Be inspired -->
 					<be-inspired-component id="be-inspired" v-if="isBeInspiredComponentActive"></be-inspired-component>
+
+					<!-- Portfolio -->
 					<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
+
+					<!-- Reviews -->
 					<reviews-component v-if="isReviewComponentActive"></reviews-component>
+
+					<!-- Process of elimination -->
 					<process-of-elimination-component v-if="isProcessOfEliminationActive"></process-of-elimination-component>
+
+					<!-- Latest news -->
 					<latest-news-component v-if="isLatestNewsComponentActive"></latest-news-component>
 				</v-sheet>
 			</v-col>
