@@ -1,80 +1,53 @@
 // Interfaces
 import ICommonThemes from "../interfaces/common/theme/interface-common-theme";
 
-const defaultTempColour: string = "#FFFFFF";
+const colours: any = {
+  primary: "#8E898D",
+  secondary: "#3C354E",
+  accent: "#7F017F",
+  white: "#FFFFFF",
+  black: "#000000",
+  red: "#FF0000",
+  green: "#00FF00",
+  blue: "#0000FF",
+  yellow: "#FFFF00",
+  orange: "#FFA500",
+};
 
-const themeLight: ICommonThemes = {
+export const themeLight: ICommonThemes = {
   dark: false,
   colors: {
-    default: defaultTempColour,
-    primary: "#3d3a4f",
-    secondary: "#777494",
-    accent: "#7f017f",
-    white: "#FFFFFF",
-    black: "#000000",
-    yellow: "#FFFF00",
-    red: "#FF0000",
-    green: "#00FF00",
-    blue: "#0000FF",
-    background: defaultTempColour,
-    surface: defaultTempColour,
-    button: defaultTempColour,
-    border: defaultTempColour,
-    error: defaultTempColour,
-    warning: defaultTempColour,
-    info: defaultTempColour,
-    success: defaultTempColour,
-    "section-primary": defaultTempColour,
-    "section-secondary": defaultTempColour,
+    default: colours.black,
+    primary: colours.primary,
+    secondary: colours.secondary,
+    accent: colours.accent,
+    white: colours.white,
+    black: colours.black,
+    footer: colours.white,
+    error: colours.red,
+    warning: colours.orange,
+    info: colours.yellow,
+    success: colours.green,
+    "background-primary": colours.primary,
+    "background-secondary": colours.white
   },
 };
 
 export const themeDark: ICommonThemes = {
   dark: true,
   colors: {
-    default: defaultTempColour,
-    primary: "#777494",
-    secondary: "#3d3a4f",
-    accent: "#7f017f",
-    white: "#FFFFFF",
-    black: "#000000",
-    yellow: "#FFFF00",
-    red: "#FF0000",
-    green: "#00FF00",
-    blue: "#0000FF",
-    background: defaultTempColour,
-    surface: defaultTempColour,
-    button: defaultTempColour,
-    border: defaultTempColour,
-    error: defaultTempColour,
-    warning: defaultTempColour,
-    info: defaultTempColour,
-    success: defaultTempColour,
-    "section-primary": defaultTempColour,
-    "section-secondary": defaultTempColour,
+    default: colours.white,
+    primary: colours.primary,
+    secondary: colours.secondary,
+    accent: colours.accent,
+    white: colours.white,
+    black: colours.black,
+    footer: colours.white,
+    error: colours.red,
+    warning: colours.orange,
+    info: colours.yellow,
+    success: colours.green,
+    "background-primary": colours.secondary,
+    "background-secondary": colours.black,
   },
 };
-
-// Set the values of colors for light theme
-themeLight.colors.default = themeLight.colors.white;
-themeLight.colors.error = themeLight.colors.red;
-themeLight.colors.warning = themeLight.colors.yellow;
-themeLight.colors.info = themeLight.colors.yellow;
-themeLight.colors.success = themeLight.colors.green;
-themeLight.colors.button = themeLight.colors.black;
-themeLight.colors.border = themeLight.colors.black;
-themeLight.colors["section-primary"] = themeLight.colors.white;
-themeLight.colors["section-secondary"] = themeLight.colors.secondary;
-
-// Set the values of colors for dark theme
-themeDark.colors.default = themeDark.colors.black;
-themeDark.colors.error = themeDark.colors.red;
-themeDark.colors.warning = themeDark.colors.yellow;
-themeDark.colors.info = themeDark.colors.yellow;
-themeDark.colors.success = themeDark.colors.green;
-themeDark.colors.button = themeDark.colors.white;
-themeDark.colors.border = themeDark.colors.white;
-themeDark.colors["section-primary"] = themeDark.colors.black;
-themeDark.colors["section-secondary"] = themeDark.colors.secondary;
-
-export default themeLight;
