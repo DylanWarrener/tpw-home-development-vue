@@ -10,7 +10,7 @@ import "@mdi/font/css/materialdesignicons.min.css";
 import { aliases, mdi } from "vuetify/iconsets/mdi";
 
 // Themes
-import themeLight, { themeDark } from "../../themes/themes";
+import { themeLight, themeDark } from "../../themes/themes";
 
 // Components
 import {
