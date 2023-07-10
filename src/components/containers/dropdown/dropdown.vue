@@ -1,13 +1,9 @@
 <template>
 	<v-select
 		hide-selected
-		class="w-auto h-auto"
+		class="w-auto h-auto bg-transparent text-accent"
 		variant="underlined"
 		density="compact"
-		base-color="accent"
-		color="accent"
-		bg-color="default"
-		theme="blue"
 		:items="items"
 		:label="label"
 		v-model="value"
