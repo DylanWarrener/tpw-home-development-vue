@@ -1,5 +1,5 @@
 <template>
-	<div :id="id" class="d-flex flex-column text-center" style="border: 2px solid red">
+	<div :id="id" class="d-flex flex-column text-center text-default" style="border: 2px solid red">
 		<!-- Title slot -->
 		<div class="flex-0-0">
 			<slot name="title">
