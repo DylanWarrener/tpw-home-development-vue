@@ -1,5 +1,5 @@
 <template>
-	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
+	<section-component :title="title" :subtitle="subtitle">
 		<template #content>
 			<v-container fluid>
 				<v-row dense>
@@ -254,5 +254,4 @@ export default defineComponent({
 	background-color: white;
 }
 </style>
-../../../utils/text/utils-common-text
-../../../utils/text/utils-text
+../../../utils/text/utils-common-text ../../../utils/text/utils-text

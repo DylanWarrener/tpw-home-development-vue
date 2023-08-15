@@ -4,7 +4,7 @@
 			<v-row>
 				<v-col cols="12" align="center">
 					<card-component
-						class="rounded-shaped"
+						class="bg-background-white text-default rounded-shaped"
 						:btn-text="btnText"
 						:title="title"
 						:subtitle="subtitle"

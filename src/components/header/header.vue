@@ -1,6 +1,6 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
-	<v-app-bar prominent class="text-default" color="background" density="compact" scroll-behavior="hide">
+	<v-app-bar prominent class="bg-white text-default" density="compact" scroll-behavior="hide">
 		<template #prepend>
 			<v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 		</template>
@@ -11,7 +11,7 @@
 			<v-btn :icon="icon"></v-btn>
 		</template>
 	</v-app-bar>
-	<header-navigation-component></header-navigation-component>
+	<header-navigation-component class="bg-white text-default"></header-navigation-component>
 </template>
 
 <script lang="ts">
@@ -98,11 +98,11 @@ export default defineComponent({
 			set(newValue: boolean): void {
 				this.storeCommon.setDrawer(newValue);
 			},
-		}
+		},
 	},
 	setup() {
 		const storeCommon = parentStore();
 		return { storeCommon };
-	}
+	},
 });
 </script>

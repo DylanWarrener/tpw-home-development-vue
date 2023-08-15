@@ -1,8 +1,6 @@
 <template>
-	<section-component class="bg-section-primary" :title="title" :subtitle="subtitle">
-		<template #content>
-			Content
-		</template>
+	<section-component class="bg-white" :title="title" :subtitle="subtitle">
+		<template #content> Content </template>
 	</section-component>
 </template>
 

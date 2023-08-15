@@ -27,7 +27,7 @@ export default defineComponent({
 	setup() {
 		const storeCommon = parentStore();
 		return { storeCommon };
-	}
+	},
 });
 </script>
 

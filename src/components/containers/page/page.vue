@@ -16,19 +16,26 @@
 					<slot name="content"></slot>
 
 					<!-- Be inspired -->
-					<be-inspired-component id="be-inspired" v-if="isBeInspiredComponentActive"></be-inspired-component>
+					<be-inspired-component
+						id="be-inspired"
+						class="bg-white"
+						v-if="isBeInspiredComponentActive"
+					></be-inspired-component>
 
 					<!-- Portfolio -->
-					<portfolio-component v-if="isPortfolioComponentActive"></portfolio-component>
+					<portfolio-component class="bg-white" v-if="isPortfolioComponentActive"></portfolio-component>
 
 					<!-- Reviews -->
-					<reviews-component v-if="isReviewComponentActive"></reviews-component>
+					<reviews-component class="bg-white" v-if="isReviewComponentActive"></reviews-component>
 
 					<!-- Process of elimination -->
-					<process-of-elimination-component v-if="isProcessOfEliminationActive"></process-of-elimination-component>
+					<process-of-elimination-component
+						class="bg-white"
+						v-if="isProcessOfEliminationActive"
+					></process-of-elimination-component>
 
 					<!-- Latest news -->
-					<latest-news-component v-if="isLatestNewsComponentActive"></latest-news-component>
+					<latest-news-component class="bg-white" v-if="isLatestNewsComponentActive"></latest-news-component>
 				</v-sheet>
 			</v-col>
 		</v-row>
@@ -91,6 +98,6 @@ export default defineComponent({
 	setup() {
 		const storeCommon = parentStore();
 		return { storeCommon };
-	}
+	},
 });
 </script>

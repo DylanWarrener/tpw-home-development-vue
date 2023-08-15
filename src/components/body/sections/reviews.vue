@@ -1,5 +1,5 @@
 <template>
-	<section-component class="bg-section-primary overflow-hidden" :title="title" :subtitle="subtitle">
+	<section-component class="bg-white overflow-hidden" :title="title" :subtitle="subtitle">
 		<template #content>
 			<div class="pa-4 d-flex flex-1-1 justify-center align-center">
 				<card-rating-component></card-rating-component>

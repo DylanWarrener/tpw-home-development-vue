@@ -1,13 +1,19 @@
 <template>
-	<v-navigation-drawer temporary color="bg-navigation" location="top" v-model="drawer">
+	<v-navigation-drawer temporary location="top" v-model="drawer">
 		<v-list nav>
-			<v-list-item
-				v-for="item in navigation"
-				:key="item.id"
-				:prepend-icon="item.icon"
-				:title="item.title"
-				:to="item.link"
-			></v-list-item>
+			<template v-for="item in navigation" :key="item.id">
+				<v-hover v-slot:default="{ isHovering, props }">
+					<v-list-item
+						active-color="accent"
+						base-color="default"
+						:class="isHovering ? 'bg-accent text-white' : ''"
+						:prepend-icon="item.icon"
+						:title="item.title"
+						:to="item.link"
+						v-bind="props"
+					></v-list-item>
+				</v-hover>
+			</template>
 		</v-list>
 	</v-navigation-drawer>
 </template>
