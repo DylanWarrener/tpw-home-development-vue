@@ -1,15 +1,13 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
-	<v-app-bar prominent class="bg-white text-default" density="compact" scroll-behavior="hide">
-		<template #prepend>
-			<v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-		</template>
+	<v-app-bar prominent class="bg-white text-default" scroll-behavior="hide">
+		<svg-component :svg-content="logoSVG"></svg-component>
+		<v-btn :icon="menu" @click.stop="drawer = !drawer"></v-btn>
 		<v-app-bar-title>
 			{{ title }}
 		</v-app-bar-title>
-		<template #append>
-			<v-btn :icon="icon"></v-btn>
-		</template>
+		<v-btn :icon="newAccount"></v-btn>
+		<v-btn :icon="account"></v-btn>
 	</v-app-bar>
 	<header-navigation-component class="bg-white text-default"></header-navigation-component>
 </template>
@@ -22,11 +20,17 @@ import { parentStore } from "../../plugins/pinia/pinia";
 
 // Components
 import HeaderNav from "./navigation/header-navigation.vue";
+import Logo from "./navigation/logo.vue";
+import SVG from "../containers/svg/svg.vue";
+
+import LogoSVG from "@assets/svg/logo/logo.svg?raw";
 
 export default defineComponent({
 	name: "header-component",
 	components: {
 		"header-navigation-component": HeaderNav,
+		"logo-component": Logo,
+		"svg-component": SVG,
 	},
 	computed: {
 		// Text
@@ -86,8 +90,17 @@ export default defineComponent({
 		},
 
 		// Icons
-		icon(): string {
-			return this.$t("header.appBar.icons.verticalDots");
+		menu(): string {
+			return this.$t("header.appBar.icons.menu");
+		},
+		newAccount(): string {
+			return this.$t("header.appBar.icons.newAccount");
+		},
+		account(): string {
+			return this.$t("header.appBar.icons.account");
+		},
+		logoSVG(): string {
+			return LogoSVG;
 		},
 
 		// Conditional
