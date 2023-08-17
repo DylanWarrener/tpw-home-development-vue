@@ -6,10 +6,11 @@
 		<v-app-bar-title>
 			{{ title }}
 		</v-app-bar-title>
-		<v-btn :icon="search"></v-btn>
-		<v-btn :icon="newAccount"></v-btn>
-		<v-btn :icon="account"></v-btn>
-		<v-btn :icon="settings"></v-btn>
+		<template v-for="item in icons" :key="item.id">
+			<v-hover v-slot:default="{ isHovering, props }">
+				<v-btn :icon="item.icon" :color="isHovering ? 'accent' : 'default'" v-bind="props"></v-btn>
+			</v-hover>
+		</template>
 	</v-app-bar>
 	<header-navigation-component class="bg-white text-default"></header-navigation-component>
 </template>
@@ -129,6 +130,28 @@ export default defineComponent({
 	setup() {
 		const storeCommon = parentStore();
 		return { storeCommon };
+	},
+	data() {
+		return {
+			icons: [
+				{
+					id: 0,
+					icon: this.$t("header.appBar.icons.search"),
+				},
+				{
+					id: 1,
+					icon: this.$t("header.appBar.icons.newAccount"),
+				},
+				{
+					id: 2,
+					icon: this.$t("header.appBar.icons.account"),
+				},
+				{
+					id: 3,
+					icon: this.$t("header.appBar.icons.settings"),
+				},
+			],
+		};
 	},
 });
 </script>
