@@ -1,6 +1,6 @@
 <template>
 	<div :style="`width: ${width}; height: ${height}`">
-		<router-link :to="home">
+		<router-link :to="to">
 			<svg xmlns="http://www.w3.org/2000/svg" :innerHTML="svgContent" width="100%" height="100%" :style="style"></svg>
 		</router-link>
 	</div>
@@ -16,11 +16,7 @@ export default defineComponent({
 		width: { type: String, required: false, default: "200px" },
 		height: { type: String, required: false, default: "100%" },
 		style: { type: String, required: false },
-	},
-	computed: {
-		home(): string {
-			return this.$t("header.navigation.page.link.home");
-		},
+		to: { type: String, required: true },
 	},
 });
 </script>
