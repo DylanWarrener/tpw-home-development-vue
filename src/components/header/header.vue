@@ -1,7 +1,7 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
 	<v-app-bar prominent class="bg-white text-default" scroll-behavior="hide">
-		<svg-component :svg-content="logoSVG"></svg-component>
+		<svg-component :svg-content="logoSVG" :to="home"></svg-component>
 		<v-btn :icon="menu" @click.stop="drawer = !drawer"></v-btn>
 		<v-app-bar-title>
 			{{ title }}
@@ -89,6 +89,11 @@ export default defineComponent({
 					break;
 			}
 			return retVal;
+		},
+
+		// Links
+		home(): string {
+			return this.$t("header.navigation.page.link.home");
 		},
 
 		// Icons
