@@ -1,11 +1,7 @@
 <template>
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		:innerHTML="svgContent"
-		:width="width"
-		:height="height"
-		:style="style"
-	></svg>
+	<div :style="`width: ${width}; height: ${height}`">
+		<svg xmlns="http://www.w3.org/2000/svg" :innerHTML="svgContent" width="100%" height="100%" :style="style"></svg>
+	</div>
 </template>
 
 <script lang="ts">
@@ -15,8 +11,8 @@ export default defineComponent({
 	name: "svg-component",
 	props: {
 		svgContent: { type: String, required: true },
-		width: { type: String, required: false },
-		height: { type: String, required: false },
+		width: { type: String, required: false, default: "200px" },
+		height: { type: String, required: false, default: "100%" },
 		style: { type: String, required: false },
 	},
 });
@@ -26,7 +22,7 @@ export default defineComponent({
 svg {
 	width: 100%;
 	height: 100%;
-	fill: white;
+	//fill: blue;
 	//display: inline-block;
 	//vertical-align: baseline;
 	//margin-bottom: -2px;
