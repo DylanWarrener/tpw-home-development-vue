@@ -6,8 +6,10 @@
 		<v-app-bar-title>
 			{{ title }}
 		</v-app-bar-title>
+		<v-btn :icon="search"></v-btn>
 		<v-btn :icon="newAccount"></v-btn>
 		<v-btn :icon="account"></v-btn>
+		<v-btn :icon="settings"></v-btn>
 	</v-app-bar>
 	<header-navigation-component class="bg-white text-default"></header-navigation-component>
 </template>
@@ -98,6 +100,12 @@ export default defineComponent({
 		},
 		account(): string {
 			return this.$t("header.appBar.icons.account");
+		},
+		settings(): string {
+			return this.$t("header.appBar.icons.settings");
+		},
+		search(): string {
+			return this.$t("header.appBar.icons.search");
 		},
 		logoSVG(): string {
 			return LogoSVG;
