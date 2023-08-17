@@ -11,6 +11,17 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "paths": {
+        "@assets/*": ["./src/assets/*"],
+        "@components/*": ["./src/components/*"],
+        "@interfaces/*": ["./src/interfaces/*"],
+        "@locales/*": ["./src/locales/*"],
+        "@pages/*": ["./src/pages/*"],
+        "@plugins/*": ["./src/plugins/*"],
+        "@stores/*": ["./src/stores/*"],
+        "@themes/*": ["./src/themes/*"],
+        "@utils/*": ["./src/utils/*"],
+    },
 
     /* Emit */
     "noEmit": true,
@@ -31,6 +42,6 @@
     /* Completeness */
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/utils/events/utils-event-bus.js", "src/utils/event/utils-event-bus.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
