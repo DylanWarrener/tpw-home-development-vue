@@ -65,9 +65,12 @@ const en = {
 	header: {
 		appBar: {
 			icons: {
+				menu: "mdi-menu",
+				newAccount: "mdi-account-plus",
+				account: "mdi-account",
 				verticalDots: "mdi-dots-vertical",
 			},
-			titles: pageNames
+			titles: pageNames,
 		},
 		navigation: {
 			page: {
