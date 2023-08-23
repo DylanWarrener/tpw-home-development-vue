@@ -10,14 +10,14 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore, childStores } from "../plugins/pinia/pinia";
+import { parentStore, childStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "../components/containers/page/page.vue";
-import Section from "../components/containers/section/section.vue";
+import Page from "@components/containers/page/page.vue";
+import Section from "@components/containers/section/section.vue";
 
 // Images
-import ContactPNG from "../assets/png/contact/contact.jpg";
+import ContactPNG from "@assets/png/contact/contact.jpg";
 
 export default defineComponent({
 	name: "contact-page-component",

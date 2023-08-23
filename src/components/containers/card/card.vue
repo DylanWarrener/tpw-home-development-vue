@@ -24,7 +24,7 @@
 		<!-- Actions -->
 		<v-card-actions class="pa-0" v-if="btnText">
 			<v-spacer></v-spacer>
-			<button-component variant="outlined" :text="btnText" @navigate-to="beInspired"></button-component>
+			<button-component :text="btnText" @navigate-to="beInspired"></button-component>
 		</v-card-actions>
 	</v-card>
 </template>
@@ -33,13 +33,13 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore } from "../../../plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Button from "../buttons/button.vue";
+import Button from "@components/containers/buttons/button.vue";
 
 // Utils
-import { scrollToElement } from "../../../utils/utils";
+import { scrollToElement } from "@utils/utils";
 
 export default defineComponent({
 	name: "card-component",

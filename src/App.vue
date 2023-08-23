@@ -12,11 +12,11 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "./plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Header from "./components/header/header.vue";
-import Footer from "./components/footer/footer.vue";
+import Header from "@components/header/header.vue";
+import Footer from "@components/footer/footer.vue";
 
 export default defineComponent({
 	name: "app-component",

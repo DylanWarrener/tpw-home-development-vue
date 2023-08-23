@@ -28,9 +28,9 @@
 import { defineComponent } from "vue";
 
 // Components
-import Section from "../../containers/section/section.vue";
-import Slide from "../../containers/slide/slide.vue";
-import Step from "../../containers/step/step.vue";
+import Section from "@components/containers/section/section.vue";
+import Slide from "@components/containers/slide/slide.vue";
+import Step from "@components/containers/step/step.vue";
 
 export default defineComponent({
 	name: "process-of-elimination-component",

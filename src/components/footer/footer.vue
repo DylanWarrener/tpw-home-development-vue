@@ -12,9 +12,9 @@
 import { defineComponent } from "vue";
 
 // Components
-import FooterSectionTop from "./section/top/footer-section-top.vue";
-import FooterSectionInteractive from "./section/interactive/footer-section-interactive.vue";
-import FooterSectionBottom from "./section/bottom/footer-section-bottom.vue";
+import FooterSectionTop from "@components/footer/section/top/footer-section-top.vue";
+import FooterSectionInteractive from "@components/footer/section/interactive/footer-section-interactive.vue";
+import FooterSectionBottom from "@components/footer/section/bottom/footer-section-bottom.vue";
 
 export default defineComponent({
 	name: "footer-component",

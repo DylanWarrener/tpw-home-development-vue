@@ -19,12 +19,12 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "../../plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import HeaderNav from "./navigation/header-navigation.vue";
-import Logo from "./navigation/logo.vue";
-import SVG from "../containers/svg/svg.vue";
+import HeaderNav from "@components/header/navigation/header-navigation.vue";
+import Logo from "@components/header/navigation/logo.vue";
+import SVG from "@components/containers/svg/svg.vue";
 
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
 

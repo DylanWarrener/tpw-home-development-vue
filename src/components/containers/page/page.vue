@@ -46,15 +46,15 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "../../../plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Canvas from "../canvas/canvas.vue";
-import BeInspired from "../../body/sections/be-inspired.vue";
-import Portfolio from "../../body/sections/portfolio.vue";
-import Reviews from "../../body/sections/reviews.vue";
-import ProcessOfElimination from "../../body/sections/process-of-elimination.vue";
-import LatestNews from "../../body/sections/latest-news.vue";
+import Canvas from "@components/containers/canvas/canvas.vue";
+import BeInspired from "@components/body/sections/be-inspired.vue";
+import Portfolio from "@components/body/sections/portfolio.vue";
+import Reviews from "@components/body/sections/reviews.vue";
+import ProcessOfElimination from "@components/body/sections/process-of-elimination.vue";
+import LatestNews from "@components/body/sections/latest-news.vue";
 
 // Utils
 //import { scrollToElement } from "../../../utils/utils";

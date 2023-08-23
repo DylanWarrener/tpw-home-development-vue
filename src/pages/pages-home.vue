@@ -6,13 +6,13 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore, childStores } from "../plugins/pinia/pinia";
+import { parentStore, childStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "../components/containers/page/page.vue";
+import Page from "@components/containers/page/page.vue";
 
 // Images
-import HomePNG from "../assets/png/home/home.jpg";
+import HomePNG from "@assets/png/home/home.jpg";
 
 export default defineComponent({
 	name: "home-page-component",

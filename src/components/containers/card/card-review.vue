@@ -39,8 +39,8 @@
 import { defineComponent } from "vue";
 
 // Components
-import Card from "./card.vue";
-import Rating from "../rating/rating.vue";
+import Card from "@components/containers/card/card.vue";
+import Rating from "@components/containers/rating/rating.vue";
 
 export default defineComponent({
 	name: "card-review-component",

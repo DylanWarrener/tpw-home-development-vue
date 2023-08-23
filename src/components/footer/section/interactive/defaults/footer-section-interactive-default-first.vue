@@ -10,7 +10,6 @@
 					<v-list
 						density="compact"
 						base-color="default"
-						active-color="accent"
 						bg-color="primary"
 						:items="pageItems"
 					></v-list>
@@ -20,7 +19,6 @@
 					<v-list
 						class="bg-primary"
 						density="compact"
-						active-color="accent"
 						:items="informationItems"
 					></v-list>
 				</v-col>

@@ -83,21 +83,21 @@
 					<v-btn icon density="comfortable">
 						<v-icon>
 							<template #default>
-								<svg-component :svg-content="facebookSvg"></svg-component>
+								<svg-component to="/" :svg-content="facebookSvg"></svg-component>
 							</template>
 						</v-icon>
 					</v-btn>
 					<v-btn icon density="comfortable">
 						<v-icon>
 							<template #default>
-								<svg-component :svg-content="facebookSvg"></svg-component>
+								<svg-component to="/" :svg-content="facebookSvg"></svg-component>
 							</template>
 						</v-icon>
 					</v-btn>
 					<v-btn icon density="comfortable">
 						<v-icon>
 							<template #default>
-								<svg-component :svg-content="facebookSvg"></svg-component>
+								<svg-component to="/" :svg-content="facebookSvg"></svg-component>
 							</template>
 						</v-icon>
 					</v-btn>
@@ -147,7 +147,6 @@
 							<v-list
 								density="compact"
 								base-color="default"
-								active-color="accent"
 								bg-color="primary"
 								:items="pageItems"
 							></v-list>
@@ -157,7 +156,6 @@
 							<v-list
 								class="bg-primary"
 								density="compact"
-								active-color="accent"
 								:items="informationItems"
 							></v-list>
 						</v-col>
@@ -234,12 +232,12 @@
 import { defineComponent } from "vue";
 
 // Component
-import FooterSectionInteractiveDefaultFirst from "../interactive/defaults/footer-section-interactive-default-first.vue";
-import FooterSectionInteractiveDefaultSecond from "../interactive/defaults/footer-section-interactive-default-second.vue";
-import FooterSectionInteractiveDefaultThird from "../interactive/defaults/footer-section-interactive-default-third.vue";
-import Button from "../../../containers/buttons/button.vue";
-import SVG from "../../../containers/svg/svg.vue";
-import Facebook from "../../../../assets/svg/socials/facebook.svg?raw";
+import FooterSectionInteractiveDefaultFirst from "@components/footer/section/interactive/defaults/footer-section-interactive-default-first.vue";
+import FooterSectionInteractiveDefaultSecond from "@components/footer/section/interactive/defaults/footer-section-interactive-default-second.vue";
+import FooterSectionInteractiveDefaultThird from "@components/footer/section/interactive/defaults/footer-section-interactive-default-third.vue";
+import Button from "@components/containers/buttons/button.vue";
+import SVG from "@components/containers/svg/svg.vue";
+import Facebook from "@assets/svg/socials/facebook.svg?raw";
 
 export default defineComponent({
 	name: "footer-section-interactive-component",

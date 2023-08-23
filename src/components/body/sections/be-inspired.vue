@@ -47,33 +47,33 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "../../../plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 // Interface
-import { ICommonBeInspiredData } from "../../../interfaces/common/page/beInspired/interface-common-be-inspired";
-import { ICommonCarouselImagesData } from "../../../interfaces/common/carousel/interface-common-carousel";
+import { ICommonBeInspiredData } from "@interfaces/common/page/beInspired/interface-common-be-inspired";
+import { ICommonCarouselImagesData } from "@interfaces/common/carousel/interface-common-carousel";
 
 // Data
-import { carouselDropdownItems } from "../../../utils/text/utils-text";
+import { carouselDropdownItems } from "@utils/text/utils-text";
 
 // Kitchen images
-import AscotLightGreyDustPNG from "../../../assets/png/kitchens/ascot-light-gret-dust.jpg";
-import CambridgeFirGreenPNG from "../../../assets/png/kitchens/cambridge-fir-green.jpg";
-import CartmelMusselPNG from "../../../assets/png/kitchens/cartmel-mussel.jpg";
-import GranthamChalkstoneFirGreenPNG from "../../../assets/png/kitchens/grantham-chalkstone-fir-green.jpg";
-import LinearWhiteHalifaxOakPNG from "../../../assets/png/kitchens/linear-white-halifax-oak.jpg";
-import LucenteGlossCreamPNG from "../../../assets/png/kitchens/lucente-gloss-cream.jpg";
-import NewmarketIndigoBluePNG from "../../../assets/png/kitchens/newmarket-indigo-blue.jpg";
-import OxfordWhitePNG from "../../../assets/png/kitchens/oxford-white.jpg";
-import StrattoDustGreyPNG from "../../../assets/png/kitchens/stratto-dust-grey.jpg";
-import VivoPtoOnyxGreyPNG from "../../../assets/png/kitchens/vivo-pto-onyx-grey.jpg";
+import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
+import CambridgeFirGreenPNG from "@assets/png/kitchens/cambridge-fir-green.jpg";
+import CartmelMusselPNG from "@assets/png/kitchens/cartmel-mussel.jpg";
+import GranthamChalkstoneFirGreenPNG from "@assets/png/kitchens/grantham-chalkstone-fir-green.jpg";
+import LinearWhiteHalifaxOakPNG from "@assets/png/kitchens/linear-white-halifax-oak.jpg";
+import LucenteGlossCreamPNG from "@assets/png/kitchens/lucente-gloss-cream.jpg";
+import NewmarketIndigoBluePNG from "@assets/png/kitchens/newmarket-indigo-blue.jpg";
+import OxfordWhitePNG from "@assets/png/kitchens/oxford-white.jpg";
+import StrattoDustGreyPNG from "@assets/png/kitchens/stratto-dust-grey.jpg";
+import VivoPtoOnyxGreyPNG from "@assets/png/kitchens/vivo-pto-onyx-grey.jpg";
 
 // Components
-import Section from "../../containers/section/section.vue";
-import Carousel from "../../containers/carousel/carousel.vue";
-import Dropdown from "../../containers/dropdown/dropdown.vue";
-import CardStyle from "../../containers/card/card-styles.vue";
-import CardTheme from "../../containers/card/card-themes.vue";
+import Section from "@components/containers/section/section.vue";
+import Carousel from "@components/containers/carousel/carousel.vue";
+import Dropdown from "@components/containers/dropdown/dropdown.vue";
+import CardStyle from "@components/containers/card/card-styles.vue";
+import CardTheme from "@components/containers/card/card-themes.vue";
 
 export default defineComponent({
 	name: "be-inspired-component",

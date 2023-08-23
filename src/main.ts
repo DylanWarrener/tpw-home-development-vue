@@ -13,7 +13,7 @@ import vuetify from "./plugins/vuetify/vuetify";
 import vuei18n from "./plugins/vuei18n/vue-i18n";
 
 // Parent component
-import App from "./app.vue";
+import App from "./App.vue";
 
 const app = createApp(App);
 

@@ -19,8 +19,8 @@
 import { defineComponent } from "vue";
 
 // Components
-import Section from "../../containers/section/section.vue";
-import Card from "../card/card.vue";
+import Section from "@components/containers/section/section.vue";
+import Card from "@components/containers/card/card.vue";
 
 export default defineComponent({
 	name: "be-inspired-component",

@@ -1,8 +1,6 @@
 <template>
 	<v-hover v-slot:default="{ isHovering, props }">
-		<v-btn :class="isHovering ? 'bg-accent' : 'transparent'" :variant="variant" v-bind="props" @click="handleClick">
-			{{ text }}
-		</v-btn>
+		<v-btn :class="isHovering ? 'bg-accent' : 'transparent'" :innerHTML="text" v-bind="props" @click="handleClick"></v-btn>
 	</v-hover>
 </template>
 
@@ -11,14 +9,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
 	name: "button-component",
+	emits: {
+		navigateTo: null
+	},
 	props: {
-		variant: {
-			type: Object as () => NonNullable<"flat" | "text" | "elevated" | "tonal" | "outlined" | "plain">,
-			required: false,
-			default(): string {
-				return "flat";
-			},
-		},
 		text: { type: String, required: false },
 	},
 	methods: {

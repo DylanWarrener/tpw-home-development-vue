@@ -25,7 +25,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "../../../plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 export default defineComponent({
 	name: "section-content-component",

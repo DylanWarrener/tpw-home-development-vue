@@ -8,7 +8,7 @@
 import { defineComponent } from "vue";
 
 // Components
-import Section from "../../containers/section/section.vue";
+import Section from "@components/containers/section/section.vue";
 
 export default defineComponent({
 	name: "latest-news-component",

@@ -4,7 +4,6 @@
 			<template v-for="item in navigation" :key="item.id">
 				<v-hover v-slot:default="{ isHovering, props }">
 					<v-list-item
-						active-color="accent"
 						base-color="default"
 						:class="isHovering ? 'bg-accent text-white' : ''"
 						:prepend-icon="item.icon"
@@ -22,13 +21,13 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "../../../plugins/pinia/pinia";
+import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Nav from "../../containers/navigation/navigation.vue";
+import Nav from "@components/containers/navigation/navigation.vue";
 
 // Interface
-import { ICommonNavigationData } from "../../../interfaces/header/navigation/interface-header-navigation";
+import { ICommonNavigationData } from "@interfaces/header/navigation/interface-header-navigation";
 
 export default defineComponent({
 	name: "header-navigation-component",

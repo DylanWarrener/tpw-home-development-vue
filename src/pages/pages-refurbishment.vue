@@ -6,13 +6,13 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore, childStores } from "../plugins/pinia/pinia";
+import { parentStore, childStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "../components/containers/page/page.vue";
+import Page from "@components/containers/page/page.vue";
 
 // Images
-import RefurbishmentPNG from "../assets/png/refurbishments/refurbishment.jpg";
+import RefurbishmentPNG from "@assets/png/refurbishments/refurbishment.jpg";
 
 export default defineComponent({
 	name: "refurbishment-page-component",
