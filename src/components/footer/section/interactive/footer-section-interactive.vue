@@ -235,7 +235,6 @@ import { defineComponent } from "vue";
 import FooterSectionInteractiveDefaultFirst from "@components/footer/section/interactive/defaults/footer-section-interactive-default-first.vue";
 import FooterSectionInteractiveDefaultSecond from "@components/footer/section/interactive/defaults/footer-section-interactive-default-second.vue";
 import FooterSectionInteractiveDefaultThird from "@components/footer/section/interactive/defaults/footer-section-interactive-default-third.vue";
-import Button from "@components/containers/buttons/button.vue";
 import SVG from "@components/containers/svg/svg.vue";
 import Facebook from "@assets/svg/socials/facebook.svg?raw";
 
@@ -245,7 +244,6 @@ export default defineComponent({
 		"footer-section-interactive-default-first-component": FooterSectionInteractiveDefaultFirst,
 		"footer-section-interactive-default-second-component": FooterSectionInteractiveDefaultSecond,
 		"footer-section-interactive-default-third-component": FooterSectionInteractiveDefaultThird,
-		"button-component": Button,
 		"svg-component": SVG,
 	},
 	computed: {

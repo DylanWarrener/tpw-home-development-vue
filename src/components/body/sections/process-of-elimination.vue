@@ -1,5 +1,5 @@
 <template>
-	<section-component class="bg-section-secondary" :title="title" :subtitle="subtitle">
+	<section-component :title="title" :subtitle="subtitle">
 		<template #content>
 			<div class="d-flex flex-column flex-1-1" style="border: 2px solid white">
 				<slide-component

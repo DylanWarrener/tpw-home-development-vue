@@ -23,14 +23,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-// Components
-import Button from "../../../../containers/buttons/button.vue";
-
 export default defineComponent({
-	name: "footer-section-interactive-default-third-component",
-	components: {
-		"button-component": Button,
-	},
+	name: "footer-section-interactive-default-third-component"
 });
 
 /*
