@@ -35,4 +35,29 @@ export default defineComponent({
 .border {
 	border: 2px solid white;
 }
+
+.v-btn {
+	background: transparent;
+	color: rgb(var(--v-theme-default));
+
+	&:hover {
+		background: rgb(var(--v-theme-accent));
+		color: rgb(var(--v-theme-inverted));
+	}
+}
+
+.v-list-item {
+	color: rgb(var(--v-theme-default));
+	background: transparent;
+
+	&:hover {
+		color: rgb(var(--v-theme-inverted));
+		background: rgb(var(--v-theme-accent));
+	}
+}
+
+.v-list-item--active {
+	color: rgb(var(--v-theme-accent));
+	background: rgb(var(--v-theme-inverted));
+}
 </style>
