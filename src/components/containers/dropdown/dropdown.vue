@@ -1,7 +1,7 @@
 <template>
 	<v-select
 		hide-selected
-		class="w-auto h-auto bg-transparent text-accent"
+		class="w-auto h-auto bg-transparent text-default"
 		variant="underlined"
 		density="compact"
 		:items="items"

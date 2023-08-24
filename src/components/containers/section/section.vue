@@ -1,5 +1,5 @@
 <template>
-	<div :id="id" class="d-flex flex-column text-center text-default" style="border: 2px solid red">
+	<div :id="id" class="pa-8 d-flex flex-column text-center text-default">
 		<!-- Title slot -->
 		<div class="flex-0-0">
 			<slot name="title">
@@ -15,7 +15,7 @@
 		</div>
 
 		<!-- Content slot -->
-		<div class="d-flex flex-row flex-wrap flex-1-0 justify-center align-center" style="gap: 16px; border: 2px solid red">
+		<div class="d-flex flex-row flex-wrap flex-1-0 justify-center align-center" style="gap: 16px">
 			<slot name="content"></slot>
 		</div>
 	</div>
