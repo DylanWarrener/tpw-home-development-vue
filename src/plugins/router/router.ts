@@ -9,22 +9,24 @@ const Extensions = () => import("../../pages/pages-extension.vue");
 const Refurbishments = () => import("../../pages/pages-refurbishment.vue");
 const Contact = () => import("../../pages/pages-contact.vue");
 const About = () => import("../../pages/pages-about.vue");
+const News = () => import("../../pages/pages-news.vue");
 
 // Routes
 const router = createRouter({
-	history: createWebHistory(),
-	routes: [
-		{ path: "/", name: "Home", component: Home },
-		{ path: "/kitchens", name: "Kitchens", component: Kitchens },
-		{ path: "/bathrooms", name: "Bathrooms", component: Bathrooms },
-		{ path: "/newbuilds", name: "Newbuilds", component: Newbuilds },
-		{ path: "/extensions", name: "Extensions", component: Extensions },
-		{ path: "/refurbishments", name: "Refurbishments", component: Refurbishments },
-		{ path: "/contact", name: "Contact", component: Contact },
-		{ path: "/about", name: "About", component: About },
-		{ path: "/:notFound(.*)", name: "NotFound", redirect: "/" },
-	],
-	/*
+    history: createWebHistory(),
+    routes: [
+        { path: "/", name: "Home", component: Home },
+        { path: "/kitchens", name: "Kitchens", component: Kitchens },
+        { path: "/bathrooms", name: "Bathrooms", component: Bathrooms },
+        { path: "/newbuilds", name: "Newbuilds", component: Newbuilds },
+        { path: "/extensions", name: "Extensions", component: Extensions },
+        { path: "/refurbishments", name: "Refurbishments", component: Refurbishments },
+        { path: "/contact", name: "Contact", component: Contact },
+        { path: "/about", name: "About", component: About },
+        { path: "/news", name: "News", component: News },
+        { path: "/:notFound(.*)", name: "NotFound", redirect: "/" },
+    ],
+    /*
     scrollBehavior(to, from, savedPosition) {
         // To: the route I want to go to
         // From: the route I came from
