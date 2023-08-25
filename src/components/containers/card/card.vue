@@ -38,6 +38,9 @@ import { parentStore, eventStores } from "@plugins/pinia/pinia";
 // Enums
 import { EventNames } from "@enums/events";
 
+// Utils
+import { buildEventString } from "@utils/utils";
+
 export default defineComponent({
     name: "card-component",
     props: {
@@ -50,10 +53,11 @@ export default defineComponent({
         scrollTo(event: PointerEvent): void {
             const eventTarget: HTMLSpanElement = event.target as HTMLSpanElement;
             const btnText: string = eventTarget.innerText;
-            const cardClicked: number = EventNames.CARD_BTN_CLICKED;
-            const pageName = this.$route.name!;
+            const eventID: number = EventNames.CARD_BTN_CLICKED;
+            const pageName: any = this.$route.name!;
+            const eventStr: string = buildEventString(eventID, pageName, btnText);
 
-            this.storeEvent.setEmittedEvent(`${cardClicked}_${pageName.toString()}_${btnText.toLowerCase()}`);
+            this.storeEvent.setEmittedEvent(eventStr);
         },
     },
     setup() {
