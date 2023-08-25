@@ -138,6 +138,7 @@ const en = {
                     refurbishment: "/refurbishments",
                     contact: "/contact",
                     about: "/about",
+                    news: "/news",
                 },
                 icon: {
                     home: "mdi-home",
@@ -148,6 +149,7 @@ const en = {
                     refurbishment: "mdi-brush",
                     contact: "mdi-email-fast",
                     about: "mdi-information",
+                    news: "mdi-newspaper",
                 },
             },
         },
