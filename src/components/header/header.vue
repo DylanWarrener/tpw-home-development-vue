@@ -56,6 +56,10 @@ export default defineComponent({
         txtAbout(): string {
             return this.$t("header.appBar.titles.about");
         },
+        txtNews(): string {
+            return this.$t("header.appBar.titles.news");
+        },
+
         title(): string {
             let retVal: string = "";
             switch (this.$route.name) {
@@ -82,6 +86,9 @@ export default defineComponent({
                     break;
                 case this.txtAbout:
                     retVal = this.txtAbout;
+                    break;
+                case this.txtNews:
+                    retVal = this.txtNews;
                     break;
             }
             return retVal;
