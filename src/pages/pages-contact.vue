@@ -23,7 +23,7 @@ import ContactPNG from "@assets/png/contact/contact.jpg";
 import { EventNames } from "@enums/events";
 
 // Utils
-import { scrollToElement } from "@utils/utils";
+import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
 
 export default defineComponent({
     name: "contact-page-component",
@@ -58,14 +58,20 @@ export default defineComponent({
     },
     watch: {
         recievedEventData(newValue: string) {
-            const contact: string = this.$t("common.pages.name.contact");
-            const cardClicked: number = EventNames.CARD_BTN_CLICKED;
+            const desiredRouteName: string = this.$t("common.pages.name.contact");
+            const eventID: number = EventNames.CARD_BTN_CLICKED;
             const pageName = this.$route.name!;
+            const appBarHeight: number = this.storeCommon.getAppBarHeight;
+            const chosenElement: any = document.getElementById("contact_section");
 
-            if (newValue && this.$route.name === contact) {
-                if (newValue === `${cardClicked}_${pageName.toString()}_${this.canvasBtnText.toLowerCase()}`) {
-                    const contactSectionElement: HTMLDivElement = document.getElementById("contact_section") as HTMLDivElement;
-                    scrollToElement(contactSectionElement!.offsetTop - this.storeCommon.getAppBarHeight);
+            const eventStrOne: string = newValue;
+            const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+
+            if (newValue && this.$route.name === desiredRouteName) {
+                const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+
+                if (areEventsEqual) {
+                    scrollToElement(chosenElement!.offsetTop - appBarHeight);
                 }
                 this.storeEvent.setEmittedEvent("");
             }

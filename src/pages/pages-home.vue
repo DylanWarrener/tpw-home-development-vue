@@ -18,7 +18,7 @@ import HomePNG from "@assets/png/home/home.jpg";
 import { EventNames } from "@enums/events";
 
 // Utils
-import { selectingElementToScrollTo } from "@utils/utils";
+import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
 
 export default defineComponent({
     name: "home-page-component",
@@ -46,13 +46,21 @@ export default defineComponent({
     },
     watch: {
         recievedEventData(newValue: string) {
-            const home: string = this.$t("common.pages.name.home");
+            const desiredRouteName: string = this.$t("common.pages.name.home");
             const eventID: number = EventNames.CARD_BTN_CLICKED;
-            const pageName: string = this.$route.name!.toString();
+            const pageName: any = this.$route.name!;
             const appBarHeight: number = this.storeCommon.getAppBarHeight;
+            const chosenElement: any = document.getElementById("be_inspired_section");
 
-            if (newValue && this.$route.name === home) {
-                selectingElementToScrollTo(newValue, eventID, pageName, this.canvasBtnText, "be_inspired", appBarHeight);
+            const eventStrOne: string = newValue;
+            const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+
+            if (newValue && this.$route.name === desiredRouteName) {
+                const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+
+                if (areEventsEqual) {
+                    scrollToElement(chosenElement!.offsetTop - appBarHeight);
+                }
                 this.storeEvent.setEmittedEvent("");
             }
         },

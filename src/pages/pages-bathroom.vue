@@ -18,7 +18,7 @@ import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
 import { EventNames } from "@enums/events";
 
 // Utils
-import { scrollToElement } from "@utils/utils";
+import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
 
 export default defineComponent({
     name: "bathroom-page-component",
@@ -46,14 +46,20 @@ export default defineComponent({
     },
     watch: {
         recievedEventData(newValue: string) {
-            const bathroom: string = this.$t("common.pages.name.bathroom");
-            const cardClicked: number = EventNames.CARD_BTN_CLICKED;
+            const desiredRouteName: string = this.$t("common.pages.name.bathroom");
+            const eventID: number = EventNames.CARD_BTN_CLICKED;
             const pageName = this.$route.name!;
+            const appBarHeight: number = this.storeCommon.getAppBarHeight;
+            const chosenElement: HTMLDivElement = document.getElementById("be_inspired_section") as HTMLDivElement;
 
-            if (newValue && this.$route.name === bathroom) {
-                if (newValue === `${cardClicked}_${pageName.toString()}_${this.canvasBtnText.toLowerCase()}`) {
-                    const beInspiredSectionElement: HTMLDivElement = document.getElementById("be_inspired") as HTMLDivElement;
-                    scrollToElement(beInspiredSectionElement!.offsetTop - this.storeCommon.getAppBarHeight);
+            const eventStrOne: string = newValue;
+            const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+
+            if (newValue && this.$route.name === desiredRouteName) {
+                const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+
+                if (areEventsEqual) {
+                    scrollToElement(chosenElement!.offsetTop - appBarHeight);
                 }
                 this.storeEvent.setEmittedEvent("");
             }
