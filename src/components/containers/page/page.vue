@@ -16,22 +16,27 @@
                     <slot name="content"></slot>
 
                     <!-- Be inspired -->
-                    <be-inspired-component id="be_inspired" class="bg-inverted" v-if="isBeInspiredComponentActive"></be-inspired-component>
+                    <be-inspired-component
+                        id="be_inspired_section"
+                        class="bg-inverted"
+                        v-if="isBeInspiredComponentActive"
+                    ></be-inspired-component>
 
                     <!-- Portfolio -->
-                    <portfolio-component class="bg-inverted" v-if="isPortfolioComponentActive"></portfolio-component>
+                    <portfolio-component id="portfolio_section" class="bg-inverted" v-if="isPortfolioComponentActive"></portfolio-component>
 
                     <!-- Reviews -->
-                    <reviews-component class="bg-inverted" v-if="isReviewComponentActive"></reviews-component>
+                    <reviews-component id="reviews_section" class="bg-inverted" v-if="isReviewComponentActive"></reviews-component>
 
                     <!-- Process of elimination -->
                     <process-of-elimination-component
+                        id="process_of_elimination_section"
                         class="bg-inverted"
                         v-if="isProcessOfEliminationActive"
                     ></process-of-elimination-component>
 
                     <!-- Latest news -->
-                    <latest-news-component class="bg-inverted" v-if="isLatestNewsComponentActive"></latest-news-component>
+                    <latest-news-component id="news_section" class="bg-inverted" v-if="isLatestNewsComponentActive"></latest-news-component>
                 </v-sheet>
             </v-col>
         </v-row>
