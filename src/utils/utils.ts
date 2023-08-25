@@ -6,19 +6,11 @@ export const scrollToElement = (elementsTopBorder: number): void => {
     });
 };
 
-export const selectingElementToScrollTo = (
-    element: string,
-    eventID: number,
-    pageName: string,
-    btnText: string,
-    id: string,
-    appBarHeight: number
-): void => {
-    const chosenElement: any = document.getElementById(id);
-
-    if (comparableElement === `${eventID}_${pageName.toString()}_${btnText.toLowerCase()}`) {
-        scrollToElement(chosenElement!.offsetTop - appBarHeight);
-    }
+// Return functions
+export const compareEventStrings = (eventStrOne: string, eventStrTwo: string): boolean => {
+    return eventStrOne === eventStrTwo ? true : false;
 };
 
-// Return functions
+export const buildEventString = (eventID: number, pageRouteName: any, innerTextofElement: string): string => {
+    return `${eventID}_${pageRouteName.toString()}_${innerTextofElement.toLowerCase()}`;
+};
