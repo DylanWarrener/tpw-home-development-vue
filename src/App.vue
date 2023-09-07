@@ -32,10 +32,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.border {
-	border: 2px solid white;
+*,
+.v-card-title {
+	font-family: Arial, "Roboto", "Lato", sans-serif !important;
 }
 
+.border {
+	border: 2px solid blue;
+}
+
+// Buttons
 .v-btn {
 	background: transparent;
 	color: rgb(var(--v-theme-default));
@@ -46,6 +52,20 @@ export default defineComponent({
 	}
 }
 
+/*
+#prev,
+#next {
+	background: rgb(var(--v-theme-inverted));
+	color: rgb(var(--v-theme-default));
+
+	&:hover {
+		background: rgb(var(--v-theme-accent));
+		color: rgb(var(--v-theme-inverted));
+	}
+}
+*/
+
+// Lists
 .v-list-item {
 	color: rgb(var(--v-theme-default));
 	background: transparent;
@@ -55,9 +75,51 @@ export default defineComponent({
 		background: rgb(var(--v-theme-accent));
 	}
 }
-
 .v-list-item--active {
 	color: rgb(var(--v-theme-accent));
 	background: rgb(var(--v-theme-inverted));
+}
+
+// Dropdown
+.v-select {
+	background: transparent;
+	color: rgb(var(--v-theme-default));
+}
+
+// Carousel
+.v-carousel__controls {
+	.v-btn {
+		&:hover {
+			background-color: transparent;
+
+			i {
+				color: rgb(var(--v-theme-accent));
+			}
+		}
+
+		#prev {
+			background-color: red;
+		}
+	}
+
+	.v-btn--active {
+		background-color: rgb(var(--v-theme-accent));
+	}
+
+	i {
+		color: rgb(var(--v-theme-inverted));
+	}
+}
+
+// Window
+.v-window__controls {
+	.v-window__left,
+	.v-window__right {
+		background-color: rgb(var(--v-theme-inverted));
+
+		&:hover {
+			background-color: rgb(var(--v-theme-accent));
+		}
+	}
 }
 </style>
