@@ -10,7 +10,7 @@ import "@mdi/font/css/materialdesignicons.min.css";
 import { aliases, mdi } from "vuetify/iconsets/mdi";
 
 // Themes
-import { themeLight, themeDark } from "../../themes/themes";
+import { light, dark } from "@themes/themes";
 
 // Components
 import {
@@ -45,6 +45,7 @@ import {
 	VIcon,
 	VRating,
 	VProgressLinear,
+	VTooltip,
 	VFooter,
 } from "vuetify/components";
 
@@ -58,10 +59,10 @@ const vuetify = createVuetify({
 		sets: { mdi },
 	},
 	theme: {
-		defaultTheme: "themeLight",
+		defaultTheme: "light",
 		themes: {
-			themeLight,
-			themeDark,
+			light,
+			dark,
 		},
 	},
 	components: {
@@ -96,6 +97,7 @@ const vuetify = createVuetify({
 		VIcon,
 		VRating,
 		VProgressLinear,
+		VTooltip,
 		VFooter,
 	},
 	directives: {

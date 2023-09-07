@@ -22,69 +22,69 @@ const pinia = createPinia();
 
 // Main store
 export const parentStore = defineStore("common-store", {
-    state: () => ({
-        drawer: false,
-        appBarHeight: AppBarDensity.DEFAULT,
-        isCanvasComponentActive: true,
-        isBeInspiredComponentActive: true,
-        isPortfolioComponentActive: true,
-        isReviewComponentActive: true,
-        isProcessOfEliminationActive: true,
-        isLatestNewsComponentActive: true,
-    }),
-    getters: {
-        getDrawer: (state): boolean => state.drawer,
-        getAppBarHeight: (state): number => state.appBarHeight,
-        getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
-        getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
-        getIsPortfolioComponentActive: (state): boolean => state.isPortfolioComponentActive,
-        getIsReviewComponentActive: (state): boolean => state.isReviewComponentActive,
-        getIsProcessOfEliminationActive: (state): boolean => state.isProcessOfEliminationActive,
-        getIsLatestNewsComponentActive: (state): boolean => state.isLatestNewsComponentActive,
-    },
-    actions: {
-        setDrawer(newValue: boolean): void {
-            this.drawer = newValue;
-        },
-        setAppBarHeight(newValue: number): void {
-            this.appBarHeight = newValue;
-        },
-        setIsCanvasComponentActive(newValue: any): void {
-            this.isCanvasComponentActive = newValue;
-        },
-        setIsBeInspiredComponentActive(newValue: any): void {
-            this.isBeInspiredComponentActive = newValue;
-        },
-        setIsPortfolioComponentActive(newValue: any): void {
-            this.isPortfolioComponentActive = newValue;
-        },
-        setIsReviewComponentActive(newValue: any): void {
-            this.isReviewComponentActive = newValue;
-        },
-        setIsProcessOfEliminationActive(newValue: any): void {
-            this.isProcessOfEliminationActive = newValue;
-        },
-        setIsLatestNewsComponentActive(newValue: any): void {
-            this.isLatestNewsComponentActive = newValue;
-        },
-    },
+	state: () => ({
+		drawer: false,
+		appBarHeight: AppBarDensity.DEFAULT,
+		isCanvasComponentActive: true,
+		isBeInspiredComponentActive: true,
+		isPortfolioComponentActive: true,
+		isReviewComponentActive: true,
+		isProcessOfEliminationActive: true,
+		isLatestNewsComponentActive: true,
+	}),
+	getters: {
+		getDrawer: (state): boolean => state.drawer,
+		getAppBarHeight: (state): number => state.appBarHeight,
+		getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
+		getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
+		getIsPortfolioComponentActive: (state): boolean => state.isPortfolioComponentActive,
+		getIsReviewComponentActive: (state): boolean => state.isReviewComponentActive,
+		getIsProcessOfEliminationActive: (state): boolean => state.isProcessOfEliminationActive,
+		getIsLatestNewsComponentActive: (state): boolean => state.isLatestNewsComponentActive,
+	},
+	actions: {
+		setDrawer(newValue: boolean): void {
+			this.drawer = newValue;
+		},
+		setAppBarHeight(newValue: number): void {
+			this.appBarHeight = newValue;
+		},
+		setIsCanvasComponentActive(newValue: any): void {
+			this.isCanvasComponentActive = newValue;
+		},
+		setIsBeInspiredComponentActive(newValue: any): void {
+			this.isBeInspiredComponentActive = newValue;
+		},
+		setIsPortfolioComponentActive(newValue: any): void {
+			this.isPortfolioComponentActive = newValue;
+		},
+		setIsReviewComponentActive(newValue: any): void {
+			this.isReviewComponentActive = newValue;
+		},
+		setIsProcessOfEliminationActive(newValue: any): void {
+			this.isProcessOfEliminationActive = newValue;
+		},
+		setIsLatestNewsComponentActive(newValue: any): void {
+			this.isLatestNewsComponentActive = newValue;
+		},
+	},
 });
 
 export const childStores = {
-    useHomeStore,
-    useKitchenStore,
-    useBathroomStore,
-    useNewbuildStore,
-    useExtensionStore,
-    useRefurbishmentStore,
-    useContactStore,
-    useAboutStore,
-    useNewsStore,
-    useErrorStore,
+	useHomeStore,
+	useKitchenStore,
+	useBathroomStore,
+	useNewbuildStore,
+	useExtensionStore,
+	useRefurbishmentStore,
+	useContactStore,
+	useAboutStore,
+	useNewsStore,
+	useErrorStore,
 };
 
 export const eventStores = {
-    useGlobalEventStore,
+	useGlobalEventStore,
 };
 
 export default pinia;
