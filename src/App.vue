@@ -32,13 +32,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-*,
-.v-card-title {
+// All
+* {
 	font-family: Arial, "Roboto", "Lato", sans-serif !important;
 }
 
+// Body
 .border {
 	border: 2px solid blue;
+}
+.transparent {
+	background: transparent;
 }
 
 // Buttons
