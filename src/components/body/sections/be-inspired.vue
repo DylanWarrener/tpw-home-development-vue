@@ -7,9 +7,9 @@
 						<dropdown-component :items="items" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
 					</v-col>
 				</v-row>
-				<v-row dense style="height: 450px">
-					<v-col cols="12" class="h-100">
-						<carousel-component class="h-100" :images="carouselImages"></carousel-component>
+				<v-row dense>
+					<v-col cols="12">
+						<carousel-component :images="carouselImages"></carousel-component>
 					</v-col>
 				</v-row>
 				<v-row dense>
