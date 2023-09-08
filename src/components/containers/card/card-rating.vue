@@ -1,5 +1,5 @@
 <template>
-	<card-component variant="outlined" max-width="300px" min-height="450px" max-height="600px" :btn-text="btnText">
+	<card-component variant="flat">
 		<template #title>
 			<h3 class="text-center text-uppercase">{{ title }}</h3>
 		</template>
@@ -12,28 +12,29 @@
 				<rating-component readonly color="accent" :model-value="rating"></rating-component>
 				<p>{{ totalRatings + ": " + ratings }}</p>
 			</div>
-
-			<v-list class="pa-0 d-flex flex-column-reverse" bg-color="transparent" density="compact">
-				<v-list-item v-for="(rating, i) in 5" :key="i">
-					<template #prepend>
-						<div class="d-flex justify-center align-center">
-							<span>{{ rating }}</span>
-							<v-icon icon="mdi-star" class="mx-3"></v-icon>
-						</div>
-					</template>
-					<progress-linear-component model-value="20" height="20"></progress-linear-component>
-					<template #append>
-						<div class="rating-values">
-							<span class="pa-2 d-flex justify-end"> {{ ratings / 5 }} </span>
-						</div>
-					</template>
-				</v-list-item>
-			</v-list>
 		</template>
 	</card-component>
 </template>
 
 <script lang="ts">
+/*
+<v-list class="pa-0 d-flex flex-column-reverse" bg-color="transparent" density="compact">
+	<v-list-item v-for="(rating, i) in 5" :key="i">
+		<template #prepend>
+			<div class="d-flex justify-center align-center">
+				<span>{{ rating }}</span>
+				<v-icon icon="mdi-star" class="mx-3"></v-icon>
+			</div>
+		</template>
+		<progress-linear-component model-value="20" height="20"></progress-linear-component>
+		<template #append>
+			<div class="rating-values">
+				<span class="pa-2 d-flex justify-end"> {{ ratings / 5 }} </span>
+			</div>
+		</template>
+	</v-list-item>
+</v-list>
+*/
 import { defineComponent } from "vue";
 
 // Components
