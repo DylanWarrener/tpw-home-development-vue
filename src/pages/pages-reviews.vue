@@ -1,20 +1,6 @@
 <template>
 	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
-		<template #content>
-			<section-component
-				id="reviews_section"
-				:title="sectionTitle"
-				:subtitle="sectionSubtitle"
-				title-class="border"
-				subtitle-class="border align-self-center"
-				content-class="border"
-				container-class="border"
-			>
-				<template #content>
-					<div>reviews content</div>
-				</template>
-			</section-component>
-		</template>
+		<template #content> Reviews here </template>
 	</page-component>
 </template>
 
@@ -27,6 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 import Section from "@components/containers/section/section.vue";
+//import Reviews from "@components/body/sections/reviews.vue";
 
 // Images
 import ReviewsPNG from "@assets/png/reviews/reviews.jpg";
@@ -42,6 +29,7 @@ export default defineComponent({
 	components: {
 		"page-component": Page,
 		"section-component": Section,
+		//"reviews-component": Reviews,
 	},
 	computed: {
 		// IMG's
@@ -60,10 +48,7 @@ export default defineComponent({
 			return this.$t("common.card.canvas.pages.reviews.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("common.section.pages.about.title");
-		},
-		sectionSubtitle(): string {
-			return this.$t("common.section.pages.about.subtitle");
+			return this.$t("common.section.pages.reviews.title");
 		},
 
 		// Events

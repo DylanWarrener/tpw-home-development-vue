@@ -80,6 +80,10 @@ const en = {
 					title: "Testing contact header",
 					subtitle: "Testing contact subheader",
 				},
+				reviews: {
+					title: "Latest Reviews",
+					subtitle: "",
+				},
 			},
 			beInspired: {
 				title: "Be Inspired",
