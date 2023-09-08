@@ -1,16 +1,30 @@
 <template>
-	<card-component variant="outlined" :title="defaultName" max-width="300px">
+	<card-component card-class="w-50 pa-2" variant="outlined" max-height="h-50">
 		<template #content>
-			<rating-component readonly color="accent" :model-value="rating"></rating-component>
-			<p class="text-start overflow-auto" style="min-height: 80px; max-height: 125px">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan pulvinar magna at tincidunt. Ut
-				efficitur aliquam tristique. Pellentesque eu leo non magna rutrum feugiat non nec lorem. Aenean sagittis eros
-				et laoreet mollis. Etiam convallis erat libero, sit amet pharetra diam pellentesque bibendum. Nullam nisi
-				neque, volutpat eu ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan pulvinar
-				magna at tincidunt. Ut efficitur aliquam tristique. Pellentesque eu leo non magna rutrum feugiat non nec
-				lorem. Aenean sagittis eros et laoreet mollis. Etiam convallis erat libero, sit amet pharetra diam
-				pellentesque bibendum. Nullam nisi neque, volutpat eu ante.
-			</p>
+			<v-container fluid class="d-flex flex-column" style="gap: 8px">
+				<v-row dense>
+					<h6 class="text-left text-h6 text-capitalize font-weight-bold">{{ subject }}</h6>
+				</v-row>
+				<v-row dense>
+					<p class="text-left text-body-1 font-italic">"{{ message }}"</p>
+				</v-row>
+				<v-row dense>
+					<p class="text-left text-body-2 font-weight-bold">{{ name }}</p>
+				</v-row>
+				<v-row dense>
+					<v-col cols="6" class="d-flex align-center justify-center overflow-hidden">
+						<rating-component readonly color="accent" density="compact" :model-value="rating"></rating-component>
+					</v-col>
+					<v-col cols="6" class="text-left d-flex align-center justify-center">
+						<p class="text-body-1">
+							Location: <b>{{ location }}</b>
+						</p>
+					</v-col>
+				</v-row>
+			</v-container>
+			<!--<p class="text-start overflow-auto" style="min-height: 80px; max-height: 125px">
+				{{ message }}
+			</p>-->
 		</template>
 	</card-component>
 </template>
@@ -49,12 +63,10 @@ export default defineComponent({
 		"rating-component": Rating,
 	},
 	props: {
-		name: { type: String, required: false },
-	},
-	computed: {
-		defaultName(): string {
-			return this.name ? this.name : "Name";
-		},
+		name: { type: String, required: false, default: "Name" },
+		subject: { type: String, required: true },
+		message: { type: String, required: true },
+		location: { type: String, required: false, default: "N/A" },
 	},
 	data() {
 		return {
