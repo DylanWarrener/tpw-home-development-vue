@@ -1,15 +1,21 @@
 <template>
-	<v-card class="pa-4 bg-background-secondary text-default" min-width="300px">
+	<v-card class="bg-background-secondary text-default" :class="cardClass" :style="cardStyle">
 		<v-card-item class="pa-4" v-if="title || subtitle">
 			<!-- Title -->
-			<v-card-title :tag="titleTag" style="line-height: 72px" class="pa-2 text-h2 text-uppercase text-wrap" :class="titleClass">
+			<v-card-title
+				style="line-height: 72px"
+				class="pa-2 text-h2 text-uppercase text-wrap"
+				:class="titleClass"
+				:tag="titleTag"
+				v-if="title"
+			>
 				<slot name="title">
 					{{ title }}
 				</slot>
 			</v-card-title>
 
 			<!-- Subtitle -->
-			<v-card-subtitle class="pa-2 text-subtitle-1" :class="subtitleClass">
+			<v-card-subtitle class="pa-2 text-subtitle-1" :class="subtitleClass" v-if="subtitle">
 				<slot name="subtitle">
 					<h3>{{ subtitle }}</h3>
 				</slot>
@@ -44,14 +50,15 @@ import { buildEventString } from "@utils/utils";
 export default defineComponent({
 	name: "card-component",
 	props: {
+		titleTag: { type: String, required: false, default: "h2" },
+		cardClass: { type: String, required: false },
+		titleClass: { type: String, required: false },
+		subtitleClass: { type: String, required: false },
+		contentClass: { type: String, required: false },
 		cardStyle: { type: String, required: false },
 		title: { type: String, required: false },
 		subtitle: { type: String, required: false },
 		btnText: { type: String, required: false },
-		titleClass: { type: String, required: false },
-		subtitleClass: { type: String, required: false },
-		contentClass: { type: String, required: false },
-		titleTag: { type: String, required: false, default: "h2" },
 	},
 	methods: {
 		scrollTo(event: PointerEvent): void {
