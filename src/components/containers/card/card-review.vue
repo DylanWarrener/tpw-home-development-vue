@@ -17,14 +17,11 @@
 					</v-col>
 					<v-col cols="6" class="text-left d-flex align-center justify-center">
 						<p class="text-body-1">
-							Location: <b>{{ location }}</b>
+							{{ locationPrefix }}: <b>{{ location }}</b>
 						</p>
 					</v-col>
 				</v-row>
 			</v-container>
-			<!--<p class="text-start overflow-auto" style="min-height: 80px; max-height: 125px">
-				{{ message }}
-			</p>-->
 		</template>
 	</card-component>
 </template>
@@ -67,6 +64,11 @@ export default defineComponent({
 		subject: { type: String, required: true },
 		message: { type: String, required: true },
 		location: { type: String, required: false, default: "N/A" },
+	},
+	computed: {
+		locationPrefix(): string {
+			return this.$t("common.card.reviews.location");
+		},
 	},
 	data() {
 		return {

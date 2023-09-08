@@ -60,6 +60,9 @@ const en = {
 					},
 				},
 			},
+			reviews: {
+				location: "Location",
+			},
 			btnText: btnCardText,
 		},
 		section: {
@@ -93,6 +96,7 @@ const en = {
 			reviews: {
 				title: "Reviews",
 				subtitle: "See what other people think.",
+				btnText: "See more reviews?",
 			},
 			processOfElimination: {
 				title: "Plan of Action",

@@ -3,8 +3,9 @@
 		<template #content>
 			<v-container fluid>
 				<v-row class="pa-4">
-					<v-col cols="4" class="border pa-0 d-flex align-center justify-center">
+					<v-col cols="4" class="border pa-0 d-flex flex-column align-center justify-center" style="gap: 16px">
 						<card-rating-component></card-rating-component>
+						<v-btn variant="outlined">{{ btnText }}</v-btn>
 					</v-col>
 					<v-col cols="8" class="border pa-4">
 						<carousel-component class="border" height="400px">
@@ -53,6 +54,9 @@ export default defineComponent({
 		},
 		subtitle(): string {
 			return this.$t("common.section.reviews.subtitle");
+		},
+		btnText(): string {
+			return this.$t("common.section.reviews.btnText");
 		},
 	},
 	data() {
