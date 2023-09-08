@@ -96,10 +96,6 @@ export default defineComponent({
 				color: rgb(var(--v-theme-accent));
 			}
 		}
-
-		#prev {
-			background-color: red;
-		}
 	}
 
 	.v-btn--active {
