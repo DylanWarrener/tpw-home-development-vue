@@ -10,6 +10,7 @@ import useRefurbishmentStore from "@stores/stores-refurbishment";
 import useContactStore from "@stores/stores-contact";
 import useAboutStore from "@stores/stores-about";
 import useNewsStore from "@stores/stores-news";
+import useReviewsStore from "@stores/stores-reviews";
 import useErrorStore from "@stores/stores-error";
 
 // Event stores
@@ -80,6 +81,7 @@ export const childStores = {
 	useContactStore,
 	useAboutStore,
 	useNewsStore,
+	useReviewsStore,
 	useErrorStore,
 };
 

@@ -2,7 +2,8 @@
 import { ICommonPageStringTextualData } from "../../interfaces/common/page/interface-common-page";
 
 // Card
-export const btnCardText = "Be Inspired?";
+export const btnCardBeInspiredText = "Be Inspired?";
+export const btnCardReviewsText = "See all reviews?";
 
 // Page
 export const pageNames: ICommonPageStringTextualData = {
@@ -15,6 +16,7 @@ export const pageNames: ICommonPageStringTextualData = {
 	contact: "Contact",
 	about: "About",
 	news: "News",
+	reviews: "Reviews",
 };
 
 // Carousel

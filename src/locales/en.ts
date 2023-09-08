@@ -2,7 +2,7 @@
 //import ITextualData from "../interfaces/common/locale/interface-locale";
 
 // Common page name data
-import { btnCardText, pageNames } from "../utils/text/utils-text";
+import { btnCardBeInspiredText, btnCardReviewsText, pageNames } from "../utils/text/utils-text";
 
 const en = {
 	common: {
@@ -21,32 +21,32 @@ const en = {
 					home: {
 						title: "Create Your Tomorrow",
 						subtitle: "Assemble your dream home today with our team of experts.",
-						btnText: btnCardText,
+						btnText: btnCardBeInspiredText,
 					},
 					kitchen: {
 						title: pageNames.kitchen,
 						subtitle: "Hash your recipies with our interactive entities.",
-						btnText: btnCardText,
+						btnText: btnCardBeInspiredText,
 					},
 					bathroom: {
 						title: pageNames.bathroom,
 						subtitle: "Own your restroom with our pristine collections.",
-						btnText: btnCardText,
+						btnText: btnCardBeInspiredText,
 					},
 					newbuild: {
 						title: pageNames.newbuild,
 						subtitle: "Structure new homes with our hasty reinforced foundations.",
-						btnText: btnCardText,
+						btnText: btnCardBeInspiredText,
 					},
 					extension: {
 						title: pageNames.extension,
 						subtitle: "Mammoth your space with our innovative styles.",
-						btnText: btnCardText,
+						btnText: btnCardBeInspiredText,
 					},
 					refurbishment: {
 						title: pageNames.refurbishment,
 						subtitle: "Enlighten and re-establish your home with our ingenuious designs.",
-						btnText: btnCardText,
+						btnText: btnCardBeInspiredText,
 					},
 					contact: {
 						title: `${pageNames.contact} Us`,
@@ -58,12 +58,16 @@ const en = {
 						subtitle: "Current solutions for modern needs: your neighborhood electricians",
 						btnText: "See Team?",
 					},
+					reviews: {
+						title: `Our ${pageNames.reviews}`,
+						subtitle: "Discover home renovation gems: insights from real homeowners",
+						btnText: btnCardReviewsText,
+					},
 				},
 			},
 			reviews: {
 				location: "Location",
 			},
-			btnText: btnCardText,
 		},
 		section: {
 			pages: {
@@ -96,7 +100,7 @@ const en = {
 			reviews: {
 				title: "Reviews",
 				subtitle: "See what other people think.",
-				btnText: "See more reviews?",
+				btnText: btnCardReviewsText,
 			},
 			processOfElimination: {
 				title: "Plan of Action",
@@ -161,6 +165,7 @@ const en = {
 					contact: "/contact",
 					about: "/about",
 					news: "/news",
+					reviews: "/reviews",
 				},
 				icon: {
 					home: "mdi-home",
@@ -172,6 +177,7 @@ const en = {
 					contact: "mdi-email-fast",
 					about: "mdi-information",
 					news: "mdi-newspaper",
+					reviews: "mdi-message-draw",
 				},
 			},
 		},
