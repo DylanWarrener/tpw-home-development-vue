@@ -6,10 +6,25 @@ export default interface IHeaderTextualData {
 	navigation: IHeaderNavigationTextualData;
 }
 
-// Pinia state interfaces
 export interface IHeaderState {
 	drawer: boolean;
+	icons: IAppBarIcons;
 }
 
-// Vue local data interfaces
 export interface IHeaderData {}
+
+export interface IAppBarIcons {
+	menu: IAppBarIconsInfo;
+	search: IAppBarIconsInfo;
+	theme: IAppBarIconsInfo;
+	newAccount: IAppBarIconsInfo;
+	account: IAppBarIconsInfo;
+	settings: IAppBarIconsInfo;
+}
+
+export interface IAppBarIconsInfo {
+	name: string;
+	icon: string;
+	tooltip: string;
+	show: boolean;
+}

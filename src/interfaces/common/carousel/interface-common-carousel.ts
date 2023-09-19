@@ -14,6 +14,6 @@ export interface ICommonCarouselDropdownItemsTextualData {
 
 // Vue data
 export interface ICommonCarouselImagesData {
-	id: number;
 	src: string;
+	alt: string;
 }

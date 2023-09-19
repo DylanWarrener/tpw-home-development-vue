@@ -11,16 +11,16 @@ import { defineComponent } from "vue";
 import Section from "@components/containers/section/section.vue";
 
 export default defineComponent({
-	name: "latest-news-component",
+	name: "news-component",
 	components: {
 		"section-component": Section,
 	},
 	computed: {
 		title(): string {
-			return this.$t("common.section.latestNews.title");
+			return this.$t("$vuetify.sections.news.title");
 		},
 		subtitle(): string {
-			return this.$t("common.section.latestNews.subtitle");
+			return this.$t("$vuetify.sections.news.subtitle");
 		},
 	},
 });

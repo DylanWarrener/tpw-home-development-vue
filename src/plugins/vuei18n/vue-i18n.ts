@@ -1,11 +1,13 @@
 import { createI18n } from "vue-i18n";
 
 // Localisation
-import en from "../../locales/en";
+import messages from "@locales/locales";
 
 const i18n = createI18n({
+	legacy: false,
 	locale: "en",
-	messages: { en },
+	fallbackLocale: "en",
+	messages,
 });
 
 export default i18n;

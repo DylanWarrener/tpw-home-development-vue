@@ -1,0 +1,13 @@
+@use "./spacing";
+
+/* X AXIS */
+$translate_x_card_about: translateX(spacing.$spacing_card_about);
+
+/* Y AXIS */
+$translate_y_card_about: translateY(spacing.$spacing_card_about_hover);
+
+/* Z AXIS */
+
+/* ROTATE */
+$rotate_btn_icon: rotate(90deg);
+$rotate_btn_nav_dropdown: rotate(180deg);

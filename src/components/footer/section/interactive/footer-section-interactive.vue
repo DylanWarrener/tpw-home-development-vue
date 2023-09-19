@@ -1,55 +1,53 @@
 <template>
 	<v-row no-gutters>
 		<!-- Logo stuff -->
-		<v-col class="pa-4">
-			<h3 class="pb-4 text-default text-uppercase text-center">Logo here</h3>
-			<p><i>Some text that display information about TPW Home Developments.</i></p>
-			<div style="max-width: 300px">
+		<v-col class="pa-4 d-flex flex-column justify-space-between align-center">
+			<svg-component width="100%" height="100px" :svg-content="firstColData.src" @svg-clicked="navigateTo"></svg-component>
+			<p>{{ firstColData.message }}</p>
+			<div class="w-75">
 				<v-text-field
 					clearable
-					label="Email address"
-					placeholder="person@gmail.com"
+					:label="firstColData.input.label"
+					:placeholder="firstColData.input.placeholder"
 					variant="underlined"
 				></v-text-field>
-				<v-btn class="w-100">Subscribe</v-btn>
+				<v-btn class="w-100" variant="outlined">{{ firstColData.btnText }}</v-btn>
 			</div>
 		</v-col>
+
 		<v-divider vertical></v-divider>
 
 		<!-- Navigation stuff -->
 		<v-col class="pa-4" cols="5">
-			<v-row no-gutters>
-				<v-col class="">
-					<h3 class="text-default text-uppercase text-center">Pages</h3>
-					<v-list
-						density="compact"
-						base-color="default"
-						bg-color="primary"
-						:items="pageItems"
-					></v-list>
+			<v-row no-gutters class="h-100">
+				<v-col>
+					<h4 class="text-center">{{ secondColData.pageNavItems.title }}</h4>
+					<v-list density="compact" :items="secondColData.pageNavItems.items"></v-list>
 				</v-col>
-				<v-col class="">
-					<h3 class="text-default text-uppercase text-center">Information</h3>
-					<v-list class="bg-primary" density="compact" :items="informationItems"></v-list>
+				<v-col>
+					<h4 class="text-center">{{ secondColData.infoNavItems.title }}</h4>
+					<v-list density="compact" :items="secondColData.infoNavItems.items"></v-list>
 				</v-col>
 			</v-row>
 		</v-col>
+
 		<v-divider vertical></v-divider>
 
 		<!-- Get in touch stuff -->
 		<v-col class="pa-4">
-			<h3 class="pb-4 text-default text-uppercase text-center">Get in Touch</h3>
+			<h4 class="pb-2 text-center">{{ thirdColData.title }}</h4>
 			<!-- Address -->
 			<v-row no-gutters>
 				<v-col class="d-flex justify-center align-center" cols="2">
 					<v-icon icon="mdi-map-marker-radius"></v-icon>
 				</v-col>
 				<v-col>
-					<p>41 Snowley Park, Whittlesey</p>
-					<p>Peterborough, Cambridgeshire</p>
-					<p>PE7 1JQ</p>
+					<p>{{ thirdColData.addressLine1 }}</p>
+					<p>{{ thirdColData.addressLine2 }}</p>
+					<p>{{ thirdColData.addressLine3 }}</p>
 				</v-col>
 			</v-row>
+
 			<v-divider class="my-4"></v-divider>
 
 			<!-- Email -->
@@ -58,9 +56,10 @@
 					<v-icon icon="mdi-email-fast"></v-icon>
 				</v-col>
 				<v-col>
-					<p>somepersonemail@gmail.com</p>
+					<p>{{ thirdColData.email }}</p>
 				</v-col>
 			</v-row>
+
 			<v-divider class="my-4"></v-divider>
 
 			<!-- Mobile -->
@@ -69,38 +68,25 @@
 					<v-icon icon="mdi-phone"></v-icon>
 				</v-col>
 				<v-col>
-					<p>(+44) 07464 599 396</p>
+					<p>{{ thirdColData.number }}</p>
 				</v-col>
 			</v-row>
+
 			<v-divider class="my-4"></v-divider>
 
 			<!-- Socials -->
 			<v-row no-gutters>
-				<v-col class="d-flex justify-center align-center" cols="4">
-					<p>Follow Us:</p>
-				</v-col>
-				<v-col class="d-flex flex-row" style="gap: 16px">
-					<v-btn icon density="comfortable">
-						<v-icon>
-							<template #default>
-								<svg-component to="/" :svg-content="facebookSvg"></svg-component>
-							</template>
-						</v-icon>
-					</v-btn>
-					<v-btn icon density="comfortable">
-						<v-icon>
-							<template #default>
-								<svg-component to="/" :svg-content="facebookSvg"></svg-component>
-							</template>
-						</v-icon>
-					</v-btn>
-					<v-btn icon density="comfortable">
-						<v-icon>
-							<template #default>
-								<svg-component to="/" :svg-content="facebookSvg"></svg-component>
-							</template>
-						</v-icon>
-					</v-btn>
+				<p class="py-4 w-100 text-center">{{ thirdColData.socialTitle }}</p>
+				<v-col class="d-flex justify-space-evenly">
+					<template v-for="social in thirdColData.socials">
+						<v-btn icon variant="flat" density="comfortable">
+							<v-icon>
+								<template #default>
+									<svg-component :svg-content="social.icon"></svg-component>
+								</template>
+							</v-icon>
+						</v-btn>
+					</template>
 				</v-col>
 			</v-row>
 		</v-col>
@@ -108,127 +94,6 @@
 </template>
 
 <script lang="ts">
-/*
-<v-col cols="12">
-			<v-row no-gutters>
-				<v-col cols="2">
-					<h3 class="text-default border-bottom">Logo here</h3>
-				</v-col>
-				<v-col>
-					<h3 class="text-default border-bottom">Navigation</h3>
-				</v-col>
-				<v-col>
-					<h3 class="text-default border-bottom">Get in Touch</h3>
-				</v-col>
-			</v-row>
-		</v-col>
-
-		<v-col cols="12">
-			<v-row no-gutters>
-				<!-- Col 1 -->
-				<v-col class="pa-4" cols="2">
-					<p class="pb-4"><i>Some text that display information about TPW Home Developments.</i></p>
-					<div style="max-width: 300px">
-						<v-text-field
-							clearable
-							label="Email address"
-							placeholder="person@gmail.com"
-							variant="underlined"
-						></v-text-field>
-						<v-btn class="w-100">Subscribe</v-btn>
-					</div>
-				</v-col>
-
-				<!-- Col 2 -->
-				<v-col class="pa-4">
-					<v-row no-gutters>
-						<v-col>
-							<h5 class="text-default">Pages</h5>
-							<v-list
-								density="compact"
-								base-color="default"
-								bg-color="primary"
-								:items="pageItems"
-							></v-list>
-						</v-col>
-						<v-col>
-							<h5 class="text-default">Information</h5>
-							<v-list
-								class="bg-primary"
-								density="compact"
-								:items="informationItems"
-							></v-list>
-						</v-col>
-					</v-row>
-				</v-col>
-
-				<!-- Col 3 -->
-				<v-col class="pa-4">
-					<v-row no-gutters>
-						<v-col class="d-flex" cols="2">
-							<v-icon icon="mdi-email-fast"></v-icon>
-						</v-col>
-						<v-col>
-							<p>41 Snowley Park, Whittlesey</p>
-							<p>Peterborough</p>
-							<p>PE7 1JQ</p>
-						</v-col>
-					</v-row>
-					<v-divider class="my-4" style="max-width: 50%"></v-divider>
-					<v-row no-gutters>
-						<v-col class="d-flex" cols="2">
-							<v-icon icon="mdi-map-marker-radius"></v-icon>
-						</v-col>
-						<v-col>
-							<p>username@gmail.com</p>
-						</v-col>
-					</v-row>
-					<v-divider class="my-4" style="max-width: 50%"></v-divider>
-					<v-row no-gutters>
-						<v-col class="d-flex" cols="2">
-							<v-icon icon="mdi-phone"></v-icon>
-						</v-col>
-						<v-col>
-							<p>07464 599 396</p>
-						</v-col>
-					</v-row>
-					<v-divider class="my-4" style="max-width: 50%"></v-divider>
-					<v-row no-gutters>
-						<v-col class="d-flex align-center" cols="5">
-							<h5 class="pr-4 text-default">Follow us:</h5>
-						</v-col>
-						<v-col>
-							<v-btn icon density="comfortable">
-								<v-icon>
-									<template #default>
-										<svg-component :svg-content="facebookSvg"></svg-component>
-									</template>
-								</v-icon>
-							</v-btn>
-						</v-col>
-						<v-col>
-							<v-btn icon density="comfortable">
-								<v-icon>
-									<template #default>
-										<svg-component :svg-content="facebookSvg"></svg-component>
-									</template>
-								</v-icon>
-							</v-btn>
-						</v-col>
-						<v-col>
-							<v-btn icon density="comfortable">
-								<v-icon>
-									<template #default>
-										<svg-component :svg-content="facebookSvg"></svg-component>
-									</template>
-								</v-icon>
-							</v-btn>
-						</v-col>
-					</v-row>
-				</v-col>
-			</v-row>
-		</v-col>
-*/
 import { defineComponent } from "vue";
 
 // Component
@@ -238,6 +103,12 @@ import FooterSectionInteractiveDefaultThird from "@components/footer/section/int
 import SVG from "@components/containers/svg/svg.vue";
 import Facebook from "@assets/svg/socials/facebook.svg?raw";
 
+// Interfaces
+import { IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/footer/interface-footer";
+
+// Utils
+import { infoPageLinks } from "@utils/text/utils-text";
+
 export default defineComponent({
 	name: "footer-section-interactive-component",
 	components: {
@@ -246,50 +117,27 @@ export default defineComponent({
 		"footer-section-interactive-default-third-component": FooterSectionInteractiveDefaultThird,
 		"svg-component": SVG,
 	},
+	props: {
+		firstColData: { type: Object as () => IFooterFirstColData, required: true },
+		secondColData: { type: Object as () => IFooterSecondColData, required: true },
+		thirdColData: { type: Object as () => IFooterThirdColData, required: true },
+		message: { type: String, required: false },
+	},
 	computed: {
+		// Links
+		home(): string {
+			return this.$t("$vuetify.pages.home.link");
+		},
+
+		// Icons
 		facebookSvg() {
 			return Facebook;
 		},
 	},
-	data() {
-		return {
-			pageItems: [
-				{
-					title: "Kitchens",
-					value: 1,
-				},
-				{
-					title: "Bathrooms",
-					value: 2,
-				},
-				{
-					title: "Newbuilds",
-					value: 3,
-				},
-				{
-					title: "Extensions",
-					value: 4,
-				},
-				{
-					title: "Refurbishments",
-					value: 5,
-				},
-			],
-			informationItems: [
-				{
-					title: "Home",
-					value: 1,
-				},
-				{
-					title: "About",
-					value: 2,
-				},
-				{
-					title: "Contact",
-					value: 3,
-				},
-			],
-		};
+	methods: {
+		navigateTo(): void {
+			this.$router.push(infoPageLinks.home);
+		},
 	},
 });
 </script>

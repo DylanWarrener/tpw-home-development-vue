@@ -1,24 +1,22 @@
 <template>
-	<section style="gap: 16px" class="pa-8 d-flex flex-column text-default text-center" :id="id" :class="containerClass">
+	<section style="gap: 16px" class="d-flex flex-column text-default text-center container" :id="id" :class="containerClass">
 		<!-- Title slot -->
 		<div :class="titleClass">
 			<slot name="title">
-				<h3 class="text-h3 text-accent">{{ title }}</h3>
+				<h2 class="text-accent">{{ title }}</h2>
 			</slot>
 		</div>
 
 		<!-- Subtitle slot -->
-		<div class="w-100 align-self-center" :class="subtitleClass">
+		<div class="align-self-center" :class="subtitleClass">
 			<slot name="subtitle">
-				<div class="text-subtitle-1">
-					<i>{{ subtitle }}</i>
-				</div>
+				<h3>{{ subtitle }}</h3>
 			</slot>
 		</div>
 
 		<!-- Content slot -->
-		<div style="gap: 16px" class="border d-flex flex-row flex-wrap justify-center" :class="contentClass">
-			<slot name="content"></slot>
+		<div style="gap: 16px" class="border pa-4 d-flex flex-row flex-wrap justify-center" :class="contentClass">
+			<slot name="content"></slot>do
 		</div>
 	</section>
 </template>

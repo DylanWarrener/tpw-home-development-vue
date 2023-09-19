@@ -1,21 +1,17 @@
 <template>
-	<v-card class="bg-background-secondary text-default" :class="cardClass" :style="cardStyle">
+	<v-card class="text-default" :class="cardClass" :style="cardStyle">
+		<slot name="img"></slot>
+		<slot name="other"></slot>
 		<v-card-item class="pa-4" v-if="title || subtitle">
 			<!-- Title -->
-			<v-card-title
-				style="line-height: 72px"
-				class="pa-2 text-h2 text-uppercase text-wrap"
-				:class="titleClass"
-				:tag="titleTag"
-				v-if="title"
-			>
+			<v-card-title class="pa-2 text-wrap" :class="titleClass">
 				<slot name="title">
-					{{ title }}
+					<h1>{{ title }}</h1>
 				</slot>
 			</v-card-title>
 
 			<!-- Subtitle -->
-			<v-card-subtitle class="pa-2 text-subtitle-1" :class="subtitleClass" v-if="subtitle">
+			<v-card-subtitle class="pa-2 text-wrap" :class="subtitleClass">
 				<slot name="subtitle">
 					<h3>{{ subtitle }}</h3>
 				</slot>
@@ -23,14 +19,16 @@
 		</v-card-item>
 
 		<!-- Content -->
-		<v-card-text class="pa-0" :class="contentClass">
+		<v-card-text class="pa-0" :class="contentClass" v-if="text">
 			<slot name="content"></slot>
 		</v-card-text>
 
 		<!-- Actions -->
 		<v-card-actions class="pa-4" v-if="btnText">
 			<v-spacer></v-spacer>
-			<v-btn variant="outlined" :text="btnText" @click="scrollTo"></v-btn>
+			<slot name="actions">
+				<v-btn variant="outlined" :text="btnText" @click="scrollTo"></v-btn>
+			</slot>
 		</v-card-actions>
 	</v-card>
 </template>
@@ -50,14 +48,14 @@ import { buildEventString } from "@utils/utils";
 export default defineComponent({
 	name: "card-component",
 	props: {
-		titleTag: { type: String, required: false, default: "h2" },
-		cardClass: { type: String, required: false },
+		cardClass: { type: String, required: false, default: "bg-background-secondary" },
 		titleClass: { type: String, required: false },
 		subtitleClass: { type: String, required: false },
 		contentClass: { type: String, required: false },
 		cardStyle: { type: String, required: false },
 		title: { type: String, required: false },
 		subtitle: { type: String, required: false },
+		text: { type: String, required: false },
 		btnText: { type: String, required: false },
 	},
 	methods: {

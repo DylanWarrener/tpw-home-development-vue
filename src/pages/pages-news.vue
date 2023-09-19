@@ -1,7 +1,13 @@
 <template>
-    <page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
-        News
-    </page-component>
+	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
+		<template #content>
+			<section-component id="news_section" :title="sectionTitle" :subtitle="sectionSubtitle">
+				<template #content>
+					<div>News content</div>
+				</template>
+			</section-component>
+		</template>
+	</page-component>
 </template>
 
 <script lang="ts">
@@ -12,10 +18,10 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
 import Page from "@components/containers/page/page.vue";
-//import Section from "@components/containers/section/section.vue";
+import Section from "@components/containers/section/section.vue";
 
 // Images
-import NewsPNG from "@assets/png/contact/contact.jpg"; // Change this img
+import NewsPNG from "@assets/png/about/about.jpg";
 
 // Enums
 import { EventNames } from "@enums/events";
@@ -24,70 +30,73 @@ import { EventNames } from "@enums/events";
 import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
 
 export default defineComponent({
-    name: "news-page-component",
-    components: {
-        "page-component": Page,
-        //"section-component": Section,
-    },
-    computed: {
-        src(): string {
-            return NewsPNG;
-        },
-        canvasTitle(): string {
-            return this.$t("common.card.canvas.pages.home.title");
-        },
-        canvasSubtitle(): string {
-            return this.$t("common.card.canvas.pages.home.subtitle");
-        },
-        canvasBtnText(): string {
-            return this.$t("common.card.canvas.pages.home.btnText");
-        },
-        sectionTitle(): string {
-            return this.$t("common.section.pages.contact.title");
-        },
-        sectionSubtitle(): string {
-            return this.$t("common.section.pages.contact.subtitle");
-        },
+	name: "about-page-component",
+	components: {
+		"page-component": Page,
+		"section-component": Section,
+	},
+	computed: {
+		// IMGs
+		src(): string {
+			return NewsPNG;
+		},
 
-        // Events
-        recievedEventData(): string {
-            return this.storeEvent.getEmittedEvent;
-        },
-    },
-    watch: {
-        recievedEventData(newValue: string) {
-            const desiredRouteName: string = this.$t("common.pages.name.news");
-            const eventID: number = EventNames.CARD_BTN_CLICKED;
-            const pageName: any = this.$route.name!;
-            const appBarHeight: number = this.storeCommon.getAppBarHeight;
-            const chosenElement: any = document.getElementById("news_section");
+		// Text
+		canvasTitle(): string {
+			return this.$t("$vuetify.card.canvas.pages.news.title");
+		},
+		canvasSubtitle(): string {
+			return this.$t("$vuetify.card.canvas.pages.news.subtitle");
+		},
+		canvasBtnText(): string {
+			return this.$t("$vuetify.card.canvas.pages.news.btnText");
+		},
+		sectionTitle(): string {
+			return this.$t("$vuetify.pages.news.title");
+		},
+		sectionSubtitle(): string {
+			return this.$t("$vuetify.pages.news.subtitle");
+		},
 
-            const eventStrOne: string = newValue;
-            const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+		// Events
+		recievedEventData(): string {
+			return this.storeEvent.getEmittedEvent;
+		},
+	},
+	watch: {
+		recievedEventData(newValue: string) {
+			const desiredRouteName: string = this.$t("$vuetify.pages.news.name");
+			const eventID: number = EventNames.CARD_BTN_CLICKED;
+			const pageName = this.$route.name!;
+			const appBarHeight: number = this.storeCommon.getAppBarHeight;
+			const chosenElement: any = document.getElementById("news_section");
 
-            if (newValue && this.$route.name === desiredRouteName) {
-                const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+			const eventStrOne: string = newValue;
+			const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
 
-                if (areEventsEqual) {
-                    scrollToElement(chosenElement!.offsetTop - appBarHeight);
-                }
-                this.storeEvent.setEmittedEvent("");
-            }
-        },
-    },
-    setup() {
-        const storeCommon = parentStore();
-        const storeNews = childStores.useNewsStore();
-        const storeEvent = eventStores.useGlobalEventStore();
-        return { storeCommon, storeNews, storeEvent };
-    },
-    created(): void {
-        this.storeCommon.setIsCanvasComponentActive(true);
-        this.storeCommon.setIsBeInspiredComponentActive(false);
-        this.storeCommon.setIsPortfolioComponentActive(false);
-        this.storeCommon.setIsReviewComponentActive(false);
-        this.storeCommon.setIsProcessOfEliminationActive(false);
-        this.storeCommon.setIsLatestNewsComponentActive(true);
-    },
+			if (newValue && pageName === desiredRouteName) {
+				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+
+				if (areEventsEqual) {
+					scrollToElement(chosenElement!.offsetTop - appBarHeight);
+				}
+				this.storeEvent.setEmittedEvent("");
+			}
+		},
+	},
+	setup() {
+		const storeCommon = parentStore();
+		const storeNews = childStores.useNewsStore();
+		const storeEvent = eventStores.useGlobalEventStore();
+		return { storeCommon, storeNews, storeEvent };
+	},
+	created(): void {
+		this.storeCommon.setIsCanvasComponentActive(true);
+		this.storeCommon.setIsBeInspiredComponentActive(false);
+		this.storeCommon.setIsPortfolioComponentActive(false);
+		this.storeCommon.setIsProcessOfEliminationActive(false);
+		this.storeCommon.setIsNewsComponentActive(false);
+		this.storeCommon.setIsReviewsComponentActive(false);
+	},
 });
 </script>

@@ -1,6 +1,10 @@
 import { createPinia, defineStore } from "pinia";
 
+// Enums
+import { AppBarDensity } from "@enums/sizing";
+
 // Page stores
+import useHeaderStore from "@stores/stores-header";
 import useHomeStore from "@stores/stores-home";
 import useKitchenStore from "@stores/stores-kitchen";
 import useBathroomStore from "@stores/stores-bathroom";
@@ -11,13 +15,11 @@ import useContactStore from "@stores/stores-contact";
 import useAboutStore from "@stores/stores-about";
 import useNewsStore from "@stores/stores-news";
 import useReviewsStore from "@stores/stores-reveiws";
+import useFooterStore from "@stores/stores-footer";
 import useErrorStore from "@stores/stores-error";
 
 // Event stores
 import useGlobalEventStore from "@stores/stores-event";
-
-// Enums
-import { AppBarDensity } from "@enums/sizing";
 
 const pinia = createPinia();
 
@@ -29,9 +31,9 @@ export const parentStore = defineStore("common-store", {
 		isCanvasComponentActive: true,
 		isBeInspiredComponentActive: true,
 		isPortfolioComponentActive: true,
-		isReviewComponentActive: true,
 		isProcessOfEliminationActive: true,
-		isLatestNewsComponentActive: true,
+		isNewsComponentActive: true,
+		isReviewsComponentActive: true,
 	}),
 	getters: {
 		getDrawer: (state): boolean => state.drawer,
@@ -39,9 +41,9 @@ export const parentStore = defineStore("common-store", {
 		getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
 		getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
 		getIsPortfolioComponentActive: (state): boolean => state.isPortfolioComponentActive,
-		getIsReviewComponentActive: (state): boolean => state.isReviewComponentActive,
 		getIsProcessOfEliminationActive: (state): boolean => state.isProcessOfEliminationActive,
-		getIsLatestNewsComponentActive: (state): boolean => state.isLatestNewsComponentActive,
+		getIsNewsComponentActive: (state): boolean => state.isNewsComponentActive,
+		getIsReviewsComponentActive: (state): boolean => state.isReviewsComponentActive,
 	},
 	actions: {
 		setDrawer(newValue: boolean): void {
@@ -59,19 +61,20 @@ export const parentStore = defineStore("common-store", {
 		setIsPortfolioComponentActive(newValue: any): void {
 			this.isPortfolioComponentActive = newValue;
 		},
-		setIsReviewComponentActive(newValue: any): void {
-			this.isReviewComponentActive = newValue;
-		},
 		setIsProcessOfEliminationActive(newValue: any): void {
 			this.isProcessOfEliminationActive = newValue;
 		},
-		setIsLatestNewsComponentActive(newValue: any): void {
-			this.isLatestNewsComponentActive = newValue;
+		setIsNewsComponentActive(newValue: any): void {
+			this.isNewsComponentActive = newValue;
+		},
+		setIsReviewsComponentActive(newValue: any): void {
+			this.isReviewsComponentActive = newValue;
 		},
 	},
 });
 
 export const childStores = {
+	useHeaderStore,
 	useHomeStore,
 	useKitchenStore,
 	useBathroomStore,
@@ -82,6 +85,7 @@ export const childStores = {
 	useAboutStore,
 	useNewsStore,
 	useReviewsStore,
+	useFooterStore,
 	useErrorStore,
 };
 

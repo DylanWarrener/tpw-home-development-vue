@@ -28,10 +28,10 @@ export default defineComponent({
 	},
 	computed: {
 		title(): string {
-			return this.$t("common.section.portfolio.title");
+			return this.$t("$vuetify.sections.portfolio.title");
 		},
 		subtitle(): string {
-			return this.$t("common.section.portfolio.subtitle");
+			return this.$t("$vuetify.sections.portfolio.subtitle");
 		},
 	},
 });

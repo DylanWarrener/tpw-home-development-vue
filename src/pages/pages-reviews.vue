@@ -1,6 +1,20 @@
 <template>
 	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
-		<template #content> Reviews here </template>
+		<template #content>
+			<section-component id="reviews_section" :title="sectionTitle" :subtitle="sectionSubtitle">
+				<template #content>
+					<div>
+						<p>Body text</p>
+						<h1>Promotional titles</h1>
+						<h2>Title</h2>
+						<h3>Subtitle</h3>
+						<h4>Section title</h4>
+						<h5>Subsection titles</h5>
+						<h6>Quotes / info</h6>
+					</div>
+				</template>
+			</section-component>
+		</template>
 	</page-component>
 </template>
 
@@ -39,16 +53,19 @@ export default defineComponent({
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("common.card.canvas.pages.reviews.title");
+			return this.$t("$vuetify.card.canvas.pages.reviews.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("common.card.canvas.pages.reviews.subtitle");
+			return this.$t("$vuetify.card.canvas.pages.reviews.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("common.card.canvas.pages.reviews.btnText");
+			return this.$t("$vuetify.card.canvas.pages.reviews.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("common.section.pages.reviews.title");
+			return this.$t("$vuetify.pages.reviews.title");
+		},
+		sectionSubtitle(): string {
+			return this.$t("$vuetify.pages.reviews.subtitle");
 		},
 
 		// Events
@@ -58,16 +75,16 @@ export default defineComponent({
 	},
 	watch: {
 		recievedEventData(newValue: string) {
-			const desiredRouteName: string = this.$t("common.pages.name.about");
+			const desiredRouteName: string = this.$t("$vuetify.pages.reviews.name");
 			const eventID: number = EventNames.CARD_BTN_CLICKED;
 			const pageName = this.$route.name!;
 			const appBarHeight: number = this.storeCommon.getAppBarHeight;
-			const chosenElement: any = document.getElementById("about_section");
+			const chosenElement: any = document.getElementById("reviews_section");
 
 			const eventStrOne: string = newValue;
 			const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
 
-			if (newValue && this.$route.name === desiredRouteName) {
+			if (newValue && pageName === desiredRouteName) {
 				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
 
 				if (areEventsEqual) {
@@ -87,9 +104,9 @@ export default defineComponent({
 		this.storeCommon.setIsCanvasComponentActive(true);
 		this.storeCommon.setIsBeInspiredComponentActive(false);
 		this.storeCommon.setIsPortfolioComponentActive(false);
-		this.storeCommon.setIsReviewComponentActive(false);
 		this.storeCommon.setIsProcessOfEliminationActive(false);
-		this.storeCommon.setIsLatestNewsComponentActive(false);
+		this.storeCommon.setIsNewsComponentActive(false);
+		this.storeCommon.setIsReviewsComponentActive(false);
 	},
 });
 </script>

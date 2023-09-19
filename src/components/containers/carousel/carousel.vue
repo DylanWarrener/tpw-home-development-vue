@@ -1,7 +1,7 @@
 <template>
 	<v-carousel cycle show-arrows="hover" color="inverted" progress="accent" :height="height">
 		<slot name="content">
-			<v-carousel-item cover v-for="img in images" :key="img.id" :src="img.src"></v-carousel-item>
+			<v-carousel-item cover :key="index" :src="img.src" :alt="img.alt" v-for="(img, index) in images"></v-carousel-item>
 		</slot>
 	</v-carousel>
 </template>
@@ -10,7 +10,7 @@
 import { defineComponent, PropType } from "vue";
 
 // Interfaces
-import { ICommonCarouselImagesData } from "../../../interfaces/common/carousel/interface-common-carousel";
+import { ICommonCarouselImagesData } from "@interfaces/common/carousel/interface-common-carousel";
 
 export default defineComponent({
 	name: "carousel-component",

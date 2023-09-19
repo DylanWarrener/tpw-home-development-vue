@@ -18,10 +18,7 @@
 							<template #title>
 								<h2>{{ styleTitle }}</h2>
 							</template>
-							<template #content>
-								Style cards go here
-								<!--<card-style-component></card-style-component>-->
-							</template>
+							<template #content> Style cards go here </template>
 						</section-component>
 					</v-col>
 				</v-row>
@@ -31,10 +28,7 @@
 							<template #title>
 								<h2>{{ themeTitle }}</h2>
 							</template>
-							<template #content>
-								Theme cards go here
-								<!--<card-theme-component></card-theme-component>-->
-							</template>
+							<template #content> Theme cards go here </template>
 						</section-component>
 					</v-col>
 				</v-row>
@@ -87,25 +81,25 @@ export default defineComponent({
 	computed: {
 		// Text
 		title(): string {
-			return this.$t("common.section.beInspired.title");
+			return this.$t("$vuetify.sections.beInspired.title");
 		},
 		styleTitle(): string {
-			return this.$t("common.section.beInspired.style.title");
+			return this.$t("$vuetify.sections.beInspired.style.title");
 		},
 		themeTitle(): string {
-			return this.$t("common.section.beInspired.theme.title");
+			return this.$t("$vuetify.sections.beInspired.theme.title");
 		},
 		subtitle(): string {
-			return this.$t("common.section.beInspired.subtitle");
+			return this.$t("$vuetify.sections.beInspired.subtitle");
 		},
 		styleSubtitle(): string {
-			return this.$t("common.section.beInspired.style.subtitle");
+			return this.$t("$vuetify.sections.beInspired.style.subtitle");
 		},
 		themeSubtitle(): string {
-			return this.$t("common.section.beInspired.theme.subtitle");
+			return this.$t("$vuetify.sections.beInspired.theme.subtitle");
 		},
 		lblDropdown(): string {
-			return this.$t("common.dropdown.carousel.label");
+			return this.$t("$vuetify.dropdown.carousel.label");
 		},
 
 		// Images
@@ -114,85 +108,73 @@ export default defineComponent({
 		},
 	},
 	methods: {
-		dropdownValue(newValue: string): void {
+		dropdownValue(newValue: string): { src: string }[] {
+			let retVal;
 			switch (newValue) {
-				case this.$t("common.dropdown.carousel.items.kitchen"):
-					this.images = [
+				case this.$t("$vuetify.dropdown.carousel.items.kitchen"):
+					retVal = [
 						{
-							id: 0,
 							src: AscotLightGreyDustPNG,
 						},
 						{
-							id: 1,
 							src: CambridgeFirGreenPNG,
 						},
 						{
-							id: 2,
 							src: CartmelMusselPNG,
 						},
 						{
-							id: 3,
 							src: GranthamChalkstoneFirGreenPNG,
 						},
 						{
-							id: 4,
 							src: LinearWhiteHalifaxOakPNG,
 						},
 						{
-							id: 5,
 							src: LucenteGlossCreamPNG,
 						},
 						{
-							id: 6,
 							src: NewmarketIndigoBluePNG,
 						},
 						{
-							id: 7,
 							src: OxfordWhitePNG,
 						},
 						{
-							id: 8,
 							src: StrattoDustGreyPNG,
 						},
 						{
-							id: 9,
 							src: VivoPtoOnyxGreyPNG,
 						},
 					];
 					break;
-				case this.$t("common.dropdown.carousel.items.bathroom"):
-					this.images = [
+				case this.$t("$vuetify.dropdown.carousel.items.bathroom"):
+					retVal = [
 						{
-							id: 0,
 							src: AscotLightGreyDustPNG,
 						},
 					];
 					break;
-				case this.$t("common.dropdown.carousel.items.newbuild"):
-					this.images = [
+				case this.$t("$vuetify.dropdown.carousel.items.newbuild"):
+					retVal = [
 						{
-							id: 0,
 							src: AscotLightGreyDustPNG,
 						},
 					];
 					break;
-				case this.$t("common.dropdown.carousel.items.extension"):
-					this.images = [
+				case this.$t("$vuetify.dropdown.carousel.items.extension"):
+					retVal = [
 						{
-							id: 0,
 							src: AscotLightGreyDustPNG,
 						},
 					];
 					break;
-				case this.$t("common.dropdown.carousel.items.refurbishment"):
-					this.images = [
+				case this.$t("$vuetify.dropdown.carousel.items.refurbishment"):
+					retVal = [
 						{
-							id: 0,
 							src: AscotLightGreyDustPNG,
 						},
 					];
 					break;
 			}
+			return retVal;
 		},
 	},
 	setup() {
@@ -204,44 +186,44 @@ export default defineComponent({
 			items: carouselDropdownItems,
 			images: [
 				{
-					id: 0,
 					src: AscotLightGreyDustPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.ascotLightGreyDust.alt"),
 				},
 				{
-					id: 1,
 					src: CambridgeFirGreenPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.cambridgeFirGreen.alt"),
 				},
 				{
-					id: 2,
 					src: CartmelMusselPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.cartmelMussel.alt"),
 				},
 				{
-					id: 3,
 					src: GranthamChalkstoneFirGreenPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.granthamChalkstoneFirGreen.alt"),
 				},
 				{
-					id: 4,
 					src: LinearWhiteHalifaxOakPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.linearWhiteHalifaxOak.alt"),
 				},
 				{
-					id: 5,
 					src: LucenteGlossCreamPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.lucenteGlossCream.alt"),
 				},
 				{
-					id: 6,
 					src: NewmarketIndigoBluePNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.newmarketIndigoBlue.alt"),
 				},
 				{
-					id: 7,
 					src: OxfordWhitePNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.oxfordWhite.alt"),
 				},
 				{
-					id: 8,
 					src: StrattoDustGreyPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.strattoDustGrey.alt"),
 				},
 				{
-					id: 9,
 					src: VivoPtoOnyxGreyPNG,
+					alt: this.$t("$vuetify.pages.kitchen.images.vivoPtoOnyxGrey.alt"),
 				},
 			],
 		};
@@ -254,4 +236,3 @@ export default defineComponent({
 	background-color: white;
 }
 </style>
-../../../utils/text/utils-common-text ../../../utils/text/utils-text

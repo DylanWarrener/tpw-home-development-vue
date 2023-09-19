@@ -1,90 +1,174 @@
-// Use when finished website
-//import ITextualData from "../interfaces/common/locale/interface-locale";
+//import { ITextualData } from "@interfaces/common/locale/interface-locale";
 
-// Common page name data
-import { btnCardBeInspiredText, btnCardReviewsText, pageNames } from "../utils/text/utils-text";
+// Vuetify locale messages
+import VuetifyDefaultLocaleMessages from "vuetify/lib/locale/en.mjs";
+
+// Common data
+import {
+	// Common
+	btnCardBeInspiredText,
+	btnCardReviewsText,
+	allPageNames,
+	allPageLinks,
+	mainPageNames,
+	mainPageLinks,
+	infoPageNames,
+	infoPageLinks,
+	// Header
+	headerIconNames,
+	// Body
+	// Footer
+} from "../utils/text/utils-text";
 
 const en = {
-	common: {
-		pages: {
-			name: pageNames,
+	$vuetify: {
+		icons: {
+			chevronUp: "mdi-chevron-up",
+			chevronRight: "mdi-chevron-right",
+			chevronDown: "mdi-chevron-down",
+			chevronLeft: "mdi-chevron-left",
 		},
-		card: {
-			rating: {
-				title: "Rating overview",
-				btnText: "See all reviews",
-				max: "/5",
-				total: "Total ratings",
+		header: {
+			appBar: {
+				titles: allPageNames,
+				icons: {
+					names: headerIconNames,
+					tooltips: {
+						menu: "Toggle Menu",
+						search: "Toggle Search",
+						theme: "Toggle Theme",
+						newAccount: "Create Account",
+						account: "My Account",
+						settings: "Toggle Settings",
+					},
+					menu: "mdi-menu",
+					search: "mdi-magnify",
+					theme: "mdi-theme-light-dark",
+					newAccount: "mdi-account-plus",
+					account: "mdi-account",
+					settings: "mdi-dots-vertical",
+				},
 			},
-			canvas: {
-				pages: {
-					home: {
-						title: "Create Your Tomorrow",
-						subtitle: "Assemble your dream home today with our team of experts.",
-						btnText: btnCardBeInspiredText,
+			navigation: {
+				names: allPageNames,
+				links: allPageLinks,
+				icons: {
+					home: "mdi-home",
+					kitchen: "mdi-faucet",
+					bathroom: "mdi-shower-head",
+					newbuild: "mdi-office-building-plus",
+					extension: "mdi-toy-brick-plus",
+					refurbishment: "mdi-brush",
+					contact: "mdi-email-fast",
+					about: "mdi-information",
+					news: "mdi-newspaper",
+					reviews: "mdi-message-draw",
+				},
+			},
+		},
+		pages: {
+			home: {
+				name: allPageNames.home,
+				link: allPageLinks.home,
+				images: {},
+			},
+			kitchen: {
+				name: allPageNames.kitchen,
+				link: allPageLinks.kitchen,
+				images: {
+					ascotLightGreyDust: {
+						src: "",
+						alt: "Ascot style kitchen",
 					},
-					kitchen: {
-						title: pageNames.kitchen,
-						subtitle: "Hash your recipies with our interactive entities.",
-						btnText: btnCardBeInspiredText,
+					cambridgeFirGreen: {
+						src: "",
+						alt: "Cambridge fir green style kitchen",
 					},
-					bathroom: {
-						title: pageNames.bathroom,
-						subtitle: "Own your restroom with our pristine collections.",
-						btnText: btnCardBeInspiredText,
+					cartmelMussel: {
+						src: "",
+						alt: "Cartmel mussels style kitchen",
 					},
-					newbuild: {
-						title: pageNames.newbuild,
-						subtitle: "Structure new homes with our hasty reinforced foundations.",
-						btnText: btnCardBeInspiredText,
+					granthamChalkstoneFirGreen: {
+						src: "",
+						alt: "Grantham chalkstone fir green style kitchen",
 					},
-					extension: {
-						title: pageNames.extension,
-						subtitle: "Mammoth your space with our innovative styles.",
-						btnText: btnCardBeInspiredText,
+					linearWhiteHalifaxOak: {
+						src: "",
+						alt: "Linear white halifax oak style kitchen",
 					},
-					refurbishment: {
-						title: pageNames.refurbishment,
-						subtitle: "Enlighten and re-establish your home with our ingenuious designs.",
-						btnText: btnCardBeInspiredText,
+					lucenteGlossCream: {
+						src: "",
+						alt: "Lucente gloss cream style kitchen",
 					},
-					contact: {
-						title: `${pageNames.contact} Us`,
-						subtitle: "Get in touch and we will power up your projects together",
-						btnText: "Contact Us?",
+					newmarketIndigoBlue: {
+						src: "",
+						alt: "Newmarket indigo blue style kitchen",
 					},
-					about: {
-						title: `${pageNames.about} Us`,
-						subtitle: "Current solutions for modern needs: your neighborhood electricians",
-						btnText: "See Team?",
+					oxfordWhite: {
+						src: "",
+						alt: "Oxford white style kitchen",
 					},
-					reviews: {
-						title: `Our ${pageNames.reviews}`,
-						subtitle: "Discover home renovation gems: insights from real homeowners",
-						btnText: btnCardReviewsText,
+					strattoDustGrey: {
+						src: "",
+						alt: "Stratto dust green style kitchen",
+					},
+					vivoPtoOnyxGrey: {
+						src: "",
+						alt: "Vivo pto onyx grey style kitchen",
 					},
 				},
+			},
+			bathroom: {
+				name: allPageNames.bathroom,
+				link: allPageLinks.bathroom,
+				images: {},
+			},
+			newbuild: {
+				name: allPageNames.newbuild,
+				link: allPageLinks.newbuild,
+				images: {},
+			},
+			extension: {
+				name: allPageNames.extension,
+				link: allPageLinks.extension,
+				images: {},
+			},
+			refurbishment: {
+				name: allPageNames.refurbishment,
+				link: allPageLinks.refurbishment,
+				images: {},
+			},
+			contact: {
+				name: allPageNames.contact,
+				link: allPageLinks.contact,
+				images: {},
+				title: "Need to get a hold of us?",
+				subtitle: "Testing contact subtitle",
+			},
+			about: {
+				name: allPageNames.about,
+				link: allPageLinks.about,
+				images: {},
+				title: "Our team",
+				subtitle:
+					"At TPW, we believe that every house has the potential to become a dream home. Founded by Tom Wintle, a visionary in the world of home renovation and construction, TPW is dedicated to transforming houses into spaces that inspire, comfort, and enrich the lives of our clients.",
+			},
+			news: {
+				name: allPageNames.news,
+				link: allPageLinks.news,
+				images: {},
+				title: "Testing news title",
+				subtitle: "Testing news subtitle",
 			},
 			reviews: {
-				location: "Location",
+				name: allPageNames.reviews,
+				link: allPageLinks.reviews,
+				images: {},
+				title: "Latest Reviews",
+				subtitle: "Testing reviews subtitle",
 			},
 		},
-		section: {
-			pages: {
-				about: {
-					title: "Get to know us",
-					subtitle:
-						"At TPW, we believe that every house has the potential to become a dream home. Founded by Tom Wintle, a visionary in the world of home renovation and construction, TPW is dedicated to transforming houses into spaces that inspire, comfort, and enrich the lives of our clients.",
-				},
-				contact: {
-					title: "Testing contact header",
-					subtitle: "Testing contact subheader",
-				},
-				reviews: {
-					title: "Latest Reviews",
-					subtitle: "",
-				},
-			},
+		sections: {
 			beInspired: {
 				title: "Be Inspired",
 				subtitle: "See our most popular designs.",
@@ -101,95 +185,114 @@ const en = {
 				title: "Portfolio",
 				subtitle: "See what we have done already.",
 			},
+			processOfElimination: {
+				title: "Plan of Action",
+				subtitle: "See how we plan you in.",
+			},
 			reviews: {
 				title: "Reviews",
 				subtitle: "See what other people think.",
 				btnText: btnCardReviewsText,
 			},
-			processOfElimination: {
-				title: "Plan of Action",
-				subtitle: "See how we plan you in.",
-			},
-			latestNews: {
+			news: {
 				title: "Latest News",
 				subtitle: "See what is happening right now.",
+			},
+		},
+		card: {
+			rating: {
+				title: "Rating overview",
+				total: "Total ratings",
+				max: "/5",
+				btnText: "See all reviews",
+			},
+			canvas: {
+				pages: {
+					home: {
+						title: "Create Your Tomorrow",
+						subtitle: "Assemble your dream home today with our team of experts.",
+						btnText: btnCardBeInspiredText,
+					},
+					kitchen: {
+						title: allPageNames.kitchen,
+						subtitle: "Hash your recipies with our interactive entities.",
+						btnText: btnCardBeInspiredText,
+					},
+					bathroom: {
+						title: allPageNames.bathroom,
+						subtitle: "Own your restroom with our pristine collections.",
+						btnText: btnCardBeInspiredText,
+					},
+					newbuild: {
+						title: allPageNames.newbuild,
+						subtitle: "Structure new homes with our hasty reinforced foundations.",
+						btnText: btnCardBeInspiredText,
+					},
+					extension: {
+						title: allPageNames.extension,
+						subtitle: "Mammoth your space with our innovative styles.",
+						btnText: btnCardBeInspiredText,
+					},
+					refurbishment: {
+						title: allPageNames.refurbishment,
+						subtitle: "Enlighten and re-establish your home with our ingenuious designs.",
+						btnText: btnCardBeInspiredText,
+					},
+					contact: {
+						title: `${allPageNames.contact} Us`,
+						subtitle: "Get in touch and we will power up your projects together.",
+						btnText: "Contact Us?",
+					},
+					about: {
+						title: `${allPageNames.about} Us`,
+						subtitle: "Discover our passion for technology and innovation.",
+						btnText: "See Team?",
+					},
+					news: {
+						title: `Our ${allPageNames.news}`,
+						subtitle: "Stay updated with the latest tech trends and innovations",
+						btnText: "See News?",
+					},
+					reviews: {
+						title: `Our ${allPageNames.reviews}`,
+						subtitle: "Discover home renovation gems: insights from real homeowners",
+						btnText: btnCardReviewsText,
+					},
+				},
+			},
+			reviews: {
+				location: "Location",
 			},
 		},
 		dropdown: {
 			carousel: {
 				items: {
-					kitchen: pageNames.kitchen,
-					bathroom: pageNames.bathroom,
-					newbuild: pageNames.newbuild,
-					extension: pageNames.extension,
-					refurbishment: pageNames.refurbishment,
+					kitchen: allPageNames.kitchen,
+					bathroom: allPageNames.bathroom,
+					newbuild: allPageNames.newbuild,
+					extension: allPageNames.extension,
+					refurbishment: allPageNames.refurbishment,
 				},
 				label: "Choose environment",
 			},
 		},
-	},
-	header: {
-		appBar: {
-			icons: {
-				name: {
-					menu: "menu",
-					newAccount: "newAccount",
-					account: "account",
-					settings: "settings",
-					search: "search",
-					theme: "theme",
+		carousel: {},
+		main: {},
+		footer: {
+			navigation: {
+				pageItems: {
+					names: mainPageNames,
+					links: mainPageLinks,
 				},
-				menu: "mdi-menu",
-				newAccount: "mdi-account-plus",
-				account: "mdi-account",
-				settings: "mdi-dots-vertical",
-				search: "mdi-magnify",
-				theme: "mdi-theme-light-dark",
+				infoItems: {
+					names: infoPageNames,
+					links: infoPageLinks,
+				},
 			},
-			tooltips: {
-				menu: "Toggle Menu",
-				newAccount: "Create Account",
-				account: "My Account",
-				settings: "Toggle Settings",
-				search: "Toggle Search",
-				theme: "Toggle Theme",
-			},
-			titles: pageNames,
+			copyrightText: "TPW Home Developments, All Rights Reserved",
+			location: "United Kingdom - Cambridgeshire - March",
 		},
-		navigation: {
-			page: {
-				name: pageNames,
-				link: {
-					home: "/",
-					kitchen: "/kitchens",
-					bathroom: "/bathrooms",
-					newbuild: "/newbuilds",
-					extension: "/extensions",
-					refurbishment: "/refurbishments",
-					contact: "/contact",
-					about: "/about",
-					news: "/news",
-					reviews: "/reviews",
-				},
-				icon: {
-					home: "mdi-home",
-					kitchen: "mdi-faucet",
-					bathroom: "mdi-shower-head",
-					newbuild: "mdi-office-building-plus",
-					extension: "mdi-toy-brick-plus",
-					refurbishment: "mdi-brush",
-					contact: "mdi-email-fast",
-					about: "mdi-information",
-					news: "mdi-newspaper",
-					reviews: "mdi-message-draw",
-				},
-			},
-		},
-	},
-	main: {},
-	footer: {
-		copyrightText: "TPW Home Developments, All Rights Reserved",
-		location: "United Kingdom - Cambridgeshire - March",
+		...VuetifyDefaultLocaleMessages,
 	},
 };
 

@@ -14,10 +14,10 @@ export default defineComponent({
 	name: "footer-section-bottom-component",
 	computed: {
 		copyrightText(): string {
-			return this.$t("footer.copyrightText");
+			return this.$t("$vuetify.footer.copyrightText");
 		},
 		location(): string {
-			return this.$t("footer.location");
+			return this.$t("$vuetify.footer.location");
 		},
 	},
 });

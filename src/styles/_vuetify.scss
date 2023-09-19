@@ -1,0 +1,154 @@
+@use "./typeography";
+
+/* V-LAYOUT */
+.v-layout {
+	//border: 2px solid orange;
+	width: 100%;
+	flex-direction: column;
+}
+
+/* V-MAIN */
+.v-main {
+}
+
+/* V-INPUT */
+.v-input {
+	.v-input__control {
+		.v-field {
+			.v-field__overlay {
+			}
+
+			.v-field__loader {
+			}
+
+			.v-field__field {
+				.v-field__input {
+					.v-select__selection {
+						color: rgb(var(--v-theme-accent));
+					}
+				}
+			}
+
+			.v-field__append-inner {
+			}
+
+			.v-field__outline {
+				.v-field-label {
+					color: rgb(var(--v-theme-default));
+				}
+			}
+		}
+	}
+
+	.v-input__details {
+	}
+}
+
+/* V-LIST */
+.v-list {
+	color: rgb(var(--v-theme-default));
+
+	.v-list-item {
+		color: rgb(var(--v-theme-default));
+		background-color: transparent;
+
+		&:hover {
+			color: rgb(var(--v-theme-inverted));
+			background-color: rgb(var(--v-theme-accent));
+		}
+	}
+
+	.v-list-item--active {
+		color: rgb(var(--v-theme-accent));
+		background-color: transparent;
+	}
+}
+
+/* V-BTN */
+.v-btn {
+	text-transform: uppercase;
+	background-color: transparent;
+	color: rgb(var(--v-theme-default));
+
+	&:hover {
+		background-color: rgb(var(--v-theme-accent));
+		color: rgb(var(--v-theme-inverted));
+
+		.v-btn__content {
+			.v-icon {
+				fill: rgb(var(--v-theme-inverted));
+			}
+		}
+
+		.v-btn--variant-outlined {
+			border: thin solid rgb(var(--v-theme-inverted));
+		}
+	}
+
+	.v-btn__overlay {
+	}
+
+	.v-btn__underlay {
+	}
+
+	.v-btn__content {
+		font-size: typeography.$font_size_pc_btn;
+	}
+}
+.v-btn--variant-outlined {
+	border: thin solid rgb(var(--v-theme-default));
+}
+
+/* V-ICONS */
+.v-icon {
+	font-size: typeography.$font_size_pc_body;
+}
+
+/* V-WINDOW */
+.v-window {
+	.v-window__container {
+		.v-window__controls {
+			.v-btn {
+				background-color: rgb(var(--v-theme-inverted));
+				color: rgb(var(--v-theme-default));
+
+				&:hover {
+					background-color: rgb(var(--v-theme-accent));
+					color: rgb(var(--v-theme-inverted));
+				}
+			}
+		}
+	}
+
+	.v-carousel__controls {
+		.v-btn {
+			background-color: transparent;
+
+			&:hover {
+				background-color: rgb(var(--v-theme-accent));
+			}
+		}
+
+		.v-btn--active {
+			.v-icon {
+				background-color: transparent;
+				color: rgb(var(--v-theme-accent));
+			}
+		}
+	}
+}
+
+/* V-CARD */
+.v-card {
+	.v-card__loader {
+	}
+
+	.v-card-text {
+	}
+
+	.v-card-actions {
+	}
+
+	.v-card-underlay {
+	}
+}

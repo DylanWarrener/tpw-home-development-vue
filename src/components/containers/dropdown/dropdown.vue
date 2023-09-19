@@ -4,6 +4,8 @@
 		class="w-auto h-auto"
 		variant="underlined"
 		density="compact"
+		base-color="default"
+		item-color="red"
 		:items="items"
 		:label="label"
 		v-model="value"

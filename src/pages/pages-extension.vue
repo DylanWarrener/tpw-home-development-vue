@@ -1,5 +1,5 @@
 <template>
-    <page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>
+	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>
 </template>
 
 <script lang="ts">
@@ -21,63 +21,66 @@ import { EventNames } from "@enums/events";
 import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
 
 export default defineComponent({
-    name: "extension-page-component",
-    components: {
-        "page-component": Page,
-    },
-    computed: {
-        src(): string {
-            return ExtensionPNG;
-        },
-        canvasTitle(): string {
-            return this.$t("common.card.canvas.pages.extension.title");
-        },
-        canvasSubtitle(): string {
-            return this.$t("common.card.canvas.pages.extension.subtitle");
-        },
-        canvasBtnText(): string {
-            return this.$t("common.card.canvas.pages.extension.btnText");
-        },
+	name: "extension-page-component",
+	components: {
+		"page-component": Page,
+	},
+	computed: {
+		// IMGs
+		src(): string {
+			return ExtensionPNG;
+		},
 
-        // Events
-        recievedEventData(): string {
-            return this.storeEvent.getEmittedEvent;
-        },
-    },
-    watch: {
-        recievedEventData(newValue: string) {
-            const desiredRouteName: string = this.$t("common.pages.name.extension");
-            const eventID: number = EventNames.CARD_BTN_CLICKED;
-            const pageName = this.$route.name!;
-            const appBarHeight: number = this.storeCommon.getAppBarHeight;
-            const chosenElement: any = document.getElementById("be_inspired_section");
+		// Text
+		canvasTitle(): string {
+			return this.$t("$vuetify.card.canvas.pages.extension.title");
+		},
+		canvasSubtitle(): string {
+			return this.$t("$vuetify.card.canvas.pages.extension.subtitle");
+		},
+		canvasBtnText(): string {
+			return this.$t("$vuetify.card.canvas.pages.extension.btnText");
+		},
 
-            const eventStrOne: string = newValue;
-            const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+		// Events
+		recievedEventData(): string {
+			return this.storeEvent.getEmittedEvent;
+		},
+	},
+	watch: {
+		recievedEventData(newValue: string) {
+			const desiredRouteName: string = this.$t("$vuetify.pages.extension.name");
+			const eventID: number = EventNames.CARD_BTN_CLICKED;
+			const pageName = this.$route.name!;
+			const appBarHeight: number = this.storeCommon.getAppBarHeight;
+			const chosenElement: any = document.getElementById("be_inspired_section");
 
-            if (newValue && this.$route.name === desiredRouteName) {
-                const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+			const eventStrOne: string = newValue;
+			const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
 
-                if (areEventsEqual) {
-                    scrollToElement(chosenElement!.offsetTop - appBarHeight);
-                }
-                this.storeEvent.setEmittedEvent("");
-            }
-        },
-    },
-    setup() {
-        const storeCommon = parentStore();
-        const storeExtension = childStores.useExtensionStore();
-        const storeEvent = eventStores.useGlobalEventStore();
-        return { storeCommon, storeExtension, storeEvent };
-    },
-    created(): void {
-        this.storeCommon.setIsCanvasComponentActive(true);
-        this.storeCommon.setIsBeInspiredComponentActive(true);
-        this.storeCommon.setIsPortfolioComponentActive(true);
-        this.storeCommon.setIsReviewComponentActive(false);
-        this.storeCommon.setIsProcessOfEliminationActive(false);
-        this.storeCommon.setIsLatestNewsComponentActive(false);
-    },
+			if (newValue && pageName === desiredRouteName) {
+				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+
+				if (areEventsEqual) {
+					scrollToElement(chosenElement!.offsetTop - appBarHeight);
+				}
+				this.storeEvent.setEmittedEvent("");
+			}
+		},
+	},
+	setup() {
+		const storeCommon = parentStore();
+		const storeExtension = childStores.useExtensionStore();
+		const storeEvent = eventStores.useGlobalEventStore();
+		return { storeCommon, storeExtension, storeEvent };
+	},
+	created(): void {
+		this.storeCommon.setIsCanvasComponentActive(true);
+		this.storeCommon.setIsBeInspiredComponentActive(true);
+		this.storeCommon.setIsPortfolioComponentActive(true);
+		this.storeCommon.setIsProcessOfEliminationActive(false);
+		this.storeCommon.setIsNewsComponentActive(false);
+		this.storeCommon.setIsReviewsComponentActive(false);
+	},
 });
 </script>

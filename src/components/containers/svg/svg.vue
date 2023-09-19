@@ -1,8 +1,6 @@
 <template>
-	<div :style="`width: ${width}; height: ${height}`">
-		<router-link :to="to">
-			<svg xmlns="http://www.w3.org/2000/svg" :innerHTML="svgContent" width="100%" height="100%" :style="style"></svg>
-		</router-link>
+	<div class="clickable" :style="`width: ${width}; height: ${height}`" @click="navigateTo">
+		<svg xmlns="http://www.w3.org/2000/svg" :innerHTML="svgContent" width="100%" height="100%" :style="style"></svg>
 	</div>
 </template>
 
@@ -13,10 +11,14 @@ export default defineComponent({
 	name: "svg-component",
 	props: {
 		svgContent: { type: String, required: true },
-		width: { type: String, required: false, default: "200px" },
+		width: { type: String, required: false, default: "100%" },
 		height: { type: String, required: false, default: "100%" },
 		style: { type: String, required: false },
-		to: { type: String, required: true },
+	},
+	methods: {
+		navigateTo(): void {
+			this.$emit("svg-clicked");
+		},
 	},
 });
 </script>

@@ -12,6 +12,7 @@
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"paths": {
+			"@src/*": ["./src/*"],
 			"@assets/*": ["./src/assets/*"],
 			"@components/*": ["./src/components/*"],
 			"@interfaces/*": ["./src/interfaces/*"],
@@ -22,9 +23,9 @@
 			"@themes/*": ["./src/themes/*"],
 			"@utils/*": ["./src/utils/*"],
 			"@types/*": ["./src/types/*"],
-			"@enums/*": ["./src/enums/*"]
+			"@enums/*": ["./src/enums/*"],
+			"@styles/*": ["./src/styles/*"]
 		},
-		"typeRoots": ["./src/declaration"],
 
 		/* Emit */
 		"noEmit": true,

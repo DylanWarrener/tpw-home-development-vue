@@ -1,5 +1,10 @@
 // General import
 import { createVuetify } from "vuetify";
+import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
+import { useI18n } from "vue-i18n";
+
+// Localisation
+import i18n from "@plugins/vuei18n/vue-i18n";
 
 // Styles
 import "vuetify/styles";
@@ -46,13 +51,20 @@ import {
 	VRating,
 	VProgressLinear,
 	VTooltip,
+	VImg,
 	VFooter,
 } from "vuetify/components";
+
+// Transitions
+import { VExpandTransition } from "vuetify/components/transitions";
 
 // Directives
 import { Resize, Ripple } from "vuetify/directives";
 
 const vuetify = createVuetify({
+	locale: {
+		adapter: createVueI18nAdapter({ i18n, useI18n }),
+	},
 	icons: {
 		defaultSet: "mdi",
 		aliases,
@@ -98,6 +110,8 @@ const vuetify = createVuetify({
 		VRating,
 		VProgressLinear,
 		VTooltip,
+		VImg,
+		VExpandTransition,
 		VFooter,
 	},
 	directives: {

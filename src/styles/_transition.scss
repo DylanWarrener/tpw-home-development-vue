@@ -1,0 +1,13 @@
+/* NAME */
+$name_global: all;
+
+/* TIME */
+$time_global: 0.3s;
+$time_fast: 0.2s;
+$time_slow: 0.5s;
+
+/* TYPE */
+$type_global: ease-in-out;
+
+/* TRANSITIONS SIMPLIFIED */
+$global: $name_global $time_global $type_global;

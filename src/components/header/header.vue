@@ -1,7 +1,7 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
 	<v-app-bar class="bg-background-secondary" scroll-behavior="hide">
-		<svg-component :svg-content="logoSVG" :to="home"></svg-component>
+		<svg-component width="200px" height="100%" :svg-content="iconLogoSVG" :to="linkHome"></svg-component>
 		<v-tooltip location="bottom" v-model="showMenu">
 			<template #activator="{ props }">
 				<v-btn icon :id="menu.name" v-bind="props" @click.stop="drawer = !drawer">
@@ -10,13 +10,11 @@
 			</template>
 			<span>{{ menu.tooltip }}</span>
 		</v-tooltip>
-		<v-app-bar-title>
-			{{ title }}
-		</v-app-bar-title>
-		<v-tooltip location="bottom" v-model="item.show" v-for="item in icons">
+		<v-app-bar-title>{{ txtTitle }}</v-app-bar-title>
+		<v-tooltip location="bottom" v-model="item.show" v-for="(item, index) in icons">
 			<template #activator="{ props }">
-				<v-btn icon :key="item.id" v-bind="props" @click="handleClick">
-					<v-icon :id="item.name" :key="item.id">{{ item.icon }}</v-icon>
+				<v-btn icon :key="index" v-bind="props" @click="handleClick">
+					<v-icon :id="item.name" :key="index">{{ item.icon }}</v-icon>
 				</v-btn>
 			</template>
 			<span>{{ item.tooltip }}</span>
@@ -32,7 +30,7 @@ import { defineComponent } from "vue";
 import { useTheme } from "vuetify";
 
 // Store
-import { parentStore } from "@plugins/pinia/pinia";
+import { childStores, parentStore } from "@plugins/pinia/pinia";
 
 // Components
 import HeaderNav from "@components/header/navigation/header-navigation.vue";
@@ -40,8 +38,8 @@ import Logo from "@components/header/navigation/logo.vue";
 import SVG from "@components/containers/svg/svg.vue";
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
 
-// Utils
-import { headerIconNames } from "@utils/text/utils-text";
+// Interfaces
+import { IAppBarIconsInfo } from "@interfaces/header/interface-header";
 
 export default defineComponent({
 	name: "header-component",
@@ -53,75 +51,59 @@ export default defineComponent({
 	computed: {
 		// Text
 		txtHome(): string {
-			return this.$t("header.appBar.titles.home");
+			return this.$t("$vuetify.pages.home.name");
 		},
 		txtKitchen(): string {
-			return this.$t("header.appBar.titles.kitchen");
+			return this.$t("$vuetify.pages.kitchen.name");
 		},
 		txtBathroom(): string {
-			return this.$t("header.appBar.titles.bathroom");
+			return this.$t("$vuetify.pages.bathroom.name");
 		},
 		txtNewbuild(): string {
-			return this.$t("header.appBar.titles.newbuild");
+			return this.$t("$vuetify.pages.newbuild.name");
 		},
 		txtExtension(): string {
-			return this.$t("header.appBar.titles.extension");
+			return this.$t("$vuetify.pages.extension.name");
 		},
 		txtRefurbishment(): string {
-			return this.$t("header.appBar.titles.refurbishment");
+			return this.$t("$vuetify.pages.refurbishment.name");
 		},
 		txtContact(): string {
-			return this.$t("header.appBar.titles.contact");
+			return this.$t("$vuetify.pages.contact.name");
 		},
 		txtAbout(): string {
-			return this.$t("header.appBar.titles.about");
+			return this.$t("$vuetify.pages.about.name");
 		},
 		txtNews(): string {
-			return this.$t("header.appBar.titles.news");
+			return this.$t("$vuetify.pages.news.name");
 		},
-
-		title(): string {
-			let retVal: string = "";
-			switch (this.$route.name) {
-				case this.txtHome:
-					retVal = this.txtHome;
-					break;
-				case this.txtKitchen:
-					retVal = this.txtKitchen;
-					break;
-				case this.txtBathroom:
-					retVal = this.txtBathroom;
-					break;
-				case this.txtNewbuild:
-					retVal = this.txtNewbuild;
-					break;
-				case this.txtExtension:
-					retVal = this.txtExtension;
-					break;
-				case this.txtRefurbishment:
-					retVal = this.txtRefurbishment;
-					break;
-				case this.txtContact:
-					retVal = this.txtContact;
-					break;
-				case this.txtAbout:
-					retVal = this.txtAbout;
-					break;
-				case this.txtNews:
-					retVal = this.txtNews;
-					break;
-			}
-			return retVal;
+		txtReviews(): string {
+			return this.$t("$vuetify.pages.reviews.name");
+		},
+		txtTitle(): string | undefined {
+			const title = this.$route.name;
+			return title ? title?.toString() : "";
 		},
 
 		// Links
-		home(): string {
-			return this.$t("header.navigation.page.link.home");
+		linkHome(): string {
+			return this.$t("$vuetify.pages.home.link");
 		},
 
 		// Icons
-		logoSVG(): string {
+		iconLogoSVG(): string {
 			return LogoSVG;
+		},
+		iconsAppBar() {
+			return this.storeHeader.getAllAppBarIcons;
+		},
+		iconAppBarMenu(): IAppBarIconsInfo {
+			const { menu } = this.iconsAppBar;
+			return menu;
+		},
+		iconsAppBarOther() {
+			const { menu, ...others } = this.iconsAppBar;
+			return others;
 		},
 
 		// Conditional
@@ -141,18 +123,16 @@ export default defineComponent({
 			const targetID: string = targetElement.id;
 
 			switch (targetID) {
-				case headerIconNames.menu:
+				case this.$t("$vuetify.header.appBar.icons.name.search"):
 					break;
-				case headerIconNames.search:
-					break;
-				case headerIconNames.theme:
+				case this.$t("$vuetify.header.appBar.icons.name.theme"):
 					this.toggleTheme();
 					break;
-				case headerIconNames.newAccount:
+				case this.$t("$vuetify.header.appBar.icons.name.newAccount"):
 					break;
-				case headerIconNames.account:
+				case this.$t("$vuetify.header.appBar.icons.name.account"):
 					break;
-				case headerIconNames.settings:
+				case this.$t("$vuetify.header.appBar.icons.name.settings"):
 					break;
 			}
 		},
@@ -162,52 +142,48 @@ export default defineComponent({
 	},
 	setup() {
 		const storeCommon = parentStore();
+		const storeHeader = childStores.useHeaderStore();
 		const theme = useTheme();
-		return { storeCommon, theme };
+		return { storeCommon, storeHeader, theme };
 	},
 	data() {
 		return {
 			showMenu: false,
 			menu: {
-				name: headerIconNames.menu,
-				icon: this.$t("header.appBar.icons.menu"),
-				tooltip: this.$t("header.appBar.tooltips.menu"),
+				name: this.$t("$vuetify.header.appBar.icons.names.menu"),
+				icon: this.$t("$vuetify.header.appBar.icons.menu"),
+				tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.menu"),
 				show: false,
 			},
 			icons: [
 				{
-					id: 0,
-					name: headerIconNames.search,
-					icon: this.$t("header.appBar.icons.search"),
-					tooltip: this.$t("header.appBar.tooltips.search"),
+					name: this.$t("$vuetify.header.appBar.icons.names.search"),
+					icon: this.$t("$vuetify.header.appBar.icons.search"),
+					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.search"),
 					show: false,
 				},
 				{
-					id: 1,
-					name: headerIconNames.theme,
-					icon: this.$t("header.appBar.icons.theme"),
-					tooltip: this.$t("header.appBar.tooltips.theme"),
+					name: this.$t("$vuetify.header.appBar.icons.names.theme"),
+					icon: this.$t("$vuetify.header.appBar.icons.theme"),
+					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.theme"),
 					show: false,
 				},
 				{
-					id: 2,
-					name: headerIconNames.newAccount,
-					icon: this.$t("header.appBar.icons.newAccount"),
-					tooltip: this.$t("header.appBar.tooltips.newAccount"),
+					name: this.$t("$vuetify.header.appBar.icons.names.newAccount"),
+					icon: this.$t("$vuetify.header.appBar.icons.newAccount"),
+					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.newAccount"),
 					show: false,
 				},
 				{
-					id: 3,
-					name: headerIconNames.account,
-					icon: this.$t("header.appBar.icons.account"),
-					tooltip: this.$t("header.appBar.tooltips.account"),
+					name: this.$t("$vuetify.header.appBar.icons.names.account"),
+					icon: this.$t("$vuetify.header.appBar.icons.account"),
+					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.account"),
 					show: false,
 				},
 				{
-					id: 4,
-					name: headerIconNames.settings,
-					icon: this.$t("header.appBar.icons.settings"),
-					tooltip: this.$t("header.appBar.tooltips.settings"),
+					name: this.$t("$vuetify.header.appBar.icons.names.settings"),
+					icon: this.$t("$vuetify.header.appBar.icons.settings"),
+					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.settings"),
 					show: false,
 				},
 			],

@@ -3,14 +3,22 @@
 		<template #content>
 			<v-container fluid>
 				<v-row class="pa-4">
-					<v-col cols="4" class="border pa-0 d-flex flex-column align-center justify-center" style="gap: 16px">
+					<v-col cols="4" class="pa-0 d-flex flex-column align-center justify-center" style="gap: 16px">
 						<card-rating-component></card-rating-component>
-						<v-btn variant="outlined">{{ btnText }}</v-btn>
+						<v-btn variant="outlined" @click="goTo">
+							{{ btnText }}
+						</v-btn>
 					</v-col>
 					<v-col cols="8" class="border pa-4">
-						<carousel-component class="border" height="400px">
+						<carousel-component>
 							<template #content>
-								<v-carousel-item cover :src="review.src" :key="review.id" v-for="review in reviews">
+								<v-carousel-item
+									cover
+									:key="index"
+									:src="review.image.src"
+									:alt="review.image.alt"
+									v-for="(review, index) in reviews"
+								>
 									<div class="h-100 d-flex align-center justify-center">
 										<card-review-component
 											:subject="review.subject"
@@ -37,6 +45,9 @@ import Carousel from "@components/containers/carousel/carousel.vue";
 import CardReview from "@components/containers/card/card-review.vue";
 import CardRating from "@components/containers/card/card-rating.vue";
 
+// Stores
+import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+
 // Images
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
 
@@ -50,34 +61,49 @@ export default defineComponent({
 	},
 	computed: {
 		title(): string {
-			return this.$t("common.section.reviews.title");
+			return this.$t("$vuetify.sections.reviews.title");
 		},
 		subtitle(): string {
-			return this.$t("common.section.reviews.subtitle");
+			return this.$t("$vuetify.sections.reviews.subtitle");
 		},
 		btnText(): string {
-			return this.$t("common.section.reviews.btnText");
+			return this.$t("$vuetify.sections.reviews.btnText");
+		},
+	},
+	methods: {
+		goTo(): void {
+			this.$router.push({ name: this.$t("$vuetify.pages.name.reviews") });
 		},
 	},
 	data() {
 		return {
 			reviews: [
 				{
-					id: 0,
 					name: "Mr. Dylan Warrener",
-					src: AscotLightGreyDustPNG,
+					image: {
+						src: AscotLightGreyDustPNG,
+						alt: "",
+					},
 					subject: "Beautiful",
 					message: "My Kitchen is now looking very clean. The team have done a great job for me, I would highly recommend",
 				},
 				{
-					id: 1,
 					name: "Mr. George Ruff",
-					src: AscotLightGreyDustPNG,
+					image: {
+						src: AscotLightGreyDustPNG,
+						alt: "",
+					},
 					subject: "Awesome",
 					message: "My house feels so much bigger now, I can finally relax, knowing how well I have done.",
 				},
 			],
 		};
+	},
+	setup() {
+		const storeCommon = parentStore();
+		const storeReviews = childStores.useReviewsStore();
+		const storeEvent = eventStores.useGlobalEventStore();
+		return { storeCommon, storeReviews, storeEvent };
 	},
 });
 </script>
