@@ -142,8 +142,10 @@ const en = {
 				name: allPageNames.contact,
 				link: allPageLinks.contact,
 				images: {},
-				title: "Need to get a hold of us?",
-				subtitle: "Testing contact subtitle",
+				title: "Contact Details",
+				subtitle: "Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
+				message:
+					"We are committed to responding to all inquiries within 24 hours on business days. Your questions are important to us, and we will be delighted to provide you with the information you seek.",
 			},
 			about: {
 				name: allPageNames.about,
@@ -157,8 +159,8 @@ const en = {
 				name: allPageNames.news,
 				link: allPageLinks.news,
 				images: {},
-				title: "Testing news title",
-				subtitle: "Testing news subtitle",
+				title: "News",
+				subtitle: "See all news.",
 			},
 			reviews: {
 				name: allPageNames.reviews,

@@ -1,5 +1,5 @@
 <template>
-	<section style="gap: 16px" class="d-flex flex-column text-default text-center container" :id="id" :class="containerClass">
+	<section class="d-flex flex-column text-default text-center" :id="id" :class="containerClass">
 		<!-- Title slot -->
 		<div :class="titleClass">
 			<slot name="title">
@@ -15,8 +15,8 @@
 		</div>
 
 		<!-- Content slot -->
-		<div style="gap: 16px" class="border pa-4 d-flex flex-row flex-wrap justify-center" :class="contentClass">
-			<slot name="content"></slot>do
+		<div style="gap: 16px" class="border d-flex flex-row justify-space-evenly" :class="contentClass">
+			<slot name="content"></slot>
 		</div>
 	</section>
 </template>
@@ -35,8 +35,8 @@ export default defineComponent({
 		subtitle: { type: String, required: false },
 		titleClass: { type: String, required: false },
 		subtitleClass: { type: String, required: false },
-		contentClass: { type: String, required: false },
-		containerClass: { type: String, required: false },
+		contentClass: { type: String, required: false, default: "pa-4 mt-8" },
+		containerClass: { type: String, required: false, default: "container" },
 	},
 	setup() {
 		const storeCommon = parentStore();

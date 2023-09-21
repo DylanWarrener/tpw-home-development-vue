@@ -3,7 +3,11 @@
 		<template #content>
 			<section-component id="news_section" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<div>News content</div>
+					<news-component
+						:dropdown-options="dropdownOptions"
+						:articles="articles"
+						:filter-options="filterOptions"
+					></news-component>
 				</template>
 			</section-component>
 		</template>
@@ -19,6 +23,10 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 import Section from "@components/containers/section/section.vue";
+import News from "@components/containers/news/news.vue";
+
+// Interfaces
+import { INewsArticlesState, INewsDropdownOptionsState, INewsFilterOptionsState } from "@interfaces/news/interface-news";
 
 // Images
 import NewsPNG from "@assets/png/about/about.jpg";
@@ -34,6 +42,7 @@ export default defineComponent({
 	components: {
 		"page-component": Page,
 		"section-component": Section,
+		"news-component": News,
 	},
 	computed: {
 		// IMGs
@@ -56,6 +65,17 @@ export default defineComponent({
 		},
 		sectionSubtitle(): string {
 			return this.$t("$vuetify.pages.news.subtitle");
+		},
+
+		// State data
+		dropdownOptions(): INewsDropdownOptionsState {
+			return this.storeNews.getNewsDropdownOptionsState;
+		},
+		articles(): INewsArticlesState[] {
+			return this.storeNews.getNewsArticlesState;
+		},
+		filterOptions(): INewsFilterOptionsState {
+			return this.storeNews.getNewsFilterOptionsState;
 		},
 
 		// Events

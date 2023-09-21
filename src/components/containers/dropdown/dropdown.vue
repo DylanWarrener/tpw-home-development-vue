@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 
 // Store
 import { parentStore } from "@plugins/pinia/pinia";
@@ -21,7 +21,7 @@ import { parentStore } from "@plugins/pinia/pinia";
 export default defineComponent({
 	name: "dropdown-component",
 	props: {
-		items: { type: Array as PropType<string[]>, required: true },
+		items: { type: Array<string>, required: true },
 		label: { type: String, required: true },
 	},
 	watch: {

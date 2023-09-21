@@ -25,3 +25,12 @@ export interface ICommonState {
 
 // Vue local data interfaces
 export interface ICommonData {}
+
+// Common page names
+export interface ICommonMainPageNames {
+	kitchen: string;
+	bathroom: string;
+	newbuild: string;
+	extension: string;
+	refurbishment: string;
+}

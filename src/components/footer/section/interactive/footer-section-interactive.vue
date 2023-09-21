@@ -2,7 +2,12 @@
 	<v-row no-gutters>
 		<!-- Logo stuff -->
 		<v-col class="pa-4 d-flex flex-column justify-space-between align-center">
-			<svg-component width="100%" height="100px" :svg-content="firstColData.src" @svg-clicked="navigateTo"></svg-component>
+			<svg-component
+				width="100%"
+				height="100px"
+				:svg-content="firstColData.src"
+				@svg-clicked="navigateTo('logo', linkHome)"
+			></svg-component>
 			<p>{{ firstColData.message }}</p>
 			<div class="w-75">
 				<v-text-field
@@ -42,9 +47,9 @@
 					<v-icon icon="mdi-map-marker-radius"></v-icon>
 				</v-col>
 				<v-col>
-					<p>{{ thirdColData.addressLine1 }}</p>
-					<p>{{ thirdColData.addressLine2 }}</p>
-					<p>{{ thirdColData.addressLine3 }}</p>
+					<p class="text-capitalize">{{ thirdColData.addressLine1 }}</p>
+					<p class="text-capitalize">{{ thirdColData.addressLine2 }}</p>
+					<p class="text-uppercase">{{ thirdColData.addressLine3 }}</p>
 				</v-col>
 			</v-row>
 
@@ -79,7 +84,7 @@
 				<p class="py-4 w-100 text-center">{{ thirdColData.socialTitle }}</p>
 				<v-col class="d-flex justify-space-evenly">
 					<template v-for="social in thirdColData.socials">
-						<v-btn icon variant="flat" density="comfortable">
+						<v-btn icon variant="flat" density="comfortable" @click="navigateTo(`${social.name}`, `${social.link}`)">
 							<v-icon>
 								<template #default>
 									<svg-component :svg-content="social.icon"></svg-component>
@@ -101,13 +106,9 @@ import FooterSectionInteractiveDefaultFirst from "@components/footer/section/int
 import FooterSectionInteractiveDefaultSecond from "@components/footer/section/interactive/defaults/footer-section-interactive-default-second.vue";
 import FooterSectionInteractiveDefaultThird from "@components/footer/section/interactive/defaults/footer-section-interactive-default-third.vue";
 import SVG from "@components/containers/svg/svg.vue";
-import Facebook from "@assets/svg/socials/facebook.svg?raw";
 
 // Interfaces
 import { IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/footer/interface-footer";
-
-// Utils
-import { infoPageLinks } from "@utils/text/utils-text";
 
 export default defineComponent({
 	name: "footer-section-interactive-component",
@@ -124,19 +125,20 @@ export default defineComponent({
 		message: { type: String, required: false },
 	},
 	computed: {
-		// Links
-		home(): string {
-			return this.$t("$vuetify.pages.home.link");
+		// Names
+		nameHome(): string {
+			return this.$t("$vuetify.pages.home.name");
 		},
 
-		// Icons
-		facebookSvg() {
-			return Facebook;
+		// Links
+		linkHome(): string {
+			return this.$t("$vuetify.pages.home.link");
 		},
 	},
 	methods: {
-		navigateTo(): void {
-			this.$router.push(infoPageLinks.home);
+		// Events
+		navigateTo(name: string, link: string): void {
+			name === "logo" ? this.$router.push({ name: this.nameHome }) : window.open(link, "_blank");
 		},
 	},
 });

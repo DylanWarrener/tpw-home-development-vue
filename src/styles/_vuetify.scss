@@ -27,6 +27,10 @@
 						color: rgb(var(--v-theme-accent));
 					}
 				}
+
+				.v-label {
+					font-size: typeography.$font_size_pc_body;
+				}
 			}
 
 			.v-field__append-inner {
@@ -37,6 +41,9 @@
 					color: rgb(var(--v-theme-default));
 				}
 			}
+		}
+
+		.v-field--active {
 		}
 	}
 
@@ -152,3 +159,5 @@
 	.v-card-underlay {
 	}
 }
+
+/* V-TEXT-FIELD */

@@ -8,10 +8,10 @@ import i18n from "@plugins/vuei18n/vue-i18n";
 
 // Styles
 import "vuetify/styles";
-import "vuetify/dist/vuetify.min.css";
-import "@mdi/font/css/materialdesignicons.min.css";
+import "vuetify/dist/vuetify.min.css"; // Not sure what this is
 
-// Icons
+// Material design icons
+import "@mdi/font/css/materialdesignicons.min.css";
 import { aliases, mdi } from "vuetify/iconsets/mdi";
 
 // Themes
@@ -52,11 +52,16 @@ import {
 	VProgressLinear,
 	VTooltip,
 	VImg,
+	VForm,
+	VTextarea,
 	VFooter,
 } from "vuetify/components";
 
 // Transitions
 import { VExpandTransition } from "vuetify/components/transitions";
+
+// Lab components (vuetify still testing)
+import { VDatePicker } from "vuetify/labs/VDatePicker";
 
 // Directives
 import { Resize, Ripple } from "vuetify/directives";
@@ -78,6 +83,7 @@ const vuetify = createVuetify({
 		},
 	},
 	components: {
+		// Components
 		VLayout,
 		VSystemBar,
 		VAppBar,
@@ -111,8 +117,15 @@ const vuetify = createVuetify({
 		VProgressLinear,
 		VTooltip,
 		VImg,
-		VExpandTransition,
+		VForm,
+		VTextarea,
 		VFooter,
+
+		// Transitions
+		VExpandTransition,
+
+		// Lab components
+		VDatePicker,
 	},
 	directives: {
 		Resize,

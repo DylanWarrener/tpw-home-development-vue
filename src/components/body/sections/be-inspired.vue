@@ -14,21 +14,35 @@
 				</v-row>
 				<v-row dense>
 					<v-col cols="12">
-						<section-component :subtitle="styleSubtitle">
+						<section-component container-class="pa-0" :subtitle="styleSubtitle">
 							<template #title>
 								<h2>{{ styleTitle }}</h2>
 							</template>
-							<template #content> Style cards go here </template>
+							<template #content>
+								<div id="container" class="w-100 h-100" style="border: 2px solid red">Content</div>
+							</template>
 						</section-component>
 					</v-col>
 				</v-row>
 				<v-row dense>
 					<v-col cols="12">
-						<section-component :subtitle="themeSubtitle">
+						<section-component container-class="pa-0" :subtitle="themeSubtitle">
 							<template #title>
 								<h2>{{ themeTitle }}</h2>
 							</template>
-							<template #content> Theme cards go here </template>
+							<template #content>
+								<div class="cards d-flex justify-center w-100 h-100" style="border: 2px solid red">
+									<div class="card">
+										<v-img cover class="img" :src="pngKitchen">
+											<div class="themes">
+												<div class="theme theme-one">Primary</div>
+												<div class="theme theme-two">Secondary</div>
+												<div class="theme theme-three">Accent</div>
+											</div>
+										</v-img>
+									</div>
+								</div>
+							</template>
 						</section-component>
 					</v-col>
 				</v-row>
@@ -43,12 +57,15 @@ import { defineComponent } from "vue";
 // Store
 import { parentStore } from "@plugins/pinia/pinia";
 
+// Components
+import Card from "@components/containers/card/card.vue";
+
 // Interface
 import { ICommonBeInspiredData } from "@interfaces/common/page/beInspired/interface-common-be-inspired";
 import { ICommonCarouselImagesData } from "@interfaces/common/carousel/interface-common-carousel";
 
 // Data
-import { carouselDropdownItems } from "@utils/text/utils-text";
+import { dropdownOptions } from "@utils/text/utils-text";
 
 // Kitchen images
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -75,6 +92,7 @@ export default defineComponent({
 		"section-component": Section,
 		"carousel-component": Carousel,
 		"dropdown-component": Dropdown,
+		"card-component": Card,
 		"card-style-component": CardStyle,
 		"card-theme-component": CardTheme,
 	},
@@ -105,6 +123,9 @@ export default defineComponent({
 		// Images
 		carouselImages(): ICommonCarouselImagesData[] {
 			return this.images;
+		},
+		pngKitchen(): string {
+			return AscotLightGreyDustPNG;
 		},
 	},
 	methods: {
@@ -183,7 +204,7 @@ export default defineComponent({
 	},
 	data(): ICommonBeInspiredData {
 		return {
-			items: carouselDropdownItems,
+			items: dropdownOptions,
 			images: [
 				{
 					src: AscotLightGreyDustPNG,
@@ -232,7 +253,42 @@ export default defineComponent({
 </script>
 
 <style>
-.background {
-	background-color: white;
+.cards {
+	.card {
+		border: 2px solid green;
+		position: relative;
+
+		.img {
+			width: 300px;
+			height: 300px;
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+				width: 600px;
+			}
+
+			.themes {
+				display: flex;
+				height: 7.5%;
+
+				.theme {
+					flex: 1 1 auto;
+					transition: all 0.3s ease-in-out;
+				}
+
+				.theme-one {
+					background-color: yellow;
+				}
+
+				.theme-two {
+					background-color: green;
+				}
+
+				.theme-three {
+					background-color: orange;
+				}
+			}
+		}
+	}
 }
 </style>

@@ -19,7 +19,7 @@
 		</v-card-item>
 
 		<!-- Content -->
-		<v-card-text class="pa-0" :class="contentClass" v-if="text">
+		<v-card-text class="pa-0" :class="contentClass">
 			<slot name="content"></slot>
 		</v-card-text>
 

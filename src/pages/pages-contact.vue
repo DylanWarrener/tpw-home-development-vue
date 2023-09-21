@@ -3,7 +3,7 @@
 		<template #content>
 			<section-component id="contact_section" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<div>Contact content</div>
+					<contact-component></contact-component>
 				</template>
 			</section-component>
 		</template>
@@ -19,6 +19,10 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 import Section from "@components/containers/section/section.vue";
+import Contact from "@components/containers/contact/contact.vue";
+
+// Interfaces
+import { IContactData } from "@interfaces/contact/interface-contact";
 
 // Images
 import ContactPNG from "@assets/png/contact/contact.jpg";
@@ -34,6 +38,7 @@ export default defineComponent({
 	components: {
 		"page-component": Page,
 		"section-component": Section,
+		"contact-component": Contact,
 	},
 	computed: {
 		// IMGs
@@ -83,6 +88,9 @@ export default defineComponent({
 				this.storeEvent.setEmittedEvent("");
 			}
 		},
+	},
+	data(): IContactData {
+		return {};
 	},
 	setup() {
 		const storeCommon = parentStore();

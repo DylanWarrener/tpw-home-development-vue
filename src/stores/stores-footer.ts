@@ -77,9 +77,9 @@ const useFooterStore = defineStore("footerStore", {
 			},
 			thirdCol: {
 				title: "Get in Touch",
-				addressLine1: "41 Snowley Park, Whittlesey",
-				addressLine2: "Peterborough, Cambridgeshire",
-				addressLine3: "PE7 1JQ",
+				addressLine1: "41 Snowley Park",
+				addressLine2: "March, Peterborough",
+				addressLine3: "PE71JQ",
 				email: "email@gmail.com",
 				number: "(+44) 07464 599 396",
 				socialTitle: "Follow Us:",

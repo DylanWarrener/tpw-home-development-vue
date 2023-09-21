@@ -1,5 +1,5 @@
 //import { ICommonCarouselDropdownItemsTextualData } from "../../interfaces/common/carousel/interface-common-carousel";
-import { ICommonPageStringTextualData } from "../../interfaces/common/page/interface-common-page";
+import { ICommonMainPageNames } from "@interfaces/common/interface-common";
 
 /* Common */
 // Card
@@ -8,7 +8,7 @@ export const btnCardReviewsText = "See all reviews?";
 
 //// Navigation
 // Common
-export const mainPageNames = {
+export const mainPageNames: ICommonMainPageNames = {
 	kitchen: "Kitchens",
 	bathroom: "Bathrooms",
 	newbuild: "Newbuilds",
@@ -46,7 +46,7 @@ export const allPageLinks = {
 };
 
 // Page names
-export const pageNames: ICommonPageStringTextualData = {
+export const pageNames = {
 	home: "Home",
 	kitchen: "Kitchens",
 	bathroom: "Bathrooms",
@@ -74,12 +74,12 @@ export const pageLinks = {
 
 //// Carousel
 // Dropdown items
-export const carouselDropdownItems: string[] = [
-	pageNames.kitchen,
-	pageNames.bathroom,
-	pageNames.newbuild,
-	pageNames.extension,
-	pageNames.refurbishment,
+export const dropdownOptions = [
+	mainPageNames.kitchen,
+	mainPageNames.bathroom,
+	mainPageNames.newbuild,
+	mainPageNames.extension,
+	mainPageNames.refurbishment,
 ];
 
 /* Header */

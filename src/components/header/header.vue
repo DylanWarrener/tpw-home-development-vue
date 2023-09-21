@@ -123,16 +123,16 @@ export default defineComponent({
 			const targetID: string = targetElement.id;
 
 			switch (targetID) {
-				case this.$t("$vuetify.header.appBar.icons.name.search"):
+				case this.$t("$vuetify.header.appBar.icons.names.search"):
 					break;
-				case this.$t("$vuetify.header.appBar.icons.name.theme"):
+				case this.$t("$vuetify.header.appBar.icons.names.theme"):
 					this.toggleTheme();
 					break;
-				case this.$t("$vuetify.header.appBar.icons.name.newAccount"):
+				case this.$t("$vuetify.header.appBar.icons.names.newAccount"):
 					break;
-				case this.$t("$vuetify.header.appBar.icons.name.account"):
+				case this.$t("$vuetify.header.appBar.icons.names.account"):
 					break;
-				case this.$t("$vuetify.header.appBar.icons.name.settings"):
+				case this.$t("$vuetify.header.appBar.icons.names.settings"):
 					break;
 			}
 		},

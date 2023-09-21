@@ -11,7 +11,6 @@
 						:subtitle="canvasSubtitle"
 						:btn-text="btnText"
 					></canvas-component>
-
 					<v-divider class="divider-color" v-if="isCanvasComponentActive"></v-divider>
 
 					<!-- Other -->
@@ -23,12 +22,10 @@
 						class="bg-inverted"
 						v-if="isBeInspiredComponentActive"
 					></be-inspired-component>
-
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
 					<portfolio-component id="portfolio_section" class="bg-inverted" v-if="isPortfolioComponentActive"></portfolio-component>
-
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
@@ -37,18 +34,15 @@
 						class="bg-inverted"
 						v-if="isProcessOfEliminationActive"
 					></process-of-elimination-component>
-
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest news -->
 					<news-component id="news_section" class="bg-inverted" v-if="isNewsComponentActive"></news-component>
-
 					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Reviews -->
 					<reviews-component id="reviews_section" class="bg-inverted" v-if="isReviewsComponentActive"></reviews-component>
-
-					<v-divider class="divider-color" v-if="isReviewsComponentActive"></v-divider>
+					<v-divider class="divider-color"></v-divider>
 				</v-sheet>
 			</v-col>
 		</v-row>
