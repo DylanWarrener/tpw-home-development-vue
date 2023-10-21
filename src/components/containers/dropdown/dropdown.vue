@@ -4,8 +4,6 @@
 		class="w-auto h-auto"
 		variant="underlined"
 		density="compact"
-		base-color="default"
-		item-color="red"
 		:items="items"
 		:label="label"
 		v-model="value"
@@ -21,7 +19,7 @@ import { parentStore } from "@plugins/pinia/pinia";
 export default defineComponent({
 	name: "dropdown-component",
 	props: {
-		items: { type: Array<string>, required: true },
+		items: { type: Array<String>, required: true },
 		label: { type: String, required: true },
 	},
 	watch: {

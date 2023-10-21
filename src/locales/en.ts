@@ -191,12 +191,12 @@ const en = {
 				title: "Plan of Action",
 				subtitle: "See how we plan you in.",
 			},
-			reviews: {
-				title: "Reviews",
+			latestReviews: {
+				title: "Latest Reviews",
 				subtitle: "See what other people think.",
 				btnText: btnCardReviewsText,
 			},
-			news: {
+			latestNews: {
 				title: "Latest News",
 				subtitle: "See what is happening right now.",
 			},

@@ -2,14 +2,11 @@
 	<section-component :title="title" :subtitle="subtitle">
 		<template #content>
 			<v-container fluid>
-				<v-row class="pa-4">
-					<v-col cols="4" class="pa-0 d-flex flex-column align-center justify-center" style="gap: 16px">
-						<card-rating-component></card-rating-component>
-						<v-btn variant="outlined" @click="goTo">
-							{{ btnText }}
-						</v-btn>
+				<v-row style="gap: 16px">
+					<v-col class="pa-0 d-flex flex-column align-center justify-center" style="gap: 16px; max-width: 25%">
+						<card-rating-component :btn-text="btnText" @click="goTo"></card-rating-component>
 					</v-col>
-					<v-col cols="8" class="border pa-4">
+					<v-col class="border pa-0">
 						<carousel-component>
 							<template #content>
 								<v-carousel-item
@@ -61,13 +58,13 @@ export default defineComponent({
 	},
 	computed: {
 		title(): string {
-			return this.$t("$vuetify.sections.reviews.title");
+			return this.$t("$vuetify.sections.latestReviews.title");
 		},
 		subtitle(): string {
-			return this.$t("$vuetify.sections.reviews.subtitle");
+			return this.$t("$vuetify.sections.latestReviews.subtitle");
 		},
 		btnText(): string {
-			return this.$t("$vuetify.sections.reviews.btnText");
+			return this.$t("$vuetify.sections.latestReviews.btnText");
 		},
 	},
 	methods: {

@@ -47,11 +47,14 @@ h4,
 h5,
 h6 {
 	max-width: typeography.$font_width_all;
+	cursor: text;
 }
 body,
 p,
+span,
 .v-list-item__content > .v-list-item-title,
 .v-list-item-title {
+	cursor: text;
 	font-size: typeography.$font_size_pc_body;
 	line-height: typeography.$font_line_height_pc_body;
 	font-weight: normal;

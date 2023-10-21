@@ -13,31 +13,92 @@
 
 /* V-INPUT */
 .v-input {
+	//border: 2px solid red;
+
 	.v-input__control {
+		//border: 2px solid yellow;
+
 		.v-field {
+			//border: 2px solid green;
+			cursor: pointer;
+
 			.v-field__overlay {
+				//border: 2px solid orange;
 			}
 
 			.v-field__loader {
+				//border: 2px solid black;
+
+				.v-progress-linear {
+					//border: 2px solid purple;
+
+					.v-progress-linear__background {
+						//border: 2px solid red;
+					}
+
+					.v-progress-linear__indeterminate {
+						//border: 2px solid yellow;
+
+						.short {
+							//border: 2px solid yellow;
+						}
+
+						.long {
+							//border: 2px solid yellow;
+						}
+					}
+				}
 			}
 
 			.v-field__field {
-				.v-field__input {
-					.v-select__selection {
-						color: rgb(var(--v-theme-accent));
-					}
+				//border: 2px solid red;
+				cursor: pointer;
+
+				input {
+					//border: 2px solid red;
+					cursor: text;
 				}
 
 				.v-label {
+					//border: 2px solid orange;
+					cursor: pointer;
 					font-size: typeography.$font_size_pc_body;
+				}
+
+				.v-field__input {
+					//border: 2px solid red;
+
+					.v-select__selection {
+						//border: 2px solid black;
+						color: rgb(var(--v-theme-accent));
+
+						span {
+							//border: 2px solid orange;
+							cursor: pointer;
+						}
+					}
 				}
 			}
 
+			.v-field__clearable {
+				//border: 2px solid red;
+			}
+
 			.v-field__append-inner {
+				//border: 2px solid black;
+				cursor: pointer;
+
+				i {
+					//border: 2px solid blue;
+					cursor: pointer;
+				}
 			}
 
 			.v-field__outline {
+				//border: 2px solid red;
+
 				.v-field-label {
+					//border: 2px solid blue;
 					color: rgb(var(--v-theme-default));
 				}
 			}
@@ -53,15 +114,38 @@
 
 /* V-LIST */
 .v-list {
+	//border: 2px solid red;
+	cursor: pointer;
 	color: rgb(var(--v-theme-default));
 
 	.v-list-item {
+		//border: 2px solid orange;
+		cursor: pointer;
 		color: rgb(var(--v-theme-default));
 		background-color: transparent;
 
 		&:hover {
 			color: rgb(var(--v-theme-inverted));
 			background-color: rgb(var(--v-theme-accent));
+		}
+
+		.v-list-item__overlay {
+			//border: 2px solid black;
+			cursor: pointer;
+		}
+
+		.v-list-item__underlay {
+			//border: 2px solid red;
+			cursor: pointer;
+		}
+
+		.v-list-item__content {
+			//border: 2px solid blue;
+			cursor: pointer;
+
+			.v-list-item-title {
+				cursor: pointer;
+			}
 		}
 	}
 
@@ -73,6 +157,7 @@
 
 /* V-BTN */
 .v-btn {
+	cursor: pointer;
 	text-transform: uppercase;
 	background-color: transparent;
 	color: rgb(var(--v-theme-default));
@@ -92,6 +177,14 @@
 		}
 	}
 
+	span {
+		cursor: pointer;
+	}
+
+	.v-icon {
+		cursor: pointer;
+	}
+
 	.v-btn__overlay {
 	}
 
@@ -99,7 +192,18 @@
 	}
 
 	.v-btn__content {
+		cursor: pointer;
 		font-size: typeography.$font_size_pc_btn;
+
+		.v-icon {
+			svg {
+				cursor: pointer;
+
+				path {
+					cursor: pointer;
+				}
+			}
+		}
 	}
 }
 .v-btn--variant-outlined {
@@ -160,4 +264,40 @@
 	}
 }
 
-/* V-TEXT-FIELD */
+/* V-OVERLAY */
+.v-overlay {
+	.v-overlay__content {
+		cursor: pointer;
+	}
+}
+
+/* V-RATING */
+.v-rating {
+	//border: 2px solid red;
+
+	.v-rating__wrapper {
+		//border: 2px solid green;
+
+		.v-rating__item {
+			//border: 2px solid blue;
+
+			.v-rating__item--half {
+				//border: 2px solid yellow;
+			}
+
+			.v-rating__item--full,
+			.v-rating__item--half {
+				//border: 2px solid yellow;
+
+				.v-btn {
+					//border: 2px solid green;
+
+					.v-icon {
+						//border: 2px solid black;
+						color: rgb(var(--v-theme-inverted));
+					}
+				}
+			}
+		}
+	}
+}

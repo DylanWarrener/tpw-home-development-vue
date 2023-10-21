@@ -37,11 +37,15 @@
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest news -->
-					<news-component id="news_section" class="bg-inverted" v-if="isNewsComponentActive"></news-component>
+					<latest-news-component id="news_section" class="bg-inverted" v-if="isNewsComponentActive"></latest-news-component>
 					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Reviews -->
-					<reviews-component id="reviews_section" class="bg-inverted" v-if="isReviewsComponentActive"></reviews-component>
+					<latest-reviews-component
+						id="reviews_section"
+						class="bg-inverted"
+						v-if="isReviewsComponentActive"
+					></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
 				</v-sheet>
 			</v-col>
@@ -59,9 +63,9 @@ import { parentStore } from "@plugins/pinia/pinia";
 import Canvas from "@components/containers/canvas/canvas.vue";
 import BeInspired from "@components/body/sections/be-inspired.vue";
 import Portfolio from "@components/body/sections/portfolio.vue";
-import Reviews from "@components/body/sections/reviews.vue";
+import LatestReviews from "@components/body/sections/latest-reviews.vue";
 import ProcessOfElimination from "@components/body/sections/process-of-elimination.vue";
-import News from "@components/body/sections/news.vue";
+import LatestNews from "@components/body/sections/latest-news.vue";
 
 // Utils
 //import { scrollToElement } from "../../../utils/utils";
@@ -78,9 +82,9 @@ export default defineComponent({
 		"canvas-component": Canvas,
 		"be-inspired-component": BeInspired,
 		"portfolio-component": Portfolio,
-		"reviews-component": Reviews,
+		"latest-reviews-component": LatestReviews,
 		"process-of-elimination-component": ProcessOfElimination,
-		"news-component": News,
+		"latest-news-component": LatestNews,
 	},
 	computed: {
 		isCanvasComponentActive(): boolean {

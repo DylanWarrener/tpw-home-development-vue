@@ -16,10 +16,9 @@
 		<v-card-text class="pa-0 overflow-auto">
 			<slot name="review">
 				<p class="text-start">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan pulvinar magna at tincidunt. Ut
-					efficitur aliquam tristique. Pellentesque eu leo non magna rutrum feugiat non nec lorem. Aenean sagittis
-					eros et laoreet mollis. Etiam convallis erat libero, sit amet pharetra diam pellentesque bibendum. Nullam
-					nisi neque, volutpat eu ante.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan pulvinar magna at tincidunt. Ut efficitur aliquam
+					tristique. Pellentesque eu leo non magna rutrum feugiat non nec lorem. Aenean sagittis eros et laoreet mollis. Etiam
+					convallis erat libero, sit amet pharetra diam pellentesque bibendum. Nullam nisi neque, volutpat eu ante.
 				</p>
 			</slot>
 		</v-card-text>

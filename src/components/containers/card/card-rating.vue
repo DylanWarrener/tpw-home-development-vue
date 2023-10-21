@@ -1,17 +1,22 @@
 <template>
-	<card-component variant="flat">
-		<template #title>
-			<h3 class="text-center">{{ title }}</h3>
-		</template>
+	<card-component variant="outlined" card-class="bg-accent text-inverted pa-2" action-class="justify-center" :btn-text="btnText">
 		<template #content>
-			<div class="d-flex flex-column justify-center align-center">
-				<div class="text-h2">
-					{{ rating }}
-					<span class="text-h6 ml-n3">{{ maxRating }}</span>
-				</div>
-				<rating-component readonly color="accent" :model-value="rating"></rating-component>
-				<p>{{ totalRatings + ": " + ratings }}</p>
-			</div>
+			<v-container>
+				<v-row>
+					<v-col cols="12">
+						<h2>
+							{{ rating }}
+							<span class="text-h6 ml-n3">{{ maxRating }}</span>
+						</h2>
+					</v-col>
+					<v-col cols="12">
+						<rating-component readonly color="accent" :model-value="rating"></rating-component>
+					</v-col>
+					<v-col cols="12">
+						<p>{{ totalRatings + ": " + ratings }}</p>
+					</v-col>
+				</v-row>
+			</v-container>
 		</template>
 	</card-component>
 </template>
@@ -30,6 +35,9 @@ export default defineComponent({
 		"card-component": Card,
 		"rating-component": Rating,
 		"progress-linear-component": Progress,
+	},
+	props: {
+		btnText: { type: String, required: false },
 	},
 	computed: {
 		title(): string {

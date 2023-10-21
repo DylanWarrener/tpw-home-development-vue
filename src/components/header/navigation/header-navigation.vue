@@ -66,11 +66,11 @@ export default defineComponent({
 					icon: this.$t("$vuetify.header.navigation.icons.about"),
 					link: this.$t("$vuetify.header.navigation.links.about"),
 				},
-				{
+				/* {
 					title: this.$t("$vuetify.pages.news.name"),
 					icon: this.$t("$vuetify.header.navigation.icons.news"),
 					link: this.$t("$vuetify.header.navigation.links.news"),
-				},
+				}, */
 				{
 					title: this.$t("$vuetify.pages.reviews.name"),
 					icon: this.$t("$vuetify.header.navigation.icons.reviews"),

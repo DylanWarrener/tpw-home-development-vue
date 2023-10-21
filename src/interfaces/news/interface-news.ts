@@ -1,48 +1,15 @@
-export default interface INewsTextualData {}
+import INewsDropdownState from "@interfaces/news/dropdown/interface-news-dropdown";
+import INewsSectionsState from "@src/interfaces/news/sections/interface-news-sections";
+import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
+import INewsActiveFiltersState from "@interfaces/news/active-filters/interface-news-active-filters";
 
-export interface INewsState {
-	dropdownOptions: INewsDropdownOptionsState;
-	articles: INewsArticlesState[];
-	filterOptions: INewsFilterOptionsState;
+export default interface INewsState {
+	dropdownOptions: INewsDropdownState;
+	newsSections: INewsSectionsState[];
+	filter: INewsFilterState;
+	activeFilters: INewsActiveFiltersState[];
 }
 
-export interface INewsDropdownOptionsState {
-	items: string[];
-	label: string;
+export interface INewsData {
+	sortedArticles: INewsSectionsState[];
 }
-
-export interface INewsArticlesState {
-	img: {
-		src: string;
-		btnText: string;
-	};
-	article: INewsArticleState[];
-}
-
-export interface INewsArticleState {
-	text: string;
-	tag: string;
-	colour?: string;
-	transform?: string;
-}
-
-export interface INewsFilterOptionsState {
-	title: string;
-	search: {
-		label: string;
-	};
-	options: INewsAvailableFilterOptions[];
-}
-
-export interface INewsAvailableFilterOptions {
-	title: {
-		tag?: string;
-		text: string;
-	};
-	element: {
-		tag?: string;
-		values: string[];
-	};
-}
-
-export interface INewsData {}

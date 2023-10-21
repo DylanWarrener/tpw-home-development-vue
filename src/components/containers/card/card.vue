@@ -24,10 +24,16 @@
 		</v-card-text>
 
 		<!-- Actions -->
-		<v-card-actions class="pa-4" v-if="btnText">
-			<v-spacer></v-spacer>
+		<v-card-actions class="pa-4 d-flex" :class="actionClass" v-if="btnText">
 			<slot name="actions">
-				<v-btn variant="outlined" :text="btnText" @click="scrollTo"></v-btn>
+				<v-btn
+					variant="outlined"
+					class="text-inverted"
+					style="border: thin solid rgb(var(--v-theme-inverted))"
+					:text="btnText"
+					:class="actionBtnClass"
+					@click="scrollTo"
+				></v-btn>
 			</slot>
 		</v-card-actions>
 	</v-card>
@@ -52,6 +58,8 @@ export default defineComponent({
 		titleClass: { type: String, required: false },
 		subtitleClass: { type: String, required: false },
 		contentClass: { type: String, required: false },
+		actionClass: { type: String, required: false, default: "justify-end" },
+		actionBtnClass: { type: String, required: false },
 		cardStyle: { type: String, required: false },
 		title: { type: String, required: false },
 		subtitle: { type: String, required: false },
