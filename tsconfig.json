@@ -1,51 +1,53 @@
 {
-	"compilerOptions": {
-		/* Type Checking */
-		"noImplicitAny": false,
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
+    "compilerOptions": {
+        /* Type Checking */
+        "noImplicitAny": false,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
 
-		/* Modules */
-		"module": "ESNext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"paths": {
-			"@src/*": ["./src/*"],
-			"@assets/*": ["./src/assets/*"],
-			"@components/*": ["./src/components/*"],
-			"@interfaces/*": ["./src/interfaces/*"],
-			"@locales/*": ["./src/locales/*"],
-			"@pages/*": ["./src/pages/*"],
-			"@plugins/*": ["./src/plugins/*"],
-			"@stores/*": ["./src/stores/*"],
-			"@themes/*": ["./src/themes/*"],
-			"@utils/*": ["./src/utils/*"],
-			"@types/*": ["./src/types/*"],
-			"@enums/*": ["./src/enums/*"],
-			"@styles/*": ["./src/styles/*"]
-		},
+        /* Modules */
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@interfaces/*": ["./src/interfaces/*"],
+            "@locales/*": ["./src/locales/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@plugins/*": ["./src/plugins/*"],
+            "@stores/*": ["./src/stores/*"],
+            "@themes/*": ["./src/themes/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@types/*": ["./src/types/*"],
+            "@enums/*": ["./src/enums/*"],
+            "@styles/*": ["./src/styles/*"]
+        },
+        "typeRoots": ["./src/declaration"],
+        "types": ["vue", "vue-router", "vuetify", "vue-i18n"],
 
-		/* Emit */
-		"noEmit": true,
+        /* Emit */
+        "noEmit": true,
 
-		/* JavaScript support */
-		"allowJs": true,
+        /* JavaScript support */
+        "allowJs": true,
 
-		/* Interop Constraints */
-		"forceConsistentCasingInFileNames": true,
-		"isolatedModules": true,
+        /* Interop Constraints */
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
 
-		/* Language and Environment */
-		"jsx": "preserve",
-		"target": "ES2020",
-		"useDefineForClassFields": true,
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+        /* Language and Environment */
+        "jsx": "preserve",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
 
-		/* Completeness */
-		"skipLibCheck": true
-	},
-	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+        /* Completeness */
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
