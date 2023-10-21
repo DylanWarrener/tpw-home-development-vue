@@ -1,3 +1,3 @@
 export enum EventNames {
-    CARD_BTN_CLICKED,
+    CARD_CANVAS_BTN_CLICKED,
 }

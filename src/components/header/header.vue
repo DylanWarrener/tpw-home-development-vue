@@ -27,10 +27,7 @@
 import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
-// Theme
-import { useTheme } from "vuetify";
-
-// Store
+// Stores
 import { childStores, parentStore } from "@plugins/pinia/pinia";
 
 // Components
@@ -38,8 +35,11 @@ import HeaderNav from "@components/header/navigation/header-navigation.vue";
 import Logo from "@components/header/navigation/logo.vue";
 import SVG from "@components/containers/svg/svg.vue";
 
-// Images
+// IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
+
+// Theme
+import { useTheme } from "vuetify";
 
 export default defineComponent({
     name: "header-component",
