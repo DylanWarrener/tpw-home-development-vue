@@ -1,30 +1,31 @@
 <template>
-	<!--<v-system-bar color="blue"></v-system-bar>-->
-	<v-app-bar class="bg-background-secondary" scroll-behavior="hide">
-		<svg-component width="200px" height="100%" :svg-content="iconLogoSVG" :to="linkHome"></svg-component>
-		<v-tooltip location="bottom" v-model="showMenu">
-			<template #activator="{ props }">
-				<v-btn icon :id="menu.name" v-bind="props" @click.stop="drawer = !drawer">
-					<v-icon :id="menu.name">{{ menu.icon }}</v-icon>
-				</v-btn>
-			</template>
-			<span>{{ menu.tooltip }}</span>
-		</v-tooltip>
-		<v-app-bar-title>{{ txtTitle }}</v-app-bar-title>
-		<v-tooltip location="bottom" v-model="item.show" v-for="(item, index) in icons">
-			<template #activator="{ props }">
-				<v-btn icon :key="index" v-bind="props" @click="handleClick">
-					<v-icon :id="item.name" :key="index">{{ item.icon }}</v-icon>
-				</v-btn>
-			</template>
-			<span>{{ item.tooltip }}</span>
-		</v-tooltip>
-	</v-app-bar>
-	<header-navigation-component class="bg-inverted text-default"></header-navigation-component>
+    <!--<v-system-bar color="blue"></v-system-bar>-->
+    <v-app-bar class="bg-background-secondary" scroll-behavior="hide">
+        <svg-component width="200px" height="100%" :svg-content="iconLogoSVG" @svg-clicked="navigateTo(txtPageHome)"></svg-component>
+        <v-tooltip location="bottom" v-model="appBarIcons.menu.showTooltip">
+            <template #activator="{ props }">
+                <v-btn icon :id="appBarIcons.menu.id" v-bind="props" @click.stop="drawer = !drawer">
+                    <v-icon :id="appBarIcons.menu.id">{{ appBarIcons.menu.icon }}</v-icon>
+                </v-btn>
+            </template>
+            <span>{{ appBarIcons.menu.tooltip }}</span>
+        </v-tooltip>
+        <v-app-bar-title>{{ txtAppBarTitle }}</v-app-bar-title>
+        <v-tooltip location="bottom" v-model="item.showTooltip" v-for="(item, index) in appBarIcons.others">
+            <template #activator="{ props }">
+                <v-btn icon :key="index" v-bind="props" @click="appBarIconClicked">
+                    <v-icon :id="item.id" :key="index">{{ item.icon }}</v-icon>
+                </v-btn>
+            </template>
+            <span>{{ item.tooltip }}</span>
+        </v-tooltip>
+    </v-app-bar>
+    <header-navigation-component class="bg-inverted text-default"></header-navigation-component>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { RouteRecordName } from "vue-router";
 
 // Theme
 import { useTheme } from "vuetify";
@@ -36,158 +37,122 @@ import { childStores, parentStore } from "@plugins/pinia/pinia";
 import HeaderNav from "@components/header/navigation/header-navigation.vue";
 import Logo from "@components/header/navigation/logo.vue";
 import SVG from "@components/containers/svg/svg.vue";
+
+// Images
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
 
-// Interfaces
-import { IAppBarIconsInfo } from "@interfaces/header/interface-header";
-
 export default defineComponent({
-	name: "header-component",
-	components: {
-		"header-navigation-component": HeaderNav,
-		"logo-component": Logo,
-		"svg-component": SVG,
-	},
-	computed: {
-		// Text
-		txtHome(): string {
-			return this.$t("$vuetify.pages.home.name");
-		},
-		txtKitchen(): string {
-			return this.$t("$vuetify.pages.kitchen.name");
-		},
-		txtBathroom(): string {
-			return this.$t("$vuetify.pages.bathroom.name");
-		},
-		txtNewbuild(): string {
-			return this.$t("$vuetify.pages.newbuild.name");
-		},
-		txtExtension(): string {
-			return this.$t("$vuetify.pages.extension.name");
-		},
-		txtRefurbishment(): string {
-			return this.$t("$vuetify.pages.refurbishment.name");
-		},
-		txtContact(): string {
-			return this.$t("$vuetify.pages.contact.name");
-		},
-		txtAbout(): string {
-			return this.$t("$vuetify.pages.about.name");
-		},
-		txtNews(): string {
-			return this.$t("$vuetify.pages.news.name");
-		},
-		txtReviews(): string {
-			return this.$t("$vuetify.pages.reviews.name");
-		},
-		txtTitle(): string | undefined {
-			const title = this.$route.name;
-			return title ? title?.toString() : "";
-		},
+    name: "header-component",
+    components: {
+        "header-navigation-component": HeaderNav,
+        "logo-component": Logo,
+        "svg-component": SVG,
+    },
+    computed: {
+        // Text
+        txtPageHome(): string {
+            return this.$t("$vuetify.pages.home.name");
+        },
+        txtAppBarTitle(): string {
+            let retVal: string = "";
+            if (this.$route.name) {
+                const currentPageName: RouteRecordName = this.$route.name;
+                retVal = currentPageName.toString();
+            }
+            return retVal;
+        },
 
-		// Links
-		linkHome(): string {
-			return this.$t("$vuetify.pages.home.link");
-		},
+        // Icons
+        iconLogoSVG(): string {
+            return LogoSVG;
+        },
 
-		// Icons
-		iconLogoSVG(): string {
-			return LogoSVG;
-		},
-		iconsAppBar() {
-			return this.storeHeader.getAllAppBarIcons;
-		},
-		iconAppBarMenu(): IAppBarIconsInfo {
-			const { menu } = this.iconsAppBar;
-			return menu;
-		},
-		iconsAppBarOther() {
-			const { menu, ...others } = this.iconsAppBar;
-			return others;
-		},
+        // Conditional
+        drawer: {
+            get(): boolean {
+                return this.storeCommon.getDrawer;
+            },
+            set(newValue: boolean): void {
+                this.storeCommon.setDrawer(newValue);
+            },
+        },
+    },
+    methods: {
+        // Events
+        appBarIconClicked(element: PointerEvent): void {
+            const targetElement: HTMLButtonElement = element.target as HTMLButtonElement;
+            const targetID: string = targetElement.id;
 
-		// Conditional
-		drawer: {
-			get(): boolean {
-				return this.storeCommon.getDrawer;
-			},
-			set(newValue: boolean): void {
-				this.storeCommon.setDrawer(newValue);
-			},
-		},
-	},
-	methods: {
-		// Events
-		handleClick(element: PointerEvent): void {
-			const targetElement: HTMLButtonElement = element.target as HTMLButtonElement;
-			const targetID: string = targetElement.id;
-
-			switch (targetID) {
-				case this.$t("$vuetify.header.appBar.icons.names.search"):
-					break;
-				case this.$t("$vuetify.header.appBar.icons.names.theme"):
-					this.toggleTheme();
-					break;
-				case this.$t("$vuetify.header.appBar.icons.names.newAccount"):
-					break;
-				case this.$t("$vuetify.header.appBar.icons.names.account"):
-					break;
-				case this.$t("$vuetify.header.appBar.icons.names.settings"):
-					break;
-			}
-		},
-		toggleTheme(): void {
-			this.theme.global.name.value = this.theme.global.current.value.dark ? "light" : "dark";
-		},
-	},
-	setup() {
-		const storeCommon = parentStore();
-		const storeHeader = childStores.useHeaderStore();
-		const theme = useTheme();
-		return { storeCommon, storeHeader, theme };
-	},
-	data() {
-		return {
-			showMenu: false,
-			menu: {
-				name: this.$t("$vuetify.header.appBar.icons.names.menu"),
-				icon: this.$t("$vuetify.header.appBar.icons.menu"),
-				tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.menu"),
-				show: false,
-			},
-			icons: [
-				{
-					name: this.$t("$vuetify.header.appBar.icons.names.search"),
-					icon: this.$t("$vuetify.header.appBar.icons.search"),
-					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.search"),
-					show: false,
-				},
-				{
-					name: this.$t("$vuetify.header.appBar.icons.names.theme"),
-					icon: this.$t("$vuetify.header.appBar.icons.theme"),
-					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.theme"),
-					show: false,
-				},
-				{
-					name: this.$t("$vuetify.header.appBar.icons.names.newAccount"),
-					icon: this.$t("$vuetify.header.appBar.icons.newAccount"),
-					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.newAccount"),
-					show: false,
-				},
-				{
-					name: this.$t("$vuetify.header.appBar.icons.names.account"),
-					icon: this.$t("$vuetify.header.appBar.icons.account"),
-					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.account"),
-					show: false,
-				},
-				{
-					name: this.$t("$vuetify.header.appBar.icons.names.settings"),
-					icon: this.$t("$vuetify.header.appBar.icons.settings"),
-					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.settings"),
-					show: false,
-				},
-			],
-		};
-	},
+            switch (targetID) {
+                case this.$t("$vuetify.header.appBar.icons.names.search"):
+                    break;
+                case this.$t("$vuetify.header.appBar.icons.names.theme"):
+                    this.toggleTheme();
+                    break;
+                case this.$t("$vuetify.header.appBar.icons.names.newAccount"):
+                    break;
+                case this.$t("$vuetify.header.appBar.icons.names.account"):
+                    break;
+                case this.$t("$vuetify.header.appBar.icons.names.settings"):
+                    break;
+            }
+        },
+        toggleTheme(): void {
+            this.theme.global.name.value = this.theme.global.current.value.dark ? "light" : "dark";
+        },
+        navigateTo(pageName: string): void {
+            this.$router.push({ name: pageName });
+        },
+    },
+    setup() {
+        const storeCommon = parentStore();
+        const storeHeader = childStores.useHeaderStore();
+        const theme = useTheme();
+        return { storeCommon, storeHeader, theme };
+    },
+    data() {
+        return {
+            appBarIcons: {
+                menu: {
+                    id: this.$t("$vuetify.header.appBar.icons.names.menu"),
+                    icon: this.$t("$vuetify.header.appBar.icons.menu"),
+                    tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.menu"),
+                    showTooltip: false,
+                },
+                others: [
+                    {
+                        id: this.$t("$vuetify.header.appBar.icons.names.search"),
+                        icon: this.$t("$vuetify.header.appBar.icons.search"),
+                        tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.search"),
+                        showTooltip: false,
+                    },
+                    {
+                        id: this.$t("$vuetify.header.appBar.icons.names.theme"),
+                        icon: this.$t("$vuetify.header.appBar.icons.theme"),
+                        tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.theme"),
+                        showTooltip: false,
+                    },
+                    {
+                        id: this.$t("$vuetify.header.appBar.icons.names.newAccount"),
+                        icon: this.$t("$vuetify.header.appBar.icons.newAccount"),
+                        tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.newAccount"),
+                        showTooltip: false,
+                    },
+                    {
+                        id: this.$t("$vuetify.header.appBar.icons.names.account"),
+                        icon: this.$t("$vuetify.header.appBar.icons.account"),
+                        tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.account"),
+                        showTooltip: false,
+                    },
+                    {
+                        id: this.$t("$vuetify.header.appBar.icons.names.settings"),
+                        icon: this.$t("$vuetify.header.appBar.icons.settings"),
+                        tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.settings"),
+                        showTooltip: false,
+                    },
+                ],
+            },
+        };
+    },
 });
 </script>
