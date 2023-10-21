@@ -12,6 +12,9 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 
+// Interfaces
+import { IRefurbishmentData } from "@interfaces/refurbishment/interface-refurbishment";
+
 // Images
 import RefurbishmentPNG from "@assets/png/refurbishments/refurbishment.jpg";
 
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "refurbishment-page-component",
     components: {
         "page-component": Page,
+    },
+    data(): IRefurbishmentData {
+        return {};
     },
     computed: {
         // Text

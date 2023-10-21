@@ -12,6 +12,9 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 
+// Interfaces
+import { IBathroomData } from "@interfaces/bathroom/interface-bathroom";
+
 // Images
 import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
 
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "bathroom-page-component",
     components: {
         "page-component": Page,
+    },
+    data(): IBathroomData {
+        return {};
     },
     computed: {
         // Text

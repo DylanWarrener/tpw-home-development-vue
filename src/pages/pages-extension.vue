@@ -12,6 +12,9 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 
+// Interfaces
+import { IExtensionData } from "@interfaces/extension/interface-extension";
+
 // Images
 import ExtensionPNG from "@assets/png/extensions/extension.jpg";
 
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "extension-page-component",
     components: {
         "page-component": Page,
+    },
+    data(): IExtensionData {
+        return {};
     },
     computed: {
         // Text

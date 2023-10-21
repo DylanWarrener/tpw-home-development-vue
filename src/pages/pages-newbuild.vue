@@ -12,6 +12,9 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 
+// Interfaces
+import { INewbuildData } from "@interfaces/newbuild/interface-newbuild";
+
 // Images
 import NewbuildPNG from "@assets/png/newbuilds/newbuild.jpg";
 
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "newbuild-page-component",
     components: {
         "page-component": Page,
+    },
+    data(): INewbuildData {
+        return {};
     },
     computed: {
         // Text

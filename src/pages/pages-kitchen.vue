@@ -12,6 +12,9 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 
+// Interfaces
+import { IKitchenData } from "@interfaces/kitchen/interface-kitchen";
+
 // Images
 import KitchenPNG from "@assets/png/kitchens/kitchen.jpg";
 
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "kitchen-page-component",
     components: {
         "page-component": Page,
+    },
+    data(): IKitchenData {
+        return {};
     },
     computed: {
         // Text

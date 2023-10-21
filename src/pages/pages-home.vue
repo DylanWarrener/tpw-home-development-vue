@@ -12,6 +12,9 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 // Components
 import Page from "@components/containers/page/page.vue";
 
+// Interfaces
+import { IHomeData } from "@interfaces/home/interface-home";
+
 // IMGs
 import HomePNG from "@assets/png/home/home.jpg";
 
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "home-page-component",
     components: {
         "page-component": Page,
+    },
+    data(): IHomeData {
+        return {};
     },
     computed: {
         // Text

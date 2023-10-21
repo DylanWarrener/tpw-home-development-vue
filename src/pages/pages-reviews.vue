@@ -30,6 +30,9 @@ import Page from "@components/containers/page/page.vue";
 import Section from "@components/containers/section/section.vue";
 //import Reviews from "@components/body/sections/reviews.vue";
 
+// Interfaces
+import { IReviewsData } from "@interfaces/reviews/interface-reviews";
+
 // Images
 import ReviewsPNG from "@assets/png/reviews/reviews.jpg";
 
@@ -45,6 +48,9 @@ export default defineComponent({
         "page-component": Page,
         "section-component": Section,
         //"reviews-component": Reviews,
+    },
+    data(): IReviewsData {
+        return {};
     },
     computed: {
         // Text

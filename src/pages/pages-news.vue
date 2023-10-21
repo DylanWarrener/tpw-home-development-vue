@@ -22,6 +22,9 @@ import Page from "@components/containers/page/page.vue";
 import Section from "@components/containers/section/section.vue";
 import FilterForNews from "@components/containers/news/filter/news-filter.vue";
 
+// Interfaces
+import { INewsData } from "@interfaces/news/interface-news";
+
 // Images
 import NewsPNG from "@assets/png/about/about.jpg";
 
@@ -37,6 +40,9 @@ export default defineComponent({
         "page-component": Page,
         "section-component": Section,
         "news-filter-component": FilterForNews,
+    },
+    data(): INewsData {
+        return {};
     },
     computed: {
         // Text
