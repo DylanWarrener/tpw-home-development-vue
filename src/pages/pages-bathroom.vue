@@ -1,5 +1,5 @@
 <template>
-    <page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>
+	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>
 </template>
 
 <script lang="ts">
@@ -19,74 +19,75 @@ import { IBathroomData } from "@interfaces/bathroom/interface-bathroom";
 import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
 
 // Enums
-import { EventNames } from "@enums/events";
+import { BtnIDs } from "@enums/IDs/enums-ids-btn";
+import { SectionIDs } from "@enums/IDs/enums-ids-section";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
+import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
 
 export default defineComponent({
-    name: "bathroom-page-component",
-    components: {
-        "page-component": Page,
-    },
-    data(): IBathroomData {
-        return {};
-    },
-    computed: {
-        // Text
-        canvasTitle(): string {
-            return this.$t("$vuetify.card.canvas.pages.bathroom.title");
-        },
-        canvasSubtitle(): string {
-            return this.$t("$vuetify.card.canvas.pages.bathroom.subtitle");
-        },
-        canvasBtnText(): string {
-            return this.$t("$vuetify.card.canvas.pages.bathroom.btnText");
-        },
+	name: "bathroom-page-component",
+	components: {
+		"page-component": Page,
+	},
+	data(): IBathroomData {
+		return {};
+	},
+	computed: {
+		// Text
+		canvasTitle(): string {
+			return this.$t("$vuetify.card.canvas.pages.bathroom.title");
+		},
+		canvasSubtitle(): string {
+			return this.$t("$vuetify.card.canvas.pages.bathroom.subtitle");
+		},
+		canvasBtnText(): string {
+			return this.$t("$vuetify.card.canvas.pages.bathroom.btnText");
+		},
 
-        // IMGs
-        src(): string {
-            return BathroomPNG;
-        },
+		// IMGs
+		src(): string {
+			return BathroomPNG;
+		},
 
-        // Events
-        recievedEventData(): string {
-            return this.storeEvent.getEmittedEvent;
-        },
-    },
-    watch: {
-        recievedEventData(newValue: string) {
-            const eventID: number = EventNames.CARD_CANVAS_BTN_CLICKED;
-            const pageName: RouteRecordName = this.$route.name!;
-            const appBarHeight: number = this.storeCommon.getAppBarHeight;
-            const chosenElement: HTMLDivElement = document.getElementById("be_inspired_section") as HTMLDivElement;
+		// Events
+		recievedEventData(): string {
+			return this.storeEvent.getEmittedEvent;
+		},
+	},
+	watch: {
+		recievedEventData(newValue: string): void {
+			const pageName: RouteRecordName = this.$route.name!;
+			const appBarHeight: number = this.storeCommon.getAppBarHeight;
 
-            const eventStrOne: string = newValue;
-            const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+			const eventStrOne: string = newValue;
+			const eventStrTwo: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
 
-            if (newValue) {
-                const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.BE_INSPIRED_SECTION) as HTMLDivElement;
 
-                if (areEventsEqual) {
-                    scrollToElement(chosenElement!.offsetTop - appBarHeight);
-                }
-                this.storeEvent.setEmittedEvent("");
-            }
-        },
-    },
-    setup() {
-        const storeCommon = parentStore();
-        const storeBathroom = childStores.useBathroomStore();
-        const storeEvent = eventStores.useGlobalEventStore();
-        return { storeCommon, storeBathroom, storeEvent };
-    },
-    created(): void {
-        this.storeCommon.setIsCanvasComponentActive(true);
-        this.storeCommon.setIsBeInspiredComponentActive(true);
-        this.storeCommon.setIsPortfolioComponentActive(true);
-        this.storeCommon.setIsProcessOfEliminationActive(false);
-        this.storeCommon.setIsNewsComponentActive(false);
-        this.storeCommon.setIsReviewsComponentActive(false);
-    },
+			if (newValue) {
+				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
+
+				if (areEventsEqual) {
+					scrollToElement(targetElement!.offsetTop - appBarHeight);
+				}
+				this.storeEvent.setEmittedEvent("");
+			}
+		},
+	},
+	setup() {
+		const storeCommon = parentStore();
+		const storeBathroom = childStores.useBathroomStore();
+		const storeEvent = eventStores.useEventStore();
+		return { storeCommon, storeBathroom, storeEvent };
+	},
+	created(): void {
+		this.storeCommon.setIsCanvasComponentActive(true);
+		this.storeCommon.setIsBeInspiredComponentActive(true);
+		this.storeCommon.setIsPortfolioComponentActive(true);
+		this.storeCommon.setIsProcessOfEliminationActive(false);
+		this.storeCommon.setIsNewsComponentActive(false);
+		this.storeCommon.setIsReviewsComponentActive(false);
+	},
 });
 </script>

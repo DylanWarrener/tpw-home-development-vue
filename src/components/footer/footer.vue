@@ -50,7 +50,7 @@ export default defineComponent({
 	setup() {
 		const storeCommon = parentStore();
 		const storeFooter = childStores.useFooterStore();
-		const storeEvent = eventStores.useGlobalEventStore();
+		const storeEvent = eventStores.useEventStore();
 		return { storeCommon, storeFooter, storeEvent };
 	},
 });

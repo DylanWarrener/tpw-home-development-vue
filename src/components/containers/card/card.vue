@@ -1,42 +1,35 @@
 <template>
-    <v-card class="text-default" :class="cardClass" :style="cardStyle">
-        <slot name="img"></slot>
-        <slot name="other"></slot>
-        <v-card-item class="pa-4" v-if="title || subtitle">
-            <!-- Title -->
-            <v-card-title class="pa-2 text-wrap" :class="titleClass">
-                <slot name="title">
-                    <h1>{{ title }}</h1>
-                </slot>
-            </v-card-title>
+	<v-card class="text-default" :class="cardClass" :style="cardStyle" style="border: 2px solid yellow">
+		<slot name="img"></slot>
+		<slot name="other"></slot>
+		<v-card-item class="pa-4" v-if="title || subtitle">
+			<!-- Title -->
+			<v-card-title class="pa-2 text-wrap" :class="titleClass">
+				<slot name="title">
+					<h1>{{ title }}</h1>
+				</slot>
+			</v-card-title>
 
-            <!-- Subtitle -->
-            <v-card-subtitle class="pa-2 text-wrap" :class="subtitleClass">
-                <slot name="subtitle">
-                    <h3>{{ subtitle }}</h3>
-                </slot>
-            </v-card-subtitle>
-        </v-card-item>
+			<!-- Subtitle -->
+			<v-card-subtitle class="pa-2 text-wrap" :class="subtitleClass">
+				<slot name="subtitle">
+					<h3>{{ subtitle }}</h3>
+				</slot>
+			</v-card-subtitle>
+		</v-card-item>
 
-        <!-- Content -->
-        <v-card-text class="pa-0" :class="contentClass">
-            <slot name="content"></slot>
-        </v-card-text>
+		<!-- Content -->
+		<v-card-text class="pa-0" :class="contentClass" style="border: 2px solid green">
+			<slot name="content"></slot>
+		</v-card-text>
 
-        <!-- Actions -->
-        <v-card-actions class="pa-4 d-flex" :class="actionClass" v-if="btnText">
-            <slot name="actions">
-                <v-btn
-                    variant="outlined"
-                    class="text-inverted"
-                    style="border: thin solid rgb(var(--v-theme-inverted))"
-                    :text="btnText"
-                    :class="actionBtnClass"
-                    @click="scrollTo"
-                ></v-btn>
-            </slot>
-        </v-card-actions>
-    </v-card>
+		<!-- Actions -->
+		<v-card-actions class="pa-4 d-flex" :class="actionClass" v-if="btnText" style="border: 2px solid green">
+			<slot name="actions">
+				<v-btn variant="outlined" :id="actionBtnId" :text="btnText" :class="actionBtnClass" @click="scrollTo"></v-btn>
+			</slot>
+		</v-card-actions>
+	</v-card>
 </template>
 
 <script lang="ts">
@@ -45,42 +38,43 @@ import { defineComponent } from "vue";
 // Stores
 import { parentStore, eventStores } from "@plugins/pinia/pinia";
 
-// Enums
-import { EventNames } from "@enums/events";
+// Interfaces
+import { RouteRecordName } from "vue-router";
 
 // Utils
-import { buildEventString } from "@utils/utils";
+import { buildEventString } from "@utils/functions/utils-functions";
 
 export default defineComponent({
-    name: "card-component",
-    props: {
-        cardClass: { type: String, required: false, default: "bg-background-secondary" },
-        titleClass: { type: String, required: false },
-        subtitleClass: { type: String, required: false },
-        contentClass: { type: String, required: false },
-        actionClass: { type: String, required: false, default: "justify-end" },
-        actionBtnClass: { type: String, required: false },
-        cardStyle: { type: String, required: false },
-        title: { type: String, required: false },
-        subtitle: { type: String, required: false },
-        text: { type: String, required: false },
-        btnText: { type: String, required: false },
-    },
-    methods: {
-        scrollTo(event: PointerEvent): void {
-            const eventTarget: HTMLSpanElement = event.target as HTMLSpanElement;
-            const btnText: string = eventTarget.innerText;
-            const eventID: number = EventNames.CARD_CANVAS_BTN_CLICKED;
-            const pageName: any = this.$route.name!;
-            const eventStr: string = buildEventString(eventID, pageName, btnText);
+	name: "card-component",
+	props: {
+		cardClass: { type: String, required: false, default: "bg-background-secondary" },
+		titleClass: { type: String, required: false },
+		subtitleClass: { type: String, required: false },
+		contentClass: { type: String, required: false },
+		actionClass: { type: String, required: false, default: "justify-end" },
+		actionBtnId: { type: String, required: true },
+		actionBtnClass: { type: String, required: false },
+		cardStyle: { type: String, required: false },
+		title: { type: String, required: false },
+		subtitle: { type: String, required: false },
+		text: { type: String, required: false },
+		btnText: { type: String, required: false },
+	},
+	methods: {
+		scrollTo(): void {
+			//const eventTarget: HTMLSpanElement = event.target as HTMLSpanElement;
+			//const btnText: string = eventTarget.innerText;
+			const pageName: RouteRecordName = this.$route.name!;
+			const btnID: string = this.actionBtnId;
+			const eventStr: string = buildEventString(pageName.toString(), btnID);
 
-            this.storeEvent.setEmittedEvent(eventStr);
-        },
-    },
-    setup() {
-        const storeCommon = parentStore();
-        const storeEvent = eventStores.useGlobalEventStore();
-        return { storeCommon, storeEvent };
-    },
+			this.storeEvent.setEmittedEvent(eventStr);
+		},
+	},
+	setup() {
+		const storeCommon = parentStore();
+		const storeEvent = eventStores.useEventStore();
+		return { storeCommon, storeEvent };
+	},
 });
 </script>

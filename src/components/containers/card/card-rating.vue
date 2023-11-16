@@ -1,5 +1,11 @@
 <template>
-	<card-component variant="outlined" card-class="bg-accent text-inverted pa-2" action-class="justify-center" :btn-text="btnText">
+	<card-component
+		variant="outlined"
+		card-class="bg-accent text-inverted pa-2"
+		action-class="justify-center"
+		:btn-text="btnText"
+		:action-btn-id="actionBtnId"
+	>
 		<template #content>
 			<v-container>
 				<v-row>
@@ -38,6 +44,7 @@ export default defineComponent({
 	},
 	props: {
 		btnText: { type: String, required: false },
+		actionBtnId: { type: String, required: true },
 	},
 	computed: {
 		title(): string {

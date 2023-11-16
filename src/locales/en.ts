@@ -166,7 +166,7 @@ const en = {
 				name: allPageNames.reviews,
 				link: allPageLinks.reviews,
 				images: {},
-				title: "Latest Reviews",
+				title: "All Reviews",
 				subtitle: "Testing reviews subtitle",
 			},
 		},

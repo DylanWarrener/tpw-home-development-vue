@@ -8,6 +8,7 @@
 						:btn-text="btnText"
 						:title="title"
 						:subtitle="subtitle"
+						:action-btn-id="canvasCardBtnID"
 					></card-component>
 				</v-col>
 			</v-row>
@@ -22,21 +23,24 @@ import { defineComponent } from "vue";
 import Section from "@components/containers/section/section.vue";
 import Card from "@components/containers/card/card.vue";
 
+// Enums
+import { BtnIDs } from "@enums/IDs/enums-ids-btn";
+
 export default defineComponent({
 	name: "be-inspired-component",
+	components: {
+		"section-component": Section,
+		"card-component": Card,
+	},
 	props: {
 		src: { type: String, required: true },
 		title: { type: String, required: true },
 		subtitle: { type: String, required: false },
 		btnText: { type: String, required: true },
 	},
-	components: {
-		"section-component": Section,
-		"card-component": Card,
-	},
-	methods: {
-		handleClick(): void {
-			this.$emit("cardClicked");
+	computed: {
+		canvasCardBtnID(): string {
+			return BtnIDs.CANVAS_CARD_BTN_ID;
 		},
 	},
 });
@@ -49,3 +53,4 @@ export default defineComponent({
 	max-height: 100vh;
 }
 </style>
+@src/enums/IDs/enums-ids-btn

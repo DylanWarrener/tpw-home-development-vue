@@ -56,19 +56,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-// Store
+// Stores
 import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
 import Canvas from "@components/containers/canvas/canvas.vue";
 import BeInspired from "@components/body/sections/be-inspired.vue";
 import Portfolio from "@components/body/sections/portfolio.vue";
-import LatestReviews from "@components/body/sections/latest-reviews.vue";
 import ProcessOfElimination from "@components/body/sections/process-of-elimination.vue";
 import LatestNews from "@components/body/sections/latest-news.vue";
-
-// Utils
-//import { scrollToElement } from "../../../utils/utils";
+import LatestReviews from "@components/body/sections/latest-reviews.vue";
 
 export default defineComponent({
 	name: "page-content-component",

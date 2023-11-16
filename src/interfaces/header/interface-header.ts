@@ -1,17 +1,11 @@
-import IHeaderAppBarTextualData from "./appBar/interface-header-appbar";
-import IHeaderNavigationTextualData from "./navigation/interface-header-navigation";
-
-export default interface IHeaderTextualData {
-	appBar: IHeaderAppBarTextualData;
-	navigation: IHeaderNavigationTextualData;
-}
-
-export interface IHeaderState {
+export default interface IHeaderState {
 	drawer: boolean;
-	icons: IAppBarIcons;
+	appBarIcons: IAppBarIcons;
 }
 
-export interface IHeaderData {}
+export interface IHeaderData {
+	appBarIcons: IAppBarIcons;
+}
 
 export interface IAppBarIcons {
 	menu: IAppBarIconsInfo;
@@ -26,5 +20,5 @@ export interface IAppBarIconsInfo {
 	name: string;
 	icon: string;
 	tooltip: string;
-	show: boolean;
+	showTooltip: boolean;
 }

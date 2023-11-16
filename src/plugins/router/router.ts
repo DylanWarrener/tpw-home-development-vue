@@ -12,7 +12,7 @@ const Extensions = () => import("@pages/pages-extension.vue");
 const Refurbishments = () => import("@pages/pages-refurbishment.vue");
 const Contact = () => import("@pages/pages-contact.vue");
 const About = () => import("@pages/pages-about.vue");
-//const News = () => import("@pages/pages-news.vue");
+const News = () => import("@pages/pages-news.vue");
 const Reviews = () => import("@pages/pages-reviews.vue");
 
 // Routes
@@ -27,16 +27,26 @@ const router = createRouter({
 		{ path: `${allPageLinks.refurbishment}`, name: `${allPageNames.refurbishment}`, component: Refurbishments },
 		{ path: `${allPageLinks.contact}`, name: `${allPageNames.contact}`, component: Contact },
 		{ path: `${allPageLinks.about}`, name: `${allPageNames.about}`, component: About },
-		//{ path: `${allPageLinks.news}`, name: `${allPageNames.news}`, component: News },
+		{ path: `${allPageLinks.news}`, name: `${allPageNames.news}`, component: News },
 		{ path: `${allPageLinks.reviews}`, name: `${allPageNames.reviews}`, component: Reviews },
 		{ path: "/:notFound(.*)", name: "NotFound", redirect: "/" },
 	],
-	scrollBehavior(savedPosition) {
+	scrollBehavior(to, from, savedPosition) {
 		let retVal;
 		if (savedPosition) {
 			retVal = savedPosition;
 		} else {
-			retVal = { top: 0 };
+			if (to.hash) {
+				retVal = {
+					el: to.hash,
+					behavior: "smooth",
+				};
+			} else {
+				retVal = {
+					top: 0,
+					behavior: "smooth",
+				};
+			}
 		}
 		return retVal;
 	},

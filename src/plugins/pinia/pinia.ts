@@ -1,11 +1,34 @@
 import { createPinia, defineStore } from "pinia";
 
-// Enums
-import { AppBarDensity } from "@enums/sizing";
+// Localisation
+import Vuetify from "@plugins/vuetify/vuetify";
 
-// Page stores
+Vuetify.
+
+// Stores to load immediately
 import useHeaderStore from "@stores/stores-header";
 import useHomeStore from "@stores/stores-home";
+import useFooterStore from "@stores/stores-footer";
+import useErrorStore from "@stores/stores-error";
+import useEventStore from "@stores/stores-event";
+
+// Enums
+import { AppBarDensity } from "@src/enums/enums-sizing";
+
+// Stores to load when called
+/*
+const useKitchenStore = () => import("@stores/stores-kitchen");
+const useBathroomStore = () => import("@stores/stores-bathroom");
+const useNewbuildStore = () => import("@stores/stores-newbuild");
+const useExtensionStore = () => import("@stores/stores-extension");
+const useRefurbishmentStore = () => import("@stores/stores-refurbishment");
+const useContactStore = () => import("@stores/stores-contact");
+const useAboutStore = () => import("@stores/stores-about");
+const useNewsStore = () => import("@stores/stores-news");
+const useReviewsStore = () => import("@stores/stores-reveiws");
+*/
+
+// Convert to above when ready
 import useKitchenStore from "@stores/stores-kitchen";
 import useBathroomStore from "@stores/stores-bathroom";
 import useNewbuildStore from "@stores/stores-newbuild";
@@ -15,18 +38,12 @@ import useContactStore from "@stores/stores-contact";
 import useAboutStore from "@stores/stores-about";
 import useNewsStore from "@stores/stores-news";
 import useReviewsStore from "@stores/stores-reveiws";
-import useFooterStore from "@stores/stores-footer";
-import useErrorStore from "@stores/stores-error";
-
-// Event stores
-import useGlobalEventStore from "@stores/stores-event";
 
 const pinia = createPinia();
 
 // Main store
 export const parentStore = defineStore("common-store", {
 	state: () => ({
-		drawer: false,
 		appBarHeight: AppBarDensity.DEFAULT,
 		isCanvasComponentActive: true,
 		isBeInspiredComponentActive: true,
@@ -36,7 +53,6 @@ export const parentStore = defineStore("common-store", {
 		isReviewsComponentActive: true,
 	}),
 	getters: {
-		getDrawer: (state): boolean => state.drawer,
 		getAppBarHeight: (state): number => state.appBarHeight,
 		getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
 		getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
@@ -46,9 +62,6 @@ export const parentStore = defineStore("common-store", {
 		getIsReviewsComponentActive: (state): boolean => state.isReviewsComponentActive,
 	},
 	actions: {
-		setDrawer(newValue: boolean): void {
-			this.drawer = newValue;
-		},
 		setAppBarHeight(newValue: number): void {
 			this.appBarHeight = newValue;
 		},
@@ -90,7 +103,7 @@ export const childStores = {
 };
 
 export const eventStores = {
-	useGlobalEventStore,
+	useEventStore,
 };
 
 export default pinia;

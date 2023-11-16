@@ -3,9 +3,12 @@
 		<template #content>
 			<v-container fluid>
 				<v-row style="gap: 16px">
+					<!-- Review rating overview -->
 					<v-col class="pa-0 d-flex flex-column align-center justify-center" style="gap: 16px; max-width: 25%">
-						<card-rating-component :btn-text="btnText" @click="goTo"></card-rating-component>
+						<card-rating-component :btn-text="btnText" :action-btn-id="allReviewsBtnID"></card-rating-component>
 					</v-col>
+
+					<!-- Reviews in carousel -->
 					<v-col class="border pa-0">
 						<carousel-component>
 							<template #content>
@@ -43,10 +46,13 @@ import CardReview from "@components/containers/card/card-review.vue";
 import CardRating from "@components/containers/card/card-rating.vue";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { parentStore, childStores } from "@plugins/pinia/pinia";
 
-// Images
+// IMGs
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
+
+// Enums
+import { BtnIDs } from "@enums/IDs/enums-ids-btn";
 
 export default defineComponent({
 	name: "reviews-component",
@@ -55,22 +61,6 @@ export default defineComponent({
 		"carousel-component": Carousel,
 		"card-review-component": CardReview,
 		"card-rating-component": CardRating,
-	},
-	computed: {
-		title(): string {
-			return this.$t("$vuetify.sections.latestReviews.title");
-		},
-		subtitle(): string {
-			return this.$t("$vuetify.sections.latestReviews.subtitle");
-		},
-		btnText(): string {
-			return this.$t("$vuetify.sections.latestReviews.btnText");
-		},
-	},
-	methods: {
-		goTo(): void {
-			this.$router.push({ name: this.$t("$vuetify.pages.name.reviews") });
-		},
 	},
 	data() {
 		return {
@@ -96,11 +86,27 @@ export default defineComponent({
 			],
 		};
 	},
+	computed: {
+		// IDs
+		allReviewsBtnID(): string {
+			return BtnIDs.ALL_REVIEWS_BTN_ID;
+		},
+
+		// Text
+		title(): string {
+			return this.$t("$vuetify.sections.latestReviews.title");
+		},
+		subtitle(): string {
+			return this.$t("$vuetify.sections.latestReviews.subtitle");
+		},
+		btnText(): string {
+			return this.$t("$vuetify.sections.latestReviews.btnText");
+		},
+	},
 	setup() {
 		const storeCommon = parentStore();
 		const storeReviews = childStores.useReviewsStore();
-		const storeEvent = eventStores.useGlobalEventStore();
-		return { storeCommon, storeReviews, storeEvent };
+		return { storeCommon, storeReviews };
 	},
 });
 </script>
