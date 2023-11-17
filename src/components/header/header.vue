@@ -36,7 +36,7 @@ import Logo from "@components/header/navigation/logo.vue";
 import SVG from "@components/containers/svg/svg.vue";
 
 // Interfaces
-import { IHeaderData } from "@interfaces/header/interface-header";
+import { IHeaderData, IAppBarIcons } from "@interfaces/header/interface-header";
 
 // IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
@@ -52,46 +52,7 @@ export default defineComponent({
 		"svg-component": SVG,
 	},
 	data(): IHeaderData {
-		return {
-			appBarIcons: {
-				menu: {
-					name: this.$t("$vuetify.header.appBar.icons.names.menu"),
-					icon: this.$t("$vuetify.header.appBar.icons.menu"),
-					tooltip: this.$t("$vuetify.header.appBar.icons.tooltips.menu"),
-					showTooltip: false,
-				},
-				search: {
-					name: this.$t("header.appBar.icons.name.search"),
-					icon: this.$t("header.appBar.icons.search"),
-					tooltip: this.$t("header.appBar.icons.tooltips.search"),
-					showTooltip: false,
-				},
-				theme: {
-					name: this.$t("header.appBar.icons.name.theme"),
-					icon: this.$t("header.appBar.icons.theme"),
-					tooltip: this.$t("header.appBar.icons.tooltips.theme"),
-					showTooltip: false,
-				},
-				newAccount: {
-					name: this.$t("header.appBar.icons.name.newAccount"),
-					icon: this.$t("header.appBar.icons.newAccount"),
-					tooltip: this.$t("header.appBar.icons.tooltips.newAccount"),
-					showTooltip: false,
-				},
-				account: {
-					name: this.$t("header.appBar.icons.name.account"),
-					icon: this.$t("header.appBar.icons.account"),
-					tooltip: this.$t("header.appBar.icons.tooltips.account"),
-					showTooltip: false,
-				},
-				settings: {
-					name: this.$t("header.appBar.icons.name.settings"),
-					icon: this.$t("header.appBar.icons.settings"),
-					tooltip: this.$t("header.appBar.icons.tooltips.settings"),
-					showTooltip: false,
-				},
-			},
-		};
+		return {};
 	},
 	computed: {
 		// Text
@@ -110,6 +71,9 @@ export default defineComponent({
 		// Icons
 		iconLogoSVG(): string {
 			return LogoSVG;
+		},
+		appBarIcons(): IAppBarIcons {
+			return this.storeHeader.getAllAppBarIcons;
 		},
 
 		// Read & Write
@@ -154,6 +118,10 @@ export default defineComponent({
 		const storeHeader = childStores.useHeaderStore();
 		const theme = useTheme();
 		return { storeCommon, storeHeader, theme };
+	},
+	created(): void {
+		this.storeHeader.setAppBarIcons();
+		this.storeHeader.setNavigationItems();
 	},
 });
 </script>

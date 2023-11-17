@@ -15,30 +15,31 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-// Store
-import { parentStore } from "@plugins/pinia/pinia";
+// Stores
+import { childStores } from "@plugins/pinia/pinia";
 
 // Interface
-import { ICommonNavigationItem } from "@interfaces/header/navigation/interface-header-navigation";
+import { IHeaderNavigation } from "@interfaces/header/interface-header";
 
 export default defineComponent({
 	name: "navigation-component",
 	props: {
-		navigation: { type: Array<ICommonNavigationItem>, required: true },
+		navigation: { type: Object as () => IHeaderNavigation, required: true },
 	},
 	computed: {
+		// Read & Write
 		drawer: {
 			get(): boolean {
-				return this.storeCommon.getDrawer;
+				return this.storeHeader.getDrawer;
 			},
 			set(newValue: boolean) {
-				this.storeCommon.setDrawer(newValue);
+				this.storeHeader.setDrawer(newValue);
 			},
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		return { storeCommon };
+		const storeHeader = childStores.useHeaderStore();
+		return { storeHeader };
 	},
 });
 </script>

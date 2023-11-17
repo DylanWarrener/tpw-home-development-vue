@@ -4,7 +4,7 @@ import { createI18n } from "vue-i18n";
 import messages from "@locales/locales";
 
 const i18n = createI18n({
-	legacy: false,
+	legacy: true,
 	locale: "en",
 	fallbackLocale: "en",
 	messages,
@@ -12,4 +12,4 @@ const i18n = createI18n({
 
 export default i18n;
 
-export const i18nInstance = i18n.global;
+export const i18nInstance: any = i18n.global;
