@@ -11,3 +11,5 @@ const i18n = createI18n({
 });
 
 export default i18n;
+
+export const i18nInstance = i18n.global;

@@ -1,16 +1,14 @@
 import { createPinia, defineStore } from "pinia";
 
-// Localisation
-import Vuetify from "@plugins/vuetify/vuetify";
-
-Vuetify.
-
 // Stores to load immediately
 import useHeaderStore from "@stores/stores-header";
 import useHomeStore from "@stores/stores-home";
 import useFooterStore from "@stores/stores-footer";
 import useErrorStore from "@stores/stores-error";
 import useEventStore from "@stores/stores-event";
+
+// Localisation
+import i18n from "@plugins/vuei18n/vue-i18n";
 
 // Enums
 import { AppBarDensity } from "@src/enums/enums-sizing";

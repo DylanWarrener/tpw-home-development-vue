@@ -9,11 +9,13 @@ export interface IHeaderData {
 
 export interface IAppBarIcons {
 	menu: IAppBarIconsInfo;
-	search: IAppBarIconsInfo;
-	theme: IAppBarIconsInfo;
-	newAccount: IAppBarIconsInfo;
-	account: IAppBarIconsInfo;
-	settings: IAppBarIconsInfo;
+	others: {
+		search: IAppBarIconsInfo;
+		theme: IAppBarIconsInfo;
+		newAccount: IAppBarIconsInfo;
+		account: IAppBarIconsInfo;
+		settings: IAppBarIconsInfo;
+	};
 }
 
 export interface IAppBarIconsInfo {

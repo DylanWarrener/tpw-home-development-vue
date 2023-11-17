@@ -2,7 +2,7 @@
 import { ICommonMainPageNames } from "@interfaces/common/interface-common";
 
 /* Common */
-// Card
+//// Card
 export const btnCardBeInspiredText = "Be Inspired?";
 export const btnCardReviewsText = "See all reviews?";
 
@@ -45,33 +45,6 @@ export const allPageLinks = {
 	...infoPageLinks,
 };
 
-// Page names
-export const pageNames = {
-	home: "Home",
-	kitchen: "Kitchens",
-	bathroom: "Bathrooms",
-	newbuild: "Newbuilds",
-	extension: "Extensions",
-	refurbishment: "Refurbishments",
-	contact: "Contact",
-	about: "About",
-	news: "News",
-	reviews: "Reviews",
-};
-// Page links
-export const pageLinks = {
-	home: "/",
-	kitchen: "/kitchens",
-	bathroom: "/bathrooms",
-	newbuild: "/newbuilds",
-	extension: "/extensions",
-	refurbishment: "/refurbishments",
-	contact: "/contact",
-	about: "/about",
-	news: "/news",
-	reviews: "/reviews",
-};
-
 //// Carousel
 // Dropdown items
 export const dropdownOptions = [
@@ -83,7 +56,7 @@ export const dropdownOptions = [
 ];
 
 /* Header */
-// Icon names
+//// Icon names
 export const headerIconNames = {
 	menu: "menu",
 	search: "search",
