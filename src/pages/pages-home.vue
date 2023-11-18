@@ -13,7 +13,7 @@ import Page from "@components/containers/page/page.vue";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";
-import { IHomeData } from "@interfaces/home/interface-home";
+import { IHomeData } from "@interfaces/pages/home/interface-home";
 
 // IMGs
 import HomePNG from "@assets/png/home/home.jpg";
@@ -24,7 +24,7 @@ import { SectionIDs } from "@enums/IDs/enums-ids-section";
 
 // Utils
 import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
-import { allPageNames } from "@utils/text/utils-text";
+import { allPageNames } from "@utils/text/common/utils-text-common";
 
 export default defineComponent({
 	name: "home-page-component",

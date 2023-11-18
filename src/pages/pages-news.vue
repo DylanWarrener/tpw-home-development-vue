@@ -23,8 +23,8 @@ import Section from "@components/containers/section/section.vue";
 import FilterForNews from "@components/containers/news/filter/news-filter.vue";
 
 // Interfaces
-import { INewsData } from "@interfaces/news/interface-news";
-import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
+import { INewsData } from "@interfaces/pages/news/interface-news";
+import INewsFilterState from "@interfaces/pages/news/filters/interface-news-filters";
 
 // PNGs
 import NewsPNG from "@assets/png/about/about.jpg";

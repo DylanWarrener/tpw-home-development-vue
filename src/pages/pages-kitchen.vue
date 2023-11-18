@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/containers/page/page.vue";
 
 // Interfaces
-import { IKitchenData } from "@interfaces/kitchen/interface-kitchen";
+import { IKitchenData } from "@interfaces/pages/kitchen/interface-kitchen";
 
 // IMGs
 import KitchenPNG from "@assets/png/kitchens/kitchen.jpg";

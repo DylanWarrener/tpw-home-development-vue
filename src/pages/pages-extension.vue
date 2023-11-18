@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/containers/page/page.vue";
 
 // Interfaces
-import { IExtensionData } from "@interfaces/extension/interface-extension";
+import { IExtensionData } from "@interfaces/pages/extension/interface-extension";
 
 // Images
 import ExtensionPNG from "@assets/png/extensions/extension.jpg";

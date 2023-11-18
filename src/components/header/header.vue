@@ -36,8 +36,8 @@ import Logo from "@components/header/navigation/logo.vue";
 import SVG from "@components/containers/svg/svg.vue";
 
 // Interfaces
-import { IHeaderData } from "@interfaces/header/interface-header";
-import { IAppBarIcons } from "@interfaces/header/appBar/interface-header-appbar";
+import { IHeaderData } from "@interfaces/common/header/interface-header";
+import { IAppBarIcons } from "@interfaces/common/header/appBar/interface-header-appbar";
 
 // IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";

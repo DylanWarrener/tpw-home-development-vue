@@ -23,7 +23,7 @@ import Section from "@components/containers/section/section.vue";
 import CardOurTeam from "@components/containers/card/custom/card-our-team.vue";
 
 // Interface
-import { IAboutData, IAboutEmployeeCard } from "@interfaces/about/interface-about";
+import { IAboutData, IAboutEmployeeCard } from "@interfaces/pages/about/interface-about";
 
 // Images
 import AboutPNG from "@assets/png/about/about.jpg";

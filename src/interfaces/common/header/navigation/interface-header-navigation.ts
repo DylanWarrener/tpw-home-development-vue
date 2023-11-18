@@ -1,3 +1,5 @@
+export default interface IHeaderNavigationData {}
+
 export interface IHeaderNavigation {
 	home: IHeaderNavigationInfo;
 	kitchen: IHeaderNavigationInfo;

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Utils
-import { allPageNames, allPageLinks } from "@utils/text/utils-text";
+import { allPageNames, allPageLinks } from "@src/utils/text/common/utils-text-common";
 
 // Child components -> dynamically imported (only imported when requested to reduce bundle size)
 const Home = () => import("@pages/pages-home.vue");
@@ -31,7 +31,7 @@ const router = createRouter({
 		{ path: `${allPageLinks.reviews}`, name: `${allPageNames.reviews}`, component: Reviews },
 		{ path: "/:notFound(.*)", name: "NotFound", redirect: "/" },
 	],
-	scrollBehavior(to, from, savedPosition) {
+	scrollBehavior(to, savedPosition) {
 		let retVal;
 		if (savedPosition) {
 			retVal = savedPosition;

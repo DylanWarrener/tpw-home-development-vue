@@ -1,20 +1,4 @@
-import ICommonCardTextualData from "./card/interface-common-card";
-import ICommonDropdownTextualData from "./dropdown/interface-common-dropdown";
-import ICommonIconTextualData from "./icon/interface-common-icon";
-import ICommonPageTextualData from "./page/interface-common-page";
-import ICommonSectionTextualData from "./section/interface-common-section";
-
-export default interface ICommonTextualData {
-	card: ICommonCardTextualData;
-	dropdown: ICommonDropdownTextualData;
-	icon: ICommonIconTextualData;
-	page: ICommonPageTextualData;
-	section: ICommonSectionTextualData;
-}
-
-// Pinia state interfaces
 export interface ICommonState {
-	// Page section state
 	isCanvasComponentActive: boolean;
 	isBeInspiredComponentActive: boolean;
 	isPortfolioComponentActive: boolean;
@@ -22,15 +6,25 @@ export interface ICommonState {
 	isProcessOfEliminationActive: boolean;
 	isLatestNewsComponentActive: boolean;
 }
-
-// Vue local data interfaces
 export interface ICommonData {}
 
-// Common page names
-export interface ICommonMainPageNames {
+// PAGES
+export interface ICommonPageServiceNames {
 	kitchen: string;
 	bathroom: string;
 	newbuild: string;
 	extension: string;
 	refurbishment: string;
 }
+export interface ICommonPageServiceLinks extends ICommonPageServiceNames {}
+export interface ICommonPageInfoNames {
+	home: string;
+	contact: string;
+	about: string;
+	news: string;
+	reviews: string;
+}
+export interface ICommonPageInfoLinks extends ICommonPageInfoNames {}
+
+export interface ICommonPageAllNames extends ICommonPageServiceNames, ICommonPageInfoNames {}
+export interface ICommonPageAllLinks extends ICommonPageServiceLinks, ICommonPageInfoLinks {}

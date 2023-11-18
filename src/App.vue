@@ -18,11 +18,17 @@ import { parentStore } from "@plugins/pinia/pinia";
 import Header from "@components/header/header.vue";
 import Footer from "@components/footer/footer.vue";
 
+// Interfaces
+import { ICommonData } from "@interfaces/common/interface-common";
+
 export default defineComponent({
 	name: "app-component",
 	components: {
 		"header-component": Header,
 		"footer-component": Footer,
+	},
+	data(): ICommonData {
+		return {};
 	},
 	setup() {
 		const storeCommon = parentStore();

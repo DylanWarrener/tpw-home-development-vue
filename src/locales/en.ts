@@ -18,7 +18,7 @@ import {
 	headerIconNames,
 	// Body
 	// Footer
-} from "../utils/text/utils-text";
+} from "../utils/text/common/utils-text-common";
 
 const en = {
 	$vuetify: {

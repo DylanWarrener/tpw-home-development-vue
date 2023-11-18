@@ -31,7 +31,7 @@ import Section from "@components/containers/section/section.vue";
 import Reviews from "@components/containers/reviews/reviews.vue";
 
 // Interfaces
-import { IReviewsData } from "@interfaces/reviews/interface-reviews";
+import { IReviewsData } from "@interfaces/pages/reviews/interface-reviews";
 
 // Images
 import ReviewsPNG from "@assets/png/reviews/reviews.jpg";

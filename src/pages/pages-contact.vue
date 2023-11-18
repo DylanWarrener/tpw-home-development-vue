@@ -23,7 +23,7 @@ import Section from "@components/containers/section/section.vue";
 import Contact from "@components/containers/contact/contact.vue";
 
 // Interfaces
-import { IContactData } from "@interfaces/contact/interface-contact";
+import { IContactData } from "@interfaces/pages/contact/interface-contact";
 
 // PNGs
 import ContactPNG from "@assets/png/contact/contact.jpg";
