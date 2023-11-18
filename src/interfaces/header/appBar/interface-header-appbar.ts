@@ -1,7 +1,17 @@
-import { ICommonAppBarIconTextualData } from "../../common/icon/interface-common-icon";
-import ICommonPageTextualData from "../../common/page/interface-common-page";
+export interface IAppBarIcons {
+	menu: IAppBarIconsInfo;
+	others: {
+		search: IAppBarIconsInfo;
+		theme: IAppBarIconsInfo;
+		newAccount: IAppBarIconsInfo;
+		account: IAppBarIconsInfo;
+		settings: IAppBarIconsInfo;
+	};
+}
 
-export default interface IHeaderAppBarTextualData {
-	icon: ICommonAppBarIconTextualData;
-	page: ICommonPageTextualData;
+export interface IAppBarIconsInfo {
+	id: string;
+	icon: string;
+	tooltip: string;
+	showTooltip: boolean;
 }

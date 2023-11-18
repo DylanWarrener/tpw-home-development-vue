@@ -4,7 +4,9 @@ import { defineStore } from "pinia";
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
 // Interfaces
-import IHeaderState, { IAppBarIcons, IHeaderNavigation } from "@interfaces/header/interface-header";
+import IHeaderState from "@interfaces/header/interface-header";
+import { IAppBarIcons } from "@interfaces/header/appBar/interface-header-appbar";
+import { IHeaderNavigation } from "@interfaces/header/navigation/interface-header-navigation";
 
 const useHeaderStore = defineStore("header-store", {
 	state: (): IHeaderState => ({

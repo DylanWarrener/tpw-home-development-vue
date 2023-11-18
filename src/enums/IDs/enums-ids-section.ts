@@ -4,4 +4,5 @@ export enum SectionIDs {
 	REVIEWS_SECTION = "reviews_section",
 	CONTACT_SECTION = "contact_section",
 	ABOUT_SECTION = "about_section",
+	NEWS_SECTION = "news_section",
 }

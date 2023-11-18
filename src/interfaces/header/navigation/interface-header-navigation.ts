@@ -1,17 +1,18 @@
-import ICommonPageTextualData from "../../common/page/interface-common-page";
-
-// Vue-i18n localization textual data
-export default interface IHeaderNavigationTextualData {
-    page: ICommonPageTextualData;
+export interface IHeaderNavigation {
+	home: IHeaderNavigationInfo;
+	kitchen: IHeaderNavigationInfo;
+	bathroom: IHeaderNavigationInfo;
+	newbuild: IHeaderNavigationInfo;
+	extension: IHeaderNavigationInfo;
+	refurbishment: IHeaderNavigationInfo;
+	contact: IHeaderNavigationInfo;
+	about: IHeaderNavigationInfo;
+	news: IHeaderNavigationInfo;
+	reviews: IHeaderNavigationInfo;
 }
 
-// Vue local data interfaces
-export interface ICommonNavigationData {
-    navigation: ICommonNavigationItem[];
-}
-
-export interface ICommonNavigationItem {
-    title: string;
-    icon: string;
-    link: string;
+export interface IHeaderNavigationInfo {
+	title: string;
+	icon: string;
+	link: string;
 }

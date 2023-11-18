@@ -12,7 +12,7 @@ import { childStores } from "@plugins/pinia/pinia";
 import Nav from "@components/containers/navigation/navigation.vue";
 
 // Interfaces
-import { IHeaderNavigation } from "@interfaces/header/interface-header";
+import { IHeaderNavigation } from "@interfaces/header/navigation/interface-header-navigation";
 
 export default defineComponent({
 	name: "header-navigation-component",

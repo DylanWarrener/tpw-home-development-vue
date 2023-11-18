@@ -77,43 +77,33 @@ const en = {
 				link: allPageLinks.kitchen,
 				images: {
 					ascotLightGreyDust: {
-						src: "",
 						alt: "Ascot style kitchen",
 					},
 					cambridgeFirGreen: {
-						src: "",
 						alt: "Cambridge fir green style kitchen",
 					},
 					cartmelMussel: {
-						src: "",
 						alt: "Cartmel mussels style kitchen",
 					},
 					granthamChalkstoneFirGreen: {
-						src: "",
 						alt: "Grantham chalkstone fir green style kitchen",
 					},
 					linearWhiteHalifaxOak: {
-						src: "",
 						alt: "Linear white halifax oak style kitchen",
 					},
 					lucenteGlossCream: {
-						src: "",
 						alt: "Lucente gloss cream style kitchen",
 					},
 					newmarketIndigoBlue: {
-						src: "",
 						alt: "Newmarket indigo blue style kitchen",
 					},
 					oxfordWhite: {
-						src: "",
 						alt: "Oxford white style kitchen",
 					},
 					strattoDustGrey: {
-						src: "",
 						alt: "Stratto dust green style kitchen",
 					},
 					vivoPtoOnyxGrey: {
-						src: "",
 						alt: "Vivo pto onyx grey style kitchen",
 					},
 				},

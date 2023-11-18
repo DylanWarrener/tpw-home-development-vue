@@ -88,6 +88,8 @@ export default defineComponent({
 	},
 	watch: {
 		recievedEventData(newValue: string): void {
+			if (!newValue) return;
+
 			const pageName: RouteRecordName = this.$route.name!;
 			const appBarHeight: number = this.storeCommon.getAppBarHeight;
 

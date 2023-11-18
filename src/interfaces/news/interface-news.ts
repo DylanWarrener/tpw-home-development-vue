@@ -11,5 +11,5 @@ export default interface INewsState {
 }
 
 export interface INewsData {
-	sortedArticles: INewsSectionsState[];
+	//sortedArticles: INewsSectionsState[];
 }

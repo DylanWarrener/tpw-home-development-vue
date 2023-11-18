@@ -25,7 +25,7 @@ import Contact from "@components/containers/contact/contact.vue";
 // Interfaces
 import { IContactData } from "@interfaces/contact/interface-contact";
 
-// Images
+// PNGs
 import ContactPNG from "@assets/png/contact/contact.jpg";
 
 // Enums
@@ -80,6 +80,8 @@ export default defineComponent({
 	},
 	watch: {
 		recievedEventData(newValue: string): void {
+			if (!newValue) return;
+
 			const pageName: RouteRecordName = this.$route.name!;
 			const appBarHeight: number = this.storeCommon.getAppBarHeight;
 

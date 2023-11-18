@@ -28,7 +28,7 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { childStores, parentStore } from "@plugins/pinia/pinia";
+import { childStores } from "@plugins/pinia/pinia";
 
 // Components
 import HeaderNav from "@components/header/navigation/header-navigation.vue";
@@ -36,7 +36,8 @@ import Logo from "@components/header/navigation/logo.vue";
 import SVG from "@components/containers/svg/svg.vue";
 
 // Interfaces
-import { IHeaderData, IAppBarIcons } from "@interfaces/header/interface-header";
+import { IHeaderData } from "@interfaces/header/interface-header";
+import { IAppBarIcons } from "@interfaces/header/appBar/interface-header-appbar";
 
 // IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
@@ -114,10 +115,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
 		const storeHeader = childStores.useHeaderStore();
 		const theme = useTheme();
-		return { storeCommon, storeHeader, theme };
+		return { storeHeader, theme };
 	},
 	created(): void {
 		this.storeHeader.setAppBarIcons();

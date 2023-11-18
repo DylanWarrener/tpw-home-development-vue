@@ -43,13 +43,9 @@ export default defineComponent({
 		"progress-linear-component": Progress,
 	},
 	props: {
-		btnText: { type: String, required: false },
 		actionBtnId: { type: String, required: true },
 	},
 	computed: {
-		title(): string {
-			return this.$t("$vuetify.card.rating.title");
-		},
 		btnText(): string {
 			return this.$t("$vuetify.card.rating.btnText");
 		},

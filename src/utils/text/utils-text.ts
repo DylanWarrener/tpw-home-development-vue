@@ -56,7 +56,8 @@ export const dropdownOptions = [
 ];
 
 /* Header */
-//// Icon names
+//// Icons
+// Names
 export const headerIconNames = {
 	menu: "menu",
 	search: "search",

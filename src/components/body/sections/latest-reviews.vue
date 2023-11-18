@@ -5,7 +5,7 @@
 				<v-row style="gap: 16px">
 					<!-- Review rating overview -->
 					<v-col class="pa-0 d-flex flex-column align-center justify-center" style="gap: 16px; max-width: 25%">
-						<card-rating-component :btn-text="btnText" :action-btn-id="allReviewsBtnID"></card-rating-component>
+						<card-rating-component :action-btn-id="allReviewsBtnID"></card-rating-component>
 					</v-col>
 
 					<!-- Reviews in carousel -->
@@ -98,9 +98,6 @@ export default defineComponent({
 		},
 		subtitle(): string {
 			return this.$t("$vuetify.sections.latestReviews.subtitle");
-		},
-		btnText(): string {
-			return this.$t("$vuetify.sections.latestReviews.btnText");
 		},
 	},
 	setup() {

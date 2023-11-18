@@ -1,5 +1,5 @@
 <template>
-	<v-card class="text-default" :class="cardClass" :style="cardStyle" style="border: 2px solid yellow">
+	<v-card class="text-default" :class="cardClass" :style="cardStyle">
 		<slot name="img"></slot>
 		<slot name="other"></slot>
 		<v-card-item class="pa-4" v-if="title || subtitle">
@@ -19,12 +19,12 @@
 		</v-card-item>
 
 		<!-- Content -->
-		<v-card-text class="pa-0" :class="contentClass" style="border: 2px solid green">
+		<v-card-text class="pa-0" :class="contentClass">
 			<slot name="content"></slot>
 		</v-card-text>
 
 		<!-- Actions -->
-		<v-card-actions class="pa-4 d-flex" :class="actionClass" v-if="btnText" style="border: 2px solid green">
+		<v-card-actions class="pa-4 d-flex" :class="actionClass" v-if="btnText">
 			<slot name="actions">
 				<v-btn variant="outlined" :id="actionBtnId" :text="btnText" :class="actionBtnClass" @click="scrollTo"></v-btn>
 			</slot>
@@ -36,7 +36,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore, eventStores } from "@plugins/pinia/pinia";
+import { eventStores } from "@plugins/pinia/pinia";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";
@@ -62,8 +62,6 @@ export default defineComponent({
 	},
 	methods: {
 		scrollTo(): void {
-			//const eventTarget: HTMLSpanElement = event.target as HTMLSpanElement;
-			//const btnText: string = eventTarget.innerText;
 			const pageName: RouteRecordName = this.$route.name!;
 			const btnID: string = this.actionBtnId;
 			const eventStr: string = buildEventString(pageName.toString(), btnID);
@@ -72,9 +70,8 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
 		const storeEvent = eventStores.useEventStore();
-		return { storeCommon, storeEvent };
+		return { storeEvent };
 	},
 });
 </script>

@@ -26,7 +26,7 @@
 				<!-- Refine by Date -->
 				<news-filter-options-component :filter="filter.filters.date">
 					<template #content>
-						<v-date-picker class="w-100" color="inverted" :header="filter.filters.date.header"></v-date-picker>
+						<!--<v-date-picker class="w-100" color="inverted" :header="filter.filters.date.header"></v-date-picker>-->
 					</template>
 				</news-filter-options-component>
 			</div>

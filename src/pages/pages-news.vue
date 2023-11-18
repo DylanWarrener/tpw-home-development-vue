@@ -1,9 +1,9 @@
 <template>
 	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #content>
-			<section-component id="news_section" :title="sectionTitle" :subtitle="sectionSubtitle">
+			<section-component :id="newSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<!-- <news-filter-component></news-filter-component> -->
+					<news-filter-component :filter="filter"></news-filter-component>
 				</template>
 			</section-component>
 		</template>
@@ -24,15 +24,17 @@ import FilterForNews from "@components/containers/news/filter/news-filter.vue";
 
 // Interfaces
 import { INewsData } from "@interfaces/news/interface-news";
+import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
 
-// Images
+// PNGs
 import NewsPNG from "@assets/png/about/about.jpg";
 
 // Enums
-import { EventNames } from "@enums/events";
+import { BtnIDs } from "@enums/IDs/enums-ids-btn";
+import { SectionIDs } from "@enums/IDs/enums-ids-section";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/utils";
+import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
 
 export default defineComponent({
 	name: "about-page-component",
@@ -45,6 +47,11 @@ export default defineComponent({
 		return {};
 	},
 	computed: {
+		// IDs
+		newSectionID(): string {
+			return SectionIDs.NEWS_SECTION;
+		},
+
 		// Text
 		canvasTitle(): string {
 			return this.$t("$vuetify.card.canvas.pages.news.title");
@@ -62,6 +69,11 @@ export default defineComponent({
 			return this.$t("$vuetify.pages.news.subtitle");
 		},
 
+		// Filter data
+		filter(): INewsFilterState {
+			return this.storeNews.getNewsFilterOptionsState;
+		},
+
 		// IMGs
 		src(): string {
 			return NewsPNG;
@@ -73,20 +85,22 @@ export default defineComponent({
 		},
 	},
 	watch: {
-		recievedEventData(newValue: string) {
-			const eventID: number = EventNames.CARD_CANVAS_BTN_CLICKED;
+		recievedEventData(newValue: string): void {
+			if (!newValue) return;
+
 			const pageName: RouteRecordName = this.$route.name!;
 			const appBarHeight: number = this.storeCommon.getAppBarHeight;
-			const chosenElement: HTMLDivElement = document.getElementById("news_section") as HTMLDivElement;
 
 			const eventStrOne: string = newValue;
-			const eventStrTwo: string = buildEventString(eventID, pageName, this.canvasBtnText);
+			const eventStrTwo: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
+
+			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.NEWS_SECTION) as HTMLDivElement;
 
 			if (newValue) {
 				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
 
 				if (areEventsEqual) {
-					scrollToElement(chosenElement!.offsetTop - appBarHeight);
+					scrollToElement(targetElement!.offsetTop - appBarHeight);
 				}
 				this.storeEvent.setEmittedEvent("");
 			}
@@ -108,4 +122,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/enums/enums-events

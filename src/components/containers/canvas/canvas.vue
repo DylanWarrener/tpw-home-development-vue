@@ -53,4 +53,3 @@ export default defineComponent({
 	max-height: 100vh;
 }
 </style>
-@src/enums/IDs/enums-ids-btn
