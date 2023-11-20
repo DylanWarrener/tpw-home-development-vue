@@ -2,10 +2,10 @@ import { createPinia, defineStore } from "pinia";
 
 // Stores to load immediately
 import useHeaderStore from "@stores/stores-header";
-import useHomeStore from "@stores/stores-home";
+import useHomeStore from "@src/stores/pages/stores-home";
 import useFooterStore from "@stores/stores-footer";
 import useErrorStore from "@stores/stores-error";
-import useEventStore from "@stores/stores-event";
+import useEventStore from "@src/stores/events/stores-event";
 
 // Stores to load when called, to increase performance
 /*
@@ -24,10 +24,10 @@ const useReviewsStore = () => import("@stores/stores-reveiws");
 import useKitchenStore from "@stores/stores-kitchen";
 import useBathroomStore from "@stores/stores-bathroom";
 import useNewbuildStore from "@stores/stores-newbuild";
-import useExtensionStore from "@stores/stores-extension";
+import useExtensionStore from "@src/stores/pages/stores-extension";
 import useRefurbishmentStore from "@stores/stores-refurbishment";
 import useContactStore from "@stores/stores-contact";
-import useAboutStore from "@stores/stores-about";
+import useAboutStore from "@src/stores/pages/stores-about";
 import useNewsStore from "@stores/stores-news";
 import useReviewsStore from "@stores/stores-reveiws";
 
@@ -38,7 +38,7 @@ import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 import { AppBarDensity } from "@src/enums/enums-sizing";
 
 // Data
-import { dropdownOptions } from "@src/utils/text/common/utils-text-common";
+import { dropdownOptions } from "@utils/text/common/utils-text-common";
 
 // Kitchen PNGs (different styles of kitchens, using the available materials)
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";

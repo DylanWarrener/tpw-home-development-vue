@@ -9,11 +9,11 @@ import { defineComponent } from "vue";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
+import Page from "@components/common/pages/components-common-pages.vue";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";
-import { IHomeData } from "@interfaces/pages/home/interface-home";
+import { IHomeData } from "@interfaces/common/pages/home/interfaces-common-pages-home";
 
 // IMGs
 import HomePNG from "@assets/png/home/home.jpg";
@@ -24,7 +24,7 @@ import { SectionIDs } from "@enums/IDs/enums-ids-section";
 
 // Utils
 import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
-import { allPageNames } from "@utils/text/common/utils-text-common";
+import { pageAllNames } from "@utils/text/common/utils-text-common";
 
 export default defineComponent({
 	name: "home-page-component",
@@ -94,10 +94,10 @@ export default defineComponent({
 						scrollToElement(targetElement!.offsetTop - appBarHeight);
 						break;
 					case eventStrLatestNewsBtn:
-						this.$router.push({ name: allPageNames.reviews });
+						this.$router.push({ name: pageAllNames.reviews });
 						break;
 					case eventStrFooterContactBtn:
-						this.$router.push({ name: allPageNames.contact });
+						this.$router.push({ name: pageAllNames.contact });
 						break;
 				}
 			}

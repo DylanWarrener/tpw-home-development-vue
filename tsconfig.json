@@ -27,12 +27,12 @@
 			"@styles/*": ["./src/styles/*"]
 		},
 		"typeRoots": [
-			"./src/declaration",
-			"./node_modules/vue",
-			"./node_modules/vuetify",
-			"./node_modules/vue-i18n",
-			"./node_modules/vue-router",
-			"./node_modules/pinia"
+			"./src/declaration"
+			//"./node_modules/vue",
+			//"./node_modules/vuetify",
+			//"./node_modules/vue-i18n",
+			//"./node_modules/vue-router",
+			//"./node_modules/pinia"
 		],
 
 		/* Emit */

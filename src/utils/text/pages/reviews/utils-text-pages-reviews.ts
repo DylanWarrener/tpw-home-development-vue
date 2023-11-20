@@ -1,2 +1,2 @@
 // CARD
-export const btnCardReviewsText: string = "See all reviews?";
+export const btnCardReviews: string = "See all reviews?";

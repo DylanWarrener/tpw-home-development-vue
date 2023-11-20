@@ -1,3 +1,4 @@
+// Interfaces
 import {
 	ICommonPageServiceNames,
 	ICommonPageInfoNames,
@@ -6,6 +7,17 @@ import {
 	ICommonPageAllNames,
 	ICommonPageAllLinks,
 } from "@interfaces/common/interface-common";
+import { IHeaderIconNames } from "@src/interfaces/common/header/interface-common-header";	
+
+// HEADER
+export const headerIconNames: IHeaderIconNames = {
+	menu: "menu",
+	search: "search",
+	theme: "theme",
+	newAccount: "newAccount",
+	account: "account",
+	settings: "settings",
+};
 
 // PAGES
 export const pageServiceNames: ICommonPageServiceNames = {
@@ -22,37 +34,39 @@ export const pageServiceLinks: ICommonPageServiceLinks = {
 	extension: "/extensions",
 	refurbishment: "/refurbishments",
 };
-export const pageInformationNames: ICommonPageInfoNames = {
+export const pageInfoNames: ICommonPageInfoNames = {
 	home: "Home",
 	contact: "Contact",
 	about: "About",
 	news: "News",
 	reviews: "Reviews",
 };
-export const pageInformationLinks: ICommonPageInfoLinks = {
+export const pageInfoLinks: ICommonPageInfoLinks = {
 	home: "/",
 	contact: "/contact",
 	about: "/about",
 	news: "/news",
 	reviews: "/reviews",
 };
-export const allPageNames: ICommonPageAllNames = {
+export const pageAllNames: ICommonPageAllNames = {
 	...pageServiceNames,
-	...pageInformationNames,
+	...pageInfoNames,
 };
-export const allPageLinks: ICommonPageAllLinks = {
+export const pageAllLinks: ICommonPageAllLinks = {
 	...pageServiceLinks,
-	...pageInformationLinks,
+	...pageInfoLinks,
 };
 
 // CARD
-export const cardBtnBeInspiredText: string = "Be Inspired?";
+export const cardBtnBeInspired: string = "Be Inspired?";
 
 // DROPDOWN
-export const dropdownOptionsText: string[] = [
+export const dropdownOptions: string[] = [
 	pageServiceNames.kitchen,
 	pageServiceNames.bathroom,
 	pageServiceNames.newbuild,
 	pageServiceNames.extension,
 	pageServiceNames.refurbishment,
 ];
+
+// FOOTER

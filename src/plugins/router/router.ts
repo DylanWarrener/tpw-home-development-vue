@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Utils
-import { allPageNames, allPageLinks } from "@src/utils/text/common/utils-text-common";
+import { pageServiceNames, pageInformationNames, pageServiceLinks, pageInformationLinks } from "@utils/text/common/utils-text-common";
 
 // Child components -> dynamically imported (only imported when requested to reduce bundle size)
 const Home = () => import("@pages/pages-home.vue");
@@ -19,16 +19,16 @@ const Reviews = () => import("@pages/pages-reviews.vue");
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
-		{ path: `${allPageLinks.home}`, name: `${allPageNames.home}`, component: Home },
-		{ path: `${allPageLinks.kitchen}`, name: `${allPageNames.kitchen}`, component: Kitchens },
-		{ path: `${allPageLinks.bathroom}`, name: `${allPageNames.bathroom}`, component: Bathrooms },
-		{ path: `${allPageLinks.newbuild}`, name: `${allPageNames.newbuild}`, component: Newbuilds },
-		{ path: `${allPageLinks.extension}`, name: `${allPageNames.extension}`, component: Extensions },
-		{ path: `${allPageLinks.refurbishment}`, name: `${allPageNames.refurbishment}`, component: Refurbishments },
-		{ path: `${allPageLinks.contact}`, name: `${allPageNames.contact}`, component: Contact },
-		{ path: `${allPageLinks.about}`, name: `${allPageNames.about}`, component: About },
-		{ path: `${allPageLinks.news}`, name: `${allPageNames.news}`, component: News },
-		{ path: `${allPageLinks.reviews}`, name: `${allPageNames.reviews}`, component: Reviews },
+		{ path: `${pageInformationLinks.home}`, name: `${pageInformationNames.home}`, component: Home },
+		{ path: `${pageServiceLinks.kitchen}`, name: `${pageServiceNames.kitchen}`, component: Kitchens },
+		{ path: `${pageServiceLinks.bathroom}`, name: `${pageServiceNames.bathroom}`, component: Bathrooms },
+		{ path: `${pageServiceLinks.newbuild}`, name: `${pageServiceNames.newbuild}`, component: Newbuilds },
+		{ path: `${pageServiceLinks.extension}`, name: `${pageServiceNames.extension}`, component: Extensions },
+		{ path: `${pageServiceLinks.refurbishment}`, name: `${pageServiceNames.refurbishment}`, component: Refurbishments },
+		{ path: `${pageInformationLinks.contact}`, name: `${pageInformationNames.contact}`, component: Contact },
+		{ path: `${pageInformationLinks.about}`, name: `${pageInformationNames.about}`, component: About },
+		{ path: `${pageInformationLinks.news}`, name: `${pageInformationNames.news}`, component: News },
+		{ path: `${pageInformationLinks.reviews}`, name: `${pageInformationNames.reviews}`, component: Reviews },
 		{ path: "/:notFound(.*)", name: "NotFound", redirect: "/" },
 	],
 	scrollBehavior(to, savedPosition) {

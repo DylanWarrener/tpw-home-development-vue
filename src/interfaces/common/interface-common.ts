@@ -1,4 +1,5 @@
-export interface ICommonState {
+// COMMON
+export default interface ICommonState {
 	isCanvasComponentActive: boolean;
 	isBeInspiredComponentActive: boolean;
 	isPortfolioComponentActive: boolean;
@@ -7,6 +8,8 @@ export interface ICommonState {
 	isLatestNewsComponentActive: boolean;
 }
 export interface ICommonData {}
+
+// HEADER
 
 // PAGES
 export interface ICommonPageServiceNames {
@@ -25,6 +28,7 @@ export interface ICommonPageInfoNames {
 	reviews: string;
 }
 export interface ICommonPageInfoLinks extends ICommonPageInfoNames {}
-
 export interface ICommonPageAllNames extends ICommonPageServiceNames, ICommonPageInfoNames {}
 export interface ICommonPageAllLinks extends ICommonPageServiceLinks, ICommonPageInfoLinks {}
+
+// FOOTER

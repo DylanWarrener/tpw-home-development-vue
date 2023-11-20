@@ -1,3 +1,4 @@
+// Interfaces
 //import { ITextualData } from "@interfaces/common/locale/interface-locale";
 
 // Vuetify locale messages
@@ -5,20 +6,16 @@ import VuetifyDefaultLocaleMessages from "vuetify/lib/locale/en.mjs";
 
 // Common data
 import {
-	// Common
-	btnCardBeInspiredText,
-	btnCardReviewsText,
-	allPageNames,
-	allPageLinks,
-	mainPageNames,
-	mainPageLinks,
-	infoPageNames,
-	infoPageLinks,
-	// Header
-	headerIconNames,
-	// Body
-	// Footer
-} from "../utils/text/common/utils-text-common";
+	pageServiceNames,
+	pageInformationNames,
+	pageServiceLinks,
+	pageInformationLinks,
+	pageAllNames,
+	pageAllLinks,
+	cardBtnBeInspired,
+} from "@utils/text/common/utils-text-common";
+import { headerIconNames } from "@src/utils/text/common/header/utils-text-header";
+import { btnCardReviews } from "@utils/text/pages/reviews/utils-text-pages-reviews";
 
 const en = {
 	$vuetify: {
@@ -30,7 +27,7 @@ const en = {
 		},
 		header: {
 			appBar: {
-				titles: allPageNames,
+				titles: pageAllNames,
 				icons: {
 					names: headerIconNames,
 					tooltips: {
