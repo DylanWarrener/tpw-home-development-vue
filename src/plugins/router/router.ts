@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Utils
-import { pageServiceNames, pageInformationNames, pageServiceLinks, pageInformationLinks } from "@utils/text/common/utils-text-common";
+import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks } from "@utils/text/common/utils-text-common";
 
 // Child components -> dynamically imported (only imported when requested to reduce bundle size)
 const Home = () => import("@pages/pages-home.vue");
@@ -19,16 +19,16 @@ const Reviews = () => import("@pages/pages-reviews.vue");
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
-		{ path: `${pageInformationLinks.home}`, name: `${pageInformationNames.home}`, component: Home },
+		{ path: `${pageInfoLinks.home}`, name: `${pageInfoNames.home}`, component: Home },
 		{ path: `${pageServiceLinks.kitchen}`, name: `${pageServiceNames.kitchen}`, component: Kitchens },
 		{ path: `${pageServiceLinks.bathroom}`, name: `${pageServiceNames.bathroom}`, component: Bathrooms },
 		{ path: `${pageServiceLinks.newbuild}`, name: `${pageServiceNames.newbuild}`, component: Newbuilds },
 		{ path: `${pageServiceLinks.extension}`, name: `${pageServiceNames.extension}`, component: Extensions },
 		{ path: `${pageServiceLinks.refurbishment}`, name: `${pageServiceNames.refurbishment}`, component: Refurbishments },
-		{ path: `${pageInformationLinks.contact}`, name: `${pageInformationNames.contact}`, component: Contact },
-		{ path: `${pageInformationLinks.about}`, name: `${pageInformationNames.about}`, component: About },
-		{ path: `${pageInformationLinks.news}`, name: `${pageInformationNames.news}`, component: News },
-		{ path: `${pageInformationLinks.reviews}`, name: `${pageInformationNames.reviews}`, component: Reviews },
+		{ path: `${pageInfoLinks.contact}`, name: `${pageInfoNames.contact}`, component: Contact },
+		{ path: `${pageInfoLinks.about}`, name: `${pageInfoNames.about}`, component: About },
+		{ path: `${pageInfoLinks.news}`, name: `${pageInfoNames.news}`, component: News },
+		{ path: `${pageInfoLinks.reviews}`, name: `${pageInfoNames.reviews}`, component: Reviews },
 		{ path: "/:notFound(.*)", name: "NotFound", redirect: "/" },
 	],
 	scrollBehavior(to, savedPosition) {

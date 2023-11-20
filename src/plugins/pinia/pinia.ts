@@ -21,21 +21,21 @@ const useReviewsStore = () => import("@stores/stores-reveiws");
 */
 
 // Convert to above when ready
-import useKitchenStore from "@stores/stores-kitchen";
-import useBathroomStore from "@stores/stores-bathroom";
-import useNewbuildStore from "@stores/stores-newbuild";
+import useKitchenStore from "@stores/pages/stores-kitchen";
+import useBathroomStore from "@stores/pages/stores-bathroom";
+import useNewbuildStore from "@stores/pages/stores-newbuild";
 import useExtensionStore from "@src/stores/pages/stores-extension";
-import useRefurbishmentStore from "@stores/stores-refurbishment";
-import useContactStore from "@stores/stores-contact";
+import useRefurbishmentStore from "@stores/pages/stores-refurbishment";
+import useContactStore from "@stores/pages/stores-contact";
 import useAboutStore from "@src/stores/pages/stores-about";
-import useNewsStore from "@stores/stores-news";
-import useReviewsStore from "@stores/stores-reveiws";
+import useNewsStore from "@stores/pages/stores-news";
+import useReviewsStore from "@stores/pages/stores-reveiws";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
 // Enums
-import { AppBarDensity } from "@src/enums/enums-sizing";
+import { AppBarDensity } from "@src/enums/sizing/enums-sizing";
 
 // Data
 import { dropdownOptions } from "@utils/text/common/utils-text-common";

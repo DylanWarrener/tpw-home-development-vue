@@ -31,13 +31,13 @@ import { RouteRecordName } from "vue-router";
 import { childStores } from "@plugins/pinia/pinia";
 
 // Components
-import HeaderNav from "@components/common/header/navigation/components-common-header-navigation.vue";
-import Logo from "@components/common/header/navigation/logo/components-common-header-navigation-logo.vue";
-import SVG from "@components/common/svg/svg.vue";
+import HeaderNav from "@components/common/header/navigation/common-header-navigation.vue";
+import Logo from "@components/common/header/navigation/logo/common-header-navigation-logo.vue";
+import SVG from "@components/common/svg/common-svg.vue";
 
 // Interfaces
 import { IHeaderData } from "@interfaces/common/header/interface-common-header";
-import { IAppBarIcons } from "@interfaces/common/header/appBar/interface-header-appbar";
+import { IAppBarIcons } from "@interfaces/common/header/appBar/interface-common-header-appbar";
 
 // IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";

@@ -9,7 +9,7 @@ import { defineComponent } from "vue";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/common/pages/components-common-pages.vue";
+import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";

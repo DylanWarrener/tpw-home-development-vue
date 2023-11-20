@@ -18,12 +18,12 @@ import { RouteRecordName } from "vue-router";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
-import Section from "@components/containers/section/section.vue";
-import CardOurTeam from "@components/containers/card/custom/card-our-team.vue";
+import Page from "@components/common/pages/common-pages.vue";
+import Section from "@components/common/sections/common-sections.vue";
+import CardOurTeam from "@components/uncommon/cards/team/uncommon-card-team.vue";
 
 // Interface
-import { IAboutData, IAboutEmployeeCard } from "@interfaces/pages/about/interface-about";
+import { IAboutData, IAboutEmployeeCard } from "@interfaces/common/pages/about/interface-about";
 
 // Images
 import AboutPNG from "@assets/png/about/about.jpg";

@@ -18,12 +18,12 @@ import { RouteRecordName } from "vue-router";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
-import Section from "@components/containers/section/section.vue";
-import Contact from "@components/containers/contact/contact.vue";
+import Page from "@components/common/pages/common-pages.vue";
+import Section from "@components/common/sections/common-sections.vue";
+import Contact from "@components/uncommon/pages/contact/uncommon-contact.vue";
 
 // Interfaces
-import { IContactData } from "@interfaces/pages/contact/interface-contact";
+import { IContactData } from "@interfaces/common/pages/contact/interface-contact";
 
 // PNGs
 import ContactPNG from "@assets/png/contact/contact.jpg";

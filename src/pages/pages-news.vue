@@ -3,7 +3,7 @@
 		<template #content>
 			<section-component :id="newSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<news-filter-component :filter="filter"></news-filter-component>
+					<!--<news-filter-component :filter="filter"></news-filter-component>-->
 				</template>
 			</section-component>
 		</template>
@@ -18,13 +18,13 @@ import { RouteRecordName } from "vue-router";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
-import Section from "@components/containers/section/section.vue";
-import FilterForNews from "@components/containers/news/filter/news-filter.vue";
+import Page from "@components/common/pages/common-pages.vue";
+import Section from "@components/common/sections/common-sections.vue";
+//import Filter from "@components/common/filter/common-filter.vue";
 
 // Interfaces
-import { INewsData } from "@interfaces/pages/news/interface-news";
-import INewsFilterState from "@interfaces/pages/news/filters/interface-news-filters";
+import { INewsData } from "@interfaces/common/pages/news/interface-news";
+//import INewsFilterState from "@interfaces/pages/news/filters/interface-news-filters";
 
 // PNGs
 import NewsPNG from "@assets/png/about/about.jpg";
@@ -41,7 +41,7 @@ export default defineComponent({
 	components: {
 		"page-component": Page,
 		"section-component": Section,
-		"news-filter-component": FilterForNews,
+		//"filter-component": Filter,
 	},
 	data(): INewsData {
 		return {};
@@ -70,9 +70,10 @@ export default defineComponent({
 		},
 
 		// Filter data
-		filter(): INewsFilterState {
+		/*filter(): INewsFilterState {
 			return this.storeNews.getNewsFilterOptionsState;
 		},
+		*/
 
 		// IMGs
 		src(): string {

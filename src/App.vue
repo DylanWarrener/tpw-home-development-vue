@@ -15,8 +15,8 @@ import { defineComponent } from "vue";
 import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Header from "@components/common/header/components-common-header.vue";
-import Footer from "@components/common/footer/footer.vue";
+import Header from "@components/common/header/common-header.vue";
+import Footer from "@components/common/footer/common-footer.vue";
 
 // Interfaces
 import { ICommonData } from "@interfaces/common/interface-common";

@@ -1,3 +1,6 @@
+// Common interfaces
+import { ICommonPageAllIcons } from "@interfaces/common/pages/interface-common-page";
+
 // App bar interfaces
 import { IAppBarIcons } from "@src/interfaces/common/header/appBar/interface-common-header-appbar";
 
@@ -13,7 +16,7 @@ export default interface IHeaderState {
 export interface IHeaderData {}
 
 // ICONS
-export interface IHeaderIconNames {
+export interface IHeaderIcons {
 	menu: string;
 	search: string;
 	theme: string;
@@ -21,3 +24,6 @@ export interface IHeaderIconNames {
 	account: string;
 	settings: string;
 }
+export interface IHeaderIconNames extends IHeaderIcons {}
+export interface IHeaderIconTooltips extends IHeaderIcons {}
+export interface IHeaderNavigationIcons extends ICommonPageAllIcons {}

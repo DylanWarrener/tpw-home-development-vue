@@ -26,12 +26,12 @@ import { RouteRecordName } from "vue-router";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
-import Section from "@components/containers/section/section.vue";
-import Reviews from "@components/containers/reviews/reviews.vue";
+import Page from "@components/common/pages/common-pages.vue";
+import Section from "@components/common/sections/common-sections.vue";
+import Reviews from "@components/uncommon/pages/reviews/uncommon-reviews.vue";
 
 // Interfaces
-import { IReviewsData } from "@interfaces/pages/reviews/interface-reviews";
+import { IReviewsData } from "@interfaces/common/pages/reviews/interface-reviews";
 
 // Images
 import ReviewsPNG from "@assets/png/reviews/reviews.jpg";

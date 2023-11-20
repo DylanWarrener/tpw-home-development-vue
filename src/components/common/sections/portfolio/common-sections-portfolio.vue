@@ -19,7 +19,7 @@
 import { defineComponent } from "vue";
 
 // Components
-import Section from "@components/containers/section/section.vue";
+import Section from "@components/common/sections/common-sections.vue";
 
 export default defineComponent({
 	name: "portfolio-component",

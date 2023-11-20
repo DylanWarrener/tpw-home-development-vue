@@ -58,12 +58,9 @@ import { defineComponent } from "vue";
 import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Section from "@components/common/sections/components-common-sections.vue";
-import Carousel from "@components/common/carousel/components-common-carousel.vue";
-import Dropdown from "@components/common/dropdown/components-common-dropdown.vue";
-import Card from "@components/common/card/components-common-card.vue";
-import CardStyle from "@components/common/card/styles/components-common-card-styles.vue";
-import CardTheme from "@components/common/card/themes/components-common-card-themes.vue";
+import Section from "@components/common/sections/common-sections.vue";
+import Carousel from "@components/common/carousel/common-carousel.vue";
+import Dropdown from "@components/common/dropdown/common-dropdown.vue";
 
 // Interface
 import ISectionBeInspiredData from "@interfaces/common/sections/be-inspired/interfaces-common-sections-be-inspired";
@@ -80,9 +77,6 @@ export default defineComponent({
 		"section-component": Section,
 		"carousel-component": Carousel,
 		"dropdown-component": Dropdown,
-		"card-component": Card,
-		"card-style-component": CardStyle,
-		"card-theme-component": CardTheme,
 	},
 	data(): ISectionBeInspiredData {
 		return {

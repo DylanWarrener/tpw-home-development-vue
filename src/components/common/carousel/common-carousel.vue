@@ -10,7 +10,7 @@
 import { defineComponent, PropType } from "vue";
 
 // Interfaces
-import { ICommonCarouselImagesData } from "@interfaces/common/carousel/interface-common-carousel";
+import { ICommonCarouselImagesData } from "@interfaces/common/sections/carousel/interfaces-common-sections-carousel";
 
 export default defineComponent({
 	name: "carousel-component",

@@ -10,10 +10,10 @@ import { RouteRecordName } from "vue-router";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
+import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { IExtensionData } from "@interfaces/pages/extension/interface-extension";
+import { IExtensionData } from "@interfaces/common/pages/extension/interface-extension";
 
 // Images
 import ExtensionPNG from "@assets/png/extensions/extension.jpg";

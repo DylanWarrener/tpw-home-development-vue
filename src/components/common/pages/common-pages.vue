@@ -60,9 +60,9 @@ import { defineComponent } from "vue";
 import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import Canvas from "@components/common/canvas/components-common-canvas.vue";
-import BeInspired from "@components/common/sections/be-inspired/components-common-sections-be-inspired.vue";
-import Portfolio from "@components/common/sections/portfolio/components-common-sections-portfolio.vue";
+import Canvas from "@components/common/canvas/common-canvas.vue";
+import BeInspired from "@components/common/sections/be-inspired/common-sections-be-inspired.vue";
+import Portfolio from "@components/common/sections/portfolio/common-sections-portfolio.vue";
 import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestNews from "@components/uncommon/sections/latest-news/components-uncommon-sections-latest-news.vue";
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";

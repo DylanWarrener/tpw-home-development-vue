@@ -3,9 +3,9 @@
 		<template #content>
 			<v-container fluid style="border: 2px solid red">
 				<v-row style="border: 2px solid green">
-					<v-col cols="12" style="border: 2px solid blue" :key="index" v-for="(section, index) in newsSections">
+					<!--<v-col cols="12" style="border: 2px solid blue" :key="index" v-for="(section, index) in newsSections">
 						<news-by-section-component :section="section"></news-by-section-component>
-					</v-col>
+					</v-col>-->
 				</v-row>
 			</v-container>
 		</template>
@@ -40,17 +40,17 @@ import { defineComponent } from "vue";
 import { parentStore, childStores } from "@plugins/pinia/pinia";
 
 // Components
-import Section from "@components/containers/section/section.vue";
-import NewsBySection from "@components/containers/news/news-by-section.vue";
+import Section from "@components/common/sections/common-sections.vue";
+//import NewsBySection from "@components/containers/news/news-by-section.vue";
 
 // Interfaces
-import INewsSectionsState from "@interfaces/news/sections/interface-news-sections";
+//import INewsSectionsState from "@interfaces/news/sections/interface-news-sections";
 
 export default defineComponent({
 	name: "news-component",
 	components: {
 		"section-component": Section,
-		"news-by-section-component": NewsBySection,
+		//"news-by-section-component": NewsBySection,
 	},
 	computed: {
 		// Text
@@ -62,9 +62,10 @@ export default defineComponent({
 		},
 
 		// Data
-		newsSections(): INewsSectionsState[] {
+		/*newsSections(): INewsSectionsState[] {
 			return this.storeNews.getNewsSectionsState;
 		},
+		*/
 	},
 	setup() {
 		const storeCommon = parentStore();
@@ -73,4 +74,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/news/sections/interface-news-sections

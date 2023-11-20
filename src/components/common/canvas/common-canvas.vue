@@ -20,7 +20,7 @@
 import { defineComponent } from "vue";
 
 // Components
-import Card from "@components/common/card/components-common-card.vue";
+import Card from "@components/common/cards/common-cards.vue";
 
 // Enums
 import { BtnIDs } from "@enums/IDs/enums-ids-btn";

@@ -1,41 +1,26 @@
-import {
-	IHomeCardTextualData,
-	IKitchenCardTextualData,
-	IBathroomCardTextualData,
-	INewbuildCardTextualData,
-	IExtensionCardTextualData,
-	IRefurbishmentCardTextualData,
-	IContactCardTextualData,
-	IAboutCardTextualData,
-} from "../card/interface-common-card";
-
-// Locale textual data
-export default interface ICommonPageTextualData {
-	name: ICommonPageStringTextualData;
-	link?: ICommonPageStringTextualData;
-	icon?: ICommonPageStringTextualData;
-}
-
-export interface ICommonPageStringTextualData {
-	home: string;
+// Service pages
+export interface ICommonPageServiceNames {
 	kitchen: string;
 	bathroom: string;
 	newbuild: string;
 	extension: string;
 	refurbishment: string;
+}
+export interface ICommonPageServiceLinks extends ICommonPageServiceNames {}
+export interface ICommonPageServiceIcons extends ICommonPageServiceNames {}
+
+// Info pages
+export interface ICommonPageInfoNames {
+	home: string;
 	contact: string;
 	about: string;
 	news: string;
 	reviews: string;
 }
+export interface ICommonPageInfoLinks extends ICommonPageInfoNames {}
+export interface ICommonPageInfoIcons extends ICommonPageInfoNames {}
 
-export interface ICommonPageCardTextualData {
-	home: IHomeCardTextualData;
-	kitchen: IKitchenCardTextualData;
-	bathroom: IBathroomCardTextualData;
-	newbuild: INewbuildCardTextualData;
-	extension: IExtensionCardTextualData;
-	refurbishment: IRefurbishmentCardTextualData;
-	contact: IContactCardTextualData;
-	about: IAboutCardTextualData;
-}
+// All
+export interface ICommonPageAllNames extends ICommonPageServiceNames, ICommonPageInfoNames {}
+export interface ICommonPageAllLinks extends ICommonPageServiceLinks, ICommonPageInfoLinks {}
+export interface ICommonPageAllIcons extends ICommonPageServiceIcons, ICommonPageInfoIcons {}

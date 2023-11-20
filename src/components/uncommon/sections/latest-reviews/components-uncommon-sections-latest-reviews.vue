@@ -5,12 +5,12 @@
 				<v-row style="gap: 16px">
 					<!-- Review rating overview -->
 					<v-col class="pa-0 d-flex flex-column align-center justify-center" style="gap: 16px; max-width: 25%">
-						<card-rating-component :action-btn-id="allReviewsBtnID"></card-rating-component>
+						<!--<card-rating-component :action-btn-id="allReviewsBtnID"></card-rating-component>-->
 					</v-col>
 
 					<!-- Reviews in carousel -->
 					<v-col class="border pa-0">
-						<carousel-component>
+						<!--<carousel-component>
 							<template #content>
 								<v-carousel-item
 									cover
@@ -28,7 +28,7 @@
 									</div>
 								</v-carousel-item>
 							</template>
-						</carousel-component>
+						</carousel-component>-->
 					</v-col>
 				</v-row>
 			</v-container>
@@ -40,10 +40,10 @@
 import { defineComponent } from "vue";
 
 // Components
-import Section from "@components/containers/section/section.vue";
-import Carousel from "@components/containers/carousel/carousel.vue";
-import CardReview from "@components/containers/card/card-review.vue";
-import CardRating from "@components/containers/card/card-rating.vue";
+import Section from "@components/common/sections/common-sections.vue";
+//import Carousel from "@components/containers/carousel/carousel.vue";
+//import CardReview from "@components/containers/card/card-review.vue";
+//import CardRating from "@components/containers/card/card-rating.vue";
 
 // Stores
 import { parentStore, childStores } from "@plugins/pinia/pinia";
@@ -58,9 +58,9 @@ export default defineComponent({
 	name: "reviews-component",
 	components: {
 		"section-component": Section,
-		"carousel-component": Carousel,
-		"card-review-component": CardReview,
-		"card-rating-component": CardRating,
+		//"carousel-component": Carousel,
+		//"card-review-component": CardReview,
+		//"card-rating-component": CardRating,
 	},
 	data() {
 		return {

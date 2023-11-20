@@ -10,10 +10,10 @@ import { RouteRecordName } from "vue-router";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Components
-import Page from "@components/containers/page/page.vue";
+import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { IBathroomData } from "@interfaces/pages/bathroom/interface-bathroom";
+import { IBathroomData } from "@interfaces/common/pages/bathroom/interface-bathroom";
 
 // Images
 import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
