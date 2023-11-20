@@ -5,11 +5,11 @@
 				<v-sheet class="w-100 h-100">
 					<!-- Canvas -->
 					<canvas-component
-						v-if="isCanvasComponentActive"
 						:src="src"
 						:title="canvasTitle"
 						:subtitle="canvasSubtitle"
 						:btn-text="btnText"
+						v-if="isCanvasComponentActive"
 					></canvas-component>
 					<v-divider class="divider-color" v-if="isCanvasComponentActive"></v-divider>
 
@@ -18,32 +18,40 @@
 
 					<!-- Be inspired -->
 					<be-inspired-component
-						id="be_inspired_section"
 						class="bg-inverted"
+						:id="beInspiredSectionID"
 						v-if="isBeInspiredComponentActive"
 					></be-inspired-component>
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
-					<portfolio-component id="portfolio_section" class="bg-inverted" v-if="isPortfolioComponentActive"></portfolio-component>
+					<portfolio-component
+						class="bg-inverted"
+						:id="portfolioSectionID"
+						v-if="isPortfolioComponentActive"
+					></portfolio-component>
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
+
+					<!-- Latest news -->
+					<latest-news-component
+						class="bg-inverted"
+						:id="latestNewsSectionID"
+						v-if="isNewsComponentActive"
+					></latest-news-component>
+					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
 					<process-of-elimination-component
-						id="process_of_elimination_section"
 						class="bg-inverted"
+						:id="processOfEliminationSectionID"
 						v-if="isProcessOfEliminationActive"
 					></process-of-elimination-component>
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
-					<!-- Latest news -->
-					<latest-news-component id="news_section" class="bg-inverted" v-if="isNewsComponentActive"></latest-news-component>
-					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
-
-					<!-- Reviews -->
+					<!-- Latest reviews -->
 					<latest-reviews-component
-						id="reviews_section"
 						class="bg-inverted"
+						:id="reviewsSectionID"
 						v-if="isReviewsComponentActive"
 					></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
@@ -63,27 +71,48 @@ import { parentStore } from "@plugins/pinia/pinia";
 import Canvas from "@components/common/canvas/common-canvas.vue";
 import BeInspired from "@components/common/sections/be-inspired/common-sections-be-inspired.vue";
 import Portfolio from "@components/common/sections/portfolio/common-sections-portfolio.vue";
-import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestNews from "@components/uncommon/sections/latest-news/components-uncommon-sections-latest-news.vue";
+import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";
+
+// Enums
+import { SectionIDs } from "@enums/IDs/enums-ids-section";
 
 export default defineComponent({
 	name: "page-content-component",
+	components: {
+		"canvas-component": Canvas,
+		"be-inspired-component": BeInspired,
+		"portfolio-component": Portfolio,
+		"latest-news-component": LatestNews,
+		"process-of-elimination-component": ProcessOfElimination,
+		"latest-reviews-component": LatestReviews,
+	},
 	props: {
 		src: { type: String, required: true },
 		canvasTitle: { type: String, required: true },
 		canvasSubtitle: { type: String, required: false },
 		btnText: { type: String, required: true },
 	},
-	components: {
-		"canvas-component": Canvas,
-		"be-inspired-component": BeInspired,
-		"portfolio-component": Portfolio,
-		"latest-reviews-component": LatestReviews,
-		"process-of-elimination-component": ProcessOfElimination,
-		"latest-news-component": LatestNews,
-	},
 	computed: {
+		// IDs
+		beInspiredSectionID(): string {
+			return SectionIDs.BE_INSPIRED_SECTION;
+		},
+		portfolioSectionID(): string {
+			return SectionIDs.PORTFOLIO_SECTION;
+		},
+		processOfEliminationSectionID(): string {
+			return SectionIDs.BE_INSPIRED_SECTION;
+		},
+		latestNewsSectionID(): string {
+			return SectionIDs.BE_INSPIRED_SECTION;
+		},
+		reviewsSectionID(): string {
+			return SectionIDs.BE_INSPIRED_SECTION;
+		},
+
+		// Conditional
 		isCanvasComponentActive(): boolean {
 			return this.storeCommon.getIsCanvasComponentActive;
 		},
@@ -93,11 +122,11 @@ export default defineComponent({
 		isPortfolioComponentActive(): boolean {
 			return this.storeCommon.getIsPortfolioComponentActive;
 		},
-		isProcessOfEliminationActive(): boolean {
-			return this.storeCommon.getIsProcessOfEliminationActive;
-		},
 		isNewsComponentActive(): boolean {
 			return this.storeCommon.getIsNewsComponentActive;
+		},
+		isProcessOfEliminationActive(): boolean {
+			return this.storeCommon.getIsProcessOfEliminationActive;
 		},
 		isReviewsComponentActive(): boolean {
 			return this.storeCommon.getIsReviewsComponentActive;

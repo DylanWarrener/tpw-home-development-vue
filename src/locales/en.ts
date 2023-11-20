@@ -1,5 +1,5 @@
 // Interfaces
-import { ILocaleData } from "@interfaces/common/locales/interface-common-locales";
+import { ICommonLocalesVuetifyTextualData } from "@interfaces/common/locales/interface-common-locales";
 
 // Utils text data
 import {
@@ -16,12 +16,12 @@ import {
 	pageInfoLinks,
 	pageAllNames,
 	pageAllLinks,
-} from "@utils/text/common/pages/utils-common-pages";
+} from "@src/utils/text/common/pages/utils-text-common-pages";
 
-// Vuetify built-in default text
-import VuetifyDefaultLocaleMessages from "vuetify/lib/locale/en.mjs";
+// Vuetify's default messages
+import defaultText from "vuetify/lib/locale/en.mjs";
 
-const en: ILocaleData = {
+const en: ICommonLocalesVuetifyTextualData = {
 	$vuetify: {
 		common: {
 			header: {
@@ -117,15 +117,11 @@ const en: ILocaleData = {
 					name: pageInfoNames.news,
 					link: pageInfoLinks.news,
 					images: {},
-					title: "News",
-					subtitle: "See all news.",
 				},
 				reviews: {
 					name: pageInfoNames.reviews,
 					link: pageInfoLinks.reviews,
 					images: {},
-					title: "All Reviews",
-					subtitle: "Testing reviews subtitle",
 				},
 				about: {
 					name: pageInfoNames.about,
@@ -161,15 +157,23 @@ const en: ILocaleData = {
 					title: "Plan of Action",
 					subtitle: "See how we plan you in.",
 				},
+				allNews: {
+					title: `our ${pageInfoNames.news}`,
+					subtitle: `Delve deeper into all our ${pageInfoNames.news}, trends & innovation`,
+				},
 				latestNews: {
-					title: "Latest News",
-					subtitle: "See what is happening right now.",
-					btnText: `see all ${pageInfoNames.news}?`,
+					title: `latest ${pageInfoNames.news}`,
+					subtitle: `Examine our most recent ${pageInfoNames.news}.`,
+					btnText: `uncover all ${pageInfoNames.news}?`,
+				},
+				allReviews: {
+					title: `our ${pageInfoNames.reviews}`,
+					subtitle: "Reveal customer feedback",
 				},
 				latestReviews: {
-					title: "Latest Reviews",
-					subtitle: "See what other people think.",
-					btnText: `see all ${pageInfoNames.reviews}?`,
+					title: `latest ${pageInfoNames.reviews}`,
+					subtitle: `Explore our most recent ${pageInfoNames.reviews}.`,
+					btnText: `study all ${pageInfoNames.reviews}?`,
 				},
 			},
 			cards: {
@@ -222,12 +226,12 @@ const en: ILocaleData = {
 							btnText: `see our team?`,
 						},
 						news: {
-							title: `All ${pageInfoNames.news}`,
-							subtitle: "Stay updated with the latest tech trends and innovations",
-							btnText: `see our ${pageInfoNames.news}?`,
+							title: `all ${pageInfoNames.news}`,
+							subtitle: `Stay updated with the latest ${pageInfoNames.news}, trends & innovations`,
+							btnText: `reveal our ${pageInfoNames.news}?`,
 						},
 						reviews: {
-							title: `All ${pageInfoNames.reviews}`,
+							title: `all ${pageInfoNames.reviews}`,
 							subtitle: "Discover home renovation gems: insights from real homeowners",
 							btnText: `see our ${pageInfoNames.reviews}?`,
 						},
@@ -260,7 +264,7 @@ const en: ILocaleData = {
 				chevronLeft: "mdi-chevron-left",
 			},
 		},
-		...VuetifyDefaultLocaleMessages,
+		...defaultText,
 	},
 };
 

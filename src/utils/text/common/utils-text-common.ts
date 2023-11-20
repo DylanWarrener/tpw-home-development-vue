@@ -1,4 +1,4 @@
-import { pageServiceNames } from "@utils/text/common/pages/utils-common-pages";
+import { pageServiceNames } from "@src/utils/text/common/pages/utils-text-common-pages";
 
 // CARD
 export const cardBtnBeInspired: string = "Be Inspired?";

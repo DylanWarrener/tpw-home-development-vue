@@ -53,19 +53,19 @@ export default defineComponent({
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.contact.title");
+			return this.$t("$vuetify.common.cards.canvas.pages.contact.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.contact.subtitle");
+			return this.$t("$vuetify.common.cards.canvas.pages.contact.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.card.canvas.pages.contact.btnText");
+			return this.$t("$vuetify.common.cards.canvas.pages.contact.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("$vuetify.pages.contact.title");
+			return this.$t("$vuetify.common.pages.contact.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("$vuetify.pages.contact.subtitle");
+			return this.$t("$vuetify.common.pages.contact.subtitle");
 		},
 
 		// IMGs

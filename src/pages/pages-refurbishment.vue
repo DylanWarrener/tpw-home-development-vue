@@ -36,13 +36,13 @@ export default defineComponent({
 	computed: {
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.refurbishment.title");
+			return this.$t("$vuetify.common.cards.canvas.pages.refurbishment.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.refurbishment.subtitle");
+			return this.$t("$vuetify.common.cards.canvas.pages.refurbishment.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.card.canvas.pages.refurbishment.btnText");
+			return this.$t("$vuetify.common.cards.canvas.pages.refurbishment.btnText");
 		},
 
 		// IMGs

@@ -61,19 +61,19 @@ export default defineComponent({
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.reviews.title");
+			return this.$t("$vuetify.common.cards.canvas.pages.reviews.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.reviews.subtitle");
+			return this.$t("$vuetify.common.cards.canvas.pages.reviews.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.card.canvas.pages.reviews.btnText");
+			return this.$t("$vuetify.common.cards.canvas.pages.reviews.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("$vuetify.pages.reviews.title");
+			return this.$t("$vuetify.common.sections.allReviews.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("$vuetify.pages.reviews.subtitle");
+			return this.$t("$vuetify.common.sections.allReviews.subtitle");
 		},
 
 		// IMG's

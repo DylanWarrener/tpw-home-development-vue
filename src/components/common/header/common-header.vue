@@ -39,6 +39,9 @@ import SVG from "@components/common/svg/common-svg.vue";
 import { IHeaderData } from "@interfaces/common/header/interface-common-header";
 import { IAppBarIcons } from "@interfaces/common/header/appBar/interface-common-header-appbar";
 
+// Utils
+import { headerAppbarIconNames } from "@utils/text/common/header/utils-text-common-header";
+
 // IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
 
@@ -58,7 +61,7 @@ export default defineComponent({
 	computed: {
 		// Text
 		txtPageHome(): string {
-			return this.$t("$vuetify.pages.home.name");
+			return this.$t("$vuetify.common.pages.home.name");
 		},
 		txtAppBarTitle(): string {
 			let retVal: string = "";
@@ -94,24 +97,26 @@ export default defineComponent({
 			const targetID: string = targetElement.id;
 
 			switch (targetID) {
-				case this.$t("$vuetify.header.appBar.icons.names.search"):
+				case headerAppbarIconNames.search:
 					break;
-				case this.$t("$vuetify.header.appBar.icons.names.theme"):
+				case headerAppbarIconNames.theme:
 					this.toggleTheme();
 					break;
-				case this.$t("$vuetify.header.appBar.icons.names.newAccount"):
+				case headerAppbarIconNames.newAccount:
 					break;
-				case this.$t("$vuetify.header.appBar.icons.names.account"):
+				case headerAppbarIconNames.account:
 					break;
-				case this.$t("$vuetify.header.appBar.icons.names.settings"):
+				case headerAppbarIconNames.settings:
 					break;
 			}
 		},
-		toggleTheme(): void {
-			this.theme.global.name.value = this.theme.global.current.value.dark ? "light" : "dark";
-		},
 		navigateTo(routeName: string): void {
 			this.$router.push({ name: routeName });
+		},
+
+		// Utils
+		toggleTheme(): void {
+			this.theme.global.name.value = this.theme.global.current.value.dark ? "light" : "dark";
 		},
 	},
 	setup() {

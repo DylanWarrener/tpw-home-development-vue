@@ -24,7 +24,7 @@ import { SectionIDs } from "@enums/IDs/enums-ids-section";
 
 // Utils
 import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
-import { pageAllNames } from "@utils/text/common/utils-text-common";
+import { pageAllNames } from "@utils/text/common/pages/utils-text-common-pages";
 
 export default defineComponent({
 	name: "home-page-component",
@@ -37,13 +37,13 @@ export default defineComponent({
 	computed: {
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.home.title");
+			return this.$t("$vuetify.common.cards.canvas.pages.home.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.home.subtitle");
+			return this.$t("$vuetify.common.cards.canvas.pages.home.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.card.canvas.pages.home.btnText");
+			return this.$t("$vuetify.common.cards.canvas.pages.home.btnText");
 		},
 
 		// IMGs

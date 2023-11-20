@@ -1,8 +1,8 @@
-//import ILocaleTextualData from "@interfaces/common/locale/interface-locale";
+import ICommonLocalesTextualData from "@interfaces/common/locales/interface-common-locales";
 
 import en from "@locales/en";
 
-const messages = {
+const messages: ICommonLocalesTextualData = {
 	en,
 };
 
