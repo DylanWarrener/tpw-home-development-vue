@@ -41,7 +41,7 @@ import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 import { AppBarDensity } from "@src/enums/sizing/enums-sizing";
 
 // Data
-import { pageServiceNamesAsArray } from "@utils/text/common/pages/utils-text-common-pages";
+import { pageServiceNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
 
 // Kitchen PNGs (different styles of kitchens, using the available materials)
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -215,8 +215,8 @@ export const parentStore = defineStore("common-store", {
 
 		//// Body
 		setDropdownOptions(): void {
-			for (let i = 0; i < pageServiceNamesAsArray.length; i++) {
-				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArray[i]}`));
+			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
+				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
 			}
 		},
 		// Sections

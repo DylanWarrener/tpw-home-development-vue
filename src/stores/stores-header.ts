@@ -10,7 +10,7 @@ import IHeaderNavigationData from "@interfaces/common/header/navigation/interfac
 
 // Utils
 import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
-import { pageAllNamesAsArray } from "@utils/text/common/pages/utils-text-common-pages";
+import { pageAllNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
 
 const useHeaderStore = defineStore("header-store", {
 	state: (): IHeaderState => ({
@@ -139,8 +139,8 @@ const useHeaderStore = defineStore("header-store", {
 		},
 		setNavigationItems(): void {
 			for (let i = 0; i < this.navigation.length; i++) {
-				this.navigation[i].title = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArray[i]}`);
-				this.navigation[i].link = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArray[i]}`);
+				this.navigation[i].title = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
+				this.navigation[i].link = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
 			}
 		},
 

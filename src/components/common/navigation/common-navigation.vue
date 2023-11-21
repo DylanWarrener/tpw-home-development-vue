@@ -1,13 +1,7 @@
 <template>
 	<v-navigation-drawer temporary location="top" v-model="drawer">
 		<v-list nav>
-			<v-list-item
-				:prepend-icon="item.icon"
-				:title="item.title"
-				:to="item.link"
-				:key="index"
-				v-for="(item, index) in navigation"
-			></v-list-item>
+			<v-list-item :prepend-icon="item.icon" :title="item.title.toUpperCase()" :to="item.link" :key="index" v-for="(item, index) in navigation"> </v-list-item>
 		</v-list>
 	</v-navigation-drawer>
 </template>
