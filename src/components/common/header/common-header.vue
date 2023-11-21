@@ -10,7 +10,7 @@
 			</template>
 			<span>{{ appBarIcons.menu.tooltip }}</span>
 		</v-tooltip>
-		<v-app-bar-title>{{ txtAppBarTitle }}</v-app-bar-title>
+		<v-app-bar-title class="text-capitalize">{{ txtAppBarTitle }}</v-app-bar-title>
 		<v-tooltip location="bottom" v-model="item.showTooltip" v-for="(item, index) in appBarIcons.others">
 			<template #activator="{ props }">
 				<v-btn icon :key="index" v-bind="props" @click="appBarIconClicked">

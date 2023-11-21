@@ -1,5 +1,5 @@
 <template>
-	<card-component variant="outlined" card-class="bg-accent text-inverted w-50 pa-2" max-height="h-50">
+	<card-component variant="outlined" card-class="bg-accent text-inverted w-50 pa-2" max-height="h-50" action-btn-id="changeMe">
 		<template #content>
 			<v-container fluid class="d-flex flex-column" style="gap: 8px">
 				<v-row class="text-left">
@@ -34,8 +34,8 @@
 import { defineComponent } from "vue";
 
 // Components
-import Card from "@components/containers/card/card.vue";
-import Rating from "@components/containers/rating/rating.vue";
+import Card from "@components/common/cards/common-cards.vue";
+import Rating from "@components/common/ratings/common-ratings.vue";
 
 export default defineComponent({
 	name: "card-review-component",

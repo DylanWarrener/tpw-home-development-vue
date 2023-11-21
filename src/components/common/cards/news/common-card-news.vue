@@ -6,12 +6,12 @@
 import { defineComponent } from "vue";
 
 // Components
-import Card from "@components/containers/card/card.vue";
+//import Card from "@components/containers/card/card.vue";
 
 export default defineComponent({
 	name: "card-news-article-component",
 	components: {
-		"card-component": Card,
+		//"card-component": Card,
 	},
 	props: {
 		btnText: { type: String, required: false },
