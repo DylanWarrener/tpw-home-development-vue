@@ -1,5 +1,8 @@
-<template>
-	<v-row no-gutters>
+<template></template>
+
+<script lang="ts">
+/* The HTML
+<v-row no-gutters>
 		<!-- Logo stuff -->
 		<v-col class="pa-4 d-flex flex-column justify-space-between align-center">
 			<svg-component
@@ -96,33 +99,31 @@
 			</v-row>
 		</v-col>
 	</v-row>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Component
-import FooterSectionInteractiveDefaultFirst from "@components/footer/section/interactive/defaults/footer-section-interactive-default-first.vue";
-import FooterSectionInteractiveDefaultSecond from "@components/footer/section/interactive/defaults/footer-section-interactive-default-second.vue";
-import FooterSectionInteractiveDefaultThird from "@components/footer/section/interactive/defaults/footer-section-interactive-default-third.vue";
-import SVG from "@components/containers/svg/svg.vue";
+//import FooterSectionInteractiveDefaultFirst from "@components/footer/section/interactive/defaults/footer-section-interactive-default-first.vue";
+//import FooterSectionInteractiveDefaultSecond from "@components/footer/section/interactive/defaults/footer-section-interactive-default-second.vue";
+//import FooterSectionInteractiveDefaultThird from "@components/footer/section/interactive/defaults/footer-section-interactive-default-third.vue";
+//import SVG from "@components/containers/svg/svg.vue";
 
 // Interfaces
-import { IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/footer/interface-footer";
+//import { IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/footer/interface-footer";
 
 export default defineComponent({
 	name: "footer-section-interactive-component",
 	components: {
-		"footer-section-interactive-default-first-component": FooterSectionInteractiveDefaultFirst,
-		"footer-section-interactive-default-second-component": FooterSectionInteractiveDefaultSecond,
-		"footer-section-interactive-default-third-component": FooterSectionInteractiveDefaultThird,
-		"svg-component": SVG,
+		//"footer-section-interactive-default-first-component": FooterSectionInteractiveDefaultFirst,
+		//"footer-section-interactive-default-second-component": FooterSectionInteractiveDefaultSecond,
+		//"footer-section-interactive-default-third-component": FooterSectionInteractiveDefaultThird,
+		//"svg-component": SVG,
 	},
 	props: {
-		firstColData: { type: Object as () => IFooterFirstColData, required: true },
-		secondColData: { type: Object as () => IFooterSecondColData, required: true },
-		thirdColData: { type: Object as () => IFooterThirdColData, required: true },
-		message: { type: String, required: false },
+		//firstColData: { type: Object as () => IFooterFirstColData, required: true },
+		//secondColData: { type: Object as () => IFooterSecondColData, required: true },
+		//thirdColData: { type: Object as () => IFooterThirdColData, required: true },
+		//message: { type: String, required: false },
 	},
 	computed: {
 		// Names

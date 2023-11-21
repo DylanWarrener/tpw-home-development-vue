@@ -1,5 +1,5 @@
 // Common interfaces
-import { ICommonPageAllIcons } from "@interfaces/common/pages/interface-common-page";
+import { ICommonPageAllIcons } from "@interfaces/common/pages/interfaces-common-pages";
 
 // App bar interfaces
 import { IAppBarIcons } from "@src/interfaces/common/header/appBar/interfaces-common-header-appbar";

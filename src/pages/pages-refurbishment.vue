@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { IRefurbishmentData } from "@interfaces/common/pages/refurbishment/interface-refurbishment";
+import { IRefurbishmentData } from "@interfaces/common/pages/service/refurbishment/interfaces-common-pages-service-refurbishment";
 
 // Images
 import RefurbishmentPNG from "@assets/png/refurbishments/refurbishment.jpg";
@@ -93,3 +93,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/refurbishment/interfaces-refurbishment

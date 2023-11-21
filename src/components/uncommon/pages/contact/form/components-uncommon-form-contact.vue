@@ -1,5 +1,8 @@
-<template>
-	<v-col id="contact_form" class="pa-8">
+<template></template>
+
+<script lang="ts">
+/* The HTML
+<v-col id="contact_form" class="pa-8">
 		<v-row class="pa-4 contact_form-row">
 			<v-col cols="12" class="d-flex justify-center">
 				<h4>{{ formState.title }}</h4>
@@ -31,18 +34,16 @@
 			</v-col>
 		</v-row>
 	</v-col>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Interfaces
-import { IContactFormState } from "@interfaces/contact/interface-contact";
+//import { IContactFormState } from "@interfaces/contact/interface-contact";
 
 export default defineComponent({
 	name: "contact-form-component",
 	props: {
-		formState: { type: Object as () => IContactFormState, required: true },
+		//formState: { type: Object as () => IContactFormState, required: true },
 	},
 });
 </script>

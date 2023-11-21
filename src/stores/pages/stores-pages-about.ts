@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import { IAboutState, IAboutEmployeeCard } from "@interfaces/about/interface-about";
+import IAboutState, { IAboutEmployeeCard } from "@interfaces/common/pages/info/about/interfaces-common-pages-info-about";
 
 // Images
 import Face1JPG from "@assets/png/about/faces/face-1.jpg";
@@ -191,12 +191,14 @@ const useAboutStore = defineStore("about-store", {
 		],
 	}),
 	getters: {
-		getEmployees: (state): IAboutEmployeeCard[] => state.employees,
+		//getEmployees: (state): IAboutEmployeeCard[] => state.employees,
 	},
 	actions: {
+		/*
 		modifyEmployee(index: number, newValue: IAboutEmployeeCard): void {
 			this.employees[index] = newValue;
 		},
+		*/
 	},
 });
 

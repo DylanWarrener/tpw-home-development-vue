@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { IExtensionData } from "@interfaces/common/pages/extension/interface-extension";
+import { IExtensionData } from "@interfaces/common/pages/service/extension/interfaces-common-pages-service-extension";
 
 // Images
 import ExtensionPNG from "@assets/png/extensions/extension.jpg";
@@ -93,3 +93,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/extension/interfaces-extension @src/interfaces/common/pages/extension/interfaces-common-pages-extension

@@ -1,5 +1,5 @@
 // Interfaces
-import { ICommonLocalesVuetifyTextualData } from "@interfaces/common/locales/interface-common-locales";
+//import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
 
 // Utils text data
 import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
@@ -9,7 +9,7 @@ import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks, pageA
 // Vuetify's default messages
 import defaultText from "vuetify/lib/locale/en.mjs";
 
-const en: ICommonLocalesVuetifyTextualData = {
+const en = {
 	$vuetify: {
 		common: {
 			header: {

@@ -1,5 +1,8 @@
-<template>
-	<v-col id="news_filter" style="border: 2px solid orange; max-width: 40%">
+<template></template>
+
+<script lang="ts">
+/* The HTML
+<v-col id="news_filter" style="border: 2px solid orange; max-width: 40%">
 		<v-row class="pa-4">
 			<div class="w-100 h-100" style="background-color: rgb(var(--v-theme-accent)); color: rgb(var(--v-theme-inverted))">
 				<v-col cols="12">
@@ -32,17 +35,15 @@
 			</div>
 		</v-row>
 	</v-col>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Components
-import NewsFilterOptions from "@components/containers/news/news-filter-options.vue";
-import Dropdown from "@components/containers/dropdown/dropdown.vue";
+//import NewsFilterOptions from "@components/containers/news/news-filter-options.vue";
+//import Dropdown from "@components/containers/dropdown/dropdown.vue";
 
 // Interfaces
-import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
+//import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
 
 // Enums
 import { FilterRefineBy } from "@enums/enums";
@@ -50,11 +51,11 @@ import { FilterRefineBy } from "@enums/enums";
 export default defineComponent({
 	name: "news-filter-component",
 	components: {
-		"news-filter-options-component": NewsFilterOptions,
-		"dropdown-component": Dropdown,
+		//"news-filter-options-component": NewsFilterOptions,
+		//"dropdown-component": Dropdown,
 	},
 	props: {
-		filter: { type: Object as () => INewsFilterState, required: true },
+		//filter: { type: Object as () => INewsFilterState, required: true },
 	},
 	methods: {
 		// Utils

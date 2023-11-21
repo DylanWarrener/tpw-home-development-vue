@@ -17,7 +17,7 @@ import { defineComponent } from "vue";
 import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 
 // Interfaces
-import { IFooterData } from "@interfaces/common/footer/interface-footer";
+import { IFooterData } from "@interfaces/common/footer/interfaces-common-footer";
 //import { IFooterData, IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/footer/interface-footer";
 
 export default defineComponent({
@@ -44,3 +44,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/footer/interfaces-footer @src/interfaces/common/footer/interfaces-common-footer

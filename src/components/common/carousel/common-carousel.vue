@@ -20,3 +20,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/interfaces-common-sections

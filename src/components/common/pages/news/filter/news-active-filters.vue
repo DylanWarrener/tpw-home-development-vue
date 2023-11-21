@@ -24,12 +24,12 @@
 */
 import { defineComponent } from "vue";
 
-import INewsActiveFiltersState from "@interfaces/news/active-filters/interface-news-active-filters";
+//import INewsActiveFiltersState from "@interfaces/news/active-filters/interface-news-active-filters";
 
 export default defineComponent({
 	name: "news-active-filters-component",
 	props: {
-		activeFilters: { type: Array<INewsActiveFiltersState>, required: false },
+		//activeFilters: { type: Array<INewsActiveFiltersState>, required: false },
 	},
 });
 </script>

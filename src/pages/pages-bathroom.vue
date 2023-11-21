@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { IBathroomData } from "@interfaces/common/pages/bathroom/interface-bathroom";
+import { IBathroomData } from "@interfaces/common/pages/service/bathroom/interfaces-common-pages-service-bathroom";
 
 // Images
 import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
@@ -93,3 +93,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/bathroom/interfaces-bathroom @src/interfaces/common/pages/bathroom/interfaces-common-pages-bathroom

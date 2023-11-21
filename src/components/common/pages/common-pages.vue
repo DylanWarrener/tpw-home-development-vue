@@ -4,56 +4,30 @@
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
 					<!-- Canvas -->
-					<canvas-component
-						:src="src"
-						:title="canvasTitle"
-						:subtitle="canvasSubtitle"
-						:btn-text="btnText"
-						v-if="isCanvasComponentActive"
-					></canvas-component>
+					<canvas-component :src="src" :title="canvasTitle" :subtitle="canvasSubtitle" :btn-text="btnText" v-if="isCanvasComponentActive"></canvas-component>
 					<v-divider class="divider-color" v-if="isCanvasComponentActive"></v-divider>
 
 					<!-- Other -->
 					<slot name="content"></slot>
 
 					<!-- Be inspired -->
-					<be-inspired-component
-						class="bg-inverted"
-						:id="beInspiredSectionID"
-						v-if="isBeInspiredComponentActive"
-					></be-inspired-component>
+					<be-inspired-component class="bg-inverted" :id="beInspiredSectionID" v-if="isBeInspiredComponentActive"></be-inspired-component>
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
-					<portfolio-component
-						class="bg-inverted"
-						:id="portfolioSectionID"
-						v-if="isPortfolioComponentActive"
-					></portfolio-component>
+					<portfolio-component class="bg-inverted" :id="portfolioSectionID" v-if="isPortfolioComponentActive"></portfolio-component>
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
 
 					<!-- Latest news -->
-					<latest-news-component
-						class="bg-inverted"
-						:id="latestNewsSectionID"
-						v-if="isNewsComponentActive"
-					></latest-news-component>
+					<latest-news-component class="bg-inverted" :id="latestNewsSectionID" v-if="isNewsComponentActive"></latest-news-component>
 					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
-					<process-of-elimination-component
-						class="bg-inverted"
-						:id="processOfEliminationSectionID"
-						v-if="isProcessOfEliminationActive"
-					></process-of-elimination-component>
+					<process-of-elimination-component class="bg-inverted" :id="processOfEliminationSectionID" v-if="isProcessOfEliminationActive"></process-of-elimination-component>
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest reviews -->
-					<latest-reviews-component
-						class="bg-inverted"
-						:id="reviewsSectionID"
-						v-if="isReviewsComponentActive"
-					></latest-reviews-component>
+					<latest-reviews-component class="bg-inverted" :id="reviewsSectionID" v-if="isReviewsComponentActive"></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
 				</v-sheet>
 			</v-col>
@@ -123,13 +97,13 @@ export default defineComponent({
 			return this.storeCommon.getIsPortfolioComponentActive;
 		},
 		isNewsComponentActive(): boolean {
-			return this.storeCommon.getIsNewsComponentActive;
+			return this.storeCommon.getIsLatestNewsComponentActive;
 		},
 		isProcessOfEliminationActive(): boolean {
 			return this.storeCommon.getIsProcessOfEliminationActive;
 		},
 		isReviewsComponentActive(): boolean {
-			return this.storeCommon.getIsReviewsComponentActive;
+			return this.storeCommon.getIsLatestReviewsComponentActive;
 		},
 	},
 	setup() {

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import { IFooterState, IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "../interfaces/footer/interface-footer";
+import { IFooterState, IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/common/footer/interfaces-common-footer";
 
 // SVGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";

@@ -1,6 +1,7 @@
 <template>
 	<v-col style="border: 2px solid blue">
-		<card-news-article-component
+		<!--
+			<card-news-article-component
 			:btnText="btnText"
 			:type="type"
 			:title="title"
@@ -8,6 +9,7 @@
 			:date="date"
 			:src="src"
 		></card-news-article-component>
+		-->
 	</v-col>
 </template>
 
@@ -15,21 +17,22 @@
 import { defineComponent } from "vue";
 
 // Components
-import CardNewsArticle from "@components/containers/card/card-news-article.vue";
+//import CardNewsArticle from "@components/containers/card/card-news-article.vue";
 
 // Interfaces
-import { INewsArticlesState } from "@interfaces/news/sections/interface-news-sections";
+//import { INewsArticlesState } from "@interfaces/news/sections/interface-news-sections";
 
 export default defineComponent({
 	name: "news-articles-component",
 	components: {
-		"card-news-article-component": CardNewsArticle,
+		//"card-news-article-component": CardNewsArticle,
 	},
 	props: {
-		articles: { type: Object as () => INewsArticlesState, required: true },
+		//articles: { type: Object as () => INewsArticlesState, required: true },
 	},
 	computed: {
 		// Text
+		/*
 		btnText(): string {
 			return this.articles.article.img.btnText;
 		},
@@ -50,6 +53,7 @@ export default defineComponent({
 		src(): string {
 			return this.articles.article.img.src;
 		},
+		*/
 	},
 });
 </script>

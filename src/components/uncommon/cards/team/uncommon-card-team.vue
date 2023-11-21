@@ -1,5 +1,8 @@
-<template>
-	<div class="cards w-100 h-100">
+<template></template>
+
+<script lang="ts">
+/* The HTML
+<div class="cards w-100 h-100">
 		<card-component max-width="300px" card-class="bg-accent" :key="employeeIndex" v-for="(employee, employeeIndex) in employees">
 			<template #img>
 				<v-img cover aspect-ratio="1" class="h-100" :src="employee.picture">
@@ -28,29 +31,27 @@
 			</template>
 		</card-component>
 	</div>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Stores
 import { parentStore } from "@plugins/pinia/pinia";
 
 // Components
-import SVG from "@components/containers/svg/svg.vue";
-import Card from "@components/containers/card/card.vue";
+//import SVG from "@components/containers/svg/svg.vue";
+//import Card from "@components/containers/card/card.vue";
 
 // Interface
-import { IAboutEmployeeCard } from "@interfaces/about/interface-about";
+//import { IAboutEmployeeCard } from "@interfaces/about/interface-about";
 
 export default defineComponent({
 	name: "card-our-team-component",
 	components: {
-		"svg-component": SVG,
-		"card-component": Card,
+		//"svg-component": SVG,
+		//"card-component": Card,
 	},
 	props: {
-		employees: { type: Array<IAboutEmployeeCard>, required: true },
+		//employees: { type: Array<IAboutEmployeeCard>, required: true },
 	},
 	computed: {
 		icon(): string {
@@ -58,6 +59,7 @@ export default defineComponent({
 		},
 	},
 	methods: {
+		/*
 		// Events
 		goTo(link: string): void {
 			window.open(link, "_blank");
@@ -74,6 +76,7 @@ export default defineComponent({
 		toggleRotate(employee: IAboutEmployeeCard): string {
 			return employee.show ? "transform: rotate(180deg)" : "transform: rotate(0)";
 		},
+		*/
 	},
 	setup() {
 		const storeCommon = parentStore();

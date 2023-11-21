@@ -1,5 +1,8 @@
-<template>
-	<v-col id="contact_info" class="pa-8 d-flex flex-column">
+<template></template>
+
+<script lang="ts">
+/* The HTML
+<v-col id="contact_info" class="pa-8 d-flex flex-column">
 		<v-row style="gap: 16px">
 			<v-col cols="12">
 				<p class="text-left">{{ infoState.message }}</p>
@@ -25,18 +28,16 @@
 			</v-col>
 		</v-row>
 	</v-col>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Interfaces
-import { IContactInfoState } from "@interfaces/contact/interface-contact";
+//import { IContactInfoState } from "@interfaces/contact/interface-contact";
 
 export default defineComponent({
 	name: "contact-info-component",
 	props: {
-		infoState: { type: Object as () => IContactInfoState, required: true },
+		//infoState: { type: Object as () => IContactInfoState, required: true },
 	},
 });
 </script>

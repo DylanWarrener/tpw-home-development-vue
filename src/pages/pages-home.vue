@@ -13,7 +13,7 @@ import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";
-import { IHomeData } from "@interfaces/common/pages/home/interfaces-common-pages-home";
+import { IHomeData } from "@interfaces/common/pages/info/home/interfaces-common-pages-info-home";
 
 // IMGs
 import HomePNG from "@assets/png/home/home.jpg";

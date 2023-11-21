@@ -1,5 +1,8 @@
-<template>
-	<v-row style="border: 2px solid green">
+<template></template>
+
+<script lang="ts">
+/* The HTML
+<v-row style="border: 2px solid green">
 		<v-col cols="12" style="border: 2px solid blue">
 			<h4>{{ section.title }}</h4>
 		</v-col>
@@ -14,24 +17,22 @@
 			</v-row>
 		</v-col>
 	</v-row>
-</template>
-
-<script lang="ts">
+	*/
 import { defineComponent } from "vue";
 
 // Components
-import NewsArticles from "@components/containers/news/articles/news-articles.vue";
+//import NewsArticles from "@components/containers/news/articles/news-articles.vue";
 
 // Interfaces
-import INewsSectionsState from "@interfaces/news/sections/interface-news-sections";
+//import INewsSectionsState from "@interfaces/news/sections/interface-news-sections";
 
 export default defineComponent({
 	name: "news-by-section-component",
 	components: {
-		"news-articles-component": NewsArticles,
+		//"news-articles-component": NewsArticles,
 	},
 	props: {
-		section: { type: Object as () => INewsSectionsState, required: true },
+		//section: { type: Object as () => INewsSectionsState, required: true },
 	},
 });
 </script>

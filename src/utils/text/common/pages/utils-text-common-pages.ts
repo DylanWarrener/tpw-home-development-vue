@@ -5,7 +5,7 @@ import {
 	ICommonPageInfoLinks,
 	ICommonPageAllNames,
 	ICommonPageAllLinks,
-} from "@interfaces/common/pages/interface-common-page";
+} from "@src/interfaces/common/pages/interfaces-common-page";
 
 export const pageServiceNames: ICommonPageServiceNames = {
 	kitchen: "kitchens",

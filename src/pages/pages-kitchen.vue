@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { IKitchenData } from "@interfaces/common/pages/kitchen/interface-kitchen";
+import { IKitchenData } from "@interfaces/common/pages/service/kitchen/interfaces-common-pages-service-kitchen";
 
 // IMGs
 import KitchenPNG from "@assets/png/kitchens/kitchen.jpg";
@@ -93,3 +93,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/kitchen/interfaces-kitchen @src/interfaces/common/pages/kitchen/interfaces-common-pages-kitchen

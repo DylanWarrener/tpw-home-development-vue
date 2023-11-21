@@ -1,5 +1,5 @@
 // Interfaces
-import ICommonThemes from "@interfaces/uncommon/themes/interface-common-theme";
+import ICommonThemes from "@src/interfaces/uncommon/themes/interfaces-uncommon-themes";
 
 // Colours
 import colors from "vuetify/lib/util/colors";

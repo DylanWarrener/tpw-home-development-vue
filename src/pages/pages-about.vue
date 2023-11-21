@@ -3,7 +3,7 @@
 		<template #content>
 			<section-component :id="aboutSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<card-our-team-component :employees="employees" @show="updateShowInfo"></card-our-team-component>
+					<!--<card-our-team-component :employees="employees" @show="updateShowInfo"></card-our-team-component>-->
 				</template>
 			</section-component>
 		</template>
@@ -23,7 +23,7 @@ import Section from "@components/common/sections/common-sections.vue";
 import CardOurTeam from "@components/uncommon/cards/team/uncommon-card-team.vue";
 
 // Interface
-import { IAboutData, IAboutEmployeeCard } from "@interfaces/common/pages/about/interface-about";
+import { IAboutData, IAboutEmployeeCard } from "@interfaces/common/pages/info/about/interfaces-common-pages-info-about";
 
 // Images
 import AboutPNG from "@assets/png/about/about.jpg";
@@ -151,3 +151,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/about/interfaces-about @src/interfaces/common/pages/about/interfaces-common-pages-about

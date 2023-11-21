@@ -31,7 +31,7 @@ import Section from "@components/common/sections/common-sections.vue";
 import Reviews from "@components/uncommon/pages/reviews/uncommon-reviews.vue";
 
 // Interfaces
-import { IReviewsData } from "@interfaces/common/pages/reviews/interface-reviews";
+import { IReviewsData } from "@interfaces/common/pages/info/reviews/interfaces-common-pages-info-reviews";
 
 // Images
 import ReviewsPNG from "@assets/png/reviews/reviews.jpg";
@@ -124,3 +124,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/reviews/interfaces-reviews

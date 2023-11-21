@@ -23,7 +23,7 @@ import Section from "@components/common/sections/common-sections.vue";
 import Contact from "@components/uncommon/pages/contact/uncommon-contact.vue";
 
 // Interfaces
-import { IContactData } from "@interfaces/common/pages/contact/interface-contact";
+import { IContactData } from "@interfaces/common/pages/info/contact/interfaces-common-pages-info-contact";
 
 // PNGs
 import ContactPNG from "@assets/png/contact/contact.jpg";
@@ -116,3 +116,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/contact/interfaces-contact @src/interfaces/common/pages/contact/interfaces-common-pages-contact

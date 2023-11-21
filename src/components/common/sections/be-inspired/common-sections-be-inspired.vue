@@ -205,4 +205,4 @@ export default defineComponent({
 	}
 }
 </style>
-@src/utils/text/common/utils-text @src/utils/text/common/utils-text
+@src/utils/text/common/utils-text @src/utils/text/common/utils-text @src/interfaces/common/interfaces-common-sections

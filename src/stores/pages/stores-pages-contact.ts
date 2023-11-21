@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { IContactState, IContactInfoState, IContactFormState } from "@interfaces/contact/interface-contact";
+import { IContactState, IContactInfoState, IContactFormState } from "@interfaces/common/pages/info/contact/interfaces-common-pages-info-contact";
 
 const useContactStore = defineStore("contact-store", {
 	state: (): IContactState => ({

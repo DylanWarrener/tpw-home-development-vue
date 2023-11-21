@@ -8,12 +8,12 @@
 import { defineComponent } from "vue";
 
 // Components
-import Card from "@components/containers/card/card.vue";
+//import Card from "@components/containers/card/card.vue";
 
 export default defineComponent({
 	name: "card-about-component",
 	components: {
-		"card-component": Card,
+		//"card-component": Card,
 	},
 });
 </script>

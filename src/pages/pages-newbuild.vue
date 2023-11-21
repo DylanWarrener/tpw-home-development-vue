@@ -13,7 +13,7 @@ import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { INewbuildData } from "@interfaces/common/pages/newbuild/interface-newbuild";
+import { INewbuildData } from "@interfaces/common/pages/service/newbuild/interfaces-common-pages-service-newbuild";
 
 // Images
 import NewbuildPNG from "@assets/png/newbuilds/newbuild.jpg";
@@ -93,3 +93,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/newbuild/interfaces-newbuild @src/interfaces/common/pages/newbuild/interfaces-common-pages-newbuild

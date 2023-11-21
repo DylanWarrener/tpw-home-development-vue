@@ -23,7 +23,7 @@ import Section from "@components/common/sections/common-sections.vue";
 //import Filter from "@components/common/filter/common-filter.vue";
 
 // Interfaces
-import { INewsData } from "@interfaces/common/pages/news/interface-news";
+import { INewsData } from "@interfaces/common/pages/info/news/interfaces-common-pages-info-news";
 //import INewsFilterState from "@interfaces/pages/news/filters/interface-news-filters";
 
 // PNGs
@@ -123,3 +123,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/interfaces/common/pages/news/interfaces-news

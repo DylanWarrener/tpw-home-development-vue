@@ -2,10 +2,10 @@ import { createPinia, defineStore } from "pinia";
 
 // Stores to load immediately
 import useHeaderStore from "@stores/stores-header";
-import useHomeStore from "@src/stores/pages/stores-home";
+import useHomeStore from "@src/stores/pages/stores-pages-home";
 import useFooterStore from "@stores/stores-footer";
 import useErrorStore from "@stores/stores-error";
-import useEventStore from "@src/stores/events/stores-event";
+import useEventStore from "@src/stores/events/stores-events";
 
 // Stores to load when called, to increase performance
 /*
@@ -21,18 +21,18 @@ const useReviewsStore = () => import("@stores/stores-reveiws");
 */
 
 // Convert to above when ready
-import useKitchenStore from "@stores/pages/stores-kitchen";
-import useBathroomStore from "@stores/pages/stores-bathroom";
-import useNewbuildStore from "@stores/pages/stores-newbuild";
-import useExtensionStore from "@src/stores/pages/stores-extension";
-import useRefurbishmentStore from "@stores/pages/stores-refurbishment";
-import useContactStore from "@stores/pages/stores-contact";
-import useAboutStore from "@src/stores/pages/stores-about";
-import useNewsStore from "@stores/pages/stores-news";
-import useReviewsStore from "@stores/pages/stores-reveiws";
+import useKitchenStore from "@src/stores/pages/stores-pages-kitchen";
+import useBathroomStore from "@src/stores/pages/stores-pages-bathroom";
+import useNewbuildStore from "@src/stores/pages/stores-pages-newbuild";
+import useExtensionStore from "@src/stores/pages/stores-pages-extension";
+import useRefurbishmentStore from "@src/stores/pages/stores-pages-refurbishment";
+import useContactStore from "@src/stores/pages/stores-pages-contact";
+import useAboutStore from "@src/stores/pages/stores-pages-about";
+import useNewsStore from "@src/stores/pages/stores-pages-news";
+import useReviewsStore from "@src/stores/pages/stores-pages-reveiws";
 
 // Interfaces
-import ICommonState, { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
+import ICommonState, { ICommonAvailableStyles } from "@src/interfaces/common/interfaces-common";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
@@ -216,9 +216,7 @@ export const parentStore = defineStore("common-store", {
 		//// Body
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArray.length; i++) {
-				this.dropdownOptions.push(
-					i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArray[i]}`)
-				);
+				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArray[i]}`));
 			}
 		},
 		// Sections
