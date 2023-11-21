@@ -1,13 +1,5 @@
 <template>
-	<v-select
-		hide-selected
-		class="w-auto h-auto"
-		variant="underlined"
-		density="compact"
-		:items="items"
-		:label="label"
-		v-model="value"
-	></v-select>
+	<v-select hide-selected class="w-auto h-auto" variant="underlined" density="compact" :items="items" :label="label" v-model="value"></v-select>
 </template>
 
 <script lang="ts">

@@ -4,110 +4,114 @@ import { defineStore } from "pinia";
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
 // Interfaces
-import IHeaderState from "@interfaces/header/interface-header";
-import { IAppBarIcons } from "@interfaces/header/appBar/interface-header-appbar";
-import { IHeaderNavigation } from "@interfaces/header/navigation/interface-header-navigation";
+import IHeaderState from "@interfaces/common/header/interfaces-common-header";
+import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
+import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
+
+// Utils
+import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
+import { pageAllNamesAsArray } from "@utils/text/common/pages/utils-text-common-pages";
 
 const useHeaderStore = defineStore("header-store", {
 	state: (): IHeaderState => ({
 		drawer: false,
 		appBarIcons: {
 			menu: {
-				id: "",
-				icon: "",
+				id: headerAppbarIconNames.menu,
+				icon: headerAppbarIcons.menu,
 				tooltip: "",
 				showTooltip: false,
 			},
 			others: {
 				search: {
-					id: "",
-					icon: "",
+					id: headerAppbarIconNames.search,
+					icon: headerAppbarIcons.search,
 					tooltip: "",
 					showTooltip: false,
 				},
 				theme: {
-					id: "",
-					icon: "",
+					id: headerAppbarIconNames.theme,
+					icon: headerAppbarIcons.theme,
 					tooltip: "",
 					showTooltip: false,
 				},
 				newAccount: {
-					id: "",
-					icon: "",
+					id: headerAppbarIconNames.newAccount,
+					icon: headerAppbarIcons.newAccount,
 					tooltip: "",
 					showTooltip: false,
 				},
 				account: {
-					id: "",
-					icon: "",
+					id: headerAppbarIconNames.account,
+					icon: headerAppbarIcons.account,
 					tooltip: "",
 					showTooltip: false,
 				},
 				settings: {
-					id: "",
-					icon: "",
+					id: headerAppbarIconNames.settings,
+					icon: headerAppbarIcons.settings,
 					tooltip: "",
 					showTooltip: false,
 				},
 			},
 		},
-		navigation: {
-			home: {
+		navigation: [
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.home,
 				link: "",
 			},
-			kitchen: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.kitchen,
 				link: "",
 			},
-			bathroom: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.bathroom,
 				link: "",
 			},
-			newbuild: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.newbuild,
 				link: "",
 			},
-			extension: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.extension,
 				link: "",
 			},
-			refurbishment: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.refurbishment,
 				link: "",
 			},
-			contact: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.contact,
 				link: "",
 			},
-			about: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.news,
 				link: "",
 			},
-			news: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.reviews,
 				link: "",
 			},
-			reviews: {
+			{
 				title: "",
-				icon: "",
+				icon: headerNavigationIcons.about,
 				link: "",
 			},
-		},
+		],
 	}),
 	getters: {
 		getDrawer: (state: IHeaderState): boolean => state.drawer,
 		getAllAppBarIcons: (state: IHeaderState): IAppBarIcons => state.appBarIcons,
-		getNavigationItems: (state: IHeaderState): IHeaderNavigation => state.navigation,
+		getNavigationItems: (state: IHeaderState): IHeaderNavigationData[] => state.navigation,
 	},
 	actions: {
 		// Setters
@@ -116,85 +120,28 @@ const useHeaderStore = defineStore("header-store", {
 		},
 		setAppBarIcons(): void {
 			// Menu
-			this.appBarIcons.menu.id = i18nInstance.t("$vuetify.header.appBar.icons.names.menu");
-			this.appBarIcons.menu.icon = i18nInstance.t("$vuetify.header.appBar.icons.menu");
-			this.appBarIcons.menu.tooltip = i18nInstance.t("$vuetify.header.appBar.icons.tooltips.menu");
+			this.appBarIcons.menu.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.menu");
 
 			// Search
-			this.appBarIcons.others.search.id = i18nInstance.t("$vuetify.header.appBar.icons.names.search");
-			this.appBarIcons.others.search.icon = i18nInstance.t("$vuetify.header.appBar.icons.search");
-			this.appBarIcons.others.search.tooltip = i18nInstance.t("$vuetify.header.appBar.icons.tooltips.search");
+			this.appBarIcons.others.search.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.search");
 
 			// Theme
-			this.appBarIcons.others.theme.id = i18nInstance.t("$vuetify.header.appBar.icons.names.theme");
-			this.appBarIcons.others.theme.icon = i18nInstance.t("$vuetify.header.appBar.icons.theme");
-			this.appBarIcons.others.theme.tooltip = i18nInstance.t("$vuetify.header.appBar.icons.tooltips.theme");
+			this.appBarIcons.others.theme.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.theme");
 
 			// NewAccount
-			this.appBarIcons.others.newAccount.id = i18nInstance.t("$vuetify.header.appBar.icons.names.newAccount");
-			this.appBarIcons.others.newAccount.icon = i18nInstance.t("$vuetify.header.appBar.icons.newAccount");
-			this.appBarIcons.others.newAccount.tooltip = i18nInstance.t("$vuetify.header.appBar.icons.tooltips.newAccount");
+			this.appBarIcons.others.newAccount.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.newAccount");
 
 			// Account
-			this.appBarIcons.others.account.id = i18nInstance.t("$vuetify.header.appBar.icons.names.account");
-			this.appBarIcons.others.account.icon = i18nInstance.t("$vuetify.header.appBar.icons.account");
-			this.appBarIcons.others.account.tooltip = i18nInstance.t("$vuetify.header.appBar.icons.tooltips.account");
+			this.appBarIcons.others.account.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.account");
 
 			// Settings
-			this.appBarIcons.others.settings.id = i18nInstance.t("$vuetify.header.appBar.icons.names.settings");
-			this.appBarIcons.others.settings.icon = i18nInstance.t("$vuetify.header.appBar.icons.settings");
-			this.appBarIcons.others.settings.tooltip = i18nInstance.t("$vuetify.header.appBar.icons.tooltips.settings");
+			this.appBarIcons.others.settings.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.settings");
 		},
 		setNavigationItems(): void {
-			// Home
-			this.navigation.home.title = i18nInstance.t("$vuetify.header.navigation.names.home");
-			this.navigation.home.icon = i18nInstance.t("$vuetify.header.navigation.icons.home");
-			this.navigation.home.link = i18nInstance.t("$vuetify.header.navigation.links.home");
-
-			// Kitchen
-			this.navigation.kitchen.title = i18nInstance.t("$vuetify.header.navigation.names.kitchen");
-			this.navigation.kitchen.icon = i18nInstance.t("$vuetify.header.navigation.icons.kitchen");
-			this.navigation.kitchen.link = i18nInstance.t("$vuetify.header.navigation.links.kitchen");
-
-			// Bathroom
-			this.navigation.bathroom.title = i18nInstance.t("$vuetify.header.navigation.names.bathroom");
-			this.navigation.bathroom.icon = i18nInstance.t("$vuetify.header.navigation.icons.bathroom");
-			this.navigation.bathroom.link = i18nInstance.t("$vuetify.header.navigation.links.bathroom");
-
-			// Newbuild
-			this.navigation.newbuild.title = i18nInstance.t("$vuetify.header.navigation.names.newbuild");
-			this.navigation.newbuild.icon = i18nInstance.t("$vuetify.header.navigation.icons.newbuild");
-			this.navigation.newbuild.link = i18nInstance.t("$vuetify.header.navigation.links.newbuild");
-
-			// Extension
-			this.navigation.extension.title = i18nInstance.t("$vuetify.header.navigation.names.extension");
-			this.navigation.extension.icon = i18nInstance.t("$vuetify.header.navigation.icons.extension");
-			this.navigation.extension.link = i18nInstance.t("$vuetify.header.navigation.links.extension");
-
-			// Refurbishment
-			this.navigation.refurbishment.title = i18nInstance.t("$vuetify.header.navigation.names.refurbishment");
-			this.navigation.refurbishment.icon = i18nInstance.t("$vuetify.header.navigation.icons.refurbishment");
-			this.navigation.refurbishment.link = i18nInstance.t("$vuetify.header.navigation.links.refurbishment");
-
-			// Contact
-			this.navigation.contact.title = i18nInstance.t("$vuetify.header.navigation.names.contact");
-			this.navigation.contact.icon = i18nInstance.t("$vuetify.header.navigation.icons.contact");
-			this.navigation.contact.link = i18nInstance.t("$vuetify.header.navigation.links.contact");
-
-			// About
-			this.navigation.about.title = i18nInstance.t("$vuetify.header.navigation.names.about");
-			this.navigation.about.icon = i18nInstance.t("$vuetify.header.navigation.icons.about");
-			this.navigation.about.link = i18nInstance.t("$vuetify.header.navigation.links.about");
-
-			// News
-			this.navigation.news.title = i18nInstance.t("$vuetify.header.navigation.names.news");
-			this.navigation.news.icon = i18nInstance.t("$vuetify.header.navigation.icons.news");
-			this.navigation.news.link = i18nInstance.t("$vuetify.header.navigation.links.news");
-
-			// Reviews
-			this.navigation.reviews.title = i18nInstance.t("$vuetify.header.navigation.names.reviews");
-			this.navigation.reviews.icon = i18nInstance.t("$vuetify.header.navigation.icons.reviews");
-			this.navigation.reviews.link = i18nInstance.t("$vuetify.header.navigation.links.reviews");
+			for (let i = 0; i < this.navigation.length; i++) {
+				this.navigation[i].title = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArray[i]}`);
+				this.navigation[i].link = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArray[i]}`);
+			}
 		},
 
 		// Getters

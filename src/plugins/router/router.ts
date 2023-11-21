@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Utils
-import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks } from "@utils/text/common/utils-text-common";
+import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks } from "@utils/text/common/pages/utils-text-common-pages";
 
 // Child components -> dynamically imported (only imported when requested to reduce bundle size)
 const Home = () => import("@pages/pages-home.vue");

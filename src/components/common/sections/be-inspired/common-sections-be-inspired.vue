@@ -4,7 +4,7 @@
 			<v-container fluid>
 				<v-row dense>
 					<v-col cols="4">
-						<dropdown-component :items="dropdownItems" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
+						<dropdown-component :items="dropdownOptions" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
 					</v-col>
 				</v-row>
 				<v-row dense>
@@ -64,9 +64,10 @@ import Dropdown from "@components/common/dropdown/common-dropdown.vue";
 
 // Interface
 import ISectionBeInspiredData from "@interfaces/common/sections/be-inspired/interfaces-common-sections-be-inspired";
+import { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
 
-// Data
-import { dropdownOptions } from "@utils/text/common/utils-text-common";
+// Utils
+import { pageServiceNames } from "@utils/text/common/pages/utils-text-common-pages";
 
 // Kitchen PNGs
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -80,138 +81,86 @@ export default defineComponent({
 	},
 	data(): ISectionBeInspiredData {
 		return {
-			dropdownItems: dropdownOptions,
-			carouselImages: {
-				kitchen: {
-					src: "",
-					alt: "",
-					images: [],
-				},
-				bathroom: {
-					src: "",
-					alt: "",
-					images: [],
-				},
-				newbuild: {
-					src: "",
-					alt: "",
-					images: [],
-				},
-				extension: {
-					src: "",
-					alt: "",
-					images: [],
-				},
-				refurbishment: {
-					src: "",
-					alt: "",
-					images: [],
-				},
-			},
+			carouselImages: [],
 		};
 	},
 	computed: {
 		// Text
 		title(): string {
-			return this.$t("$vuetify.sections.beInspired.title");
+			return this.$t("$vuetify.common.sections.beInspired.title");
 		},
 		styleTitle(): string {
-			return this.$t("$vuetify.sections.beInspired.style.title");
+			return this.$t("$vuetify.common.sections.beInspired.style.title");
 		},
 		themeTitle(): string {
-			return this.$t("$vuetify.sections.beInspired.theme.title");
+			return this.$t("$vuetify.common.sections.beInspired.theme.title");
 		},
 		subtitle(): string {
-			return this.$t("$vuetify.sections.beInspired.subtitle");
+			return this.$t("$vuetify.common.sections.beInspired.subtitle");
 		},
 		styleSubtitle(): string {
-			return this.$t("$vuetify.sections.beInspired.style.subtitle");
+			return this.$t("$vuetify.common.sections.beInspired.style.subtitle");
 		},
 		themeSubtitle(): string {
-			return this.$t("$vuetify.sections.beInspired.theme.subtitle");
+			return this.$t("$vuetify.common.sections.beInspired.theme.subtitle");
 		},
 		lblDropdown(): string {
-			return this.$t("$vuetify.dropdown.carousel.label");
+			return this.$t("$vuetify.common.sections.beInspired.dropdown.label");
 		},
 
-		// Images
+		// IMGs
 		pngKitchen(): string {
 			return AscotLightGreyDustPNG;
 		},
+
+		// Data
+		dropdownOptions(): string[] {
+			return this.storeCommon.getDropdownOptions;
+		},
+		availableKitchenStyles(): ICommonAvailableStyles[] {
+			return this.storeCommon.getAvailableKitchenStyles;
+		},
+		availableBathroomStyles(): ICommonAvailableStyles[] {
+			return this.storeCommon.getAvailableBathroomStyles;
+		},
+		availableNewbuildStyles(): ICommonAvailableStyles[] {
+			return this.storeCommon.getAvailableNewbuildStyles;
+		},
+		availableExtensionStyles(): ICommonAvailableStyles[] {
+			return this.storeCommon.getAvailableExtensionStyles;
+		},
+		availableRefurbishmentStyles(): ICommonAvailableStyles[] {
+			return this.storeCommon.getAvailableRefurbishmentStyles;
+		},
 	},
 	methods: {
-		dropdownValue(newValue: string) {
-			let retVal;
+		dropdownValue(newValue: string): void {
+			this.carouselImages = [];
 			switch (newValue) {
-				case this.$t("$vuetify.dropdown.carousel.items.kitchen"):
-					retVal = [
-						{
-							src: AscotLightGreyDustPNG,
-						},
-						{
-							//src: CambridgeFirGreenPNG,
-						},
-						{
-							//src: CartmelMusselPNG,
-						},
-						{
-							//src: GranthamChalkstoneFirGreenPNG,
-						},
-						{
-							//src: LinearWhiteHalifaxOakPNG,
-						},
-						{
-							//src: LucenteGlossCreamPNG,
-						},
-						{
-							//src: NewmarketIndigoBluePNG,
-						},
-						{
-							//src: OxfordWhitePNG,
-						},
-						{
-							//src: StrattoDustGreyPNG,
-						},
-						{
-							//src: VivoPtoOnyxGreyPNG,
-						},
-					];
+				case pageServiceNames.kitchen:
+					this.carouselImages = this.availableKitchenStyles;
 					break;
-				case this.$t("$vuetify.dropdown.carousel.items.bathroom"):
-					retVal = [
-						{
-							src: AscotLightGreyDustPNG,
-						},
-					];
+				case pageServiceNames.bathroom:
+					this.carouselImages = this.availableBathroomStyles;
 					break;
-				case this.$t("$vuetify.dropdown.carousel.items.newbuild"):
-					retVal = [
-						{
-							src: AscotLightGreyDustPNG,
-						},
-					];
+				case pageServiceNames.newbuild:
+					this.carouselImages = this.availableNewbuildStyles;
 					break;
-				case this.$t("$vuetify.dropdown.carousel.items.extension"):
-					retVal = [
-						{
-							src: AscotLightGreyDustPNG,
-						},
-					];
+				case pageServiceNames.extension:
+					this.carouselImages = this.availableExtensionStyles;
 					break;
-				case this.$t("$vuetify.dropdown.carousel.items.refurbishment"):
-					retVal = [
-						{
-							src: AscotLightGreyDustPNG,
-						},
-					];
+				case pageServiceNames.refurbishment:
+					this.carouselImages = this.availableRefurbishmentStyles;
 					break;
 			}
-			return retVal;
 		},
 	},
 	setup() {
 		const storeCommon = parentStore();
 		return { storeCommon };
+	},
+	created(): void {
+		this.carouselImages = this.availableKitchenStyles;
 	},
 });
 </script>

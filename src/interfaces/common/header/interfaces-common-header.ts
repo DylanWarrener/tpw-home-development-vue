@@ -2,15 +2,15 @@
 import { ICommonPageAllIcons } from "@interfaces/common/pages/interface-common-page";
 
 // App bar interfaces
-import { IAppBarIcons } from "@src/interfaces/common/header/appBar/interface-common-header-appbar";
+import { IAppBarIcons } from "@src/interfaces/common/header/appBar/interfaces-common-header-appbar";
 
 // Navigation interfaces
-import { IHeaderNavigation } from "@interfaces/common/header/navigation/interface-header-navigation";
+import IHeaderNavigationData from "@src/interfaces/common/header/navigation/interfaces-common-header-navigation";
 
 export default interface IHeaderState {
 	drawer: boolean;
 	appBarIcons: IAppBarIcons;
-	navigation: IHeaderNavigation;
+	navigation: IHeaderNavigationData[];
 }
 
 export interface IHeaderData {}

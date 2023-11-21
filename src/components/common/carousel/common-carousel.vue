@@ -10,12 +10,12 @@
 import { defineComponent, PropType } from "vue";
 
 // Interfaces
-import { ICommonCarouselImagesData } from "@interfaces/common/sections/carousel/interfaces-common-sections-carousel";
+import { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
 
 export default defineComponent({
 	name: "carousel-component",
 	props: {
-		images: { type: Array as PropType<ICommonCarouselImagesData[]>, required: false },
+		images: { type: Array as PropType<ICommonAvailableStyles[]>, required: true },
 		height: { type: String, required: false, default: "42rem" },
 	},
 });

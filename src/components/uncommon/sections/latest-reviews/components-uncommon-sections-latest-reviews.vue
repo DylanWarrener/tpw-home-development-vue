@@ -94,10 +94,10 @@ export default defineComponent({
 
 		// Text
 		title(): string {
-			return this.$t("$vuetify.sections.latestReviews.title");
+			return this.$t("$vuetify.common.sections.latestReviews.title");
 		},
 		subtitle(): string {
-			return this.$t("$vuetify.sections.latestReviews.subtitle");
+			return this.$t("$vuetify.common.sections.latestReviews.subtitle");
 		},
 	},
 	setup() {

@@ -14,6 +14,7 @@ export const pageServiceNames: ICommonPageServiceNames = {
 	extension: "extensions",
 	refurbishment: "refurbishments",
 };
+export const pageServiceNamesAsArray: string[] = Object.keys(pageServiceNames).map((key) => key);
 
 export const pageServiceLinks: ICommonPageServiceLinks = {
 	kitchen: "/kitchens",
@@ -22,6 +23,7 @@ export const pageServiceLinks: ICommonPageServiceLinks = {
 	extension: "/extensions",
 	refurbishment: "/refurbishments",
 };
+export const pageServiceLinksAsArray: string[] = Object.keys(pageServiceLinks).map((key) => key);
 
 export const pageInfoNames: ICommonPageInfoNames = {
 	home: "home",
@@ -30,6 +32,7 @@ export const pageInfoNames: ICommonPageInfoNames = {
 	news: "news",
 	reviews: "reviews",
 };
+export const pageInfoNamesAsArray: string[] = Object.keys(pageInfoNames).map((key) => key);
 
 export const pageInfoLinks: ICommonPageInfoLinks = {
 	home: "/",
@@ -38,13 +41,16 @@ export const pageInfoLinks: ICommonPageInfoLinks = {
 	news: "/news",
 	reviews: "/reviews",
 };
+export const pageInfoLinksAsArray: string[] = Object.keys(pageInfoLinks).map((key) => key);
 
 export const pageAllNames: ICommonPageAllNames = {
 	...pageServiceNames,
 	...pageInfoNames,
 };
+export const pageAllNamesAsArray: string[] = Object.keys(pageAllNames).map((key) => key);
 
 export const pageAllLinks: ICommonPageAllLinks = {
 	...pageServiceLinks,
 	...pageInfoLinks,
 };
+export const pageAllLinksAsArray: string[] = Object.keys(pageAllLinks).map((key) => key);

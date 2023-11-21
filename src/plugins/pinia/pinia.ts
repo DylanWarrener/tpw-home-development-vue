@@ -31,6 +31,9 @@ import useAboutStore from "@src/stores/pages/stores-about";
 import useNewsStore from "@stores/pages/stores-news";
 import useReviewsStore from "@stores/pages/stores-reveiws";
 
+// Interfaces
+import ICommonState, { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
+
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
@@ -38,7 +41,7 @@ import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 import { AppBarDensity } from "@src/enums/sizing/enums-sizing";
 
 // Data
-import { dropdownOptions } from "@utils/text/common/utils-text-common";
+import { pageServiceNamesAsArray } from "@utils/text/common/pages/utils-text-common-pages";
 
 // Kitchen PNGs (different styles of kitchens, using the available materials)
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -53,6 +56,16 @@ import StrattoDustGreyPNG from "@assets/png/kitchens/stratto-dust-grey.jpg";
 import VivoPtoOnyxGreyPNG from "@assets/png/kitchens/vivo-pto-onyx-grey.jpg";
 
 // Bathroom PNGs (different styles of kitchens, using the available materials)
+import BathroomBlackWhitePNG from "@assets/png/bathrooms/bathroom-black-white.jpg";
+import BathroomBrightPNG from "@assets/png/bathrooms/bathroom-bright.jpg";
+import BathroomCosyPNG from "@assets/png/bathrooms/bathroom-cosy.jpg";
+import BathroomDarkPNG from "@assets/png/bathrooms/bathroom-dark.jpg";
+import BathroomMixPNG from "@assets/png/bathrooms/bathroom-mix.jpg";
+import BathroomModernPNG from "@assets/png/bathrooms/bathroom-modern.jpg";
+import BathroomPlainPNG from "@assets/png/bathrooms/bathroom-plain.jpg";
+import BathroomRusticPNG from "@assets/png/bathrooms/bathroom-rustic.jpg";
+import BathroomShadePNG from "@assets/png/bathrooms/bathroom-shade.jpg";
+
 // Newbuild PNGs (different styles of kitchens, using the available materials)
 // Extension PNGs (different styles of kitchens, using the available materials)
 // Refurbishment PNGs (different styles of kitchens, using the available materials)
@@ -61,87 +74,152 @@ const pinia = createPinia();
 
 // Main store
 export const parentStore = defineStore("common-store", {
-	state: () => ({
+	state: (): ICommonState => ({
 		//// Header
 		appBarHeight: AppBarDensity.DEFAULT,
 
 		//// Body
+		dropdownOptions: [],
+		// Sections
 		isCanvasComponentActive: true,
 		isBeInspiredComponentActive: true,
 		isPortfolioComponentActive: true,
+		isLatestNewsComponentActive: true,
 		isProcessOfEliminationActive: true,
-		isNewsComponentActive: true,
-		isReviewsComponentActive: true,
-
-		// Be inspired
-		dropdownOptions: dropdownOptions,
+		isLatestReviewsComponentActive: true,
 		availableKitchenStyles: [
 			{
 				src: AscotLightGreyDustPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.ascotLightGreyDust.alt"),
+				alt: "",
 			},
 			{
 				src: CambridgeFirGreenPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.cambridgeFirGreen.alt"),
+				alt: "",
 			},
 			{
 				src: CartmelMusselPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.cartmelMussel.alt"),
+				alt: "",
 			},
 			{
 				src: GranthamChalkstoneFirGreenPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.granthamChalkstoneFirGreen.alt"),
+				alt: "",
 			},
 			{
 				src: LinearWhiteHalifaxOakPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.linearWhiteHalifaxOak.alt"),
+				alt: "",
 			},
 			{
 				src: LucenteGlossCreamPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.lucenteGlossCream.alt"),
+				alt: "",
 			},
 			{
 				src: NewmarketIndigoBluePNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.newmarketIndigoBlue.alt"),
+				alt: "",
 			},
 			{
 				src: OxfordWhitePNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.oxfordWhite.alt"),
+				alt: "",
 			},
 			{
 				src: StrattoDustGreyPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.strattoDustGrey.alt"),
+				alt: "",
 			},
 			{
 				src: VivoPtoOnyxGreyPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.vivoPtoOnyxGrey.alt"),
+				alt: "",
 			},
 		],
 		availableBathroomStyles: [
 			{
-				src: AscotLightGreyDustPNG,
-				alt: i18nInstance.$t("$vuetify.pages.kitchen.images.ascotLightGreyDust.alt"),
+				src: BathroomBlackWhitePNG,
+				alt: "",
+			},
+			{
+				src: BathroomBrightPNG,
+				alt: "",
+			},
+			{
+				src: BathroomCosyPNG,
+				alt: "",
+			},
+			{
+				src: BathroomDarkPNG,
+				alt: "",
+			},
+			{
+				src: BathroomMixPNG,
+				alt: "",
+			},
+			{
+				src: BathroomModernPNG,
+				alt: "",
+			},
+			{
+				src: BathroomPlainPNG,
+				alt: "",
+			},
+			{
+				src: BathroomRusticPNG,
+				alt: "",
+			},
+			{
+				src: BathroomShadePNG,
+				alt: "",
 			},
 		],
-		availableNewbuildStyles: [],
-		availableExtensionStyles: [],
-		availableRefurbishmentStyles: [],
+		availableNewbuildStyles: [
+			{
+				src: AscotLightGreyDustPNG,
+				alt: "",
+			},
+		],
+		availableExtensionStyles: [
+			{
+				src: AscotLightGreyDustPNG,
+				alt: "",
+			},
+		],
+		availableRefurbishmentStyles: [
+			{
+				src: AscotLightGreyDustPNG,
+				alt: "",
+			},
+		],
 
 		//// Footer
 	}),
 	getters: {
-		getAppBarHeight: (state): number => state.appBarHeight,
-		getIsCanvasComponentActive: (state): boolean => state.isCanvasComponentActive,
-		getIsBeInspiredComponentActive: (state): boolean => state.isBeInspiredComponentActive,
-		getIsPortfolioComponentActive: (state): boolean => state.isPortfolioComponentActive,
-		getIsProcessOfEliminationActive: (state): boolean => state.isProcessOfEliminationActive,
-		getIsNewsComponentActive: (state): boolean => state.isNewsComponentActive,
-		getIsReviewsComponentActive: (state): boolean => state.isReviewsComponentActive,
+		//// Header
+		getAppBarHeight: (state: ICommonState): number => state.appBarHeight,
+
+		//// Body
+		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
+		// Sections
+		getIsCanvasComponentActive: (state: ICommonState): boolean => state.isCanvasComponentActive,
+		getIsBeInspiredComponentActive: (state: ICommonState): boolean => state.isBeInspiredComponentActive,
+		getIsPortfolioComponentActive: (state: ICommonState): boolean => state.isPortfolioComponentActive,
+		getIsLatestNewsComponentActive: (state: ICommonState): boolean => state.isLatestNewsComponentActive,
+		getIsProcessOfEliminationActive: (state: ICommonState): boolean => state.isProcessOfEliminationActive,
+		getIsLatestReviewsComponentActive: (state: ICommonState): boolean => state.isLatestReviewsComponentActive,
+		getAvailableKitchenStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableKitchenStyles,
+		getAvailableBathroomStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableBathroomStyles,
+		getAvailableNewbuildStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableNewbuildStyles,
+		getAvailableExtensionStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableExtensionStyles,
+		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableRefurbishmentStyles,
 	},
 	actions: {
+		//// Header
 		setAppBarHeight(newValue: number): void {
 			this.appBarHeight = newValue;
 		},
+
+		//// Body
+		setDropdownOptions(): void {
+			for (let i = 0; i < pageServiceNamesAsArray.length; i++) {
+				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArray[i]}`));
+			}
+		},
+		// Sections
 		setIsCanvasComponentActive(newValue: any): void {
 			this.isCanvasComponentActive = newValue;
 		},
@@ -151,15 +229,41 @@ export const parentStore = defineStore("common-store", {
 		setIsPortfolioComponentActive(newValue: any): void {
 			this.isPortfolioComponentActive = newValue;
 		},
+		setIsLatestNewsComponentActive(newValue: any): void {
+			this.isLatestNewsComponentActive = newValue;
+		},
 		setIsProcessOfEliminationActive(newValue: any): void {
 			this.isProcessOfEliminationActive = newValue;
 		},
-		setIsNewsComponentActive(newValue: any): void {
-			this.isNewsComponentActive = newValue;
+		setIsLatestReviewsComponentActive(newValue: any): void {
+			this.isLatestReviewsComponentActive = newValue;
 		},
-		setIsReviewsComponentActive(newValue: any): void {
-			this.isReviewsComponentActive = newValue;
+		setAvailableKitchenStyles(): void {
+			for (let i = 0; i < this.availableKitchenStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.kitchen.images[${i}].alt`);
+			}
 		},
+		setAvailableBathroomStyles(): void {
+			for (let i = 0; i < this.availableBathroomStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.bathroom.images[${i}].alt`);
+			}
+		},
+		setAvailableNewbuildStyles(): void {
+			for (let i = 0; i < this.availableNewbuildStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.newbuild.images[${i}].alt`);
+			}
+		},
+		setAvailableExtensionStyles(): void {
+			for (let i = 0; i < this.availableExtensionStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.extension.images[${i}].alt`);
+			}
+		},
+		setAvailableRefurbishmentStyles(): void {
+			for (let i = 0; i < this.availableRefurbishmentStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.refurbishment.images[${i}].alt`);
+			}
+		},
+		//// Footer
 	},
 });
 

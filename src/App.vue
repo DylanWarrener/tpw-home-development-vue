@@ -19,7 +19,7 @@ import Header from "@components/common/header/common-header.vue";
 import Footer from "@components/common/footer/common-footer.vue";
 
 // Interfaces
-import { ICommonData } from "@interfaces/common/interface-common";
+import { ICommonData } from "@interfaces/common/interfaces-common";
 
 export default defineComponent({
 	name: "app-component",
@@ -34,5 +34,16 @@ export default defineComponent({
 		const storeCommon = parentStore();
 		return { storeCommon };
 	},
+	created(): void {
+		//// Body
+		this.storeCommon.setDropdownOptions();
+		// Sections
+		this.storeCommon.setAvailableKitchenStyles();
+		this.storeCommon.setAvailableBathroomStyles();
+		this.storeCommon.setAvailableNewbuildStyles();
+		this.storeCommon.setAvailableExtensionStyles();
+		this.storeCommon.setAvailableRefurbishmentStyles();
+	},
 });
 </script>
+@src/interfaces/common/interfaces-common

@@ -1,10 +1,5 @@
 // Interfaces
-import {
-	IHeaderIcons,
-	IHeaderIconNames,
-	IHeaderIconTooltips,
-	IHeaderNavigationIcons,
-} from "@interfaces/common/header/interface-common-header";
+import { IHeaderIcons, IHeaderIconNames, IHeaderIconTooltips, IHeaderNavigationIcons } from "@src/interfaces/common/header/interfaces-common-header";
 
 export const headerAppbarIcons: IHeaderIcons = {
 	menu: "mdi-menu",

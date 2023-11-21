@@ -36,8 +36,8 @@ import Logo from "@components/common/header/navigation/logo/common-header-naviga
 import SVG from "@components/common/svg/common-svg.vue";
 
 // Interfaces
-import { IHeaderData } from "@interfaces/common/header/interface-common-header";
-import { IAppBarIcons } from "@interfaces/common/header/appBar/interface-common-header-appbar";
+import { IHeaderData } from "@interfaces/common/header/interfaces-common-header";
+import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
 
 // Utils
 import { headerAppbarIconNames } from "@utils/text/common/header/utils-text-common-header";

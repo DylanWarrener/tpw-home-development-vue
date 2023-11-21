@@ -2,21 +2,9 @@
 import { ICommonLocalesVuetifyTextualData } from "@interfaces/common/locales/interface-common-locales";
 
 // Utils text data
-import {
-	headerAppbarIcons,
-	headerAppbarIconNames,
-	headerAppbarIconTooltips,
-	headerNavigationIcons,
-} from "@utils/text/common/header/utils-text-common-header";
+import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
 import { cardBtnBeInspired } from "@utils/text/common/utils-text-common";
-import {
-	pageServiceNames,
-	pageInfoNames,
-	pageServiceLinks,
-	pageInfoLinks,
-	pageAllNames,
-	pageAllLinks,
-} from "@src/utils/text/common/pages/utils-text-common-pages";
+import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks, pageAllNames, pageAllLinks } from "@src/utils/text/common/pages/utils-text-common-pages";
 
 // Vuetify's default messages
 import defaultText from "vuetify/lib/locale/en.mjs";
@@ -28,7 +16,6 @@ const en: ICommonLocalesVuetifyTextualData = {
 				appBar: {
 					titles: pageAllNames,
 					icons: {
-						mdi: headerAppbarIcons,
 						names: headerAppbarIconNames,
 						tooltips: headerAppbarIconTooltips,
 					},
@@ -51,58 +38,98 @@ const en: ICommonLocalesVuetifyTextualData = {
 				kitchen: {
 					name: pageServiceNames.kitchen,
 					link: pageServiceLinks.kitchen,
-					images: {
-						ascotLightGreyDust: {
+					images: [
+						{
 							alt: "Ascot style kitchen",
 						},
-						cambridgeFirGreen: {
+						{
 							alt: "Cambridge fir green style kitchen",
 						},
-						cartmelMussel: {
+						{
 							alt: "Cartmel mussels style kitchen",
 						},
-						granthamChalkstoneFirGreen: {
+						{
 							alt: "Grantham chalkstone fir green style kitchen",
 						},
-						linearWhiteHalifaxOak: {
+						{
 							alt: "Linear white halifax oak style kitchen",
 						},
-						lucenteGlossCream: {
+						{
 							alt: "Lucente gloss cream style kitchen",
 						},
-						newmarketIndigoBlue: {
+						{
 							alt: "Newmarket indigo blue style kitchen",
 						},
-						oxfordWhite: {
+						{
 							alt: "Oxford white style kitchen",
 						},
-						strattoDustGrey: {
+						{
 							alt: "Stratto dust green style kitchen",
 						},
-						vivoPtoOnyxGrey: {
+						{
 							alt: "Vivo pto onyx grey style kitchen",
 						},
-					},
+					],
 				},
 				bathroom: {
 					name: pageServiceNames.bathroom,
 					link: pageServiceLinks.bathroom,
-					images: {},
+					images: [
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+						{
+							alt: "",
+						},
+					],
 				},
 				newbuild: {
 					name: pageServiceNames.newbuild,
 					link: pageServiceLinks.newbuild,
-					images: {},
+					images: [
+						{
+							alt: "Ascot style kitchen",
+						},
+					],
 				},
 				extension: {
 					name: pageServiceNames.extension,
 					link: pageServiceLinks.extension,
-					images: {},
+					images: [
+						{
+							alt: "Ascot style kitchen",
+						},
+					],
 				},
 				refurbishment: {
 					name: pageServiceNames.refurbishment,
 					link: pageServiceLinks.refurbishment,
-					images: {},
+					images: [
+						{
+							alt: "Ascot style kitchen",
+						},
+					],
 				},
 				contact: {
 					name: pageInfoNames.contact,
@@ -154,7 +181,7 @@ const en: ICommonLocalesVuetifyTextualData = {
 					subtitle: "See what we have done already.",
 				},
 				processOfElimination: {
-					title: "Plan of Action",
+					title: "plan of action",
 					subtitle: "See how we plan you in.",
 				},
 				allNews: {
