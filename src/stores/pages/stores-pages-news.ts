@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import INewsState from "@interfaces/news/interface-news";
-import INewsDropdownState from "@interfaces/news/dropdown/interface-news-dropdown";
-import INewsSectionsState from "@src/interfaces/news/sections/interface-news-sections";
-import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
-import INewsActiveFiltersState from "@interfaces/news/active-filters/interface-news-active-filters";
+import INewsState from "@interfaces/common/pages/info/news/interfaces-common-pages-info-news";
+//import INewsDropdownState from "@interfaces/news/dropdown/interface-news-dropdown";
+//import INewsSectionsState from "@src/interfaces/news/sections/interface-news-sections";
+//import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
+//import INewsActiveFiltersState from "@interfaces/news/active-filters/interface-news-active-filters";
 
 // Images
 import KitchenPNG from "@assets/png/kitchens/kitchen.jpg";
@@ -70,7 +70,7 @@ articles: [
 			},
 		],
 */
-const useNewsStore = defineStore("newsStore", {
+const useNewsStore = defineStore("news-store", {
 	state: (): INewsState => ({
 		dropdownOptions: {
 			items: ["Ascending", "Descending"],
@@ -247,10 +247,10 @@ const useNewsStore = defineStore("newsStore", {
 		activeFilters: [],
 	}),
 	getters: {
-		getNewsDropdownOptionsState: (state): INewsDropdownState => state.dropdownOptions,
-		getNewsSectionsState: (state): INewsSectionsState[] => state.newsSections,
-		getNewsFilterOptionsState: (state): INewsFilterState => state.filter,
-		getNewsActiveFiltersState: (state): INewsActiveFiltersState[] => state.activeFilters,
+		//getNewsDropdownOptionsState: (state): INewsDropdownState => state.dropdownOptions,
+		//getNewsSectionsState: (state): INewsSectionsState[] => state.newsSections,
+		//getNewsFilterOptionsState: (state): INewsFilterState => state.filter,
+		//getNewsActiveFiltersState: (state): INewsActiveFiltersState[] => state.activeFilters,
 	},
 	actions: {
 		/* sortNewsArticles(sortedArticles: INewsArticlesState[]): void {

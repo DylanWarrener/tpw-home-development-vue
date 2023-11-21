@@ -48,7 +48,7 @@ export default defineComponent({
 	name: "card-component",
 	props: {
 		cardClass: { type: String, required: false, default: "bg-background-secondary" },
-		titleClass: { type: String, required: false },
+		titleClass: { type: String, required: false, default: "text-capitalize" },
 		subtitleClass: { type: String, required: false },
 		contentClass: { type: String, required: false },
 		actionClass: { type: String, required: false, default: "justify-end" },

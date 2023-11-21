@@ -1,5 +1,5 @@
 // Interfaces
-import INewsArticlesState from "@interfaces/news/interface-news";
+//import INewsArticlesState from "@interfaces/news/interface-news";
 
 // Void functions
 export const scrollToElement = (elementsTopBorder: number): void => {
@@ -54,7 +54,7 @@ export const SortArrayBy = (array: any, sortBy: "ascending" | "asc" | "descendin
 		console.log("Is object in array? ", isObjectInArray);
 
 		// Step 5
-		let sortValueToLowerCase: INewsArticlesState[];
+		let sortValueToLowerCase;
 
 		/*
 		= arrayCopy.map((item) => {

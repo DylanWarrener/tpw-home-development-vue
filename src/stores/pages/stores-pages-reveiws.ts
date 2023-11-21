@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import IReviewsState from "@interfaces/about/interface-reviews";
+import IReviewsState from "@interfaces/common/pages/info/reviews/interfaces-common-pages-info-reviews";
 
 const useReviewsStore = defineStore("reviews-store", {
 	state: (): IReviewsState => ({}),
