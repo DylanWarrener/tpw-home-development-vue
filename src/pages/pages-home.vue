@@ -114,9 +114,9 @@ export default defineComponent({
 		this.storeCommon.setIsCanvasComponentActive(true);
 		this.storeCommon.setIsBeInspiredComponentActive(true);
 		this.storeCommon.setIsPortfolioComponentActive(true);
+		this.storeCommon.setIsLatestNewsComponentActive(true);
 		this.storeCommon.setIsProcessOfEliminationActive(true);
-		this.storeCommon.setIsNewsComponentActive(true);
-		this.storeCommon.setIsReviewsComponentActive(true);
+		this.storeCommon.setIsLatestReviewsComponentActive(true);
 	},
 });
 </script>

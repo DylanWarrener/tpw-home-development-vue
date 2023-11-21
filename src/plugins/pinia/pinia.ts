@@ -81,12 +81,12 @@ export const parentStore = defineStore("common-store", {
 		//// Body
 		dropdownOptions: [],
 		// Sections
-		isCanvasComponentActive: true,
-		isBeInspiredComponentActive: true,
-		isPortfolioComponentActive: true,
-		isLatestNewsComponentActive: true,
-		isProcessOfEliminationActive: true,
-		isLatestReviewsComponentActive: true,
+		isCanvasComponentActive: false,
+		isBeInspiredComponentActive: false,
+		isPortfolioComponentActive: false,
+		isLatestNewsComponentActive: false,
+		isProcessOfEliminationActive: false,
+		isLatestReviewsComponentActive: false,
 		availableKitchenStyles: [
 			{
 				src: AscotLightGreyDustPNG,
@@ -216,7 +216,9 @@ export const parentStore = defineStore("common-store", {
 		//// Body
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArray.length; i++) {
-				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArray[i]}`));
+				this.dropdownOptions.push(
+					i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArray[i]}`)
+				);
 			}
 		},
 		// Sections

@@ -87,9 +87,9 @@ export default defineComponent({
 		this.storeCommon.setIsCanvasComponentActive(true);
 		this.storeCommon.setIsBeInspiredComponentActive(true);
 		this.storeCommon.setIsPortfolioComponentActive(true);
+		this.storeCommon.setIsLatestNewsComponentActive(false);
 		this.storeCommon.setIsProcessOfEliminationActive(false);
-		this.storeCommon.setIsNewsComponentActive(false);
-		this.storeCommon.setIsReviewsComponentActive(false);
+		this.storeCommon.setIsLatestReviewsComponentActive(false);
 	},
 });
 </script>
