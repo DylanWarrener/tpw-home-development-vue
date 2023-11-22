@@ -1,11 +1,11 @@
 import { createPinia, defineStore } from "pinia";
 
 // Stores to load immediately
-import useHeaderStore from "@stores/stores-header";
-import useHomeStore from "@src/stores/pages/stores-pages-home";
-import useFooterStore from "@stores/stores-footer";
+import useHeaderStore from "@stores/header/stores-header";
+import useHomeStore from "@stores/pages/stores-pages-home";
+import useFooterStore from "@stores/footer/stores-footer";
 import useErrorStore from "@stores/stores-error";
-import useEventStore from "@src/stores/events/stores-events";
+import useEventStore from "@stores/events/stores-events";
 
 // Stores to load when called, to increase performance
 /*
@@ -21,24 +21,24 @@ const useReviewsStore = () => import("@stores/stores-reveiws");
 */
 
 // Convert to above when ready
-import useKitchenStore from "@src/stores/pages/stores-pages-kitchen";
-import useBathroomStore from "@src/stores/pages/stores-pages-bathroom";
-import useNewbuildStore from "@src/stores/pages/stores-pages-newbuild";
-import useExtensionStore from "@src/stores/pages/stores-pages-extension";
-import useRefurbishmentStore from "@src/stores/pages/stores-pages-refurbishment";
-import useContactStore from "@src/stores/pages/stores-pages-contact";
-import useAboutStore from "@src/stores/pages/stores-pages-about";
-import useNewsStore from "@src/stores/pages/stores-pages-news";
-import useReviewsStore from "@src/stores/pages/stores-pages-reveiws";
+import useKitchenStore from "@stores/pages/stores-pages-kitchen";
+import useBathroomStore from "@stores/pages/stores-pages-bathroom";
+import useNewbuildStore from "@stores/pages/stores-pages-newbuild";
+import useExtensionStore from "@stores/pages/stores-pages-extension";
+import useRefurbishmentStore from "@stores/pages/stores-pages-refurbishment";
+import useContactStore from "@stores/pages/stores-pages-contact";
+import useAboutStore from "@stores/pages/stores-pages-about";
+import useNewsStore from "@stores/pages/stores-pages-news";
+import useReviewsStore from "@stores/pages/stores-pages-reveiws";
 
 // Interfaces
-import ICommonState, { ICommonAvailableStyles } from "@src/interfaces/common/interfaces-common";
+import ICommonState, { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
 // Enums
-import { AppBarDensity } from "@src/enums/sizing/enums-sizing";
+import { AppBarDensity } from "@enums/sizing/enums-sizing";
 
 // Data
 import { pageServiceNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
@@ -79,6 +79,8 @@ export const parentStore = defineStore("common-store", {
 		appBarHeight: AppBarDensity.DEFAULT,
 
 		//// Body
+		isSignUpDiscountDialogActive: true,
+		// Be-inspired
 		dropdownOptions: [],
 		// Sections
 		isCanvasComponentActive: false,
@@ -193,6 +195,8 @@ export const parentStore = defineStore("common-store", {
 		getAppBarHeight: (state: ICommonState): number => state.appBarHeight,
 
 		//// Body
+		getIsSignUpDiscountDialogActive: (state: ICommonState): boolean => state.isSignUpDiscountDialogActive,
+		// Be-inspired
 		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
 		// Sections
 		getIsCanvasComponentActive: (state: ICommonState): boolean => state.isCanvasComponentActive,
@@ -214,9 +218,15 @@ export const parentStore = defineStore("common-store", {
 		},
 
 		//// Body
+		setIsSignUpDiscountDialogActive(newValue: boolean): void {
+			this.isSignUpDiscountDialogActive = newValue;
+		},
+		// Be-Inspired
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
-				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
+				this.dropdownOptions.push(
+					i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`)
+				);
 			}
 		},
 		// Sections

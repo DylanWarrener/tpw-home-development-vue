@@ -3,7 +3,7 @@ export default interface ICommonState {
 	appBarHeight: number;
 
 	//// Body
-	dropdownOptions: string[];
+	isSignUpDiscountDialogActive: boolean;
 	// Sections
 	isCanvasComponentActive: boolean;
 	isBeInspiredComponentActive: boolean;
@@ -11,11 +11,14 @@ export default interface ICommonState {
 	isLatestReviewsComponentActive: boolean;
 	isProcessOfEliminationActive: boolean;
 	isLatestNewsComponentActive: boolean;
+	// Sections - be-inspired
+	dropdownOptions: string[];
 	availableKitchenStyles: ICommonAvailableStyles[];
 	availableBathroomStyles: ICommonAvailableStyles[];
 	availableNewbuildStyles: ICommonAvailableStyles[];
 	availableExtensionStyles: ICommonAvailableStyles[];
 	availableRefurbishmentStyles: ICommonAvailableStyles[];
+	//// Footer
 }
 export interface ICommonData {}
 

@@ -36,6 +36,7 @@ import {
 	VImg,
 	VForm,
 	VTextarea,
+	VDialog,
 	VFooter,
 } from "vuetify/components";
 import { VExpandTransition } from "vuetify/components/transitions";
@@ -111,6 +112,7 @@ const vuetify = createVuetify({
 		VImg,
 		VForm,
 		VTextarea,
+		VDialog,
 		VFooter,
 
 		// Transitions

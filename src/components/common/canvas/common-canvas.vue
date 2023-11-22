@@ -5,9 +5,9 @@
 				<v-col cols="12" align="center">
 					<card-component
 						class="rounded-shaped"
-						:btn-text="btnText"
 						:title="title"
 						:subtitle="subtitle"
+						:btn-text="btnText"
 						:action-btn-id="canvasCardBtnID"
 					></card-component>
 				</v-col>
@@ -26,7 +26,7 @@ import Card from "@components/common/cards/common-cards.vue";
 import { BtnIDs } from "@enums/IDs/enums-ids-btn";
 
 export default defineComponent({
-	name: "be-inspired-component",
+	name: "canvas-component",
 	components: {
 		"card-component": Card,
 	},

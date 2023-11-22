@@ -17,6 +17,9 @@ import vuetify from "@plugins/vuetify/vuetify";
 // Localisation
 import vuei18n from "@plugins/vuei18n/vue-i18n";
 
+// Global styles
+import "@styles/global.scss";
+
 app.use(router);
 app.use(pinia);
 app.use(vuetify);

@@ -1,5 +1,3 @@
-export default interface IHomeTextualData {}
-
-export interface IHomeState {}
+export default interface IHomeState {}
 
 export interface IHomeData {}

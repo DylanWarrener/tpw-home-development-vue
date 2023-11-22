@@ -1,5 +1,4 @@
-@use "./typeography";
-
+@import "./typeography";
 @import "./vuetify";
 @import "./spacing";
 @import "./transform";
@@ -16,8 +15,8 @@ $extra_large: 1904px; // > 1904px
 
 // All
 * {
-	font-family: typeography.$font_family_primary;
-	font-size: typeography.$font_size_pc_body;
+	font-family: $font_family_primary;
+	font-size: $font_size_pc_body;
 	box-sizing: border-box;
 	cursor: default;
 }
@@ -46,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-	max-width: typeography.$font_width_all;
+	max-width: $font_width_all;
 	cursor: text;
 }
 body,
@@ -55,51 +54,51 @@ span,
 .v-list-item__content > .v-list-item-title,
 .v-list-item-title {
 	cursor: text;
-	font-size: typeography.$font_size_pc_body;
-	line-height: typeography.$font_line_height_pc_body;
+	font-size: $font_size_pc_body;
+	line-height: $font_line_height_pc_body;
 	font-weight: normal;
 }
 p {
 	padding: 4px 0;
 }
 h1 {
-	font-size: typeography.$font_size_pc_h1;
-	line-height: typeography.$font_line_height_pc_h1;
+	font-size: $font_size_pc_h1;
+	line-height: $font_line_height_pc_h1;
 	font-weight: bolder;
 	text-transform: uppercase;
 	padding: 32px 0;
 }
 h2 {
-	font-size: typeography.$font_size_pc_h2;
-	line-height: typeography.$font_line_height_pc_h2;
+	font-size: $font_size_pc_h2;
+	line-height: $font_line_height_pc_h2;
 	font-weight: bold;
 	text-transform: capitalize;
 	padding: 16px 0;
 }
 h3 {
-	font-size: typeography.$font_size_pc_h3;
-	line-height: typeography.$font_line_height_pc_h3;
+	font-size: $font_size_pc_h3;
+	line-height: $font_line_height_pc_h3;
 	font-weight: normal;
 	font-style: italic;
 	padding: 8px 0;
 }
 h4 {
-	font-size: typeography.$font_size_pc_h4;
-	line-height: typeography.$font_line_height_pc_h4;
+	font-size: $font_size_pc_h4;
+	line-height: $font_line_height_pc_h4;
 	font-weight: bold;
 	text-transform: capitalize;
 	padding: 8px 0;
 }
 h5 {
-	font-size: typeography.$font_size_pc_h5;
-	line-height: typeography.$font_line_height_pc_h5;
+	font-size: $font_size_pc_h5;
+	line-height: $font_line_height_pc_h5;
 	font-weight: normal;
 	font-style: italic;
 	padding: 4px 0;
 }
 h6 {
-	font-size: typeography.$font_size_pc_h6;
-	line-height: typeography.$font_line_height_pc_h6;
+	font-size: $font_size_pc_h6;
+	line-height: $font_line_height_pc_h6;
 	font-weight: bold;
 	font-style: italic;
 	font-variant: small-caps;
@@ -119,37 +118,37 @@ h6 {
 // For different screen sizes
 @media only screen and (max-width: $extra_small) {
 	body > * {
-		font-size: typeography.$font_size_mobile_body;
-		line-height: typeography.$font_line_height_mobile_body;
+		font-size: $font_size_mobile_body;
+		line-height: $font_line_height_mobile_body;
 
 		h1 {
-			font-size: typeography.$font_size_mobile_h1;
-			line-height: typeography.$font_line_height_mobile_h1;
+			font-size: $font_size_mobile_h1;
+			line-height: $font_line_height_mobile_h1;
 		}
 
 		h2 {
-			font-size: typeography.$font_size_mobile_h2;
-			line-height: typeography.$font_line_height_mobile_h2;
+			font-size: $font_size_mobile_h2;
+			line-height: $font_line_height_mobile_h2;
 		}
 
 		h3 {
-			font-size: typeography.$font_size_mobile_h3;
-			line-height: typeography.$font_line_height_mobile_h3;
+			font-size: $font_size_mobile_h3;
+			line-height: $font_line_height_mobile_h3;
 		}
 
 		h4 {
-			font-size: typeography.$font_size_mobile_h4;
-			line-height: typeography.$font_line_height_mobile_h4;
+			font-size: $font_size_mobile_h4;
+			line-height: $font_line_height_mobile_h4;
 		}
 
 		h5 {
-			font-size: typeography.$font_size_mobile_h5;
-			line-height: typeography.$font_line_height_mobile_h5;
+			font-size: $font_size_mobile_h5;
+			line-height: $font_line_height_mobile_h5;
 		}
 
 		h6 {
-			font-size: typeography.$font_size_mobile_h6;
-			line-height: typeography.$font_line_height_mobile_h6;
+			font-size: $font_size_mobile_h6;
+			line-height: $font_line_height_mobile_h6;
 		}
 	}
 }

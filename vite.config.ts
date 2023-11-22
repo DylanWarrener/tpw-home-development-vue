@@ -29,11 +29,4 @@ export default defineConfig({
 			"@styles": path.resolve(__dirname, "./src/styles"),
 		},
 	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				additionalData: `@import "./src/styles/global.scss";`,
-			},
-		},
-	},
 });
