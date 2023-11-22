@@ -26,7 +26,7 @@
 		<!-- Actions -->
 		<v-card-actions class="pa-4 d-flex" :class="actionClass" v-if="btnText">
 			<slot name="actions">
-				<v-btn variant="outlined" :id="actionBtnId" :text="btnText" :class="actionBtnClass" @click="scrollTo"></v-btn>
+				<v-btn variant="outlined" size="large" min-width="200" :id="actionBtnId" :class="actionBtnClass" :text="btnText" @click="scrollTo"></v-btn>
 			</slot>
 		</v-card-actions>
 	</v-card>

@@ -36,6 +36,8 @@ export default defineComponent({
 	},
 	created(): void {
 		//// Body
+		this.storeCommon.setSignUpNewsletterDialogData();
+		// Be-inspired
 		this.storeCommon.setDropdownOptions();
 		// Sections
 		this.storeCommon.setAvailableKitchenStyles();

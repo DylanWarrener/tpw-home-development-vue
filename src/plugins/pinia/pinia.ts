@@ -32,7 +32,7 @@ import useNewsStore from "@stores/pages/stores-pages-news";
 import useReviewsStore from "@stores/pages/stores-pages-reveiws";
 
 // Interfaces
-import ICommonState, { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
+import ICommonState, { ICommonAvailableStyles, ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
@@ -70,6 +70,13 @@ import BathroomShadePNG from "@assets/png/bathrooms/bathroom-shade.jpg";
 // Extension PNGs (different styles of kitchens, using the available materials)
 // Refurbishment PNGs (different styles of kitchens, using the available materials)
 
+// Tester IMGs for dialog
+import NewsLetterOne from "@assets/png/newsletter/newsletter-1.jpg";
+import NewsLetterTwo from "@assets/png/newsletter/newsletter-2.jpg";
+import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
+import NewsLetterFour from "@assets/png/newsletter/newsletter-4.jpg";
+import NewsLetterFive from "@assets/png/newsletter/newsletter-5.jpg";
+
 const pinia = createPinia();
 
 // Main store
@@ -79,7 +86,28 @@ export const parentStore = defineStore("common-store", {
 		appBarHeight: AppBarDensity.DEFAULT,
 
 		//// Body
-		isSignUpDiscountDialogActive: true,
+		signUpNewsletterDialogData: {
+			title: "",
+			message: "",
+			src: NewsLetterThree,
+			showDialog: true,
+			icon: {
+				mdi: "mdi-close",
+				tooltip: "",
+				showTooltip: false,
+			},
+			form: {
+				firstName: {
+					label: "",
+				},
+				lastName: {
+					label: "",
+				},
+				emailAddress: {
+					label: "",
+				},
+			},
+		},
 		// Be-inspired
 		dropdownOptions: [],
 		// Sections
@@ -195,7 +223,8 @@ export const parentStore = defineStore("common-store", {
 		getAppBarHeight: (state: ICommonState): number => state.appBarHeight,
 
 		//// Body
-		getIsSignUpDiscountDialogActive: (state: ICommonState): boolean => state.isSignUpDiscountDialogActive,
+		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
+		//signUpDiscountDialogData
 		// Be-inspired
 		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
 		// Sections
@@ -218,15 +247,22 @@ export const parentStore = defineStore("common-store", {
 		},
 
 		//// Body
-		setIsSignUpDiscountDialogActive(newValue: boolean): void {
-			this.isSignUpDiscountDialogActive = newValue;
+		setSignUpNewsletterDialogData(): void {
+			this.signUpNewsletterDialogData.title = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.title");
+			this.signUpNewsletterDialogData.message = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.message");
+
+			// Icon
+			this.signUpNewsletterDialogData.icon.tooltip = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.icon.tooltip");
+
+			// Form
+			this.signUpNewsletterDialogData.form.firstName.label = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.form.firstName.label");
+			this.signUpNewsletterDialogData.form.lastName.label = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.form.lastName.label");
+			this.signUpNewsletterDialogData.form.emailAddress.label = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.form.emailAddress.label");
 		},
 		// Be-Inspired
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
-				this.dropdownOptions.push(
-					i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`)
-				);
+				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
 			}
 		},
 		// Sections

@@ -1,13 +1,7 @@
 import { pageServiceNames } from "@src/utils/text/common/pages/utils-text-common-pages";
 
-// CARD
+// CARDS
 export const cardBtnBeInspired: string = "Be Inspired?";
 
-// DROPDOWN
-export const dropdownOptions: string[] = [
-	pageServiceNames.kitchen,
-	pageServiceNames.bathroom,
-	pageServiceNames.newbuild,
-	pageServiceNames.extension,
-	pageServiceNames.refurbishment,
-];
+// DROPDOWNS
+export const dropdownOptions: string[] = [pageServiceNames.kitchen, pageServiceNames.bathroom, pageServiceNames.newbuild, pageServiceNames.extension, pageServiceNames.refurbishment];

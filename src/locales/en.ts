@@ -29,6 +29,26 @@ const en = {
 					},
 				},
 			},
+			dialogs: {
+				signUpNewsletter: {
+					title: "sign up",
+					message: "Never miss out on our latest news, trends, styles & innovation",
+					icon: {
+						tooltip: "Close dialog",
+					},
+					form: {
+						firstName: {
+							label: "First name",
+						},
+						lastName: {
+							label: "Last name",
+						},
+						emailAddress: {
+							label: "Email address",
+						},
+					},
+				},
+			},
 			pages: {
 				home: {
 					name: pageInfoNames.home,

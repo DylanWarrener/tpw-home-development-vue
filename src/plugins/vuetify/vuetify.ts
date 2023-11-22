@@ -37,6 +37,7 @@ import {
 	VForm,
 	VTextarea,
 	VDialog,
+	VToolbar,
 	VFooter,
 } from "vuetify/components";
 import { VExpandTransition } from "vuetify/components/transitions";
@@ -113,6 +114,7 @@ const vuetify = createVuetify({
 		VForm,
 		VTextarea,
 		VDialog,
+		VToolbar,
 		VFooter,
 
 		// Transitions
