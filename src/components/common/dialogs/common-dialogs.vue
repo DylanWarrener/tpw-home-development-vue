@@ -1,13 +1,26 @@
 <template>
 	<v-dialog v-model="isDialogActive" width="50%" transition="dialog-top-transition">
 		<slot name="content">
-			<card-component variant="elevated" card-class="h-75 rounded-0" title-class="text-center" btn-text="submit" :action-btn-id="dialogCardBtnID">
+			<card-component
+				variant="elevated"
+				color="accent"
+				card-class="h-75 rounded-0"
+				title-class="text-center"
+				btn-text="submit"
+				:action-btn-id="dialogCardBtnID"
+			>
 				<template #img>
 					<v-img cover style="height: 50vh" :src="data.src">
 						<v-toolbar color="accent" :title="title">
 							<v-tooltip location="bottom" v-model="data.icon.showTooltip">
 								<template #activator="{ props }">
-									<v-btn icon class="text-inverted" :id="dialogCardBtnID" v-bind="props" @click.stop="data.showDialog = !data.showDialog">
+									<v-btn
+										icon
+										class="text-inverted"
+										:id="dialogCardBtnID"
+										v-bind="props"
+										@click.stop="data.showDialog = !data.showDialog"
+									>
 										<v-icon>{{ data.icon.mdi }}</v-icon>
 									</v-btn>
 								</template>
@@ -16,7 +29,9 @@
 						</v-toolbar>
 					</v-img>
 				</template>
-				<template #content> Content </template>
+				<template #content>
+					<slot name="dialog-content"></slot>
+				</template>
 			</card-component>
 		</slot>
 	</v-dialog>

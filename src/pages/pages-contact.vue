@@ -116,4 +116,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/contact/interfaces-contact @src/interfaces/common/pages/contact/interfaces-common-pages-contact

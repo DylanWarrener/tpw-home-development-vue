@@ -4,33 +4,66 @@
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
 					<!-- Dialogs -->
-					<dialog-component :is-dialog-active="signUpNewsletterDialogData.showDialog" :data="signUpNewsletterDialogData"></dialog-component>
+					<sign-up-newsletter-dialog-component
+						:is-dialog-active="signUpNewsletterDialogData.showDialog"
+						:data="signUpNewsletterDialogData"
+					>
+						<template #dialog-content>
+							<sign-up-newsletter-dialog-form-component></sign-up-newsletter-dialog-form-component>
+						</template>
+					</sign-up-newsletter-dialog-component>
 
 					<!-- Canvas -->
-					<canvas-component :src="src" :title="canvasTitle" :subtitle="canvasSubtitle" :btn-text="btnText" v-if="isCanvasComponentActive"></canvas-component>
+					<canvas-component
+						:src="src"
+						:title="canvasTitle"
+						:subtitle="canvasSubtitle"
+						:btn-text="btnText"
+						v-if="isCanvasComponentActive"
+					></canvas-component>
 					<v-divider class="divider-color" v-if="isCanvasComponentActive"></v-divider>
 
 					<!-- Other -->
 					<slot name="content"></slot>
 
 					<!-- Be inspired -->
-					<be-inspired-component class="bg-inverted" :id="beInspiredSectionID" v-if="isBeInspiredComponentActive"></be-inspired-component>
+					<be-inspired-component
+						class="bg-inverted"
+						:id="beInspiredSectionID"
+						v-if="isBeInspiredComponentActive"
+					></be-inspired-component>
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
-					<portfolio-component class="bg-inverted" :id="portfolioSectionID" v-if="isPortfolioComponentActive"></portfolio-component>
+					<portfolio-component
+						class="bg-inverted"
+						:id="portfolioSectionID"
+						v-if="isPortfolioComponentActive"
+					></portfolio-component>
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
 
 					<!-- Latest news -->
-					<latest-news-component class="bg-inverted" :id="latestNewsSectionID" v-if="isNewsComponentActive"></latest-news-component>
+					<latest-news-component
+						class="bg-inverted"
+						:id="latestNewsSectionID"
+						v-if="isNewsComponentActive"
+					></latest-news-component>
 					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
-					<process-of-elimination-component class="bg-inverted" :id="processOfEliminationSectionID" v-if="isProcessOfEliminationActive"></process-of-elimination-component>
+					<process-of-elimination-component
+						class="bg-inverted"
+						:id="processOfEliminationSectionID"
+						v-if="isProcessOfEliminationActive"
+					></process-of-elimination-component>
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest reviews -->
-					<latest-reviews-component class="bg-inverted" :id="reviewsSectionID" v-if="isReviewsComponentActive"></latest-reviews-component>
+					<latest-reviews-component
+						class="bg-inverted"
+						:id="reviewsSectionID"
+						v-if="isReviewsComponentActive"
+					></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
 				</v-sheet>
 			</v-col>
@@ -51,7 +84,8 @@ import Portfolio from "@components/common/sections/portfolio/common-sections-por
 import LatestNews from "@components/uncommon/sections/latest-news/components-uncommon-sections-latest-news.vue";
 import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";
-import Dialog from "@components/common/dialogs/common-dialogs.vue";
+import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vue";
+import SignUpNewsletterDialogForm from "@components/common/forms/sign-up/components-common-forms-sign-up-newsletter.vue";
 
 // Interfaces
 import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
@@ -68,7 +102,8 @@ export default defineComponent({
 		"latest-news-component": LatestNews,
 		"process-of-elimination-component": ProcessOfElimination,
 		"latest-reviews-component": LatestReviews,
-		"dialog-component": Dialog,
+		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
+		"sign-up-newsletter-dialog-form-component": SignUpNewsletterDialogForm,
 	},
 	props: {
 		src: { type: String, required: true },
