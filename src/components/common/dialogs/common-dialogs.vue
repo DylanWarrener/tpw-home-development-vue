@@ -1,5 +1,5 @@
 <template>
-	<v-dialog v-model="isDialogActive" width="50%" transition="dialog-top-transition">
+	<v-dialog v-model="isDialogActive" width="60%" transition="dialog-top-transition">
 		<slot name="content">
 			<card-component
 				variant="elevated"
@@ -10,7 +10,7 @@
 				:action-btn-id="dialogCardBtnID"
 			>
 				<template #img>
-					<v-img cover style="height: 50vh" :src="data.src">
+					<v-img cover style="height: 35vh" :src="data.src">
 						<v-toolbar color="accent" :title="title">
 							<v-tooltip location="bottom" v-model="data.icon.showTooltip">
 								<template #activator="{ props }">

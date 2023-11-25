@@ -85,7 +85,7 @@ import LatestNews from "@components/uncommon/sections/latest-news/components-unc
 import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";
 import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vue";
-import SignUpNewsletterDialogForm from "@components/common/forms/sign-up/components-common-forms-sign-up-newsletter.vue";
+import SignUpNewsletterDialogForm from "@components/common/forms/sign-up/common-forms-sign-up-newsletter.vue";
 
 // Interfaces
 import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";

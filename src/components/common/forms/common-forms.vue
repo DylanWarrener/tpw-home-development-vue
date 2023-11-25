@@ -1,13 +1,13 @@
 <template>
-	<v-container fluid id="sign_up_newsletter_form">
+	<v-container fluid class="container_forms">
 		<!-- Form -->
 		<v-form class="d-flex flex-row flex-wrap text-inverted">
 			<!-- Message -->
 			<v-col cols="12">
-				<p>Required fields are marked with *</p>
+				<p></p>
 			</v-col>
 
-			<!-- First name & Last name -->
+			<!-- All input fields -->
 			<v-col cols="12" lg="6" xl="6" xxl="6">
 				<v-row dense>
 					<!-- First name -->
@@ -79,10 +79,13 @@
 
 			<!-- Terms message -->
 			<v-col cols="12">
-				<i
-					>By clicking SUBMIT you are agreeing to recieve communication from TPW via email and/or telephone. We do not store your
-					personal information.</i
-				>
+				<i>
+					By subscribing to our newsletter, you agree to receive periodic emails from TPW containing information about our latest
+					products, services, promotions, and company updates. We respect your privacy and assure you that your email address and
+					personal information will be handled securely and in accordance with our privacy policy. You can unsubscribe from our
+					newsletters at any time by using the "Unsubscribe" link provided in the emails or by contacting our support team
+					directly. Please note that by unsubscribing, you may no longer receive important updates or exclusive offers from TPW.
+				</i>
 			</v-col>
 		</v-form>
 	</v-container>
@@ -92,12 +95,15 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-	name: "sign-up-newsletter-form-component",
+	name: "common-forms-component",
+	props: {
+		data: {},
+	},
 });
 </script>
 
 <style lang="scss">
-#sign_up_newsletter_form {
+.common_forms {
 	.v-field-label {
 		color: rgb(var(--v-theme-inverted));
 	}
