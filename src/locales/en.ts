@@ -2,9 +2,20 @@
 //import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
 
 // Utils text data
-import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
+import {
+	headerAppbarIconNames,
+	headerAppbarIconTooltips,
+	headerNavigationIcons,
+} from "@utils/text/common/header/utils-text-common-header";
 import { cardBtnBeInspired } from "@utils/text/common/utils-text-common";
-import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks, pageAllNames, pageAllLinks } from "@src/utils/text/common/pages/utils-text-common-pages";
+import {
+	pageServiceNames,
+	pageInfoNames,
+	pageServiceLinks,
+	pageInfoLinks,
+	pageAllNames,
+	pageAllLinks,
+} from "@src/utils/text/common/pages/utils-text-common-pages";
 
 // Vuetify's default messages
 import defaultText from "vuetify/lib/locale/en.mjs";
@@ -156,7 +167,8 @@ const en = {
 					link: pageInfoLinks.contact,
 					images: {},
 					title: "Contact Details",
-					subtitle: "Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
+					subtitle:
+						"Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
 					message:
 						"We are committed to responding to all inquiries within 24 hours on business days. Your questions are important to us, and we will be delighted to provide you with the information you seek.",
 				},
@@ -286,6 +298,62 @@ const en = {
 				},
 				reviews: {
 					location: "Location",
+				},
+			},
+			forms: {
+				signUp: {
+					title: {
+						titles: {
+							mr: "mr",
+							mrs: "mrs",
+							miss: "miss",
+							ms: "ms",
+							mx: "mx",
+							reverand: "reverand",
+							dr: "dr",
+						},
+						label: "title",
+					},
+					newsletter: {
+						name: {
+							firstname: {
+								label: "first name",
+								placeholder: "your first name",
+							},
+							lastname: {
+								label: "last name",
+								placeholder: "your last name",
+							},
+						},
+						email: {
+							label: "email address",
+							placeholder: "your email address",
+						},
+					},
+					password: {
+						label: "password",
+						placeholder: "your password",
+						repeat: {
+							label: "repeat password",
+							placeholder: "your repeated password",
+						},
+					},
+					dateOfBirth: {
+						label: "date of birth",
+						placeholder: "your date of birth",
+					},
+					telephone: {
+						label: "telephone",
+						placeholder: "your telephone",
+					},
+					address: {
+						label: "address",
+						placeholder: "your home address",
+					},
+					postcode: {
+						label: "postcode",
+						placeholder: "your home postcode",
+					},
 				},
 			},
 			footer: {

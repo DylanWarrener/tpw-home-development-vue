@@ -9,7 +9,7 @@
 						:data="signUpNewsletterDialogData"
 					>
 						<template #dialog-content>
-							<sign-up-newsletter-dialog-form-component></sign-up-newsletter-dialog-form-component>
+							<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
 						</template>
 					</sign-up-newsletter-dialog-component>
 
@@ -85,7 +85,7 @@ import LatestNews from "@components/uncommon/sections/latest-news/components-unc
 import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";
 import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vue";
-import SignUpNewsletterDialogForm from "@components/common/forms/sign-up/common-forms-sign-up-newsletter.vue";
+import SignUpNewsletterForm from "@components/uncommon/forms/sign-up-newsletter/uncommon-forms-sign-up-newsletter.vue";
 
 // Interfaces
 import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
@@ -103,7 +103,7 @@ export default defineComponent({
 		"process-of-elimination-component": ProcessOfElimination,
 		"latest-reviews-component": LatestReviews,
 		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
-		"sign-up-newsletter-dialog-form-component": SignUpNewsletterDialogForm,
+		"sign-up-newsletter-form-component": SignUpNewsletterForm,
 	},
 	props: {
 		src: { type: String, required: true },

@@ -35,7 +35,11 @@ export default defineComponent({
 		return { storeCommon };
 	},
 	created(): void {
+		/* Set inital localisation data in store */
 		//// Body
+		// Forms
+		this.storeCommon.setFormsData();
+		// Dialogs
 		this.storeCommon.setSignUpNewsletterDialogData();
 		// Be-inspired
 		this.storeCommon.setDropdownOptions();

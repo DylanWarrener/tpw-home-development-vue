@@ -32,7 +32,17 @@ import useNewsStore from "@stores/pages/stores-pages-news";
 import useReviewsStore from "@stores/pages/stores-pages-reveiws";
 
 // Interfaces
-import ICommonState, { ICommonAvailableStyles, ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import ICommonState, {
+	//// Header
+	//// Body
+	// Forms
+	ICommonFormsData,
+	// Dialogs
+	ICommonSignUpNewsletterDialogData,
+	// Sections
+	ICommonAvailableStyles,
+	//// Footer
+} from "@interfaces/common/interfaces-common";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
@@ -86,6 +96,58 @@ export const parentStore = defineStore("common-store", {
 		appBarHeight: AppBarDensity.DEFAULT,
 
 		//// Body
+		// Utility
+		asterisk: "*",
+		// Forms
+		forms: {
+			signUp: {
+				title: {
+					titles: [],
+					label: "",
+				},
+				newsletter: {
+					name: {
+						firstname: {
+							label: "",
+							placeholder: "",
+						},
+						lastname: {
+							label: "",
+							placeholder: "",
+						},
+					},
+					email: {
+						label: "",
+						placeholder: "",
+					},
+				},
+				password: {
+					label: "",
+					placeholder: "",
+					repeat: {
+						label: "",
+						placeholder: "",
+					},
+				},
+				dateOfBirth: {
+					label: "",
+					placeholder: "",
+				},
+				telephone: {
+					label: "",
+					placeholder: "",
+				},
+				address: {
+					label: "",
+					placeholder: "",
+				},
+				postcode: {
+					label: "",
+					placeholder: "",
+				},
+			},
+		},
+		// Dialogs
 		signUpNewsletterDialogData: {
 			title: "",
 			message: "",
@@ -223,8 +285,13 @@ export const parentStore = defineStore("common-store", {
 		getAppBarHeight: (state: ICommonState): number => state.appBarHeight,
 
 		//// Body
-		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
-		//signUpDiscountDialogData
+		// Utility
+		getAsterisk: (state: ICommonState): string => state.asterisk,
+		// Forms
+		getFormsData: (state: ICommonState): ICommonFormsData => state.forms,
+		// Dialogs
+		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData =>
+			state.signUpNewsletterDialogData,
 		// Be-inspired
 		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
 		// Sections
@@ -238,7 +305,8 @@ export const parentStore = defineStore("common-store", {
 		getAvailableBathroomStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableBathroomStyles,
 		getAvailableNewbuildStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableNewbuildStyles,
 		getAvailableExtensionStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableExtensionStyles,
-		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableRefurbishmentStyles,
+		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] =>
+			state.availableRefurbishmentStyles,
 	},
 	actions: {
 		//// Header
@@ -247,22 +315,97 @@ export const parentStore = defineStore("common-store", {
 		},
 
 		//// Body
+		// Utility
+		setFormsData(): void {
+			// Title
+			this.forms.signUp.title.titles = [
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.mr"),
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.mrs"),
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.miss"),
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.ms"),
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.mx"),
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.reverand"),
+				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.dr"),
+			];
+			this.forms.signUp.title.label = i18nInstance.t("$vuetify.common.forms.signUp.title.label") + this.asterisk;
+
+			// First name
+			this.forms.signUp.newsletter.name.firstname.label =
+				i18nInstance.t("$vuetify.common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
+			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t(
+				"$vuetify.common.forms.signUp.newsletter.name.firstname.placeholder"
+			);
+
+			// Last name
+			this.forms.signUp.newsletter.name.lastname.label =
+				i18nInstance.t("$vuetify.common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
+			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t(
+				"$vuetify.common.forms.signUp.newsletter.name.lastname.placeholder"
+			);
+
+			// Email
+			this.forms.signUp.newsletter.email.label =
+				i18nInstance.t("$vuetify.common.forms.signUp.newsletter.email.label") + this.asterisk;
+			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t(
+				"$vuetify.common.forms.signUp.newsletter.email.placeholder"
+			);
+
+			// Password
+			this.forms.signUp.password.label = i18nInstance.t("$vuetify.common.forms.signUp.password.label") + this.asterisk;
+			this.forms.signUp.password.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.password.placeholder");
+			this.forms.signUp.password.repeat.label =
+				i18nInstance.t("$vuetify.common.forms.signUp.password.repeat.label") + this.asterisk;
+			this.forms.signUp.password.repeat.placeholder = i18nInstance.t(
+				"$vuetify.common.forms.signUp.password.repeat.placeholder"
+			);
+
+			// Date of birth
+			this.forms.signUp.dateOfBirth.label =
+				i18nInstance.t("$vuetify.common.forms.signUp.dateOfBirth.label") + this.asterisk;
+			this.forms.signUp.dateOfBirth.placeholder = i18nInstance.t(
+				"$vuetify.common.forms.signUp.dateOfBirth.placeholder"
+			);
+
+			// Telephone
+			this.forms.signUp.telephone.label =
+				i18nInstance.t("$vuetify.common.forms.signUp.telephone.label") + this.asterisk;
+			this.forms.signUp.telephone.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.telephone.placeholder");
+
+			// Address
+			this.forms.signUp.address.label = i18nInstance.t("$vuetify.common.forms.signUp.address.label") + this.asterisk;
+			this.forms.signUp.address.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.address.placeholder");
+
+			// Postcode
+			this.forms.signUp.postcode.label = i18nInstance.t("$vuetify.common.forms.signUp.postcode.label") + this.asterisk;
+			this.forms.signUp.postcode.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.postcode.placeholder");
+		},
+		// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			this.signUpNewsletterDialogData.title = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.title");
 			this.signUpNewsletterDialogData.message = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.message");
 
 			// Icon
-			this.signUpNewsletterDialogData.icon.tooltip = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.icon.tooltip");
+			this.signUpNewsletterDialogData.icon.tooltip = i18nInstance.t(
+				"$vuetify.common.dialogs.signUpNewsletter.icon.tooltip"
+			);
 
 			// Form
-			this.signUpNewsletterDialogData.form.firstName.label = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.form.firstName.label");
-			this.signUpNewsletterDialogData.form.lastName.label = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.form.lastName.label");
-			this.signUpNewsletterDialogData.form.emailAddress.label = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.form.emailAddress.label");
+			this.signUpNewsletterDialogData.form.firstName.label = i18nInstance.t(
+				"$vuetify.common.dialogs.signUpNewsletter.form.firstName.label"
+			);
+			this.signUpNewsletterDialogData.form.lastName.label = i18nInstance.t(
+				"$vuetify.common.dialogs.signUpNewsletter.form.lastName.label"
+			);
+			this.signUpNewsletterDialogData.form.emailAddress.label = i18nInstance.t(
+				"$vuetify.common.dialogs.signUpNewsletter.form.emailAddress.label"
+			);
 		},
 		// Be-Inspired
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
-				this.dropdownOptions.push(i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
+				this.dropdownOptions.push(
+					i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`)
+				);
 			}
 		},
 		// Sections

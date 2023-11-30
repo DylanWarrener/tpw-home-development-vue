@@ -1,5 +1,16 @@
 <template>
-	<v-select hide-selected class="w-auto h-auto" variant="underlined" density="compact" :items="items" :label="label" v-model="value"></v-select>
+	<v-select
+		clearable
+		hide-selected
+		class="text-capitalize"
+		style="min-width: 40ch; min-height: 8.4rem; max-height: 8.4rem"
+		variant="outlined"
+		:items="items"
+		:label="label"
+		:prepend-inner-icon="prependInnerIcon"
+		:hint="hint"
+		v-model="value"
+	></v-select>
 </template>
 
 <script lang="ts">
@@ -13,6 +24,8 @@ export default defineComponent({
 	props: {
 		items: { type: Array<String>, required: true },
 		label: { type: String, required: true },
+		prependInnerIcon: { type: String, required: false },
+		hint: { type: String, required: false },
 	},
 	watch: {
 		value(newValue: string): void {

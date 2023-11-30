@@ -3,6 +3,11 @@ export default interface ICommonState {
 	appBarHeight: number;
 
 	//// Body
+	// Utility
+	asterisk: string;
+	// Forms
+	forms: ICommonFormsData;
+	// Dialogs
 	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
 	// Sections
 	isCanvasComponentActive: boolean;
@@ -24,6 +29,39 @@ export interface ICommonData {}
 
 //// Header
 //// Body
+// Forms
+export interface ICommonFormsData {
+	signUp: ICommonFormsSignUpData;
+}
+export interface ICommonFormsSignUpData {
+	title: ICommonFormsSignUpTitleData;
+	newsletter: ICommonFormsSignUpNewsletterData;
+	password: ICommonFormsPropertiesPasswordData;
+	dateOfBirth: ICommonFormsPropertiesData;
+	telephone: ICommonFormsPropertiesData;
+	address: ICommonFormsPropertiesData;
+	postcode: ICommonFormsPropertiesData;
+}
+export interface ICommonFormsSignUpTitleData {
+	titles: string[];
+	label: string;
+}
+export interface ICommonFormsSignUpNewsletterData {
+	name: ICommonFormsSignUpNameData;
+	email: ICommonFormsPropertiesData;
+}
+export interface ICommonFormsSignUpNameData {
+	firstname: ICommonFormsPropertiesData;
+	lastname: ICommonFormsPropertiesData;
+}
+export interface ICommonFormsPropertiesData {
+	label: string;
+	placeholder: string;
+}
+export interface ICommonFormsPropertiesPasswordData extends ICommonFormsPropertiesData {
+	repeat: ICommonFormsPropertiesData;
+}
+// Dialogs
 export interface ICommonSignUpNewsletterDialogData {
 	title: string;
 	message: string;
