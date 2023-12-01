@@ -2,6 +2,7 @@
 	<!-- First name -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			:prepend-inner-icon="firstnameIcon"
 			:label="data.name.firstname.label"
@@ -12,6 +13,7 @@
 	<!-- Last name -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			:prepend-inner-icon="lastnameIcon"
 			:label="data.name.lastname.label"
@@ -22,6 +24,7 @@
 	<!-- Email address -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			type="email"
 			color="inverted"
 			:prepend-inner-icon="emailIcon"

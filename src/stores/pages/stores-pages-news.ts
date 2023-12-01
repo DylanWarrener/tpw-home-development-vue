@@ -1,3 +1,4 @@
+console.log("News store loaded");
 import { defineStore } from "pinia";
 
 // Interfaces

@@ -1,5 +1,10 @@
 <template>
-	<card-component variant="outlined" card-class="bg-accent text-inverted w-50 pa-2" max-height="h-50" action-btn-id="changeMe">
+	<card-component
+		variant="outlined"
+		card-class="bg-accent text-inverted w-50 pa-2"
+		max-height="h-50"
+		action-btn-id="changeMe"
+	>
 		<template #content>
 			<v-container fluid class="d-flex flex-column" style="gap: 8px">
 				<v-row class="text-left">
@@ -15,7 +20,12 @@
 					<v-col cols="12">
 						<v-row class="text-center">
 							<v-col>
-								<rating-component readonly color="accent" density="compact" :model-value="rating"></rating-component>
+								<rating-component
+									readonly
+									color="accent"
+									density="compact"
+									:model-value="rating"
+								></rating-component>
 							</v-col>
 							<v-col>
 								<p>
@@ -51,7 +61,7 @@ export default defineComponent({
 	},
 	computed: {
 		locationPrefix(): string {
-			return this.$t("$vuetify.card.reviews.location");
+			return this.$t("card.reviews.location");
 		},
 	},
 	data() {

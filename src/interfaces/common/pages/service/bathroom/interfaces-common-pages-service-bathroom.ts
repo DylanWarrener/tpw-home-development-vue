@@ -1,5 +1,9 @@
-export default interface IBathroomTextualData {}
+// Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
-export interface IBathroomState {}
+export default interface IBathroomState {
+	// Dialogs
+	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
+}
 
 export interface IBathroomData {}

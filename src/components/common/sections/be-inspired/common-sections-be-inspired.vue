@@ -4,7 +4,11 @@
 			<v-container fluid>
 				<v-row dense>
 					<v-col cols="4">
-						<dropdown-component :items="dropdownOptions" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
+						<dropdown-component
+							:items="dropdownOptions"
+							:label="lblDropdown"
+							@value="dropdownValue"
+						></dropdown-component>
 					</v-col>
 				</v-row>
 				<v-row dense>
@@ -87,25 +91,25 @@ export default defineComponent({
 	computed: {
 		// Text
 		title(): string {
-			return this.$t("$vuetify.common.sections.beInspired.title");
+			return this.$t("common.sections.beInspired.title");
 		},
 		styleTitle(): string {
-			return this.$t("$vuetify.common.sections.beInspired.style.title");
+			return this.$t("common.sections.beInspired.style.title");
 		},
 		themeTitle(): string {
-			return this.$t("$vuetify.common.sections.beInspired.theme.title");
+			return this.$t("common.sections.beInspired.theme.title");
 		},
 		subtitle(): string {
-			return this.$t("$vuetify.common.sections.beInspired.subtitle");
+			return this.$t("common.sections.beInspired.subtitle");
 		},
 		styleSubtitle(): string {
-			return this.$t("$vuetify.common.sections.beInspired.style.subtitle");
+			return this.$t("common.sections.beInspired.style.subtitle");
 		},
 		themeSubtitle(): string {
-			return this.$t("$vuetify.common.sections.beInspired.theme.subtitle");
+			return this.$t("common.sections.beInspired.theme.subtitle");
 		},
 		lblDropdown(): string {
-			return this.$t("$vuetify.common.sections.beInspired.dropdown.label");
+			return this.$t("common.sections.beInspired.dropdown.label");
 		},
 
 		// IMGs

@@ -47,13 +47,13 @@ export default defineComponent({
 	},
 	computed: {
 		btnText(): string {
-			return this.$t("$vuetify.card.rating.btnText");
+			return this.$t("card.rating.btnText");
 		},
 		maxRating(): string {
-			return this.$t("$vuetify.card.rating.max");
+			return this.$t("card.rating.max");
 		},
 		totalRatings(): string {
-			return this.$t("$vuetify.card.rating.total");
+			return this.$t("card.rating.total");
 		},
 	},
 	data() {

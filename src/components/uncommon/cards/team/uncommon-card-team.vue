@@ -55,7 +55,7 @@ export default defineComponent({
 	},
 	computed: {
 		icon(): string {
-			return this.$t("$vuetify.icons.chevronUp");
+			return this.$t("icons.chevronUp");
 		},
 	},
 	methods: {

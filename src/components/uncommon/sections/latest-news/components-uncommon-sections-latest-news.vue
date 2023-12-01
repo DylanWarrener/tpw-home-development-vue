@@ -55,10 +55,10 @@ export default defineComponent({
 	computed: {
 		// Text
 		sectionTitle(): string {
-			return this.$t("$vuetify.common.sections.latestNews.title");
+			return this.$t("common.sections.latestNews.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("$vuetify.common.sections.latestNews.subtitle");
+			return this.$t("common.sections.latestNews.subtitle");
 		},
 
 		// Data

@@ -4,10 +4,7 @@
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
 					<!-- Dialogs -->
-					<sign-up-newsletter-dialog-component
-						:is-dialog-active="signUpNewsletterDialogData.showDialog"
-						:data="signUpNewsletterDialogData"
-					>
+					<sign-up-newsletter-dialog-component :data="signUpNewsletterDialogData">
 						<template #dialog-content>
 							<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
 						</template>

@@ -1,7 +1,12 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
 	<v-app-bar class="bg-background-secondary" scroll-behavior="hide">
-		<svg-component width="200px" height="100%" :svg-content="iconLogoSVG" @svg-clicked="navigateTo(txtPageHome)"></svg-component>
+		<svg-component
+			width="200px"
+			height="100%"
+			:svg-content="iconLogoSVG"
+			@svg-clicked="navigateTo(txtPageHome)"
+		></svg-component>
 		<v-tooltip location="bottom" v-model="appBarIcons.menu.showTooltip">
 			<template #activator="{ props }">
 				<v-btn icon :id="appBarIcons.menu.id" v-bind="props" @click.stop="drawer = !drawer">
@@ -61,7 +66,7 @@ export default defineComponent({
 	computed: {
 		// Text
 		txtPageHome(): string {
-			return this.$t("$vuetify.common.pages.home.name");
+			return this.$t("common.pages.home.name");
 		},
 		txtAppBarTitle(): string {
 			let retVal: string = "";

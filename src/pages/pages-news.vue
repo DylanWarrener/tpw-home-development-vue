@@ -54,19 +54,19 @@ export default defineComponent({
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.news.title");
+			return this.$t("common.cards.canvas.pages.news.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.news.subtitle");
+			return this.$t("common.cards.canvas.pages.news.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.news.btnText");
+			return this.$t("common.cards.canvas.pages.news.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("$vuetify.common.sections.allNews.title");
+			return this.$t("common.sections.allNews.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("$vuetify.common.sections.allNews.subtitle");
+			return this.$t("common.sections.allNews.subtitle");
 		},
 
 		// Filter data

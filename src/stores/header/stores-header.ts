@@ -9,7 +9,11 @@ import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common
 import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
 
 // Utils
-import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
+import {
+	headerAppbarIcons,
+	headerAppbarIconNames,
+	headerNavigationIcons,
+} from "@utils/text/common/header/utils-text-common-header";
 import { pageAllNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
 
 const useHeaderStore = defineStore("header-store", {
@@ -120,27 +124,27 @@ const useHeaderStore = defineStore("header-store", {
 		},
 		setAppBarIcons(): void {
 			// Menu
-			this.appBarIcons.menu.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.menu");
+			this.appBarIcons.menu.tooltip = i18nInstance.t("common.header.appBar.icons.tooltips.menu");
 
 			// Search
-			this.appBarIcons.others.search.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.search");
+			this.appBarIcons.others.search.tooltip = i18nInstance.t("common.header.appBar.icons.tooltips.search");
 
 			// Theme
-			this.appBarIcons.others.theme.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.theme");
+			this.appBarIcons.others.theme.tooltip = i18nInstance.t("common.header.appBar.icons.tooltips.theme");
 
 			// NewAccount
-			this.appBarIcons.others.newAccount.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.newAccount");
+			this.appBarIcons.others.newAccount.tooltip = i18nInstance.t("common.header.appBar.icons.tooltips.newAccount");
 
 			// Account
-			this.appBarIcons.others.account.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.account");
+			this.appBarIcons.others.account.tooltip = i18nInstance.t("common.header.appBar.icons.tooltips.account");
 
 			// Settings
-			this.appBarIcons.others.settings.tooltip = i18nInstance.t("$vuetify.common.header.appBar.icons.tooltips.settings");
+			this.appBarIcons.others.settings.tooltip = i18nInstance.t("common.header.appBar.icons.tooltips.settings");
 		},
 		setNavigationItems(): void {
 			for (let i = 0; i < this.navigation.length; i++) {
-				this.navigation[i].title = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
-				this.navigation[i].link = i18nInstance.t(`$vuetify.common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
+				this.navigation[i].title = i18nInstance.t(`common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
+				this.navigation[i].link = i18nInstance.t(`common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
 			}
 		},
 

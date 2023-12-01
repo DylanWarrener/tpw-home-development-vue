@@ -72,7 +72,8 @@ export default defineComponent({
 						alt: "",
 					},
 					subject: "Beautiful",
-					message: "My Kitchen is now looking very clean. The team have done a great job for me, I would highly recommend",
+					message:
+						"My Kitchen is now looking very clean. The team have done a great job for me, I would highly recommend",
 				},
 				{
 					name: "Mr. George Ruff",
@@ -94,10 +95,10 @@ export default defineComponent({
 
 		// Text
 		title(): string {
-			return this.$t("$vuetify.common.sections.latestReviews.title");
+			return this.$t("common.sections.latestReviews.title");
 		},
 		subtitle(): string {
-			return this.$t("$vuetify.common.sections.latestReviews.subtitle");
+			return this.$t("common.sections.latestReviews.subtitle");
 		},
 	},
 	setup() {

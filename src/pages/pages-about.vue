@@ -60,19 +60,19 @@ export default defineComponent({
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.about.title");
+			return this.$t("card.canvas.pages.about.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.card.canvas.pages.about.subtitle");
+			return this.$t("card.canvas.pages.about.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.card.canvas.pages.about.btnText");
+			return this.$t("card.canvas.pages.about.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("$vuetify.pages.about.title");
+			return this.$t("pages.about.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("$vuetify.pages.about.subtitle");
+			return this.$t("pages.about.subtitle");
 		},
 
 		// IMGs

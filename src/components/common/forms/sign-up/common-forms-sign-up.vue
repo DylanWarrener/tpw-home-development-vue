@@ -2,6 +2,7 @@
 	<!-- Title -->
 	<v-col cols="12">
 		<common-dropdown-component
+			class="forms_dropdown"
 			:prepend-inner-icon="titleIcon"
 			:label="data.signUp.title.label"
 			:items="data.signUp.title.titles"
@@ -14,6 +15,7 @@
 	<!-- Password -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			type="password"
 			:prepend-inner-icon="passwordIcon"
@@ -25,6 +27,7 @@
 	<!-- Repeat password -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			type="password"
 			:prepend-inner-icon="passwordIcon"
@@ -36,6 +39,7 @@
 	<!-- Date of birth -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			:prepend-inner-icon="dobIcon"
 			:label="data.signUp.dateOfBirth.label"
@@ -46,6 +50,7 @@
 	<!-- Telephone -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			:prepend-inner-icon="telephoneIcon"
 			:label="data.signUp.telephone.label"
@@ -56,6 +61,7 @@
 	<!-- Address -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			:prepend-inner-icon="addressIcon"
 			:label="data.signUp.address.label"
@@ -66,6 +72,7 @@
 	<!-- Postcode -->
 	<v-col>
 		<common-text-field-component
+			class="forms_input"
 			color="inverted"
 			:prepend-inner-icon="postcodeIcon"
 			:label="data.signUp.postcode.label"

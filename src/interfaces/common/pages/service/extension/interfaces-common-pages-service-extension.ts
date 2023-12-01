@@ -1,5 +1,9 @@
-export default interface IExtensionTextualData {}
+// Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
-export interface IExtensionState {}
+export default interface IExtensionState {
+	// Dialogs
+	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
+}
 
 export interface IExtensionData {}

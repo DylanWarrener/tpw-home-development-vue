@@ -32,6 +32,7 @@
 					min-width="200"
 					:id="actionBtnId"
 					:class="actionBtnClass"
+					:color="actionBtnColor"
 					:text="btnText"
 					@click="scrollTo"
 				></v-btn>
@@ -62,6 +63,7 @@ export default defineComponent({
 		actionClass: { type: String, required: false, default: "justify-end" },
 		actionBtnId: { type: String, required: true },
 		actionBtnClass: { type: String, required: false },
+		actionBtnColor: { type: String, required: false },
 		cardStyle: { type: String, required: false },
 		title: { type: String, required: false },
 		subtitle: { type: String, required: false },

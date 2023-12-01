@@ -1,3 +1,4 @@
+console.log("About store loaded");
 import { defineStore } from "pinia";
 
 // Interfaces

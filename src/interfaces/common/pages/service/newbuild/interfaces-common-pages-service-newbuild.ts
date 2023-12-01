@@ -1,5 +1,9 @@
-export default interface INewbuildTextualData {}
+// Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
-export interface INewbuildState {}
+export default interface INewbuildState {
+	// Dialogs
+	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
+}
 
 export interface INewbuildData {}

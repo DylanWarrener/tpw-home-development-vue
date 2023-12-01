@@ -128,12 +128,12 @@ export default defineComponent({
 	computed: {
 		// Names
 		nameHome(): string {
-			return this.$t("$vuetify.pages.home.name");
+			return this.$t("pages.home.name");
 		},
 
 		// Links
 		linkHome(): string {
-			return this.$t("$vuetify.pages.home.link");
+			return this.$t("pages.home.link");
 		},
 	},
 	methods: {

@@ -2,9 +2,21 @@
 	<section-component :title="title" :subtitle="subtitle">
 		<template #content>
 			<div class="d-flex flex-column flex-1-1" style="border: 2px solid white">
-				<slide-component v-for="stepsItem in steps" :id="stepsItem.id" :title="stepsItem.title" :slide-number="stepsItem.id">
+				<slide-component
+					v-for="stepsItem in steps"
+					:id="stepsItem.id"
+					:title="stepsItem.title"
+					:slide-number="stepsItem.id"
+				>
 					<template #content>
-						<step-component v-for="stepItem in stepsItem.content" :id="stepItem.id" :step-number="stepItem.id" :title="stepItem.title" :text="stepItem.text"> </step-component>
+						<step-component
+							v-for="stepItem in stepsItem.content"
+							:id="stepItem.id"
+							:step-number="stepItem.id"
+							:title="stepItem.title"
+							:text="stepItem.text"
+						>
+						</step-component>
 					</template>
 				</slide-component>
 			</div>
@@ -29,10 +41,10 @@ export default defineComponent({
 	},
 	computed: {
 		title(): string {
-			return this.$t("$vuetify.common.sections.processOfElimination.title");
+			return this.$t("common.sections.processOfElimination.title");
 		},
 		subtitle(): string {
-			return this.$t("$vuetify.common.sections.processOfElimination.subtitle");
+			return this.$t("common.sections.processOfElimination.subtitle");
 		},
 	},
 	data() {

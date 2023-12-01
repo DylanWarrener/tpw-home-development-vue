@@ -1,5 +1,9 @@
-export default interface IRefurbishmentTextualData {}
+// Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
-export interface IRefurbishmentState {}
+export default interface IRefurbishmentState {
+	// Dialogs
+	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
+}
 
 export interface IRefurbishmentData {}

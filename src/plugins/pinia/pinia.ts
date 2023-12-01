@@ -7,29 +7,16 @@ import useFooterStore from "@stores/footer/stores-footer";
 import useErrorStore from "@stores/stores-error";
 import useEventStore from "@stores/events/stores-events";
 
-// Stores to load when called, to increase performance
-/*
-const useKitchenStore = () => import("@stores/stores-kitchen");
-const useBathroomStore = () => import("@stores/stores-bathroom");
-const useNewbuildStore = () => import("@stores/stores-newbuild");
-const useExtensionStore = () => import("@stores/stores-extension");
-const useRefurbishmentStore = () => import("@stores/stores-refurbishment");
-const useContactStore = () => import("@stores/stores-contact");
-const useAboutStore = () => import("@stores/stores-about");
-const useNewsStore = () => import("@stores/stores-news");
-const useReviewsStore = () => import("@stores/stores-reveiws");
-*/
-
-// Convert to above when ready
-import useKitchenStore from "@stores/pages/stores-pages-kitchen";
-import useBathroomStore from "@stores/pages/stores-pages-bathroom";
-import useNewbuildStore from "@stores/pages/stores-pages-newbuild";
-import useExtensionStore from "@stores/pages/stores-pages-extension";
-import useRefurbishmentStore from "@stores/pages/stores-pages-refurbishment";
-import useContactStore from "@stores/pages/stores-pages-contact";
-import useAboutStore from "@stores/pages/stores-pages-about";
-import useNewsStore from "@stores/pages/stores-pages-news";
-import useReviewsStore from "@stores/pages/stores-pages-reveiws";
+// Stores to lazy load
+const useKitchenStore = () => import("@stores/pages/stores-pages-kitchen");
+const useBathroomStore = () => import("@stores/pages/stores-pages-bathroom");
+const useNewbuildStore = () => import("@stores/pages/stores-pages-newbuild");
+const useExtensionStore = () => import("@stores/pages/stores-pages-extension");
+const useRefurbishmentStore = () => import("@stores/pages/stores-pages-refurbishment");
+const useContactStore = () => import("@stores/pages/stores-pages-contact");
+const useAboutStore = () => import("@stores/pages/stores-pages-about");
+const useNewsStore = () => import("@stores/pages/stores-pages-news");
+const useReviewsStore = () => import("@stores/pages/stores-pages-reveiws");
 
 // Interfaces
 import ICommonState, {
@@ -100,6 +87,7 @@ export const parentStore = defineStore("common-store", {
 		asterisk: "*",
 		// Forms
 		forms: {
+			msgInfo: "",
 			signUp: {
 				title: {
 					titles: [],
@@ -149,24 +137,15 @@ export const parentStore = defineStore("common-store", {
 		},
 		// Dialogs
 		signUpNewsletterDialogData: {
-			title: "",
-			message: "",
 			src: NewsLetterThree,
 			showDialog: true,
-			icon: {
-				mdi: "mdi-close",
-				tooltip: "",
-				showTooltip: false,
-			},
-			form: {
-				firstName: {
-					label: "",
-				},
-				lastName: {
-					label: "",
-				},
-				emailAddress: {
-					label: "",
+			toolbar: {
+				title: "",
+				message: "",
+				icon: {
+					mdi: "",
+					tooltip: "",
+					showTooltip: false,
 				},
 			},
 		},
@@ -317,94 +296,89 @@ export const parentStore = defineStore("common-store", {
 		//// Body
 		// Utility
 		setFormsData(): void {
+			// Message info
+			this.forms.msgInfo = i18nInstance.t("common.forms.msgInfo");
+
 			// Title
 			this.forms.signUp.title.titles = [
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.mr"),
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.mrs"),
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.miss"),
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.ms"),
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.mx"),
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.reverand"),
-				i18nInstance.t("$vuetify.common.forms.signUp.title.titles.dr"),
+				i18nInstance.t("common.forms.signUp.title.titles.mr"),
+				i18nInstance.t("common.forms.signUp.title.titles.mrs"),
+				i18nInstance.t("common.forms.signUp.title.titles.miss"),
+				i18nInstance.t("common.forms.signUp.title.titles.ms"),
+				i18nInstance.t("common.forms.signUp.title.titles.mx"),
+				i18nInstance.t("common.forms.signUp.title.titles.reverand"),
+				i18nInstance.t("common.forms.signUp.title.titles.dr"),
 			];
-			this.forms.signUp.title.label = i18nInstance.t("$vuetify.common.forms.signUp.title.label") + this.asterisk;
+			this.forms.signUp.title.label = i18nInstance.t("common.forms.signUp.title.label") + this.asterisk;
 
 			// First name
 			this.forms.signUp.newsletter.name.firstname.label =
-				i18nInstance.t("$vuetify.common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
+				i18nInstance.t("common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
 			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t(
-				"$vuetify.common.forms.signUp.newsletter.name.firstname.placeholder"
+				"common.forms.signUp.newsletter.name.firstname.placeholder"
 			);
 
 			// Last name
 			this.forms.signUp.newsletter.name.lastname.label =
-				i18nInstance.t("$vuetify.common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
+				i18nInstance.t("common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
 			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t(
-				"$vuetify.common.forms.signUp.newsletter.name.lastname.placeholder"
+				"common.forms.signUp.newsletter.name.lastname.placeholder"
 			);
 
 			// Email
 			this.forms.signUp.newsletter.email.label =
-				i18nInstance.t("$vuetify.common.forms.signUp.newsletter.email.label") + this.asterisk;
+				i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
 			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t(
-				"$vuetify.common.forms.signUp.newsletter.email.placeholder"
+				"common.forms.signUp.newsletter.email.placeholder"
 			);
 
 			// Password
-			this.forms.signUp.password.label = i18nInstance.t("$vuetify.common.forms.signUp.password.label") + this.asterisk;
-			this.forms.signUp.password.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.password.placeholder");
+			this.forms.signUp.password.label = i18nInstance.t("common.forms.signUp.password.label") + this.asterisk;
+			this.forms.signUp.password.placeholder = i18nInstance.t("common.forms.signUp.password.placeholder");
 			this.forms.signUp.password.repeat.label =
-				i18nInstance.t("$vuetify.common.forms.signUp.password.repeat.label") + this.asterisk;
+				i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
 			this.forms.signUp.password.repeat.placeholder = i18nInstance.t(
-				"$vuetify.common.forms.signUp.password.repeat.placeholder"
+				"common.forms.signUp.password.repeat.placeholder"
 			);
 
 			// Date of birth
-			this.forms.signUp.dateOfBirth.label =
-				i18nInstance.t("$vuetify.common.forms.signUp.dateOfBirth.label") + this.asterisk;
-			this.forms.signUp.dateOfBirth.placeholder = i18nInstance.t(
-				"$vuetify.common.forms.signUp.dateOfBirth.placeholder"
-			);
+			this.forms.signUp.dateOfBirth.label = i18nInstance.t("common.forms.signUp.dateOfBirth.label") + this.asterisk;
+			this.forms.signUp.dateOfBirth.placeholder = i18nInstance.t("common.forms.signUp.dateOfBirth.placeholder");
 
 			// Telephone
-			this.forms.signUp.telephone.label =
-				i18nInstance.t("$vuetify.common.forms.signUp.telephone.label") + this.asterisk;
-			this.forms.signUp.telephone.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.telephone.placeholder");
+			this.forms.signUp.telephone.label = i18nInstance.t("common.forms.signUp.telephone.label") + this.asterisk;
+			this.forms.signUp.telephone.placeholder = i18nInstance.t("common.forms.signUp.telephone.placeholder");
 
 			// Address
-			this.forms.signUp.address.label = i18nInstance.t("$vuetify.common.forms.signUp.address.label") + this.asterisk;
-			this.forms.signUp.address.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.address.placeholder");
+			this.forms.signUp.address.label = i18nInstance.t("common.forms.signUp.address.label") + this.asterisk;
+			this.forms.signUp.address.placeholder = i18nInstance.t("common.forms.signUp.address.placeholder");
 
 			// Postcode
-			this.forms.signUp.postcode.label = i18nInstance.t("$vuetify.common.forms.signUp.postcode.label") + this.asterisk;
-			this.forms.signUp.postcode.placeholder = i18nInstance.t("$vuetify.common.forms.signUp.postcode.placeholder");
+			this.forms.signUp.postcode.label = i18nInstance.t("common.forms.signUp.postcode.label") + this.asterisk;
+			this.forms.signUp.postcode.placeholder = i18nInstance.t("common.forms.signUp.postcode.placeholder");
 		},
 		// Dialogs
 		setSignUpNewsletterDialogData(): void {
-			this.signUpNewsletterDialogData.title = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.title");
-			this.signUpNewsletterDialogData.message = i18nInstance.t("$vuetify.common.dialogs.signUpNewsletter.message");
-
-			// Icon
-			this.signUpNewsletterDialogData.icon.tooltip = i18nInstance.t(
-				"$vuetify.common.dialogs.signUpNewsletter.icon.tooltip"
+			// Toolbar title
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
+				"common.dialogs.signUpNewsletter.toolbar.defaultTitle"
 			);
 
-			// Form
-			this.signUpNewsletterDialogData.form.firstName.label = i18nInstance.t(
-				"$vuetify.common.dialogs.signUpNewsletter.form.firstName.label"
+			// Toolbar message
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
+				"common.dialogs.signUpNewsletter.toolbar.pages.home.message"
 			);
-			this.signUpNewsletterDialogData.form.lastName.label = i18nInstance.t(
-				"$vuetify.common.dialogs.signUpNewsletter.form.lastName.label"
-			);
-			this.signUpNewsletterDialogData.form.emailAddress.label = i18nInstance.t(
-				"$vuetify.common.dialogs.signUpNewsletter.form.emailAddress.label"
+
+			// Toolbar icon
+			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
+				"common.dialogs.signUpNewsletter.toolbar.icon.tooltip"
 			);
 		},
 		// Be-Inspired
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
 				this.dropdownOptions.push(
-					i18nInstance.t(`$vuetify.common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`)
+					i18nInstance.t(`common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`)
 				);
 			}
 		},
@@ -429,27 +403,27 @@ export const parentStore = defineStore("common-store", {
 		},
 		setAvailableKitchenStyles(): void {
 			for (let i = 0; i < this.availableKitchenStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.kitchen.images[${i}].alt`);
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.kitchen.images[${i}].alt`);
 			}
 		},
 		setAvailableBathroomStyles(): void {
 			for (let i = 0; i < this.availableBathroomStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.bathroom.images[${i}].alt`);
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.bathroom.images[${i}].alt`);
 			}
 		},
 		setAvailableNewbuildStyles(): void {
 			for (let i = 0; i < this.availableNewbuildStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.newbuild.images[${i}].alt`);
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.newbuild.images[${i}].alt`);
 			}
 		},
 		setAvailableExtensionStyles(): void {
 			for (let i = 0; i < this.availableExtensionStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.extension.images[${i}].alt`);
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.extension.images[${i}].alt`);
 			}
 		},
 		setAvailableRefurbishmentStyles(): void {
 			for (let i = 0; i < this.availableRefurbishmentStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`$vuetify.common.pages.refurbishment.images[${i}].alt`);
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.refurbishment.images[${i}].alt`);
 			}
 		},
 		//// Footer

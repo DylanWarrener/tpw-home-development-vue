@@ -1,5 +1,10 @@
 <template>
-	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>
+	<page-component
+		:src="src"
+		:canvas-title="canvasTitle"
+		:canvas-subtitle="canvasSubtitle"
+		:btn-text="canvasBtnText"
+	></page-component>
 </template>
 
 <script lang="ts">
@@ -36,13 +41,13 @@ export default defineComponent({
 	computed: {
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.newbuild.title");
+			return this.$t("common.cards.canvas.pages.newbuild.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.newbuild.subtitle");
+			return this.$t("common.cards.canvas.pages.newbuild.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.newbuild.btnText");
+			return this.$t("common.cards.canvas.pages.newbuild.btnText");
 		},
 
 		// IMGs
@@ -93,4 +98,5 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/newbuild/interfaces-newbuild @src/interfaces/common/pages/newbuild/interfaces-common-pages-newbuild
+@src/interfaces/common/pages/newbuild/interfaces-newbuild
+@src/interfaces/common/pages/newbuild/interfaces-common-pages-newbuild

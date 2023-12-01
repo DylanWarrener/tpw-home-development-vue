@@ -31,6 +31,7 @@ export interface ICommonData {}
 //// Body
 // Forms
 export interface ICommonFormsData {
+	msgInfo: string;
 	signUp: ICommonFormsSignUpData;
 }
 export interface ICommonFormsSignUpData {
@@ -63,25 +64,19 @@ export interface ICommonFormsPropertiesPasswordData extends ICommonFormsProperti
 }
 // Dialogs
 export interface ICommonSignUpNewsletterDialogData {
-	title: string;
-	message: string;
 	src: string;
 	showDialog: boolean;
+	toolbar: ICommonSignUpNewsLetterDialogToolbarData;
+}
+export interface ICommonSignUpNewsLetterDialogToolbarData {
+	title: string;
+	message: string;
 	icon: ICommonSignUpNewsletterDialogIcon;
-	form: ICommonSignUpNewsletterDialogFormCredentials;
 }
 export interface ICommonSignUpNewsletterDialogIcon {
 	mdi: string;
 	tooltip: string;
 	showTooltip: boolean;
-}
-export interface ICommonSignUpNewsletterDialogFormCredentials {
-	firstName: ICommonSignUpNewsletterDialogFormCredentialsData;
-	lastName: ICommonSignUpNewsletterDialogFormCredentialsData;
-	emailAddress: ICommonSignUpNewsletterDialogFormCredentialsData;
-}
-export interface ICommonSignUpNewsletterDialogFormCredentialsData {
-	label: string;
 }
 // Sections
 export interface ICommonAvailableStyles {

@@ -3,7 +3,7 @@
 		clearable
 		persistent-clear
 		class="text-capitalize"
-		style="min-width: 40ch; min-height: 6rem"
+		style="min-width: 55ch; min-height: 6rem"
 		hide-details="auto"
 		variant="outlined"
 		:type="type"

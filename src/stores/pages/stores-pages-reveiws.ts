@@ -1,3 +1,4 @@
+console.log("Reviews store loaded");
 import { defineStore } from "pinia";
 
 import IReviewsState from "@interfaces/common/pages/info/reviews/interfaces-common-pages-info-reviews";

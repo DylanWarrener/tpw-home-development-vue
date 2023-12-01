@@ -1,5 +1,10 @@
 <template>
-	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>
+	<page-component
+		:src="src"
+		:canvas-title="canvasTitle"
+		:canvas-subtitle="canvasSubtitle"
+		:btn-text="canvasBtnText"
+	></page-component>
 </template>
 
 <script lang="ts">
@@ -36,13 +41,13 @@ export default defineComponent({
 	computed: {
 		// Text
 		canvasTitle(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.kitchen.title");
+			return this.$t("common.cards.canvas.pages.kitchen.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.kitchen.subtitle");
+			return this.$t("common.cards.canvas.pages.kitchen.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("$vuetify.common.cards.canvas.pages.kitchen.btnText");
+			return this.$t("common.cards.canvas.pages.kitchen.btnText");
 		},
 
 		// IMGs
