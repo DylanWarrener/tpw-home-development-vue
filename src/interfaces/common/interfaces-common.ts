@@ -1,84 +1,87 @@
 import { StoreDefinition } from "pinia";
 
-export default interface ICommonStore extends StoreDefinition<"common-store", ICommonState, ICommonGetters, ICommonActions> {}
-export interface ICommonState {
-	//// Header
-	appBarHeight: number;
+// Enums
+import { StoreIDs } from "@enums/IDs/enums-ids-stores";
 
-	//// Body
-	// Utility
+export default interface ICommonStore extends StoreDefinition<StoreIDs.COMMON_STORE_ID, ICommonState, ICommonGetters, ICommonActions> {}
+export interface ICommonState {
+	//// Utility
 	asterisk: string;
-	// Forms
-	forms: ICommonFormsData;
-	// Dialogs
+
+	//// Dialogs
 	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
-	// Sections
+
+	//// Sections
 	isCanvasComponentActive: boolean;
 	isBeInspiredComponentActive: boolean;
 	isPortfolioComponentActive: boolean;
 	isLatestReviewsComponentActive: boolean;
 	isProcessOfEliminationActive: boolean;
 	isLatestNewsComponentActive: boolean;
-	// Sections - be-inspired
+	// Be-inspired
 	dropdownOptions: string[];
 	availableKitchenStyles: ICommonAvailableStyles[];
 	availableBathroomStyles: ICommonAvailableStyles[];
 	availableNewbuildStyles: ICommonAvailableStyles[];
 	availableExtensionStyles: ICommonAvailableStyles[];
 	availableRefurbishmentStyles: ICommonAvailableStyles[];
-	//// Footer
+
+	//// Forms
+	forms: ICommonFormsData;
 }
 export interface ICommonGetters {
-	//// Header
-	getAppBarHeight: (state: ICommonState) => number;
+	//// Utility
+	getAsterisk: (state: ICommonState) => string;
 
-	//// Body
-	// Utility
-	getAsterisk;
-	getFormsData;
-	getSignUpNewsletterDialogData;
-	getDropdownOptions;
-	getIsCanvasComponentActive;
-	getIsBeInspiredComponentActive;
-	getIsPortfolioComponentActive;
-	getIsLatestNewsComponentActive;
-	getIsProcessOfEliminationActive;
-	getIsLatestReviewsComponentActive;
-	getAvailableKitchenStyles;
-	getAvailableBathroomStyles;
-	getAvailableNewbuildStyles;
-	getAvailableExtensionStyles;
-	getAvailableRefurbishmentStyles;
+	//// Dialogs
+	getSignUpNewsletterDialogData: (state: ICommonState) => ICommonSignUpNewsletterDialogData;
+
+	//// Sections
+	getIsCanvasComponentActive: (state: ICommonState) => boolean;
+	getIsBeInspiredComponentActive: (state: ICommonState) => boolean;
+	getIsPortfolioComponentActive: (state: ICommonState) => boolean;
+	getIsLatestNewsComponentActive: (state: ICommonState) => boolean;
+	getIsProcessOfEliminationActive: (state: ICommonState) => boolean;
+	getIsLatestReviewsComponentActive: (state: ICommonState) => boolean;
+	// Be-inspired
+	getDropdownOptions: (state: ICommonState) => string[];
+	getAvailableKitchenStyles: (state: ICommonState) => ICommonAvailableStyles[];
+	getAvailableBathroomStyles: (state: ICommonState) => ICommonAvailableStyles[];
+	getAvailableNewbuildStyles: (state: ICommonState) => ICommonAvailableStyles[];
+	getAvailableExtensionStyles: (state: ICommonState) => ICommonAvailableStyles[];
+	getAvailableRefurbishmentStyles: (state: ICommonState) => ICommonAvailableStyles[];
+
+	//// Forms
+	getFormsData: (state: ICommonState) => ICommonFormsData;
 }
 export interface ICommonActions {
-	//// Header
-	setAppBarHeight;
+	/* GETTERS */
 
-	//// Body
-	// Utility
-	setFormsData;
-	// Dialogs
-	setSignUpNewsletterDialogData;
+	/* SETTERS */
+	//// Dialogs
+	setSignUpNewsletterDialogData: () => void;
+
+	//// Sections
+	setIsCanvasComponentActive: (newValue: boolean) => void;
+	setIsBeInspiredComponentActive: (newValue: boolean) => void;
+	setIsPortfolioComponentActive: (newValue: boolean) => void;
+	setIsLatestNewsComponentActive: (newValue: boolean) => void;
+	setIsProcessOfEliminationActive: (newValue: boolean) => void;
+	setIsLatestReviewsComponentActive: (newValue: boolean) => void;
 	// Be-Inspired
-	setDropdownOptions;
-	// Sections
-	setIsCanvasComponentActive;
-	setIsBeInspiredComponentActive;
-	setIsPortfolioComponentActive;
-	setIsLatestNewsComponentActive;
-	setIsProcessOfEliminationActive;
-	setIsLatestReviewsComponentActive;
-	setAvailableKitchenStyles;
-	setAvailableBathroomStyles;
-	setAvailableNewbuildStyles;
-	setAvailableExtensionStyles;
-	setAvailableRefurbishmentStyles;
+	setDropdownOptions: () => void;
+	setAvailableKitchenStyles: () => void;
+	setAvailableBathroomStyles: () => void;
+	setAvailableNewbuildStyles: () => void;
+	setAvailableExtensionStyles: () => void;
+	setAvailableRefurbishmentStyles: () => void;
+
+	//// Forms
+	setFormsData: () => void;
 }
 export interface ICommonData {}
 
-//// Header
-//// Body
-// Forms
+//// Forms
 export interface ICommonFormsData {
 	messageInfo: string;
 	signUp: ICommonFormsSignUpData;
@@ -111,7 +114,8 @@ export interface ICommonFormsPropertiesData {
 export interface ICommonFormsPropertiesPasswordData extends ICommonFormsPropertiesData {
 	repeat: ICommonFormsPropertiesData;
 }
-// Dialogs
+
+//// Dialogs
 export interface ICommonSignUpNewsletterDialogData {
 	src: string;
 	showDialog: boolean;
@@ -127,9 +131,9 @@ export interface ICommonSignUpNewsletterDialogIcon {
 	tooltip: string;
 	showTooltip: boolean;
 }
-// Sections
+
+//// Sections
 export interface ICommonAvailableStyles {
 	src: string;
 	alt: string;
 }
-//// Footer

@@ -14,6 +14,7 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
+import useHeaderStore from "@stores/header/stores-header";
 import useHomeStore from "@stores/pages/stores-pages-home";
 import useGlobalEventStore from "@stores/events/stores-events";
 
@@ -78,7 +79,7 @@ export default defineComponent({
 			const eventStrCanvasCardBtn: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
 			const eventStrLatestNewsBtn: string = buildEventString(pageName.toString(), BtnIDs.ALL_REVIEWS_BTN_ID);
 			const eventStrFooterContactBtn: string = buildEventString(pageName.toString(), BtnIDs.CONTACT_BTN_ID);
-			const appBarHeight: number = this.storeCommon.getAppBarHeight;
+			const appBarHeight: number = this.storeHeader.getAppBarHeight;
 
 			const eventStrOne: string = newValue;
 			let eventStrTwo: string = "";
@@ -120,9 +121,10 @@ export default defineComponent({
 	},
 	setup() {
 		const storeCommon = useCommonStore();
+		const storeHeader = useHeaderStore();
 		const storeHome = useHomeStore();
 		const storeEvent = useGlobalEventStore();
-		return { storeCommon, storeHome, storeEvent };
+		return { storeCommon, storeHeader, storeHome, storeEvent };
 	},
 	created(): void {
 		this.storeCommon.setIsCanvasComponentActive(true);

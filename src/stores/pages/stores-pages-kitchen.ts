@@ -8,12 +8,15 @@ import IKitchenStore, { IKitchenState } from "@interfaces/common/pages/service/k
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
+// Enums
+import { StoreIDs } from "@enums/IDs/enums-ids-stores";
+
 // IMGs
 import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
 
-const useKitchenStore: IKitchenStore = defineStore("kitchen-store", {
-	state: () => ({
-		// Dialogs
+const useKitchenStore: IKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
+	state: (): IKitchenState => ({
+		//// Dialogs
 		signUpNewsletterDialogData: {
 			src: NewsLetterThree,
 			showDialog: true,
@@ -29,11 +32,14 @@ const useKitchenStore: IKitchenStore = defineStore("kitchen-store", {
 		},
 	}),
 	getters: {
-		// Dialogs
+		//// Dialogs
 		getSignUpNewsletterDialogData: (state: IKitchenState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
 	},
 	actions: {
-		// Dialogs
+		/* GETTERS */
+
+		/* SETTERS */
+		//// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
 			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");

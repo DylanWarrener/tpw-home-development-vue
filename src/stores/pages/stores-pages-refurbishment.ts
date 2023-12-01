@@ -2,15 +2,20 @@ console.log("Refurbishment store loaded");
 import { defineStore } from "pinia";
 
 // Interfaces
-import IRefurbishmentState from "@interfaces/common/pages/service/refurbishment/interfaces-common-pages-service-refurbishment";
+import IRefurbishmentStore, {
+	IRefurbishmentState,
+} from "@interfaces/common/pages/service/refurbishment/interfaces-common-pages-service-refurbishment";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
+// Enums
+import { StoreIDs } from "@enums/IDs/enums-ids-stores";
+
 // IMGs
 import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
 
-const useRefurbishmentStore = defineStore("refurbishment-store", {
+const useRefurbishmentStore: IRefurbishmentStore = defineStore(StoreIDs.REFURBISHMENT_STORE_ID, {
 	state: (): IRefurbishmentState => ({
 		// Dialogs
 		signUpNewsletterDialogData: {
@@ -35,22 +40,14 @@ const useRefurbishmentStore = defineStore("refurbishment-store", {
 		// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.defaultTitle"
-			);
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");
 
 			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.refurbishment.message"
-			);
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.refurbishment.message");
 
 			// Toolbar icon
-			this.signUpNewsletterDialogData.toolbar.icon.mdi = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.icon.mdi"
-			);
-			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.icon.tooltip"
-			);
+			this.signUpNewsletterDialogData.toolbar.icon.mdi = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.mdi");
+			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
 		},
 	},
 });

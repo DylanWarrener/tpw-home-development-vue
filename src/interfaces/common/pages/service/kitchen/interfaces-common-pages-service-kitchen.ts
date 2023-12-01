@@ -3,21 +3,24 @@ import { StoreDefinition } from "pinia";
 // Interfaces
 import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
-export default interface IKitchenStore extends StoreDefinition<"kitchen-store", IKitchenState, IKitchenGetters, IKitchenActions> {}
+// Enums
+import { StoreIDs } from "@enums/IDs/enums-ids-stores";
+
+export default interface IKitchenStore extends StoreDefinition<StoreIDs.KITCHEN_STORE_ID, IKitchenState, IKitchenGetters, IKitchenActions> {}
 
 export interface IKitchenState {
-	// Dialogs
+	//// Dialogs
 	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
 }
-
 export interface IKitchenGetters {
-	// Dialogs
+	//// Dialogs
 	getSignUpNewsletterDialogData: (state: IKitchenState) => ICommonSignUpNewsletterDialogData;
 }
-
 export interface IKitchenActions {
-	// Dialogs
+	/* GETTERS */
+
+	/* SETTERS */
+	//// Dialogs
 	setSignUpNewsletterDialogData: () => void;
 }
-
 export interface IKitchenData {}

@@ -3,25 +3,22 @@ import { createPinia, defineStore } from "pinia";
 // Interfaces
 import ICommonStore, {
 	ICommonState,
-	//// Header
-	//// Body
 	// Forms
 	ICommonFormsData,
 	// Dialogs
 	ICommonSignUpNewsletterDialogData,
 	// Sections
 	ICommonAvailableStyles,
-	//// Footer
 } from "@interfaces/common/interfaces-common";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
-// Enums
-import { AppBarDensity } from "@enums/sizing/enums-sizing";
-
 // Data
 import { pageServiceNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
+
+// Enums
+import { StoreIDs } from "@enums/IDs/enums-ids-stores";
 
 // Kitchen PNGs (different styles of kitchens, using the available materials)
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -60,65 +57,12 @@ import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
 const pinia = createPinia();
 
 // Main store
-export const useCommonStore: ICommonStore = defineStore("common-store", {
-	state: () => ({
-		//// Header
-		appBarHeight: AppBarDensity.DEFAULT,
-
-		//// Body
-		// Utility
+export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
+	state: (): ICommonState => ({
+		//// Utility
 		asterisk: "*",
-		// Forms
-		forms: {
-			messageInfo: "",
-			signUp: {
-				title: {
-					titles: ["", "", "", "", "", "", ""],
-					label: "",
-				},
-				newsletter: {
-					name: {
-						firstname: {
-							label: "",
-							placeholder: "",
-						},
-						lastname: {
-							label: "",
-							placeholder: "",
-						},
-					},
-					email: {
-						label: "",
-						placeholder: "",
-					},
-				},
-				password: {
-					label: "",
-					placeholder: "",
-					repeat: {
-						label: "",
-						placeholder: "",
-					},
-				},
-				dateOfBirth: {
-					label: "",
-					placeholder: "",
-				},
-				telephone: {
-					label: "",
-					placeholder: "",
-				},
-				address: {
-					label: "",
-					placeholder: "",
-				},
-				postcode: {
-					label: "",
-					placeholder: "",
-				},
-			},
-		},
-		// Dialogs
+
+		//// Dialogs
 		signUpNewsletterDialogData: {
 			src: NewsLetterThree,
 			showDialog: true,
@@ -132,15 +76,16 @@ export const useCommonStore: ICommonStore = defineStore("common-store", {
 				},
 			},
 		},
-		// Be-inspired
-		dropdownOptions: [],
-		// Sections
+
+		//// Sections
 		isCanvasComponentActive: false,
 		isBeInspiredComponentActive: false,
 		isPortfolioComponentActive: false,
 		isLatestNewsComponentActive: false,
 		isProcessOfEliminationActive: false,
 		isLatestReviewsComponentActive: false,
+		// Be-inspired
+		dropdownOptions: [],
 		availableKitchenStyles: [
 			{
 				src: AscotLightGreyDustPNG,
@@ -240,42 +185,150 @@ export const useCommonStore: ICommonStore = defineStore("common-store", {
 			},
 		],
 
-		//// Footer
+		//// Forms
+		forms: {
+			messageInfo: "",
+			signUp: {
+				title: {
+					titles: ["", "", "", "", "", "", ""],
+					label: "",
+				},
+				newsletter: {
+					name: {
+						firstname: {
+							label: "",
+							placeholder: "",
+						},
+						lastname: {
+							label: "",
+							placeholder: "",
+						},
+					},
+					email: {
+						label: "",
+						placeholder: "",
+					},
+				},
+				password: {
+					label: "",
+					placeholder: "",
+					repeat: {
+						label: "",
+						placeholder: "",
+					},
+				},
+				dateOfBirth: {
+					label: "",
+					placeholder: "",
+				},
+				telephone: {
+					label: "",
+					placeholder: "",
+				},
+				address: {
+					label: "",
+					placeholder: "",
+				},
+				postcode: {
+					label: "",
+					placeholder: "",
+				},
+			},
+		},
 	}),
 	getters: {
-		//// Header
-		getAppBarHeight: (state: ICommonState): number => state.appBarHeight,
-
-		//// Body
-		// Utility
+		//// Utility
 		getAsterisk: (state: ICommonState): string => state.asterisk,
-		// Forms
-		getFormsData: (state: ICommonState): ICommonFormsData => state.forms,
-		// Dialogs
+
+		//// Dialogs
 		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
-		// Be-inspired
-		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
-		// Sections
+
+		//// Sections
 		getIsCanvasComponentActive: (state: ICommonState): boolean => state.isCanvasComponentActive,
 		getIsBeInspiredComponentActive: (state: ICommonState): boolean => state.isBeInspiredComponentActive,
 		getIsPortfolioComponentActive: (state: ICommonState): boolean => state.isPortfolioComponentActive,
 		getIsLatestNewsComponentActive: (state: ICommonState): boolean => state.isLatestNewsComponentActive,
 		getIsProcessOfEliminationActive: (state: ICommonState): boolean => state.isProcessOfEliminationActive,
 		getIsLatestReviewsComponentActive: (state: ICommonState): boolean => state.isLatestReviewsComponentActive,
+		// Be-inspired
+		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
 		getAvailableKitchenStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableKitchenStyles,
 		getAvailableBathroomStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableBathroomStyles,
 		getAvailableNewbuildStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableNewbuildStyles,
 		getAvailableExtensionStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableExtensionStyles,
 		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableRefurbishmentStyles,
+
+		//// Forms
+		getFormsData: (state: ICommonState): ICommonFormsData => state.forms,
 	},
 	actions: {
-		//// Header
-		setAppBarHeight(newValue: number): void {
-			this.appBarHeight = newValue;
+		/* GETTERS */
+
+		/* SETTERS */
+		//// Dialogs
+		setSignUpNewsletterDialogData(): void {
+			// Toolbar title
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");
+
+			// Toolbar message
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.message");
+
+			// Toolbar icon
+			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
 		},
 
-		//// Body
-		// Utility
+		//// Sections
+		setIsCanvasComponentActive(newValue: boolean): void {
+			this.isCanvasComponentActive = newValue;
+		},
+		setIsBeInspiredComponentActive(newValue: boolean): void {
+			this.isBeInspiredComponentActive = newValue;
+		},
+		setIsPortfolioComponentActive(newValue: boolean): void {
+			this.isPortfolioComponentActive = newValue;
+		},
+		setIsLatestNewsComponentActive(newValue: boolean): void {
+			this.isLatestNewsComponentActive = newValue;
+		},
+		setIsProcessOfEliminationActive(newValue: boolean): void {
+			this.isProcessOfEliminationActive = newValue;
+		},
+		setIsLatestReviewsComponentActive(newValue: boolean): void {
+			this.isLatestReviewsComponentActive = newValue;
+		},
+		// Be-Inspired
+		setDropdownOptions(): void {
+			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
+				//this.dropdownOptions.push(i18nInstance.t(`common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
+			}
+		},
+		setAvailableKitchenStyles(): void {
+			for (let i = 0; i < this.availableKitchenStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.kitchen.images[${i}].alt`);
+			}
+		},
+		setAvailableBathroomStyles(): void {
+			for (let i = 0; i < this.availableBathroomStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.bathroom.images[${i}].alt`);
+			}
+		},
+		setAvailableNewbuildStyles(): void {
+			for (let i = 0; i < this.availableNewbuildStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.newbuild.images[${i}].alt`);
+			}
+		},
+		setAvailableExtensionStyles(): void {
+			for (let i = 0; i < this.availableExtensionStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.extension.images[${i}].alt`);
+			}
+		},
+		setAvailableRefurbishmentStyles(): void {
+			for (let i = 0; i < this.availableRefurbishmentStyles.length; i++) {
+				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.refurbishment.images[${i}].alt`);
+			}
+		},
+
+		//// Forms
 		setFormsData(): void {
 			// Message info
 			this.forms.messageInfo = i18nInstance.t("common.forms.messageInfo");
@@ -327,68 +380,6 @@ export const useCommonStore: ICommonStore = defineStore("common-store", {
 			this.forms.signUp.postcode.label = i18nInstance.t("common.forms.signUp.postcode.label") + this.asterisk;
 			this.forms.signUp.postcode.placeholder = i18nInstance.t("common.forms.signUp.postcode.placeholder");
 		},
-		// Dialogs
-		setSignUpNewsletterDialogData(): void {
-			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");
-
-			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.message");
-
-			// Toolbar icon
-			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
-		},
-		// Be-Inspired
-		setDropdownOptions(): void {
-			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
-				//this.dropdownOptions.push(i18nInstance.t(`common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
-			}
-		},
-		// Sections
-		setIsCanvasComponentActive(newValue: any): void {
-			this.isCanvasComponentActive = newValue;
-		},
-		setIsBeInspiredComponentActive(newValue: any): void {
-			this.isBeInspiredComponentActive = newValue;
-		},
-		setIsPortfolioComponentActive(newValue: any): void {
-			this.isPortfolioComponentActive = newValue;
-		},
-		setIsLatestNewsComponentActive(newValue: any): void {
-			this.isLatestNewsComponentActive = newValue;
-		},
-		setIsProcessOfEliminationActive(newValue: any): void {
-			this.isProcessOfEliminationActive = newValue;
-		},
-		setIsLatestReviewsComponentActive(newValue: any): void {
-			this.isLatestReviewsComponentActive = newValue;
-		},
-		setAvailableKitchenStyles(): void {
-			for (let i = 0; i < this.availableKitchenStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.kitchen.images[${i}].alt`);
-			}
-		},
-		setAvailableBathroomStyles(): void {
-			for (let i = 0; i < this.availableBathroomStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.bathroom.images[${i}].alt`);
-			}
-		},
-		setAvailableNewbuildStyles(): void {
-			for (let i = 0; i < this.availableNewbuildStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.newbuild.images[${i}].alt`);
-			}
-		},
-		setAvailableExtensionStyles(): void {
-			for (let i = 0; i < this.availableExtensionStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.extension.images[${i}].alt`);
-			}
-		},
-		setAvailableRefurbishmentStyles(): void {
-			for (let i = 0; i < this.availableRefurbishmentStyles.length; i++) {
-				this.availableKitchenStyles[i].alt = i18nInstance.t(`common.pages.refurbishment.images[${i}].alt`);
-			}
-		},
-		//// Footer
 	},
 });
 

@@ -1,5 +1,5 @@
 <template>
-	<v-dialog width="60%" transition="dialog-top-transition" v-model="showDialog">
+	<v-dialog width="60%" transition="dialog-top-transition" v-model="data.showDialog">
 		<slot name="content">
 			<card-component
 				variant="elevated"
@@ -12,15 +12,15 @@
 				:action-btn-id="dialogCardBtnID"
 			>
 				<template #img>
-					<v-img cover style="height: 35vh" :src="dialogSrc">
-						<v-toolbar color="accent" :title="toolbarTitleAndMessage">
-							<v-tooltip location="bottom" v-model="toolbarIconShowTooltip">
+					<v-img cover style="height: 35vh" :src="data.src">
+						<v-toolbar color="accent" :title="titleAndMessage">
+							<v-tooltip location="bottom" v-model="data.toolbar.icon.showTooltip">
 								<template #activator="{ props }">
-									<v-btn icon class="text-inverted" :id="dialogCardBtnID" v-bind="props" @click.stop="showDialog = !showDialog">
-										<v-icon>{{ toolbarIcon }}</v-icon>
+									<v-btn icon class="text-inverted" v-bind="props" @click.stop="data.showDialog = !data.showDialog">
+										<v-icon>{{ data.toolbar.icon.mdi }}</v-icon>
 									</v-btn>
 								</template>
-								<span>{{ toolbarIconTooltip }}</span>
+								<span>{{ data.toolbar.icon.tooltip }}</span>
 							</v-tooltip>
 						</v-toolbar>
 					</v-img>
@@ -63,39 +63,8 @@ export default defineComponent({
 	},
 	computed: {
 		// Text
-		toolbarTitleAndMessage(): string {
+		titleAndMessage(): string {
 			return this.data.toolbar.title.toUpperCase() + " - " + this.data.toolbar.message;
-		},
-		toolbarIconTooltip(): string {
-			return this.data.toolbar.icon.tooltip;
-		},
-
-		// IMGs
-		dialogSrc(): string {
-			return this.data.src;
-		},
-
-		// Icons
-		toolbarIcon(): string {
-			return this.data.toolbar.icon.mdi;
-		},
-
-		// Conditional
-		showDialog: {
-			get(): boolean {
-				return this.data.showDialog;
-			},
-			set(newValue: boolean): void {
-				this.data.showDialog = newValue;
-			},
-		},
-		toolbarIconShowTooltip: {
-			get(): boolean {
-				return this.data.toolbar.icon.showTooltip;
-			},
-			set(newValue: boolean): void {
-				this.data.toolbar.icon.showTooltip = newValue;
-			},
 		},
 	},
 	setup() {

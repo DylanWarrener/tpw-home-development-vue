@@ -1,24 +1,26 @@
 import { defineStore } from "pinia";
 
+// Interfaces
+import IHeaderStore, { IHeaderState } from "@interfaces/common/header/interfaces-common-header";
+import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
+import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
+
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
-// Interfaces
-import IHeaderState from "@interfaces/common/header/interfaces-common-header";
-import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
-import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
-
 // Utils
-import {
-	headerAppbarIcons,
-	headerAppbarIconNames,
-	headerNavigationIcons,
-} from "@utils/text/common/header/utils-text-common-header";
+import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
 import { pageAllNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
 
-const useHeaderStore = defineStore("header-store", {
+// Enums
+import { AppBarDensity } from "@enums/sizing/enums-sizing";
+import { StoreIDs } from "@enums/IDs/enums-ids-stores";
+
+const useHeaderStore: IHeaderStore = defineStore(StoreIDs.HEADER_STORE_ID, {
 	state: (): IHeaderState => ({
+		//// App bar
 		drawer: false,
+		appBarHeight: AppBarDensity.DEFAULT,
 		appBarIcons: {
 			menu: {
 				id: headerAppbarIconNames.menu,
@@ -113,12 +115,17 @@ const useHeaderStore = defineStore("header-store", {
 		],
 	}),
 	getters: {
+		//// App bar
 		getDrawer: (state: IHeaderState): boolean => state.drawer,
+		getAppBarHeight: (state: IHeaderState): number => state.appBarHeight,
 		getAllAppBarIcons: (state: IHeaderState): IAppBarIcons => state.appBarIcons,
 		getNavigationItems: (state: IHeaderState): IHeaderNavigationData[] => state.navigation,
 	},
 	actions: {
-		// Setters
+		/* GETTERS */
+
+		/* SETTERS */
+		//// App bar
 		setDrawer(newValue: boolean): void {
 			this.drawer = newValue;
 		},
@@ -147,8 +154,6 @@ const useHeaderStore = defineStore("header-store", {
 				this.navigation[i].link = i18nInstance.t(`common.header.navigation.names.${pageAllNamesAsArrayKeys[i]}`);
 			}
 		},
-
-		// Getters
 	},
 });
 

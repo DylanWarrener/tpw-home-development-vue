@@ -1,0 +1,15 @@
+export enum StoreIDs {
+	COMMON_STORE_ID = "common-store",
+	HEADER_STORE_ID = "header-store",
+	HOME_STORE_ID = "home-store",
+	KITCHEN_STORE_ID = "kitchen-store",
+	BATHROOM_STORE_ID = "bathroom-store",
+	NEWBUILD_STORE_ID = "newbuild-store",
+	EXTENSION_STORE_ID = "extension-store",
+	REFURBISHMENT_STORE_ID = "refurbishment-store",
+	CONTACT_STORE_ID = "contact-store",
+	NEWS_STORE_ID = "news-store",
+	REVIEWS_STORE_ID = "reviews-store",
+	ABOUT_STORE_ID = "about-store",
+	FOOTER_STORE_ID = "footer-store",
+}
