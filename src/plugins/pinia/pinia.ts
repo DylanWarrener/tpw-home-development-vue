@@ -274,6 +274,7 @@ export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID
 			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.message");
 
 			// Toolbar icon
+			this.signUpNewsletterDialogData.toolbar.icon.mdi = i18nInstance.t("common.dialogs.icon.defaultIcon");
 			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
 		},
 
