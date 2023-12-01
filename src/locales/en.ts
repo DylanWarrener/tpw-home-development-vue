@@ -2,11 +2,7 @@
 //import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
 
 // Utils text data
-import {
-	headerAppbarIconNames,
-	headerAppbarIconTooltips,
-	headerNavigationIcons,
-} from "@utils/text/common/header/utils-text-common-header";
+import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
 import { cardBtnBeInspired } from "@utils/text/common/utils-text-common";
 import {
 	pageServiceNames,
@@ -40,7 +36,10 @@ const en = {
 			},
 		},
 		dialogs: {
-			defaultTooltip: "close dialog",
+			icon: {
+				defaultIcon: "mdi-close",
+				defaultTooltip: "close dialog",
+			},
 			signUpNewsletter: {
 				toolbar: {
 					defaultTitle: "sign up",
@@ -67,7 +66,8 @@ const en = {
 						},
 					},
 					icon: {
-						tooltip: "@.capitalize:common.dialogs.defaultTooltip",
+						mdi: "@:common.dialogs.icon.defaultIcon",
+						tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
 					},
 				},
 			},
@@ -179,8 +179,7 @@ const en = {
 				link: pageInfoLinks.contact,
 				images: {},
 				title: "Contact Details",
-				subtitle:
-					"Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
+				subtitle: "Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
 				message:
 					"We are committed to responding to all inquiries within 24 hours on business days. Your questions are important to us, and we will be delighted to provide you with the information you seek.",
 			},
@@ -313,7 +312,7 @@ const en = {
 			},
 		},
 		forms: {
-			msgInfo: "required fields are marked with",
+			messageInfo: "Required fields are marked with",
 			signUp: {
 				termsAndConditions: {
 					default: `By signing up for our newsletter, you are opting in to receive regular 

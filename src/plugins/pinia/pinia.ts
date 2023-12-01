@@ -1,25 +1,8 @@
 import { createPinia, defineStore } from "pinia";
 
-// Stores to load immediately
-import useHeaderStore from "@stores/header/stores-header";
-import useHomeStore from "@stores/pages/stores-pages-home";
-import useFooterStore from "@stores/footer/stores-footer";
-import useErrorStore from "@stores/stores-error";
-import useEventStore from "@stores/events/stores-events";
-
-// Stores to lazy load
-const useKitchenStore = () => import("@stores/pages/stores-pages-kitchen");
-const useBathroomStore = () => import("@stores/pages/stores-pages-bathroom");
-const useNewbuildStore = () => import("@stores/pages/stores-pages-newbuild");
-const useExtensionStore = () => import("@stores/pages/stores-pages-extension");
-const useRefurbishmentStore = () => import("@stores/pages/stores-pages-refurbishment");
-const useContactStore = () => import("@stores/pages/stores-pages-contact");
-const useAboutStore = () => import("@stores/pages/stores-pages-about");
-const useNewsStore = () => import("@stores/pages/stores-pages-news");
-const useReviewsStore = () => import("@stores/pages/stores-pages-reveiws");
-
 // Interfaces
-import ICommonState, {
+import ICommonStore, {
+	ICommonState,
 	//// Header
 	//// Body
 	// Forms
@@ -68,17 +51,17 @@ import BathroomShadePNG from "@assets/png/bathrooms/bathroom-shade.jpg";
 // Refurbishment PNGs (different styles of kitchens, using the available materials)
 
 // Tester IMGs for dialog
-import NewsLetterOne from "@assets/png/newsletter/newsletter-1.jpg";
-import NewsLetterTwo from "@assets/png/newsletter/newsletter-2.jpg";
+//import NewsLetterOne from "@assets/png/newsletter/newsletter-1.jpg";
+//import NewsLetterTwo from "@assets/png/newsletter/newsletter-2.jpg";
 import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
-import NewsLetterFour from "@assets/png/newsletter/newsletter-4.jpg";
-import NewsLetterFive from "@assets/png/newsletter/newsletter-5.jpg";
+//import NewsLetterFour from "@assets/png/newsletter/newsletter-4.jpg";
+//import NewsLetterFive from "@assets/png/newsletter/newsletter-5.jpg";
 
 const pinia = createPinia();
 
 // Main store
-export const parentStore = defineStore("common-store", {
-	state: (): ICommonState => ({
+export const useCommonStore: ICommonStore = defineStore("common-store", {
+	state: () => ({
 		//// Header
 		appBarHeight: AppBarDensity.DEFAULT,
 
@@ -87,10 +70,10 @@ export const parentStore = defineStore("common-store", {
 		asterisk: "*",
 		// Forms
 		forms: {
-			msgInfo: "",
+			messageInfo: "",
 			signUp: {
 				title: {
-					titles: [],
+					titles: ["", "", "", "", "", "", ""],
 					label: "",
 				},
 				newsletter: {
@@ -269,8 +252,7 @@ export const parentStore = defineStore("common-store", {
 		// Forms
 		getFormsData: (state: ICommonState): ICommonFormsData => state.forms,
 		// Dialogs
-		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData =>
-			state.signUpNewsletterDialogData,
+		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
 		// Be-inspired
 		getDropdownOptions: (state: ICommonState): string[] => state.dropdownOptions,
 		// Sections
@@ -284,8 +266,7 @@ export const parentStore = defineStore("common-store", {
 		getAvailableBathroomStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableBathroomStyles,
 		getAvailableNewbuildStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableNewbuildStyles,
 		getAvailableExtensionStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableExtensionStyles,
-		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] =>
-			state.availableRefurbishmentStyles,
+		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableRefurbishmentStyles,
 	},
 	actions: {
 		//// Header
@@ -297,10 +278,10 @@ export const parentStore = defineStore("common-store", {
 		// Utility
 		setFormsData(): void {
 			// Message info
-			this.forms.msgInfo = i18nInstance.t("common.forms.msgInfo");
+			this.forms.messageInfo = i18nInstance.t("common.forms.messageInfo");
 
 			// Title
-			this.forms.signUp.title.titles = [
+			const titles: string[] = [
 				i18nInstance.t("common.forms.signUp.title.titles.mr"),
 				i18nInstance.t("common.forms.signUp.title.titles.mrs"),
 				i18nInstance.t("common.forms.signUp.title.titles.miss"),
@@ -309,37 +290,26 @@ export const parentStore = defineStore("common-store", {
 				i18nInstance.t("common.forms.signUp.title.titles.reverand"),
 				i18nInstance.t("common.forms.signUp.title.titles.dr"),
 			];
+			this.forms.signUp.title.titles = titles;
 			this.forms.signUp.title.label = i18nInstance.t("common.forms.signUp.title.label") + this.asterisk;
 
 			// First name
-			this.forms.signUp.newsletter.name.firstname.label =
-				i18nInstance.t("common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
-			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t(
-				"common.forms.signUp.newsletter.name.firstname.placeholder"
-			);
+			this.forms.signUp.newsletter.name.firstname.label = i18nInstance.t("common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
+			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t("common.forms.signUp.newsletter.name.firstname.placeholder");
 
 			// Last name
-			this.forms.signUp.newsletter.name.lastname.label =
-				i18nInstance.t("common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
-			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t(
-				"common.forms.signUp.newsletter.name.lastname.placeholder"
-			);
+			this.forms.signUp.newsletter.name.lastname.label = i18nInstance.t("common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
+			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t("common.forms.signUp.newsletter.name.lastname.placeholder");
 
 			// Email
-			this.forms.signUp.newsletter.email.label =
-				i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
-			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t(
-				"common.forms.signUp.newsletter.email.placeholder"
-			);
+			this.forms.signUp.newsletter.email.label = i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
+			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t("common.forms.signUp.newsletter.email.placeholder");
 
 			// Password
 			this.forms.signUp.password.label = i18nInstance.t("common.forms.signUp.password.label") + this.asterisk;
 			this.forms.signUp.password.placeholder = i18nInstance.t("common.forms.signUp.password.placeholder");
-			this.forms.signUp.password.repeat.label =
-				i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
-			this.forms.signUp.password.repeat.placeholder = i18nInstance.t(
-				"common.forms.signUp.password.repeat.placeholder"
-			);
+			this.forms.signUp.password.repeat.label = i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
+			this.forms.signUp.password.repeat.placeholder = i18nInstance.t("common.forms.signUp.password.repeat.placeholder");
 
 			// Date of birth
 			this.forms.signUp.dateOfBirth.label = i18nInstance.t("common.forms.signUp.dateOfBirth.label") + this.asterisk;
@@ -360,26 +330,18 @@ export const parentStore = defineStore("common-store", {
 		// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.defaultTitle"
-			);
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");
 
 			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.home.message"
-			);
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.message");
 
 			// Toolbar icon
-			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.icon.tooltip"
-			);
+			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
 		},
 		// Be-Inspired
 		setDropdownOptions(): void {
 			for (let i = 0; i < pageServiceNamesAsArrayKeys.length; i++) {
-				this.dropdownOptions.push(
-					i18nInstance.t(`common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`)
-				);
+				//this.dropdownOptions.push(i18nInstance.t(`common.sections.beInspired.dropdown.items.${pageServiceNamesAsArrayKeys[i]}`));
 			}
 		},
 		// Sections
@@ -429,25 +391,5 @@ export const parentStore = defineStore("common-store", {
 		//// Footer
 	},
 });
-
-export const childStores = {
-	useHeaderStore,
-	useHomeStore,
-	useKitchenStore,
-	useBathroomStore,
-	useNewbuildStore,
-	useExtensionStore,
-	useRefurbishmentStore,
-	useContactStore,
-	useAboutStore,
-	useNewsStore,
-	useReviewsStore,
-	useFooterStore,
-	useErrorStore,
-};
-
-export const eventStores = {
-	useEventStore,
-};
 
 export default pinia;

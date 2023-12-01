@@ -1,10 +1,10 @@
 <template>
-	<page-component
+	<!--<page-component
 		:src="src"
 		:canvas-title="canvasTitle"
 		:canvas-subtitle="canvasSubtitle"
 		:btn-text="canvasBtnText"
-	></page-component>
+	></page-component>-->
 </template>
 
 <script lang="ts">
@@ -12,7 +12,9 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useRefurbishmentStore from "@stores/pages/stores-pages-refurbishment";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -83,9 +85,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeRefurbishment = childStores.useRefurbishmentStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeRefurbishment = useRefurbishmentStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeRefurbishment, storeEvent };
 	},
 	created(): void {

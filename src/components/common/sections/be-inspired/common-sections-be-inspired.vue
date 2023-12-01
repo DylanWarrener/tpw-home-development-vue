@@ -4,11 +4,7 @@
 			<v-container fluid>
 				<v-row dense>
 					<v-col cols="4">
-						<dropdown-component
-							:items="dropdownOptions"
-							:label="lblDropdown"
-							@value="dropdownValue"
-						></dropdown-component>
+						<dropdown-component :items="dropdownOptions" :label="lblDropdown" @value="dropdownValue"></dropdown-component>
 					</v-col>
 				</v-row>
 				<v-row dense>
@@ -59,7 +55,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import Section from "@components/common/sections/common-sections.vue";
@@ -160,7 +156,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 	created(): void {
@@ -209,4 +205,3 @@ export default defineComponent({
 	}
 }
 </style>
-@src/utils/text/common/utils-text @src/utils/text/common/utils-text @src/interfaces/common/interfaces-common-sections

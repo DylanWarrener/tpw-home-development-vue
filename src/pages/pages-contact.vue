@@ -1,5 +1,6 @@
 <template>
-	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
+	<!--
+		<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #content>
 			<section-component :id="contactSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
@@ -8,6 +9,7 @@
 			</section-component>
 		</template>
 	</page-component>
+	-->
 </template>
 
 <script lang="ts">
@@ -15,7 +17,9 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useContactStore from "@stores/pages/stores-pages-contact";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -101,9 +105,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeContact = childStores.useContactStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeContact = useContactStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeContact, storeEvent };
 	},
 	created(): void {

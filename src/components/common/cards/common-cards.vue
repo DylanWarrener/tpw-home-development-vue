@@ -45,7 +45,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { eventStores } from "@plugins/pinia/pinia";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";
@@ -80,7 +80,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeEvent = eventStores.useEventStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeEvent };
 	},
 });

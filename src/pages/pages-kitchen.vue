@@ -1,5 +1,6 @@
 <template>
 	<page-component
+		:dialog-data="dialogData"
 		:src="src"
 		:canvas-title="canvasTitle"
 		:canvas-subtitle="canvasSubtitle"
@@ -12,12 +13,15 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useKitchenStore from "@stores/pages/stores-pages-kitchen";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 import { IKitchenData } from "@interfaces/common/pages/service/kitchen/interfaces-common-pages-service-kitchen";
 
 // IMGs
@@ -55,6 +59,11 @@ export default defineComponent({
 			return KitchenPNG;
 		},
 
+		// Data
+		dialogData(): ICommonSignUpNewsletterDialogData {
+			return this.storeKitchen.getSignUpNewsletterDialogData;
+		},
+
 		// Events
 		recievedEventData(): string {
 			return this.storeEvent.getEmittedEvent;
@@ -83,9 +92,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeKitchen = childStores.useKitchenStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeKitchen = useKitchenStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeKitchen, storeEvent };
 	},
 	created(): void {
@@ -98,4 +107,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/kitchen/interfaces-kitchen @src/interfaces/common/pages/kitchen/interfaces-common-pages-kitchen

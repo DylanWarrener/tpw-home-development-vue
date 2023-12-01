@@ -1,5 +1,6 @@
 <template>
 	<page-component
+		:dialog-data="dialogData"
 		:src="src"
 		:canvas-title="canvasTitle"
 		:canvas-subtitle="canvasSubtitle"
@@ -9,15 +10,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useHomeStore from "@stores/pages/stores-pages-home";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
 
 // Interfaces
-import { RouteRecordName } from "vue-router";
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 import { IHomeData } from "@interfaces/common/pages/info/home/interfaces-common-pages-info-home";
 
 // IMGs
@@ -54,6 +58,11 @@ export default defineComponent({
 		// IMGs
 		src(): string {
 			return HomePNG;
+		},
+
+		// Data
+		dialogData(): ICommonSignUpNewsletterDialogData {
+			return this.storeCommon.getSignUpNewsletterDialogData;
 		},
 
 		// Events
@@ -110,9 +119,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeHome = childStores.useHomeStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeHome = useHomeStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeHome, storeEvent };
 	},
 	created(): void {

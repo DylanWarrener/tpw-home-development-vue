@@ -38,7 +38,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import CommonTextField from "@components/common/text-field/common-text-field.vue";
@@ -68,7 +68,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 });

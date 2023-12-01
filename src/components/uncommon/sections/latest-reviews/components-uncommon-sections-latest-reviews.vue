@@ -46,7 +46,8 @@ import Section from "@components/common/sections/common-sections.vue";
 //import CardRating from "@components/containers/card/card-rating.vue";
 
 // Stores
-import { parentStore, childStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useReviewsStore from "@stores/pages/stores-pages-reveiws";
 
 // IMGs
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
@@ -72,8 +73,7 @@ export default defineComponent({
 						alt: "",
 					},
 					subject: "Beautiful",
-					message:
-						"My Kitchen is now looking very clean. The team have done a great job for me, I would highly recommend",
+					message: "My Kitchen is now looking very clean. The team have done a great job for me, I would highly recommend",
 				},
 				{
 					name: "Mr. George Ruff",
@@ -102,8 +102,8 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeReviews = childStores.useReviewsStore();
+		const storeCommon = useCommonStore();
+		const storeReviews = useReviewsStore();
 		return { storeCommon, storeReviews };
 	},
 });

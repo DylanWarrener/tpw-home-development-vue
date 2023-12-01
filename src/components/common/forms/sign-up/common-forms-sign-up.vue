@@ -85,7 +85,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import CommonDropdown from "@components/common/dropdown/common-dropdown.vue";
@@ -128,7 +128,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 });

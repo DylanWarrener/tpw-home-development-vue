@@ -1,10 +1,5 @@
 <template>
-	<page-component
-		:src="src"
-		:canvas-title="canvasTitle"
-		:canvas-subtitle="canvasSubtitle"
-		:btn-text="canvasBtnText"
-	></page-component>
+	<!--<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>-->
 </template>
 
 <script lang="ts">
@@ -12,10 +7,12 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
+import useExtensionStore from "@stores/pages/stores-pages-extension";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Interfaces
 import { IExtensionData } from "@interfaces/common/pages/service/extension/interfaces-common-pages-service-extension";
@@ -83,9 +80,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeExtension = childStores.useExtensionStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeExtension = useExtensionStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeExtension, storeEvent };
 	},
 	created(): void {
@@ -98,5 +95,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/extension/interfaces-extension
-@src/interfaces/common/pages/extension/interfaces-common-pages-extension

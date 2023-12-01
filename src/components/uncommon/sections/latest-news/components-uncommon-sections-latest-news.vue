@@ -37,7 +37,8 @@ newsSections: [
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore, childStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useNewsStore from "@src/stores/pages/stores-pages-news";
 
 // Components
 import Section from "@components/common/sections/common-sections.vue";
@@ -68,8 +69,8 @@ export default defineComponent({
 		*/
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeNews = childStores.useNewsStore();
+		const storeCommon = useCommonStore();
+		const storeNews = useNewsStore();
 		return { storeCommon, storeNews };
 	},
 });

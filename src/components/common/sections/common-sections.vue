@@ -25,7 +25,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 export default defineComponent({
 	name: "section-content-component",
@@ -39,7 +39,7 @@ export default defineComponent({
 		containerClass: { type: String, required: false, default: "container" },
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 });

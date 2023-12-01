@@ -1,10 +1,10 @@
 <template>
-	<page-component
+	<!--<page-component
 		:src="src"
 		:canvas-title="canvasTitle"
 		:canvas-subtitle="canvasSubtitle"
 		:btn-text="canvasBtnText"
-	></page-component>
+	></page-component>-->
 </template>
 
 <script lang="ts">
@@ -12,7 +12,9 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useNewbuildStore from "@stores/pages/stores-pages-newbuild";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -83,9 +85,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeNewbuild = childStores.useNewbuildStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeNewbuild = useNewbuildStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeNewbuild, storeEvent };
 	},
 	created(): void {
@@ -98,5 +100,4 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/newbuild/interfaces-newbuild
-@src/interfaces/common/pages/newbuild/interfaces-common-pages-newbuild
+@src/interfaces/common/pages/newbuild/interfaces-newbuild @src/interfaces/common/pages/newbuild/interfaces-common-pages-newbuild

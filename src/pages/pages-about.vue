@@ -1,13 +1,15 @@
 <template>
-	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
+	<!--
+		<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #content>
 			<section-component :id="aboutSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<!--<card-our-team-component :employees="employees" @show="updateShowInfo"></card-our-team-component>-->
+					<card-our-team-component :employees="employees" @show="updateShowInfo"></card-our-team-component>
 				</template>
 			</section-component>
 		</template>
 	</page-component>
+	-->
 </template>
 
 <script lang="ts">
@@ -15,7 +17,9 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useAboutStore from "@src/stores/pages/stores-pages-about";
+import useGlobalEventStore from "@src/stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -23,7 +27,7 @@ import Section from "@components/common/sections/common-sections.vue";
 import CardOurTeam from "@components/uncommon/cards/team/uncommon-card-team.vue";
 
 // Interface
-import { IAboutData, IAboutEmployeeCard } from "@interfaces/common/pages/info/about/interfaces-common-pages-info-about";
+import { IAboutData } from "@interfaces/common/pages/info/about/interfaces-common-pages-info-about";
 
 // Images
 import AboutPNG from "@assets/png/about/about.jpg";
@@ -102,16 +106,20 @@ export default defineComponent({
 			return this.storeEvent.getEmittedEvent;
 		},
 
+		/*
 		// Data
 		employees(): IAboutEmployeeCard[] {
 			return this.storeAbout.getEmployees;
 		},
+		*/
 	},
 	methods: {
+		/*
 		updateShowInfo(index: number): void {
 			const updatedEmployee = { ...this.employees[index], show: !this.employees[index].show };
 			this.storeAbout.modifyEmployee(index, updatedEmployee);
 		},
+		*/
 	},
 	watch: {
 		recievedEventData(newValue: string): void {
@@ -136,9 +144,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeAbout = childStores.useAboutStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeAbout = useAboutStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeAbout, storeEvent };
 	},
 	created(): void {
@@ -151,4 +159,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/about/interfaces-about @src/interfaces/common/pages/about/interfaces-common-pages-about

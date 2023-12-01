@@ -14,7 +14,9 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useFooterStore from "@src/stores/footer/stores-footer";
+import useGlobalEventStore from "@src/stores/events/stores-events";
 
 // Interfaces
 import { IFooterData } from "@interfaces/common/footer/interfaces-common-footer";
@@ -37,9 +39,9 @@ export default defineComponent({
 		return {};
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeFooter = childStores.useFooterStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeFooter = useFooterStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeFooter, storeEvent };
 	},
 });

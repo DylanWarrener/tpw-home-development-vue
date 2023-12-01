@@ -6,7 +6,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import { childStores } from "@plugins/pinia/pinia";
+import useHeaderStore from "@stores/header/stores-header";
 
 // Components
 import Nav from "@components/common/navigation/common-navigation.vue";
@@ -25,7 +25,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeHeader = childStores.useHeaderStore();
+		const storeHeader = useHeaderStore();
 		return { storeHeader };
 	},
 });

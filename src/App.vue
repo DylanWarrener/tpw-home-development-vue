@@ -12,7 +12,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import Header from "@components/common/header/common-header.vue";
@@ -31,7 +31,7 @@ export default defineComponent({
 		return {};
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 	created(): void {

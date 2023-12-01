@@ -16,13 +16,7 @@
 						<v-toolbar color="accent" :title="toolbarTitleAndMessage">
 							<v-tooltip location="bottom" v-model="toolbarIconShowTooltip">
 								<template #activator="{ props }">
-									<v-btn
-										icon
-										class="text-inverted"
-										:id="dialogCardBtnID"
-										v-bind="props"
-										@click.stop="showDialog = !showDialog"
-									>
+									<v-btn icon class="text-inverted" :id="dialogCardBtnID" v-bind="props" @click.stop="showDialog = !showDialog">
 										<v-icon>{{ toolbarIcon }}</v-icon>
 									</v-btn>
 								</template>
@@ -43,7 +37,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import Card from "@components/common/cards/common-cards.vue";
@@ -105,7 +99,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 });

@@ -4,7 +4,7 @@
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
 					<!-- Dialogs -->
-					<sign-up-newsletter-dialog-component :data="signUpNewsletterDialogData">
+					<sign-up-newsletter-dialog-component :data="dialogData">
 						<template #dialog-content>
 							<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
 						</template>
@@ -24,27 +24,15 @@
 					<slot name="content"></slot>
 
 					<!-- Be inspired -->
-					<be-inspired-component
-						class="bg-inverted"
-						:id="beInspiredSectionID"
-						v-if="isBeInspiredComponentActive"
-					></be-inspired-component>
+					<be-inspired-component class="bg-inverted" :id="beInspiredSectionID" v-if="isBeInspiredComponentActive"></be-inspired-component>
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
-					<portfolio-component
-						class="bg-inverted"
-						:id="portfolioSectionID"
-						v-if="isPortfolioComponentActive"
-					></portfolio-component>
+					<portfolio-component class="bg-inverted" :id="portfolioSectionID" v-if="isPortfolioComponentActive"></portfolio-component>
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
 
 					<!-- Latest news -->
-					<latest-news-component
-						class="bg-inverted"
-						:id="latestNewsSectionID"
-						v-if="isNewsComponentActive"
-					></latest-news-component>
+					<latest-news-component class="bg-inverted" :id="latestNewsSectionID" v-if="isNewsComponentActive"></latest-news-component>
 					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
@@ -56,11 +44,7 @@
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest reviews -->
-					<latest-reviews-component
-						class="bg-inverted"
-						:id="reviewsSectionID"
-						v-if="isReviewsComponentActive"
-					></latest-reviews-component>
+					<latest-reviews-component class="bg-inverted" :id="reviewsSectionID" v-if="isReviewsComponentActive"></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
 				</v-sheet>
 			</v-col>
@@ -72,7 +56,7 @@
 import { defineComponent } from "vue";
 
 // Stores
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Components
 import Canvas from "@components/common/canvas/common-canvas.vue";
@@ -103,6 +87,7 @@ export default defineComponent({
 		"sign-up-newsletter-form-component": SignUpNewsletterForm,
 	},
 	props: {
+		dialogData: { type: Object as () => ICommonSignUpNewsletterDialogData, required: true },
 		src: { type: String, required: true },
 		canvasTitle: { type: String, required: true },
 		canvasSubtitle: { type: String, required: false },
@@ -126,11 +111,6 @@ export default defineComponent({
 			return SectionIDs.BE_INSPIRED_SECTION;
 		},
 
-		// Data
-		signUpNewsletterDialogData(): ICommonSignUpNewsletterDialogData {
-			return this.storeCommon.getSignUpNewsletterDialogData;
-		},
-
 		// Conditional
 		isCanvasComponentActive(): boolean {
 			return this.storeCommon.getIsCanvasComponentActive;
@@ -152,7 +132,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 });

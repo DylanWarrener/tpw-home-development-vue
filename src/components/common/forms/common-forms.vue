@@ -4,7 +4,7 @@
 		<v-form class="d-flex flex-row flex-wrap text-inverted">
 			<!-- Message -->
 			<v-col cols="12">
-				<p>{{ msgInfo }}</p>
+				<p>{{ data.messageInfo + " *" }}</p>
 			</v-col>
 
 			<!-- All input fields -->
@@ -26,7 +26,7 @@
 import { defineComponent } from "vue";
 
 // Store
-import { parentStore } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
 
 // Interfaces
 import { ICommonFormsData } from "@interfaces/common/interfaces-common";
@@ -37,23 +37,13 @@ export default defineComponent({
 		msgTermsAndConditions: { type: String, required: false },
 	},
 	computed: {
-		// Text
-		msgInfo(): string {
-			return this.data.msgInfo[0].toUpperCase() + this.data.msgInfo.slice(1) + " " + this.asterisks;
-		},
-
 		// Data
 		data(): ICommonFormsData {
 			return this.storeCommon.getFormsData;
 		},
-
-		// Utility
-		asterisks(): string {
-			return this.storeCommon.getAsterisk;
-		},
 	},
 	setup() {
-		const storeCommon = parentStore();
+		const storeCommon = useCommonStore();
 		return { storeCommon };
 	},
 });

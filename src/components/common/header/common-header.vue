@@ -1,12 +1,7 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
 	<v-app-bar class="bg-background-secondary" scroll-behavior="hide">
-		<svg-component
-			width="200px"
-			height="100%"
-			:svg-content="iconLogoSVG"
-			@svg-clicked="navigateTo(txtPageHome)"
-		></svg-component>
+		<svg-component width="200px" height="100%" :svg-content="iconLogoSVG" @svg-clicked="navigateTo(txtPageHome)"></svg-component>
 		<v-tooltip location="bottom" v-model="appBarIcons.menu.showTooltip">
 			<template #activator="{ props }">
 				<v-btn icon :id="appBarIcons.menu.id" v-bind="props" @click.stop="drawer = !drawer">
@@ -33,7 +28,7 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { childStores } from "@plugins/pinia/pinia";
+import useHeaderStore from "@stores/header/stores-header";
 
 // Components
 import HeaderNav from "@components/common/header/navigation/common-header-navigation.vue";
@@ -125,7 +120,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeHeader = childStores.useHeaderStore();
+		const storeHeader = useHeaderStore();
 		const theme = useTheme();
 		return { storeHeader, theme };
 	},

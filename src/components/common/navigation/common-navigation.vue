@@ -1,7 +1,8 @@
 <template>
 	<v-navigation-drawer temporary location="top" v-model="drawer">
 		<v-list nav>
-			<v-list-item :prepend-icon="item.icon" :title="item.title.toUpperCase()" :to="item.link" :key="index" v-for="(item, index) in navigation"> </v-list-item>
+			<v-list-item :prepend-icon="item.icon" :title="item.title.toUpperCase()" :to="item.link" :key="index" v-for="(item, index) in navigation">
+			</v-list-item>
 		</v-list>
 	</v-navigation-drawer>
 </template>
@@ -9,8 +10,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-// Stores
-import { childStores } from "@plugins/pinia/pinia";
+// Store
+import useHeaderStore from "@stores/header/stores-header";
 
 // Interface
 import IHeaderNavigation from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
@@ -32,7 +33,7 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeHeader = childStores.useHeaderStore();
+		const storeHeader = useHeaderStore();
 		return { storeHeader };
 	},
 });

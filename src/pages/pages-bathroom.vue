@@ -1,10 +1,5 @@
 <template>
-	<page-component
-		:src="src"
-		:canvas-title="canvasTitle"
-		:canvas-subtitle="canvasSubtitle"
-		:btn-text="canvasBtnText"
-	></page-component>
+	<!--<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText"></page-component>-->
 </template>
 
 <script lang="ts">
@@ -12,7 +7,9 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import { parentStore, childStores, eventStores } from "@plugins/pinia/pinia";
+import { useCommonStore } from "@plugins/pinia/pinia";
+import useBathroomStore from "@stores/pages/stores-pages-bathroom";
+import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -83,9 +80,9 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		const storeCommon = parentStore();
-		const storeBathroom = childStores.useBathroomStore();
-		const storeEvent = eventStores.useEventStore();
+		const storeCommon = useCommonStore();
+		const storeBathroom = useBathroomStore();
+		const storeEvent = useGlobalEventStore();
 		return { storeCommon, storeBathroom, storeEvent };
 	},
 	created(): void {
@@ -98,5 +95,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/bathroom/interfaces-bathroom
-@src/interfaces/common/pages/bathroom/interfaces-common-pages-bathroom

@@ -23,7 +23,7 @@ import { defineComponent } from "vue";
 //import ContactForm from "@components/containers/contact/contact-form.vue";
 
 // Stores
-import { childStores } from "@plugins/pinia/pinia";
+import useContactStore from "@stores/pages/stores-pages-contact";
 
 // Interfaces
 //import { IContactInfoState, IContactFormState } from "@interfaces/contact/interface-contact";
@@ -45,7 +45,7 @@ export default defineComponent({
 		*/
 	},
 	setup() {
-		const storeContact = childStores.useContactStore();
+		const storeContact = useContactStore();
 		return { storeContact };
 	},
 });
