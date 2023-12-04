@@ -36,19 +36,17 @@ export default defineComponent({
 	},
 	created(): void {
 		/* Set inital localisation data in store */
-		//// Body
-		// Forms
-		this.storeCommon.setFormsData();
-		// Dialogs
-		this.storeCommon.setSignUpNewsletterDialogData();
+		//// Sections
 		// Be-inspired
 		this.storeCommon.setDropdownOptions();
-		// Sections
 		this.storeCommon.setAvailableKitchenStyles();
 		this.storeCommon.setAvailableBathroomStyles();
 		this.storeCommon.setAvailableNewbuildStyles();
 		this.storeCommon.setAvailableExtensionStyles();
 		this.storeCommon.setAvailableRefurbishmentStyles();
+
+		//// Forms
+		this.storeCommon.setFormsData();
 	},
 });
 </script>

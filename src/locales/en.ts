@@ -2,7 +2,11 @@
 //import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
 
 // Utils text data
-import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
+import {
+	headerAppbarIconNames,
+	headerAppbarIconTooltips,
+	headerNavigationIcons,
+} from "@utils/text/common/header/utils-text-common-header";
 import { cardBtnBeInspired } from "@utils/text/common/utils-text-common";
 import {
 	pageServiceNames,
@@ -37,7 +41,6 @@ const en = {
 		},
 		dialogs: {
 			icon: {
-				defaultIcon: "mdi-close",
 				defaultTooltip: "close dialog",
 			},
 			signUpNewsletter: {
@@ -47,22 +50,46 @@ const en = {
 					service: "services",
 					pages: {
 						home: {
+							title: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage our @:common.dialogs.signUpNewsletter.toolbar.service`,
+							icon: {
+								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
+							},
 						},
 						kitchen: {
+							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage kitchen @:common.dialogs.signUpNewsletter.toolbar.service`,
+							icon: {
+								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
+							},
 						},
 						bathroom: {
+							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage bathroom @:common.dialogs.signUpNewsletter.toolbar.service`,
+							icon: {
+								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
+							},
 						},
 						newbuild: {
+							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage newbuild @:common.dialogs.signUpNewsletter.toolbar.service`,
+							icon: {
+								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
+							},
 						},
 						extension: {
+							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage extension @:common.dialogs.signUpNewsletter.toolbar.service`,
+							icon: {
+								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
+							},
 						},
 						refurbishment: {
+							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage refurbishment @:common.dialogs.signUpNewsletter.toolbar.service`,
+							icon: {
+								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
+							},
 						},
 					},
 					icon: {
@@ -179,7 +206,8 @@ const en = {
 				link: pageInfoLinks.contact,
 				images: {},
 				title: "Contact Details",
-				subtitle: "Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
+				subtitle:
+					"Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
 				message:
 					"We are committed to responding to all inquiries within 24 hours on business days. Your questions are important to us, and we will be delighted to provide you with the information you seek.",
 			},

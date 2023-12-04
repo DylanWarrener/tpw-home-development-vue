@@ -1,12 +1,9 @@
 import { createPinia, defineStore } from "pinia";
 
 // Interfaces
-import ICommonStore, {
-	ICommonState,
+import ICommonState, {
 	// Forms
 	ICommonFormsData,
-	// Dialogs
-	ICommonSignUpNewsletterDialogData,
 	// Sections
 	ICommonAvailableStyles,
 } from "@interfaces/common/interfaces-common";
@@ -47,35 +44,13 @@ import BathroomShadePNG from "@assets/png/bathrooms/bathroom-shade.jpg";
 // Extension PNGs (different styles of kitchens, using the available materials)
 // Refurbishment PNGs (different styles of kitchens, using the available materials)
 
-// Tester IMGs for dialog
-//import NewsLetterOne from "@assets/png/newsletter/newsletter-1.jpg";
-//import NewsLetterTwo from "@assets/png/newsletter/newsletter-2.jpg";
-import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
-//import NewsLetterFour from "@assets/png/newsletter/newsletter-4.jpg";
-//import NewsLetterFive from "@assets/png/newsletter/newsletter-5.jpg";
-
 const pinia = createPinia();
 
 // Main store
-export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
+export const useCommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
 	state: (): ICommonState => ({
 		//// Utility
 		asterisk: "*",
-
-		//// Dialogs
-		signUpNewsletterDialogData: {
-			src: NewsLetterThree,
-			showDialog: true,
-			toolbar: {
-				title: "",
-				message: "",
-				icon: {
-					mdi: "",
-					tooltip: "",
-					showTooltip: false,
-				},
-			},
-		},
 
 		//// Sections
 		isCanvasComponentActive: false,
@@ -240,9 +215,6 @@ export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID
 		//// Utility
 		getAsterisk: (state: ICommonState): string => state.asterisk,
 
-		//// Dialogs
-		getSignUpNewsletterDialogData: (state: ICommonState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
-
 		//// Sections
 		getIsCanvasComponentActive: (state: ICommonState): boolean => state.isCanvasComponentActive,
 		getIsBeInspiredComponentActive: (state: ICommonState): boolean => state.isBeInspiredComponentActive,
@@ -256,7 +228,8 @@ export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID
 		getAvailableBathroomStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableBathroomStyles,
 		getAvailableNewbuildStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableNewbuildStyles,
 		getAvailableExtensionStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableExtensionStyles,
-		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableRefurbishmentStyles,
+		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] =>
+			state.availableRefurbishmentStyles,
 
 		//// Forms
 		getFormsData: (state: ICommonState): ICommonFormsData => state.forms,
@@ -265,19 +238,6 @@ export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID
 		/* GETTERS */
 
 		/* SETTERS */
-		//// Dialogs
-		setSignUpNewsletterDialogData(): void {
-			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");
-
-			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.message");
-
-			// Toolbar icon
-			this.signUpNewsletterDialogData.toolbar.icon.mdi = i18nInstance.t("common.dialogs.icon.defaultIcon");
-			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
-		},
-
 		//// Sections
 		setIsCanvasComponentActive(newValue: boolean): void {
 			this.isCanvasComponentActive = newValue;
@@ -348,22 +308,34 @@ export const useCommonStore: ICommonStore = defineStore(StoreIDs.COMMON_STORE_ID
 			this.forms.signUp.title.label = i18nInstance.t("common.forms.signUp.title.label") + this.asterisk;
 
 			// First name
-			this.forms.signUp.newsletter.name.firstname.label = i18nInstance.t("common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
-			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t("common.forms.signUp.newsletter.name.firstname.placeholder");
+			this.forms.signUp.newsletter.name.firstname.label =
+				i18nInstance.t("common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
+			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t(
+				"common.forms.signUp.newsletter.name.firstname.placeholder"
+			);
 
 			// Last name
-			this.forms.signUp.newsletter.name.lastname.label = i18nInstance.t("common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
-			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t("common.forms.signUp.newsletter.name.lastname.placeholder");
+			this.forms.signUp.newsletter.name.lastname.label =
+				i18nInstance.t("common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
+			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t(
+				"common.forms.signUp.newsletter.name.lastname.placeholder"
+			);
 
 			// Email
-			this.forms.signUp.newsletter.email.label = i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
-			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t("common.forms.signUp.newsletter.email.placeholder");
+			this.forms.signUp.newsletter.email.label =
+				i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
+			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t(
+				"common.forms.signUp.newsletter.email.placeholder"
+			);
 
 			// Password
 			this.forms.signUp.password.label = i18nInstance.t("common.forms.signUp.password.label") + this.asterisk;
 			this.forms.signUp.password.placeholder = i18nInstance.t("common.forms.signUp.password.placeholder");
-			this.forms.signUp.password.repeat.label = i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
-			this.forms.signUp.password.repeat.placeholder = i18nInstance.t("common.forms.signUp.password.repeat.placeholder");
+			this.forms.signUp.password.repeat.label =
+				i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
+			this.forms.signUp.password.repeat.placeholder = i18nInstance.t(
+				"common.forms.signUp.password.repeat.placeholder"
+			);
 
 			// Date of birth
 			this.forms.signUp.dateOfBirth.label = i18nInstance.t("common.forms.signUp.dateOfBirth.label") + this.asterisk;

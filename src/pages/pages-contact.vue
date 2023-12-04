@@ -1,6 +1,5 @@
 <template>
-	<!--
-		<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
+	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #content>
 			<section-component :id="contactSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
@@ -9,7 +8,6 @@
 			</section-component>
 		</template>
 	</page-component>
-	-->
 </template>
 
 <script lang="ts">

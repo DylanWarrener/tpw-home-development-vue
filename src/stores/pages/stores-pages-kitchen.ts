@@ -3,10 +3,13 @@ import { defineStore } from "pinia";
 
 // Interfaces
 import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
-import IKitchenStore, { IKitchenState } from "@interfaces/common/pages/service/kitchen/interfaces-common-pages-service-kitchen";
+import IKitchenState from "@interfaces/common/pages/service/kitchen/interfaces-common-pages-service-kitchen";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
+
+// Data
+import { iconClose } from "@utils/text/common/icons/utils-text-common-icons";
 
 // Enums
 import { StoreIDs } from "@enums/IDs/enums-ids-stores";
@@ -14,7 +17,7 @@ import { StoreIDs } from "@enums/IDs/enums-ids-stores";
 // IMGs
 import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";
 
-const useKitchenStore: IKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
+const useKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
 	state: (): IKitchenState => ({
 		//// Dialogs
 		signUpNewsletterDialogData: {
@@ -33,7 +36,8 @@ const useKitchenStore: IKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
 	}),
 	getters: {
 		//// Dialogs
-		getSignUpNewsletterDialogData: (state: IKitchenState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
+		getSignUpNewsletterDialogData: (state: IKitchenState): ICommonSignUpNewsletterDialogData =>
+			state.signUpNewsletterDialogData,
 	},
 	actions: {
 		/* GETTERS */
@@ -42,14 +46,20 @@ const useKitchenStore: IKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
 		//// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.defaultTitle");
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
+				"common.dialogs.signUpNewsletter.toolbar.pages.kitchen.title"
+			);
 
 			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.kitchen.message");
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
+				"common.dialogs.signUpNewsletter.toolbar.pages.kitchen.message"
+			);
 
 			// Toolbar icon
-			this.signUpNewsletterDialogData.toolbar.icon.mdi = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.mdi");
-			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.icon.tooltip");
+			this.signUpNewsletterDialogData.toolbar.icon.mdi = iconClose;
+			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
+				"common.dialogs.signUpNewsletter.toolbar.pages.kitchen.icon.tooltip"
+			);
 		},
 	},
 });

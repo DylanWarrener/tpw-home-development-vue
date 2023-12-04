@@ -1,15 +1,6 @@
-import { StoreDefinition } from "pinia";
-
-// Enums
-import { StoreIDs } from "@enums/IDs/enums-ids-stores";
-
-export default interface ICommonStore extends StoreDefinition<StoreIDs.COMMON_STORE_ID, ICommonState, ICommonGetters, ICommonActions> {}
-export interface ICommonState {
+export default interface ICommonState {
 	//// Utility
 	asterisk: string;
-
-	//// Dialogs
-	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
 
 	//// Sections
 	isCanvasComponentActive: boolean;
@@ -28,56 +19,6 @@ export interface ICommonState {
 
 	//// Forms
 	forms: ICommonFormsData;
-}
-export interface ICommonGetters {
-	//// Utility
-	getAsterisk: (state: ICommonState) => string;
-
-	//// Dialogs
-	getSignUpNewsletterDialogData: (state: ICommonState) => ICommonSignUpNewsletterDialogData;
-
-	//// Sections
-	getIsCanvasComponentActive: (state: ICommonState) => boolean;
-	getIsBeInspiredComponentActive: (state: ICommonState) => boolean;
-	getIsPortfolioComponentActive: (state: ICommonState) => boolean;
-	getIsLatestNewsComponentActive: (state: ICommonState) => boolean;
-	getIsProcessOfEliminationActive: (state: ICommonState) => boolean;
-	getIsLatestReviewsComponentActive: (state: ICommonState) => boolean;
-	// Be-inspired
-	getDropdownOptions: (state: ICommonState) => string[];
-	getAvailableKitchenStyles: (state: ICommonState) => ICommonAvailableStyles[];
-	getAvailableBathroomStyles: (state: ICommonState) => ICommonAvailableStyles[];
-	getAvailableNewbuildStyles: (state: ICommonState) => ICommonAvailableStyles[];
-	getAvailableExtensionStyles: (state: ICommonState) => ICommonAvailableStyles[];
-	getAvailableRefurbishmentStyles: (state: ICommonState) => ICommonAvailableStyles[];
-
-	//// Forms
-	getFormsData: (state: ICommonState) => ICommonFormsData;
-}
-export interface ICommonActions {
-	/* GETTERS */
-
-	/* SETTERS */
-	//// Dialogs
-	setSignUpNewsletterDialogData: () => void;
-
-	//// Sections
-	setIsCanvasComponentActive: (newValue: boolean) => void;
-	setIsBeInspiredComponentActive: (newValue: boolean) => void;
-	setIsPortfolioComponentActive: (newValue: boolean) => void;
-	setIsLatestNewsComponentActive: (newValue: boolean) => void;
-	setIsProcessOfEliminationActive: (newValue: boolean) => void;
-	setIsLatestReviewsComponentActive: (newValue: boolean) => void;
-	// Be-Inspired
-	setDropdownOptions: () => void;
-	setAvailableKitchenStyles: () => void;
-	setAvailableBathroomStyles: () => void;
-	setAvailableNewbuildStyles: () => void;
-	setAvailableExtensionStyles: () => void;
-	setAvailableRefurbishmentStyles: () => void;
-
-	//// Forms
-	setFormsData: () => void;
 }
 export interface ICommonData {}
 

@@ -27,14 +27,7 @@
 			"@enums/*": ["./src/enums/*"],
 			"@styles/*": ["./src/styles/*"]
 		},
-		"typeRoots": [
-			"./src/declaration"
-			//"./node_modules/vue",
-			//"./node_modules/vuetify",
-			//"./node_modules/vue-i18n",
-			//"./node_modules/vue-router",
-			//"./node_modules/pinia"
-		],
+		"typeRoots": ["./src/declaration"],
 
 		/* Emit */
 		"noEmit": true,
@@ -49,9 +42,7 @@
 
 		/* Language and Environment */
 		"jsx": "preserve",
-		"target": "ES2020",
-		"useDefineForClassFields": true,
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"target": "ESNEXT",
 
 		/* Completeness */
 		"skipLibCheck": true

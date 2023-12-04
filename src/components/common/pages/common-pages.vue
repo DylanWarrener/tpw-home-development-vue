@@ -3,12 +3,7 @@
 		<v-row class="ma-0 pa-0">
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
-					<!-- Dialogs -->
-					<sign-up-newsletter-dialog-component :data="dialogData">
-						<template #dialog-content>
-							<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
-						</template>
-					</sign-up-newsletter-dialog-component>
+					<slot name="dialogs"></slot>
 
 					<!-- Canvas -->
 					<canvas-component
@@ -24,15 +19,27 @@
 					<slot name="content"></slot>
 
 					<!-- Be inspired -->
-					<be-inspired-component class="bg-inverted" :id="beInspiredSectionID" v-if="isBeInspiredComponentActive"></be-inspired-component>
+					<be-inspired-component
+						class="bg-inverted"
+						:id="beInspiredSectionID"
+						v-if="isBeInspiredComponentActive"
+					></be-inspired-component>
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
-					<portfolio-component class="bg-inverted" :id="portfolioSectionID" v-if="isPortfolioComponentActive"></portfolio-component>
+					<portfolio-component
+						class="bg-inverted"
+						:id="portfolioSectionID"
+						v-if="isPortfolioComponentActive"
+					></portfolio-component>
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
 
 					<!-- Latest news -->
-					<latest-news-component class="bg-inverted" :id="latestNewsSectionID" v-if="isNewsComponentActive"></latest-news-component>
+					<latest-news-component
+						class="bg-inverted"
+						:id="latestNewsSectionID"
+						v-if="isNewsComponentActive"
+					></latest-news-component>
 					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
@@ -44,7 +51,11 @@
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest reviews -->
-					<latest-reviews-component class="bg-inverted" :id="reviewsSectionID" v-if="isReviewsComponentActive"></latest-reviews-component>
+					<latest-reviews-component
+						class="bg-inverted"
+						:id="reviewsSectionID"
+						v-if="isReviewsComponentActive"
+					></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
 				</v-sheet>
 			</v-col>
@@ -65,8 +76,6 @@ import Portfolio from "@components/common/sections/portfolio/common-sections-por
 import LatestNews from "@components/uncommon/sections/latest-news/components-uncommon-sections-latest-news.vue";
 import ProcessOfElimination from "@components/uncommon/sections/process-of-elimination/components-uncommon-sections-process-of-elimination.vue";
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";
-import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vue";
-import SignUpNewsletterForm from "@components/uncommon/forms/sign-up-newsletter/uncommon-forms-sign-up-newsletter.vue";
 
 // Interfaces
 import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
@@ -83,11 +92,9 @@ export default defineComponent({
 		"latest-news-component": LatestNews,
 		"process-of-elimination-component": ProcessOfElimination,
 		"latest-reviews-component": LatestReviews,
-		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
-		"sign-up-newsletter-form-component": SignUpNewsletterForm,
 	},
 	props: {
-		dialogData: { type: Object as () => ICommonSignUpNewsletterDialogData, required: true },
+		dialogData: { type: Object as () => ICommonSignUpNewsletterDialogData, required: false },
 		src: { type: String, required: true },
 		canvasTitle: { type: String, required: true },
 		canvasSubtitle: { type: String, required: false },

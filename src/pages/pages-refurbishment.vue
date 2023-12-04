@@ -1,10 +1,13 @@
 <template>
-	<!--<page-component
-		:src="src"
-		:canvas-title="canvasTitle"
-		:canvas-subtitle="canvasSubtitle"
-		:btn-text="canvasBtnText"
-	></page-component>-->
+	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
+		<template #dialogs>
+			<sign-up-newsletter-dialog-component :data="dialogData">
+				<template #dialog-content>
+					<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
+				</template>
+			</sign-up-newsletter-dialog-component>
+		</template>
+	</page-component>
 </template>
 
 <script lang="ts">
@@ -19,12 +22,12 @@ import useGlobalEventStore from "@stores/events/stores-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
+import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vue";
+import SignUpNewsletterForm from "@components/uncommon/forms/sign-up-newsletter/uncommon-forms-sign-up-newsletter.vue";
 
 // Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 import { IRefurbishmentData } from "@interfaces/common/pages/service/refurbishment/interfaces-common-pages-service-refurbishment";
-
-// Images
-import RefurbishmentPNG from "@assets/png/refurbishments/refurbishment.jpg";
 
 // Enums
 import { BtnIDs } from "@enums/IDs/enums-ids-btn";
@@ -33,10 +36,15 @@ import { SectionIDs } from "@enums/IDs/enums-ids-section";
 // Utils
 import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
 
+// IMGs
+import RefurbishmentPNG from "@assets/png/refurbishments/refurbishment.jpg";
+
 export default defineComponent({
 	name: "refurbishment-page-component",
 	components: {
 		"page-component": Page,
+		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
+		"sign-up-newsletter-form-component": SignUpNewsletterForm,
 	},
 	data(): IRefurbishmentData {
 		return {};
@@ -56,6 +64,11 @@ export default defineComponent({
 		// IMGs
 		src(): string {
 			return RefurbishmentPNG;
+		},
+
+		// Data
+		dialogData(): ICommonSignUpNewsletterDialogData {
+			return this.storeRefurbishment.getSignUpNewsletterDialogData;
 		},
 
 		// Events
@@ -93,13 +106,16 @@ export default defineComponent({
 		return { storeCommon, storeHeader, storeRefurbishment, storeEvent };
 	},
 	created(): void {
+		/* Set inital state of store */
 		this.storeCommon.setIsCanvasComponentActive(true);
 		this.storeCommon.setIsBeInspiredComponentActive(true);
 		this.storeCommon.setIsPortfolioComponentActive(true);
 		this.storeCommon.setIsLatestNewsComponentActive(false);
 		this.storeCommon.setIsProcessOfEliminationActive(false);
 		this.storeCommon.setIsLatestReviewsComponentActive(false);
+
+		/* Set inital localisation data in store */
+		this.storeRefurbishment.setSignUpNewsletterDialogData();
 	},
 });
 </script>
-@src/interfaces/common/pages/refurbishment/interfaces-refurbishment

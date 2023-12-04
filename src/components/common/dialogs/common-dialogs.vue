@@ -16,7 +16,12 @@
 						<v-toolbar color="accent" :title="titleAndMessage">
 							<v-tooltip location="bottom" v-model="data.toolbar.icon.showTooltip">
 								<template #activator="{ props }">
-									<v-btn icon class="text-inverted" v-bind="props" @click.stop="data.showDialog = !data.showDialog">
+									<v-btn
+										icon
+										class="text-inverted"
+										v-bind="props"
+										@click.stop="data.showDialog = !data.showDialog"
+									>
 										<v-icon>{{ data.toolbar.icon.mdi }}</v-icon>
 									</v-btn>
 								</template>

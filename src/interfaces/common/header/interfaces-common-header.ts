@@ -1,15 +1,9 @@
-import { StoreDefinition } from "pinia";
-
 // Interfaces
 import { ICommonPageAllIcons } from "@interfaces/common/pages/interfaces-common-pages";
 import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
 import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
 
-// Enums
-import { StoreIDs } from "@enums/IDs/enums-ids-stores";
-
-export default interface IHeaderStore extends StoreDefinition<StoreIDs.HEADER_STORE_ID, IHeaderState, IHeaderGetters, IHeaderActions> {}
-export interface IHeaderState {
+export default interface IHeaderState {
 	drawer: boolean;
 	appBarHeight: number;
 	appBarIcons: IAppBarIcons;

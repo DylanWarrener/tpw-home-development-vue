@@ -1,10 +1,8 @@
-import { StoreDefinition } from "pinia";
+// Interfaces
+import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
 
-// Enums
-import { StoreIDs } from "@enums/IDs/enums-ids-stores";
-
-export default interface IHomeStore extends StoreDefinition<StoreIDs.HOME_STORE_ID, IHomeState, IHomeGetters, IHomeActions> {}
-export interface IHomeState {}
-export interface IHomeGetters {}
-export interface IHomeActions {}
+export default interface IHomeState {
+	//// Dialogs
+	signUpNewsletterDialogData: ICommonSignUpNewsletterDialogData;
+}
 export interface IHomeData {}
