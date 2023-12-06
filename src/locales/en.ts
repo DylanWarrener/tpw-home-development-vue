@@ -2,11 +2,7 @@
 //import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
 
 // Utils text data
-import {
-	headerAppbarIconNames,
-	headerAppbarIconTooltips,
-	headerNavigationIcons,
-} from "@utils/text/common/header/utils-text-common-header";
+import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
 import { cardBtnBeInspired } from "@utils/text/common/utils-text-common";
 import {
 	pageServiceNames,
@@ -39,6 +35,11 @@ const en = {
 				},
 			},
 		},
+		validation: {
+			empty: "A value must be entered!",
+			lessThanThreeCharacters: "The value entered must be a word greater than or equal to 3 characters!",
+			greaterThanThreeWords: "The value entered must be less than or equal to 3 words!",
+		},
 		dialogs: {
 			icon: {
 				defaultTooltip: "close dialog",
@@ -57,35 +58,35 @@ const en = {
 							},
 						},
 						kitchen: {
-							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
+							title: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage kitchen @:common.dialogs.signUpNewsletter.toolbar.service`,
 							icon: {
 								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
 							},
 						},
 						bathroom: {
-							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
+							title: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage bathroom @:common.dialogs.signUpNewsletter.toolbar.service`,
 							icon: {
 								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
 							},
 						},
 						newbuild: {
-							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
+							title: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage newbuild @:common.dialogs.signUpNewsletter.toolbar.service`,
 							icon: {
 								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
 							},
 						},
 						extension: {
-							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
+							title: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage extension @:common.dialogs.signUpNewsletter.toolbar.service`,
 							icon: {
 								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
 							},
 						},
 						refurbishment: {
-							title: `@.capitalize:common.dialogs.signUpNewsletter.defaultTitle`,
+							title: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultTitle`,
 							message: `@.capitalize:common.dialogs.signUpNewsletter.toolbar.defaultMessage refurbishment @:common.dialogs.signUpNewsletter.toolbar.service`,
 							icon: {
 								tooltip: "@.capitalize:common.dialogs.icon.defaultTooltip",
@@ -206,8 +207,7 @@ const en = {
 				link: pageInfoLinks.contact,
 				images: {},
 				title: "Contact Details",
-				subtitle:
-					"Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
+				subtitle: "Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
 				message:
 					"We are committed to responding to all inquiries within 24 hours on business days. Your questions are important to us, and we will be delighted to provide you with the information you seek.",
 			},
@@ -340,27 +340,42 @@ const en = {
 			},
 		},
 		forms: {
-			messageInfo: "Required fields are marked with",
-			signUp: {
-				termsAndConditions: {
-					default: `By signing up for our newsletter, you are opting in to receive regular 
-						updates from TPW regarding the latest news on our service pages: kitchens, bathrooms, newbuilds, extensions, 
-						and refurbishments. These updates encompass promotions, new product launches, trends, 
-						company announcements, and more+. We prioritize your privacy and assure you that your personal 
-						information, including your email address, will be handled securely in accordance with our 
-						privacy policy. You have the freedom to opt out of receiving our newsletters anytime by using 
-						the 'Unsubscribe' link provided in the emails or by reaching out to our support team directly. 
-						Please note that unsubscribing might result in missing out on crucial updates and exclusive 
-						offers from TPW.`,
-					pages: {
-						home: ``,
-						kitchen: ``,
-						bathroom: ``,
-						newbuild: ``,
-						extension: ``,
-						refurbishment: ``,
-					},
+			defaultMessageInfo: "required fields are marked with",
+			defaultTermsAndConditions: `By signing up for our newsletter, you are opting in to receive regular 
+			updates from TPW regarding the latest news about {service}. These updates encompass promotions, 
+			new product launches, trends, company announcements, and more. We prioritize your privacy and 
+			assure you that your personal information, including your email address, will be handled securely 
+			in accordance with our privacy policy. You have the freedom to opt out of receiving our newsletters 
+			anytime by using the 'Unsubscribe' link provided in the emails or by reaching out to our support 
+			team directly. Please note that unsubscribing might result in missing out on crucial updates and 
+			exclusive offers from TPW.`,
+			pages: {
+				home: {
+					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
+					messageTermsAndConditions: "all our service pages: kitchens, bathrooms, newbuilds, extensions, and refurbishments",
 				},
+				kitchen: {
+					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
+					messageTermsAndConditions: "kitchens",
+				},
+				bathroom: {
+					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
+					messageTermsAndConditions: "bathrooms",
+				},
+				newbuild: {
+					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
+					messageTermsAndConditions: "newbuilds",
+				},
+				extension: {
+					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
+					messageTermsAndConditions: "extensions",
+				},
+				refurbishment: {
+					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
+					messageTermsAndConditions: "refurbishments",
+				},
+			},
+			signUp: {
 				title: {
 					titles: {
 						mr: "mr",
@@ -371,46 +386,46 @@ const en = {
 						reverand: "reverand",
 						dr: "dr",
 					},
-					label: "title",
+					label: "Title",
 				},
 				newsletter: {
 					name: {
 						firstname: {
-							label: "first name",
+							label: "First name",
 							placeholder: "your first name",
 						},
 						lastname: {
-							label: "last name",
+							label: "Last name",
 							placeholder: "your last name",
 						},
 					},
 					email: {
-						label: "email address",
+						label: "Email address",
 						placeholder: "your email address",
 					},
 				},
 				password: {
-					label: "password",
+					label: "Password",
 					placeholder: "your password",
 					repeat: {
-						label: "repeat password",
+						label: "Repeat password",
 						placeholder: "your repeated password",
 					},
 				},
 				dateOfBirth: {
-					label: "date of birth",
+					label: "Date of birth",
 					placeholder: "your date of birth (dd/mm/yyyy)",
 				},
 				telephone: {
-					label: "telephone",
+					label: "Telephone",
 					placeholder: "your telephone",
 				},
 				address: {
-					label: "address",
+					label: "Address",
 					placeholder: "your home address",
 				},
 				postcode: {
-					label: "postcode",
+					label: "Postcode",
 					placeholder: "your home postcode",
 				},
 			},

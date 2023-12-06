@@ -2,7 +2,6 @@
 	<v-text-field
 		clearable
 		persistent-clear
-		class="text-capitalize"
 		style="min-width: 55ch; min-height: 6rem"
 		hide-details="auto"
 		variant="outlined"
@@ -12,7 +11,6 @@
 		:placeholder="placeholder"
 		:hint="hint"
 		:color="color"
-		@click:clear=""
 	></v-text-field>
 </template>
 

@@ -18,42 +18,46 @@ export default interface ICommonState {
 	availableRefurbishmentStyles: ICommonAvailableStyles[];
 
 	//// Forms
-	forms: ICommonFormsData;
+	formsData: ICommonFormsData;
 }
 export interface ICommonData {}
 
 //// Forms
 export interface ICommonFormsData {
-	messageInfo: string;
-	signUp: ICommonFormsSignUpData;
-}
-export interface ICommonFormsSignUpData {
-	title: ICommonFormsSignUpTitleData;
-	newsletter: ICommonFormsSignUpNewsletterData;
-	password: ICommonFormsPropertiesPasswordData;
-	dateOfBirth: ICommonFormsPropertiesData;
-	telephone: ICommonFormsPropertiesData;
-	address: ICommonFormsPropertiesData;
-	postcode: ICommonFormsPropertiesData;
-}
-export interface ICommonFormsSignUpTitleData {
-	titles: string[];
-	label: string;
+	signUp: {
+		title: {
+			titles: string[];
+			label: string;
+			value: string;
+		};
+		newsletter: ICommonFormsSignUpNewsletterData;
+		password: ICommonFormsSignUpPasswordData;
+		dateOfBirth: ICommonFormsSignUpPropertiesData;
+		telephone: ICommonFormsSignUpPropertiesData;
+		address: ICommonFormsSignUpPropertiesData;
+		postcode: ICommonFormsSignUpPropertiesData;
+	};
 }
 export interface ICommonFormsSignUpNewsletterData {
-	name: ICommonFormsSignUpNameData;
-	email: ICommonFormsPropertiesData;
+	name: {
+		firstname: ICommonFormsSignUpPropertiesData;
+		lastname: ICommonFormsSignUpPropertiesData;
+	};
+	email: ICommonFormsSignUpPropertiesData;
 }
-export interface ICommonFormsSignUpNameData {
-	firstname: ICommonFormsPropertiesData;
-	lastname: ICommonFormsPropertiesData;
-}
-export interface ICommonFormsPropertiesData {
+export interface ICommonFormsSignUpPropertiesData {
 	label: string;
 	placeholder: string;
+	value: string;
 }
-export interface ICommonFormsPropertiesPasswordData extends ICommonFormsPropertiesData {
-	repeat: ICommonFormsPropertiesData;
+export interface ICommonFormsSignUpPasswordData extends ICommonFormsSignUpPropertiesData {
+	repeat: ICommonFormsSignUpPropertiesData;
+}
+export interface ICommonFormsPagesData {
+	signUp: {
+		messageInfo: string;
+		messageTermsAndConditions: string;
+	};
 }
 
 //// Dialogs

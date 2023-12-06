@@ -2,7 +2,13 @@ console.log("Kitchen store loaded");
 import { defineStore } from "pinia";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import {
+	//// Dialogs
+	ICommonSignUpNewsletterDialogData,
+
+	//// Forms
+	ICommonFormsPagesData,
+} from "@interfaces/common/interfaces-common";
 import IKitchenState from "@interfaces/common/pages/service/kitchen/interfaces-common-pages-service-kitchen";
 
 // Localisation
@@ -33,11 +39,21 @@ const useKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
 				},
 			},
 		},
+
+		//// Forms
+		formsData: {
+			signUp: {
+				messageInfo: "",
+				messageTermsAndConditions: "",
+			},
+		},
 	}),
 	getters: {
 		//// Dialogs
-		getSignUpNewsletterDialogData: (state: IKitchenState): ICommonSignUpNewsletterDialogData =>
-			state.signUpNewsletterDialogData,
+		getSignUpNewsletterDialogData: (state: IKitchenState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
+
+		//// Forms
+		getFormsData: (state: IKitchenState): ICommonFormsPagesData => state.formsData,
 	},
 	actions: {
 		/* GETTERS */
@@ -46,20 +62,24 @@ const useKitchenStore = defineStore(StoreIDs.KITCHEN_STORE_ID, {
 		//// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.kitchen.title"
-			);
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.kitchen.title");
 
 			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.kitchen.message"
-			);
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.kitchen.message");
 
 			// Toolbar icon
 			this.signUpNewsletterDialogData.toolbar.icon.mdi = iconClose;
 			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
 				"common.dialogs.signUpNewsletter.toolbar.pages.kitchen.icon.tooltip"
 			);
+		},
+
+		//// Forms
+		setFormsData(): void {
+			this.formsData.signUp.messageInfo = i18nInstance.t("common.forms.pages.kitchen.messageInfo");
+			this.formsData.signUp.messageTermsAndConditions = i18nInstance.t("common.forms.defaultTermsAndConditions", {
+				service: i18nInstance.t("common.forms.pages.kitchen.messageTermsAndConditions"),
+			});
 		},
 	},
 });

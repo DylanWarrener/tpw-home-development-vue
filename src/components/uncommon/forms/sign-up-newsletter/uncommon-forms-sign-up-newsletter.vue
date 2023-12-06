@@ -1,7 +1,7 @@
 <template>
-	<common-forms-component :msg-terms-and-conditions="msgTermsAndConditions">
+	<common-forms-component :msg-info="msgInfo" :msg-terms-and-conditions="msgTermsAndConditions">
 		<template #form-content>
-			<common-forms-sign-up-newsletter-component></common-forms-sign-up-newsletter-component>
+			<common-forms-sign-up-newsletter-component :data="formsSignUpNewsletterData"></common-forms-sign-up-newsletter-component>
 		</template>
 	</common-forms-component>
 </template>
@@ -9,9 +9,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+// Stores
+import { useCommonStore } from "@plugins/pinia/pinia";
+
 // Components
 import CommonForms from "@components/common/forms/common-forms.vue";
 import CommonFormsSignUpNewsletter from "@components/common/forms/sign-up/newsletter/common-forms-sign-up-newsletter.vue";
+
+// Interfaces
+import { ICommonFormsSignUpNewsletterData } from "@interfaces/common/interfaces-common";
 
 export default defineComponent({
 	name: "sign-up-newsletter-form-component",
@@ -19,14 +25,18 @@ export default defineComponent({
 		"common-forms-component": CommonForms,
 		"common-forms-sign-up-newsletter-component": CommonFormsSignUpNewsletter,
 	},
+	props: {
+		msgInfo: { type: String, required: true },
+		msgTermsAndConditions: { type: String, required: true },
+	},
 	computed: {
-		msgTermsAndConditions(): string {
-			return `By subscribing to our newsletter, you agree to receive periodic emails from TPW containing information about our latest
-					products, services, promotions, and company updates. We respect your privacy and assure you that your email address and
-					personal information will be handled securely and in accordance with our privacy policy. You can unsubscribe from our
-					newsletters at any time by using the 'Unsubscribe' link provided in the emails or by contacting our support team
-					directly. Please note that by unsubscribing, you may no longer receive important updates or exclusive offers from TPW.`;
+		formsSignUpNewsletterData(): ICommonFormsSignUpNewsletterData {
+			return this.storeCommon.getFormsData.signUp.newsletter;
 		},
+	},
+	setup() {
+		const storeCommon = useCommonStore();
+		return { storeCommon };
 	},
 });
 </script>

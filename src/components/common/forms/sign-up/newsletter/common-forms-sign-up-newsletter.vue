@@ -7,6 +7,8 @@
 			:prepend-inner-icon="firstnameIcon"
 			:label="data.name.firstname.label"
 			:placeholder="data.name.firstname.placeholder"
+			:rules="[isNotEmpty, isGreaterThanThreeCharacters, isLessThanThreeWords]"
+			v-model="data.name.firstname.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -18,6 +20,8 @@
 			:prepend-inner-icon="lastnameIcon"
 			:label="data.name.lastname.label"
 			:placeholder="data.name.lastname.placeholder"
+			:rules="[isNotEmpty, isGreaterThanThreeCharacters, isLessThanThreeWords]"
+			v-model="data.name.lastname.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -30,6 +34,8 @@
 			:prepend-inner-icon="emailIcon"
 			:label="data.email.label"
 			:placeholder="data.email.placeholder"
+			:rules="[isNotEmpty]"
+			v-model="data.email.value"
 		></common-text-field-component>
 	</v-col>
 </template>
@@ -46,12 +52,18 @@ import CommonTextField from "@components/common/text-field/common-text-field.vue
 // Interfaces
 import { ICommonFormsSignUpNewsletterData } from "@interfaces/common/interfaces-common";
 
+// Utils
+import { isNotEmpty, isGreaterThanThreeCharacters, isLessThanThreeWords } from "@utils/functions/validation/utils-functions-validation";
+
 export default defineComponent({
 	name: "sign-up-form-newsletter-component",
 	components: {
 		"common-text-field-component": CommonTextField,
 	},
 	props: {
+		// Input properties
+		data: { type: Object as () => ICommonFormsSignUpNewsletterData, required: true },
+
 		// First name properties
 		firstnameIcon: { type: String, required: false, default: "mdi-rename" },
 
@@ -61,10 +73,16 @@ export default defineComponent({
 		// Email properties
 		emailIcon: { type: String, required: false, default: "mdi-email" },
 	},
-	computed: {
-		// Forms data
-		data(): ICommonFormsSignUpNewsletterData {
-			return this.storeCommon.getFormsData.signUp.newsletter;
+	methods: {
+		// Validation
+		isNotEmpty(newValue: string): boolean | string {
+			return isNotEmpty(this.$t, newValue);
+		},
+		isGreaterThanThreeCharacters(newValue: string): boolean | string {
+			return isGreaterThanThreeCharacters(this.$t, newValue);
+		},
+		isLessThanThreeWords(newValue: string): boolean | string {
+			return isLessThanThreeWords(this.$t, newValue);
 		},
 	},
 	setup() {

@@ -2,7 +2,13 @@ console.log("Home store loaded");
 import { defineStore } from "pinia";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import {
+	//// Dialogs
+	ICommonSignUpNewsletterDialogData,
+
+	//// Forms
+	ICommonFormsPagesData,
+} from "@interfaces/common/interfaces-common";
 import IHomeState from "@interfaces/common/pages/info/home/interfaces-common-pages-info-home";
 
 // Localisation
@@ -33,11 +39,21 @@ const useHomeStore = defineStore(StoreIDs.HOME_STORE_ID, {
 				},
 			},
 		},
+
+		//// Forms
+		formsData: {
+			signUp: {
+				messageInfo: "",
+				messageTermsAndConditions: "",
+			},
+		},
 	}),
 	getters: {
 		//// Dialogs
-		getSignUpNewsletterDialogData: (state: IHomeState): ICommonSignUpNewsletterDialogData =>
-			state.signUpNewsletterDialogData,
+		getSignUpNewsletterDialogData: (state: IHomeState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
+
+		//// Forms
+		getFormsData: (state: IHomeState): ICommonFormsPagesData => state.formsData,
 	},
 	actions: {
 		/* GETTERS */
@@ -46,20 +62,22 @@ const useHomeStore = defineStore(StoreIDs.HOME_STORE_ID, {
 		//// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.home.title"
-			);
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.title");
 
 			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.home.message"
-			);
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.message");
 
 			// Toolbar icon
 			this.signUpNewsletterDialogData.toolbar.icon.mdi = iconClose;
-			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.home.icon.tooltip"
-			);
+			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.home.icon.tooltip");
+		},
+
+		//// Forms
+		setFormsData(): void {
+			this.formsData.signUp.messageInfo = i18nInstance.t("common.forms.pages.home.messageInfo");
+			this.formsData.signUp.messageTermsAndConditions = i18nInstance.t("common.forms.defaultTermsAndConditions", {
+				service: i18nInstance.t("common.forms.pages.home.messageTermsAndConditions"),
+			});
 		},
 	},
 });

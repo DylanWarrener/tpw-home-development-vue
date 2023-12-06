@@ -2,7 +2,13 @@ console.log("Newbuild store loaded");
 import { defineStore } from "pinia";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import {
+	//// Dialogs
+	ICommonSignUpNewsletterDialogData,
+
+	//// Forms
+	ICommonFormsPagesData,
+} from "@interfaces/common/interfaces-common";
 import INewbuildState from "@interfaces/common/pages/service/newbuild/interfaces-common-pages-service-newbuild";
 
 // Localisation
@@ -33,11 +39,21 @@ const useNewbuildStore = defineStore(StoreIDs.NEWBUILD_STORE_ID, {
 				},
 			},
 		},
+
+		//// Forms
+		formsData: {
+			signUp: {
+				messageInfo: "",
+				messageTermsAndConditions: "",
+			},
+		},
 	}),
 	getters: {
 		//// Dialogs
-		getSignUpNewsletterDialogData: (state: INewbuildState): ICommonSignUpNewsletterDialogData =>
-			state.signUpNewsletterDialogData,
+		getSignUpNewsletterDialogData: (state: INewbuildState): ICommonSignUpNewsletterDialogData => state.signUpNewsletterDialogData,
+
+		//// Forms
+		getFormsData: (state: INewbuildState): ICommonFormsPagesData => state.formsData,
 	},
 	actions: {
 		/* GETTERS */
@@ -46,20 +62,24 @@ const useNewbuildStore = defineStore(StoreIDs.NEWBUILD_STORE_ID, {
 		//// Dialogs
 		setSignUpNewsletterDialogData(): void {
 			// Toolbar title
-			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.newbuild.title"
-			);
+			this.signUpNewsletterDialogData.toolbar.title = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.newbuild.title");
 
 			// Toolbar message
-			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t(
-				"common.dialogs.signUpNewsletter.toolbar.pages.newbuild.message"
-			);
+			this.signUpNewsletterDialogData.toolbar.message = i18nInstance.t("common.dialogs.signUpNewsletter.toolbar.pages.newbuild.message");
 
 			// Toolbar icon
 			this.signUpNewsletterDialogData.toolbar.icon.mdi = iconClose;
 			this.signUpNewsletterDialogData.toolbar.icon.tooltip = i18nInstance.t(
 				"common.dialogs.signUpNewsletter.toolbar.pages.newbuild.icon.tooltip"
 			);
+		},
+
+		//// Forms
+		setFormsData(): void {
+			this.formsData.signUp.messageInfo = i18nInstance.t("common.forms.pages.newbuild.messageInfo");
+			this.formsData.signUp.messageTermsAndConditions = i18nInstance.t("common.forms.defaultTermsAndConditions", {
+				service: i18nInstance.t("common.forms.pages.newbuild.messageTermsAndConditions"),
+			});
 		},
 	},
 });

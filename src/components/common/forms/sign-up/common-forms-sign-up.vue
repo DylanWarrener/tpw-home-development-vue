@@ -6,11 +6,12 @@
 			:prepend-inner-icon="titleIcon"
 			:label="data.signUp.title.label"
 			:items="data.signUp.title.titles"
+			v-model="data.signUp.title.value"
 		></common-dropdown-component>
 	</v-col>
 
 	<!-- First name, Last name & Address -->
-	<common-forms-sign-up-newsletter></common-forms-sign-up-newsletter>
+	<common-forms-sign-up-newsletter :data="data.signUp.newsletter"></common-forms-sign-up-newsletter>
 
 	<!-- Password -->
 	<v-col>
@@ -21,6 +22,7 @@
 			:prepend-inner-icon="passwordIcon"
 			:label="data.signUp.password.label"
 			:placeholder="data.signUp.password.placeholder"
+			v-model="data.signUp.password.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -33,6 +35,7 @@
 			:prepend-inner-icon="passwordIcon"
 			:label="data.signUp.password.repeat.label"
 			:placeholder="data.signUp.password.repeat.placeholder"
+			v-model="data.signUp.password.repeat.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -44,6 +47,7 @@
 			:prepend-inner-icon="dobIcon"
 			:label="data.signUp.dateOfBirth.label"
 			:placeholder="data.signUp.dateOfBirth.placeholder"
+			v-model="data.signUp.dateOfBirth.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -55,6 +59,7 @@
 			:prepend-inner-icon="telephoneIcon"
 			:label="data.signUp.telephone.label"
 			:placeholder="data.signUp.telephone.placeholder"
+			v-model="data.signUp.telephone.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -66,6 +71,7 @@
 			:prepend-inner-icon="addressIcon"
 			:label="data.signUp.address.label"
 			:placeholder="data.signUp.address.placeholder"
+			v-model="data.signUp.address.value"
 		></common-text-field-component>
 	</v-col>
 
@@ -77,6 +83,7 @@
 			:prepend-inner-icon="postcodeIcon"
 			:label="data.signUp.postcode.label"
 			:placeholder="data.signUp.postcode.placeholder"
+			v-model="data.signUp.postcode.value"
 		></common-text-field-component>
 	</v-col>
 </template>

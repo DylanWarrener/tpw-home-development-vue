@@ -1,7 +1,7 @@
 // Plugins
 import vue from "@vitejs/plugin-vue";
 import svgLoader from "vite-svg-loader";
-import vuei18n from "@intlify/unplugin-vue-i18n/vite";
+//import vuei18n from "@intlify/unplugin-vue-i18n/vite";
 
 // Node
 import { resolve, dirname } from "node:path";
@@ -20,9 +20,9 @@ export default defineConfig({
 	plugins: [
 		vue(),
 		svgLoader(),
-		vuei18n({
-			include: resolve(dirname(fileURLToPath(import.meta.url)), "./src/locales/locales/**"),
-		}),
+		//vuei18n({
+		//include: resolve(dirname(fileURLToPath(import.meta.url)), "./src/locales/locales/**"),
+		//}),
 	],
 	resolve: {
 		alias: {

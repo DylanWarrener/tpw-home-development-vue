@@ -19,28 +19,12 @@
 					<slot name="content"></slot>
 
 					<!-- Be inspired -->
-					<be-inspired-component
-						class="bg-inverted"
-						:id="beInspiredSectionID"
-						v-if="isBeInspiredComponentActive"
-					></be-inspired-component>
+					<be-inspired-component class="bg-inverted" :id="beInspiredSectionID" v-if="isBeInspiredComponentActive"></be-inspired-component>
 					<v-divider class="divider-color" v-if="isBeInspiredComponentActive"></v-divider>
 
 					<!-- Portfolio -->
-					<portfolio-component
-						class="bg-inverted"
-						:id="portfolioSectionID"
-						v-if="isPortfolioComponentActive"
-					></portfolio-component>
+					<portfolio-component class="bg-inverted" :id="portfolioSectionID" v-if="isPortfolioComponentActive"></portfolio-component>
 					<v-divider class="divider-color" v-if="isPortfolioComponentActive"></v-divider>
-
-					<!-- Latest news -->
-					<latest-news-component
-						class="bg-inverted"
-						:id="latestNewsSectionID"
-						v-if="isNewsComponentActive"
-					></latest-news-component>
-					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 
 					<!-- Process of elimination -->
 					<process-of-elimination-component
@@ -51,12 +35,12 @@
 					<v-divider class="divider-color" v-if="isProcessOfEliminationActive"></v-divider>
 
 					<!-- Latest reviews -->
-					<latest-reviews-component
-						class="bg-inverted"
-						:id="reviewsSectionID"
-						v-if="isReviewsComponentActive"
-					></latest-reviews-component>
+					<latest-reviews-component class="bg-inverted" :id="reviewsSectionID" v-if="isReviewsComponentActive"></latest-reviews-component>
 					<v-divider class="divider-color"></v-divider>
+
+					<!-- Latest news -->
+					<latest-news-component class="bg-inverted" :id="latestNewsSectionID" v-if="isNewsComponentActive"></latest-news-component>
+					<v-divider class="divider-color" v-if="isNewsComponentActive"></v-divider>
 				</v-sheet>
 			</v-col>
 		</v-row>

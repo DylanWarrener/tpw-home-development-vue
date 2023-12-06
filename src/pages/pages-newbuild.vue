@@ -1,9 +1,12 @@
 <template>
 	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #dialogs>
-			<sign-up-newsletter-dialog-component :data="dialogData">
+			<sign-up-newsletter-dialog-component :data="dialogData" v-if="dialogData">
 				<template #dialog-content>
-					<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
+					<sign-up-newsletter-form-component
+						:msg-info="formsData.signUp.messageInfo"
+						:msg-terms-and-conditions="formsData.signUp.messageTermsAndConditions"
+					></sign-up-newsletter-form-component>
 				</template>
 			</sign-up-newsletter-dialog-component>
 		</template>
@@ -26,7 +29,13 @@ import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vu
 import SignUpNewsletterForm from "@components/uncommon/forms/sign-up-newsletter/uncommon-forms-sign-up-newsletter.vue";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import {
+	//// Dialogs
+	ICommonSignUpNewsletterDialogData,
+
+	//// Forms
+	ICommonFormsPagesData,
+} from "@interfaces/common/interfaces-common";
 import { INewbuildData } from "@interfaces/common/pages/service/newbuild/interfaces-common-pages-service-newbuild";
 
 // Enums
@@ -69,6 +78,9 @@ export default defineComponent({
 		// Data
 		dialogData(): ICommonSignUpNewsletterDialogData {
 			return this.storeNewbuild.getSignUpNewsletterDialogData;
+		},
+		formsData(): ICommonFormsPagesData {
+			return this.storeNewbuild.getFormsData;
 		},
 
 		// Events
@@ -114,8 +126,12 @@ export default defineComponent({
 		this.storeCommon.setIsProcessOfEliminationActive(false);
 		this.storeCommon.setIsLatestReviewsComponentActive(false);
 
-		/* Set inital localisation data in store */
+		/* Set inital localisation state in store */
+		//// Dialogs
 		this.storeNewbuild.setSignUpNewsletterDialogData();
+
+		//// Forms
+		this.storeNewbuild.setFormsData();
 	},
 });
 </script>

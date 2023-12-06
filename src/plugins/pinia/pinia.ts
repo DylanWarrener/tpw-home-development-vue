@@ -161,52 +161,61 @@ export const useCommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
 		],
 
 		//// Forms
-		forms: {
-			messageInfo: "",
+		formsData: {
 			signUp: {
 				title: {
 					titles: ["", "", "", "", "", "", ""],
 					label: "",
+					value: "",
 				},
 				newsletter: {
 					name: {
 						firstname: {
 							label: "",
 							placeholder: "",
+							value: "",
 						},
 						lastname: {
 							label: "",
 							placeholder: "",
+							value: "",
 						},
 					},
 					email: {
 						label: "",
 						placeholder: "",
+						value: "",
 					},
 				},
 				password: {
 					label: "",
 					placeholder: "",
+					value: "",
 					repeat: {
 						label: "",
 						placeholder: "",
+						value: "",
 					},
 				},
 				dateOfBirth: {
 					label: "",
 					placeholder: "",
+					value: "",
 				},
 				telephone: {
 					label: "",
 					placeholder: "",
+					value: "",
 				},
 				address: {
 					label: "",
 					placeholder: "",
+					value: "",
 				},
 				postcode: {
 					label: "",
 					placeholder: "",
+					value: "",
 				},
 			},
 		},
@@ -228,11 +237,10 @@ export const useCommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
 		getAvailableBathroomStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableBathroomStyles,
 		getAvailableNewbuildStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableNewbuildStyles,
 		getAvailableExtensionStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableExtensionStyles,
-		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] =>
-			state.availableRefurbishmentStyles,
+		getAvailableRefurbishmentStyles: (state: ICommonState): ICommonAvailableStyles[] => state.availableRefurbishmentStyles,
 
 		//// Forms
-		getFormsData: (state: ICommonState): ICommonFormsData => state.forms,
+		getFormsData: (state: ICommonState): ICommonFormsData => state.formsData,
 	},
 	actions: {
 		/* GETTERS */
@@ -291,9 +299,6 @@ export const useCommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
 
 		//// Forms
 		setFormsData(): void {
-			// Message info
-			this.forms.messageInfo = i18nInstance.t("common.forms.messageInfo");
-
 			// Title
 			const titles: string[] = [
 				i18nInstance.t("common.forms.signUp.title.titles.mr"),
@@ -304,54 +309,44 @@ export const useCommonStore = defineStore(StoreIDs.COMMON_STORE_ID, {
 				i18nInstance.t("common.forms.signUp.title.titles.reverand"),
 				i18nInstance.t("common.forms.signUp.title.titles.dr"),
 			];
-			this.forms.signUp.title.titles = titles;
-			this.forms.signUp.title.label = i18nInstance.t("common.forms.signUp.title.label") + this.asterisk;
+			this.formsData.signUp.title.titles = titles;
+			this.formsData.signUp.title.label = i18nInstance.t("common.forms.signUp.title.label") + this.asterisk;
 
 			// First name
-			this.forms.signUp.newsletter.name.firstname.label =
+			this.formsData.signUp.newsletter.name.firstname.label =
 				i18nInstance.t("common.forms.signUp.newsletter.name.firstname.label") + this.asterisk;
-			this.forms.signUp.newsletter.name.firstname.placeholder = i18nInstance.t(
-				"common.forms.signUp.newsletter.name.firstname.placeholder"
-			);
+			this.formsData.signUp.newsletter.name.firstname.placeholder = i18nInstance.t("common.forms.signUp.newsletter.name.firstname.placeholder");
 
 			// Last name
-			this.forms.signUp.newsletter.name.lastname.label =
+			this.formsData.signUp.newsletter.name.lastname.label =
 				i18nInstance.t("common.forms.signUp.newsletter.name.lastname.label") + this.asterisk;
-			this.forms.signUp.newsletter.name.lastname.placeholder = i18nInstance.t(
-				"common.forms.signUp.newsletter.name.lastname.placeholder"
-			);
+			this.formsData.signUp.newsletter.name.lastname.placeholder = i18nInstance.t("common.forms.signUp.newsletter.name.lastname.placeholder");
 
 			// Email
-			this.forms.signUp.newsletter.email.label =
-				i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
-			this.forms.signUp.newsletter.email.placeholder = i18nInstance.t(
-				"common.forms.signUp.newsletter.email.placeholder"
-			);
+			this.formsData.signUp.newsletter.email.label = i18nInstance.t("common.forms.signUp.newsletter.email.label") + this.asterisk;
+			this.formsData.signUp.newsletter.email.placeholder = i18nInstance.t("common.forms.signUp.newsletter.email.placeholder");
 
 			// Password
-			this.forms.signUp.password.label = i18nInstance.t("common.forms.signUp.password.label") + this.asterisk;
-			this.forms.signUp.password.placeholder = i18nInstance.t("common.forms.signUp.password.placeholder");
-			this.forms.signUp.password.repeat.label =
-				i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
-			this.forms.signUp.password.repeat.placeholder = i18nInstance.t(
-				"common.forms.signUp.password.repeat.placeholder"
-			);
+			this.formsData.signUp.password.label = i18nInstance.t("common.forms.signUp.password.label") + this.asterisk;
+			this.formsData.signUp.password.placeholder = i18nInstance.t("common.forms.signUp.password.placeholder");
+			this.formsData.signUp.password.repeat.label = i18nInstance.t("common.forms.signUp.password.repeat.label") + this.asterisk;
+			this.formsData.signUp.password.repeat.placeholder = i18nInstance.t("common.forms.signUp.password.repeat.placeholder");
 
 			// Date of birth
-			this.forms.signUp.dateOfBirth.label = i18nInstance.t("common.forms.signUp.dateOfBirth.label") + this.asterisk;
-			this.forms.signUp.dateOfBirth.placeholder = i18nInstance.t("common.forms.signUp.dateOfBirth.placeholder");
+			this.formsData.signUp.dateOfBirth.label = i18nInstance.t("common.forms.signUp.dateOfBirth.label") + this.asterisk;
+			this.formsData.signUp.dateOfBirth.placeholder = i18nInstance.t("common.forms.signUp.dateOfBirth.placeholder");
 
 			// Telephone
-			this.forms.signUp.telephone.label = i18nInstance.t("common.forms.signUp.telephone.label") + this.asterisk;
-			this.forms.signUp.telephone.placeholder = i18nInstance.t("common.forms.signUp.telephone.placeholder");
+			this.formsData.signUp.telephone.label = i18nInstance.t("common.forms.signUp.telephone.label") + this.asterisk;
+			this.formsData.signUp.telephone.placeholder = i18nInstance.t("common.forms.signUp.telephone.placeholder");
 
 			// Address
-			this.forms.signUp.address.label = i18nInstance.t("common.forms.signUp.address.label") + this.asterisk;
-			this.forms.signUp.address.placeholder = i18nInstance.t("common.forms.signUp.address.placeholder");
+			this.formsData.signUp.address.label = i18nInstance.t("common.forms.signUp.address.label") + this.asterisk;
+			this.formsData.signUp.address.placeholder = i18nInstance.t("common.forms.signUp.address.placeholder");
 
 			// Postcode
-			this.forms.signUp.postcode.label = i18nInstance.t("common.forms.signUp.postcode.label") + this.asterisk;
-			this.forms.signUp.postcode.placeholder = i18nInstance.t("common.forms.signUp.postcode.placeholder");
+			this.formsData.signUp.postcode.label = i18nInstance.t("common.forms.signUp.postcode.label") + this.asterisk;
+			this.formsData.signUp.postcode.placeholder = i18nInstance.t("common.forms.signUp.postcode.placeholder");
 		},
 	},
 });

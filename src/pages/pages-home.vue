@@ -1,9 +1,18 @@
 <template>
 	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #dialogs>
-			<sign-up-newsletter-dialog-component :data="dialogData">
+			<sign-up-newsletter-dialog-component :data="dialogData" v-if="dialogData">
 				<template #dialog-content>
-					<sign-up-newsletter-form-component></sign-up-newsletter-form-component>
+					<common-forms-component
+						:msg-info="homeSignUpFormsData.signUp.messageInfo"
+						:msg-terms-and-conditions="homeSignUpFormsData.signUp.messageTermsAndConditions"
+					>
+						<template #form-content>
+							<common-forms-sign-up-newsletter-component
+								:data="commonSignUpFormsData.signUp.newsletter"
+							></common-forms-sign-up-newsletter-component>
+						</template>
+					</common-forms-component>
 				</template>
 			</sign-up-newsletter-dialog-component>
 		</template>
@@ -24,9 +33,18 @@ import useGlobalEventStore from "@stores/events/stores-events";
 import Page from "@components/common/pages/common-pages.vue";
 import SignUpNewsletterDialog from "@components/common/dialogs/common-dialogs.vue";
 import SignUpNewsletterForm from "@components/uncommon/forms/sign-up-newsletter/uncommon-forms-sign-up-newsletter.vue";
+import CommonForm from "@components/common/forms/common-forms.vue";
+import CommonSignUpNewsletterForm from "@components/common/forms/sign-up/newsletter/common-forms-sign-up-newsletter.vue";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import {
+	//// Dialogs
+	ICommonSignUpNewsletterDialogData,
+
+	//// Forms
+	ICommonFormsData,
+	ICommonFormsPagesData,
+} from "@interfaces/common/interfaces-common";
 import { IHomeData } from "@interfaces/common/pages/info/home/interfaces-common-pages-info-home";
 
 // Enums
@@ -46,6 +64,8 @@ export default defineComponent({
 		"page-component": Page,
 		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
 		"sign-up-newsletter-form-component": SignUpNewsletterForm,
+		"common-forms-component": CommonForm,
+		"common-forms-sign-up-newsletter-component": CommonSignUpNewsletterForm,
 	},
 	data(): IHomeData {
 		return {};
@@ -70,6 +90,12 @@ export default defineComponent({
 		// Data
 		dialogData(): ICommonSignUpNewsletterDialogData {
 			return this.storeHome.getSignUpNewsletterDialogData;
+		},
+		homeSignUpFormsData(): ICommonFormsPagesData {
+			return this.storeHome.getFormsData;
+		},
+		commonSignUpFormsData(): ICommonFormsData {
+			return this.storeCommon.getFormsData;
 		},
 
 		// Events
@@ -141,8 +167,12 @@ export default defineComponent({
 		this.storeCommon.setIsProcessOfEliminationActive(true);
 		this.storeCommon.setIsLatestReviewsComponentActive(true);
 
-		/* Set inital localisation data in store */
+		/* Set inital localisation state in store */
+		//// Dialogs
 		this.storeHome.setSignUpNewsletterDialogData();
+
+		//// Forms
+		this.storeHome.setFormsData();
 	},
 });
 </script>
