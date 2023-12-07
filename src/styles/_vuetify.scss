@@ -117,6 +117,16 @@
 	}
 
 	.v-input__details {
+		//border: 2px solid yellow;
+
+		.v-messages {
+			//border: 2px solid red;
+
+			.v-messages__message {
+				//border: 2px solid blue;
+				line-height: typeography.$font_size_pc_body * 1.5;
+			}
+		}
 	}
 }
 
