@@ -19,9 +19,9 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useHeaderStore from "@stores/header/stores-header";
-import useRefurbishmentStore from "@stores/pages/stores-pages-refurbishment";
-import useGlobalEventStore from "@stores/events/stores-events";
+import useHeaderStore from "@stores/header/store-header";
+import useBathroomStore from "@stores/pages/service/store-pages-bathroom";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -35,52 +35,51 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@interfaces/common/interfaces-common";
-import { IRefurbishmentData } from "@interfaces/common/pages/service/refurbishment/interfaces-common-pages-service-refurbishment";
+} from "@declaration/common/interfaces/interface-common";
+import { IBathroomData } from "@declaration/common/interfaces/pages/service/interface-common-pages-service-bathroom";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/functions/constants-common-utils-functions";
 
 // IMGs
-import RefurbishmentPNG from "@assets/png/refurbishments/refurbishment.jpg";
+import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
 
 export default defineComponent({
-	name: "refurbishment-page-component",
+	name: "bathroom-page-component",
 	components: {
 		"page-component": Page,
 		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
 		"sign-up-newsletter-form-component": SignUpNewsletterForm,
 	},
-	data(): IRefurbishmentData {
+	data(): IBathroomData {
 		return {};
 	},
 	computed: {
 		// Text
 		canvasTitle(): string {
-			return this.$t("common.cards.canvas.pages.refurbishment.title");
+			return this.$t("common.cards.canvas.pages.bathroom.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("common.cards.canvas.pages.refurbishment.subtitle");
+			return this.$t("common.cards.canvas.pages.bathroom.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("common.cards.canvas.pages.refurbishment.btnText");
+			return this.$t("common.cards.canvas.pages.bathroom.btnText");
 		},
 
 		// IMGs
 		src(): string {
-			return RefurbishmentPNG;
+			return BathroomPNG;
 		},
 
 		// Data
 		dialogData(): ICommonSignUpNewsletterDialogData {
-			return this.storeRefurbishment.getSignUpNewsletterDialogData;
+			return this.storeBathroom.getSignUpNewsletterDialogData;
 		},
 		formsData(): ICommonFormsPagesData {
-			return this.storeRefurbishment.getFormsData;
+			return this.storeBathroom.getFormsData;
 		},
 
 		// Events
@@ -113,9 +112,9 @@ export default defineComponent({
 	setup() {
 		const storeCommon = useCommonStore();
 		const storeHeader = useHeaderStore();
-		const storeRefurbishment = useRefurbishmentStore();
+		const storeBathroom = useBathroomStore();
 		const storeEvent = useGlobalEventStore();
-		return { storeCommon, storeHeader, storeRefurbishment, storeEvent };
+		return { storeCommon, storeHeader, storeBathroom, storeEvent };
 	},
 	created(): void {
 		/* Set inital state of store */
@@ -128,11 +127,12 @@ export default defineComponent({
 
 		/* Set inital localisation state in store */
 		//// Dialogs
-		this.storeRefurbishment.setSignUpNewsletterDialogData();
+		this.storeBathroom.setSignUpNewsletterDialogData();
 
 		//// Forms
-		this.storeRefurbishment.setFormsData();
+		this.storeBathroom.setFormsData();
 	},
 });
 </script>
-@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/service/stores-pages-refurbishment
+@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/service/stores-pages-bathroom
+@src/stores/events/store-events @src/stores/header/store-header

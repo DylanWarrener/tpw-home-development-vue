@@ -18,9 +18,9 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useHeaderStore from "@stores/header/stores-header";
-import useAboutStore from "@src/stores/pages/stores-pages-about";
-import useGlobalEventStore from "@src/stores/events/stores-events";
+import useHeaderStore from "@stores/header/store-header";
+import useAboutStore from "@stores/pages/information/store-pages-about";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -28,7 +28,7 @@ import Section from "@components/common/sections/common-sections.vue";
 import CardOurTeam from "@components/uncommon/cards/team/uncommon-card-team.vue";
 
 // Interface
-import { IAboutData } from "@interfaces/common/pages/info/about/interfaces-common-pages-info-about";
+import { IAboutData } from "@declaration/common/interfaces/pages/info/interface-common-pages-info-about";
 
 // Images
 import AboutPNG from "@assets/png/about/about.jpg";
@@ -41,11 +41,10 @@ import TwitterSVG from "@assets/svg/socials/twitter.svg?raw";
 import YoutubeSVG from "@assets/svg/socials/youtube.svg?raw";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
-// Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
+// Constants
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/constants-common-utils";
 
 export default defineComponent({
 	name: "about-page-component",
@@ -162,3 +161,4 @@ export default defineComponent({
 });
 </script>
 @src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/information/stores-pages-about
+@src/stores/events/store-events @src/stores/header/store-header @src/constants/common/utils/functions/constants-common-utils

@@ -1,13 +1,13 @@
 <template>
-	<!--<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
+	<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #content>
-			<section-component :id="newSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
+			<section-component :id="contactSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<news-filter-component :filter="filter"></news-filter-component>
+					<contact-component></contact-component>
 				</template>
 			</section-component>
 		</template>
-	</page-component>-->
+	</page-component>
 </template>
 
 <script lang="ts">
@@ -16,71 +16,63 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useHeaderStore from "@stores/header/stores-header";
-import useNewsStore from "@stores/pages/stores-pages-news";
-import useGlobalEventStore from "@stores/events/stores-events";
+import useHeaderStore from "@stores/header/store-header";
+import useContactStore from "@stores/pages/information/store-pages-contact";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
 import Section from "@components/common/sections/common-sections.vue";
-//import Filter from "@components/common/filter/common-filter.vue";
+import Contact from "@components/uncommon/pages/contact/uncommon-contact.vue";
 
 // Interfaces
-import { INewsData } from "@interfaces/common/pages/info/news/interfaces-common-pages-info-news";
-//import INewsFilterState from "@interfaces/pages/news/filters/interface-news-filters";
+import { IContactData } from "@declaration/common/interfaces/pages/info/interface-common-pages-info-contact";
 
 // PNGs
-import NewsPNG from "@assets/png/about/about.jpg";
+import ContactPNG from "@assets/png/contact/contact.jpg";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/constants-common-utils";
 
 export default defineComponent({
-	name: "about-page-component",
+	name: "contact-page-component",
 	components: {
 		"page-component": Page,
 		"section-component": Section,
-		//"filter-component": Filter,
+		"contact-component": Contact,
 	},
-	data(): INewsData {
+	data(): IContactData {
 		return {};
 	},
 	computed: {
 		// IDs
-		newSectionID(): string {
-			return SectionIDs.NEWS_SECTION;
+		contactSectionID(): string {
+			return SectionIDs.CONTACT_SECTION;
 		},
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("common.cards.canvas.pages.news.title");
+			return this.$t("common.cards.canvas.pages.contact.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("common.cards.canvas.pages.news.subtitle");
+			return this.$t("common.cards.canvas.pages.contact.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("common.cards.canvas.pages.news.btnText");
+			return this.$t("common.cards.canvas.pages.contact.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("common.sections.allNews.title");
+			return this.$t("common.pages.contact.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("common.sections.allNews.subtitle");
+			return this.$t("common.pages.contact.subtitle");
 		},
-
-		// Filter data
-		/*filter(): INewsFilterState {
-			return this.storeNews.getNewsFilterOptionsState;
-		},
-		*/
 
 		// IMGs
 		src(): string {
-			return NewsPNG;
+			return ContactPNG;
 		},
 
 		// Events
@@ -98,7 +90,7 @@ export default defineComponent({
 			const eventStrOne: string = newValue;
 			const eventStrTwo: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
 
-			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.NEWS_SECTION) as HTMLDivElement;
+			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.CONTACT_SECTION) as HTMLDivElement;
 
 			if (newValue) {
 				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
@@ -113,9 +105,9 @@ export default defineComponent({
 	setup() {
 		const storeCommon = useCommonStore();
 		const storeHeader = useHeaderStore();
-		const storeNews = useNewsStore();
+		const storeContact = useContactStore();
 		const storeEvent = useGlobalEventStore();
-		return { storeCommon, storeHeader, storeNews, storeEvent };
+		return { storeCommon, storeHeader, storeContact, storeEvent };
 	},
 	created(): void {
 		this.storeCommon.setIsCanvasComponentActive(true);
@@ -127,4 +119,5 @@ export default defineComponent({
 	},
 });
 </script>
-@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/information/stores-pages-news
+@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/information/stores-pages-contact
+@src/stores/events/store-events @src/stores/header/store-header @src/constants/common/utils/functions/constants-common-utils

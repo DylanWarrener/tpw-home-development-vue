@@ -25,9 +25,9 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useHeaderStore from "@stores/header/stores-header";
-import useHomeStore from "@stores/pages/stores-pages-home";
-import useGlobalEventStore from "@stores/events/stores-events";
+import useHeaderStore from "@stores/header/store-header";
+import useHomeStore from "@stores/pages/information/store-pages-home";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -44,16 +44,15 @@ import {
 	//// Forms
 	ICommonFormsData,
 	ICommonFormsPagesData,
-} from "@interfaces/common/interfaces-common";
-import { IHomeData } from "@interfaces/common/pages/info/home/interfaces-common-pages-info-home";
+} from "@declaration/common/interfaces/interface-common";
+import { IHomeData } from "@declaration/common/interfaces/pages/info/interface-common-pages-info-home";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
-import { pageAllNames } from "@utils/text/common/pages/utils-text-common-pages";
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/functions/constants-common-utils-functions";
+import { pageAllNames } from "@constants/common/utils/objects/constants-common-utils-objects";
 
 // IMGs
 import HomePNG from "@assets/png/home/home.jpg";
@@ -176,4 +175,4 @@ export default defineComponent({
 	},
 });
 </script>
-@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/information/stores-pages-home
+@src/constants/common/utils/functions/constants-common-utils

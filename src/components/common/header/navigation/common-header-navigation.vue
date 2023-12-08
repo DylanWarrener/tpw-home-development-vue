@@ -30,3 +30,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/stores/header/store-header

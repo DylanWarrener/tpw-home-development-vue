@@ -46,4 +46,4 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/footer/interfaces-footer @src/interfaces/common/footer/interfaces-common-footer
+@src/interfaces/common/footer/interfaces-footer @src/interfaces/common/footer/interfaces-common-footer @src/stores/events/store-events

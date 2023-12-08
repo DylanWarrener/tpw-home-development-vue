@@ -19,7 +19,7 @@ import Header from "@components/common/header/common-header.vue";
 import Footer from "@components/common/footer/common-footer.vue";
 
 // Interfaces
-import { ICommonData } from "@interfaces/common/interfaces-common";
+import { ICommonData } from "@declaration/common/interfaces/interface-common";
 
 export default defineComponent({
 	name: "app-component",

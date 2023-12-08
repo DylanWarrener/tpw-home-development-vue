@@ -1,17 +1,9 @@
 <template>
 	<!--<page-component :src="src" :canvas-title="canvasTitle" :canvas-subtitle="canvasSubtitle" :btn-text="canvasBtnText">
 		<template #content>
-			<section-component :id="reviewsSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
+			<section-component :id="newSectionID" :title="sectionTitle" :subtitle="sectionSubtitle">
 				<template #content>
-					<div>
-						<p>Body text</p>
-						<h1>Promotional titles</h1>
-						<h2>Title</h2>
-						<h3>Subtitle</h3>
-						<h4>Section title</h4>
-						<h5>Subsection titles</h5>
-						<h6>Quotes / info</h6>
-					</div>
+					<news-filter-component :filter="filter"></news-filter-component>
 				</template>
 			</section-component>
 		</template>
@@ -24,64 +16,68 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useHeaderStore from "@stores/header/stores-header";
-import useReviewsStore from "@stores/pages/stores-pages-reveiws";
-import useGlobalEventStore from "@stores/events/stores-events";
+import useHeaderStore from "@stores/header/store-header";
+import useNewsStore from "@stores/pages/information/store-pages-news";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
 import Section from "@components/common/sections/common-sections.vue";
-import Reviews from "@components/uncommon/pages/reviews/uncommon-reviews.vue";
 
 // Interfaces
-import { IReviewsData } from "@interfaces/common/pages/info/reviews/interfaces-common-pages-info-reviews";
+import { INewsData } from "@declaration/common/interfaces/pages/info/interface-common-pages-info-news";
 
-// Images
-import ReviewsPNG from "@assets/png/reviews/reviews.jpg";
+// PNGs
+import NewsPNG from "@assets/png/about/about.jpg";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/functions/constants-common-utils-functions";
 
 export default defineComponent({
-	name: "reviews-page-component",
+	name: "about-page-component",
 	components: {
 		"page-component": Page,
 		"section-component": Section,
-		"reviews-component": Reviews,
+		//"filter-component": Filter,
 	},
-	data(): IReviewsData {
+	data(): INewsData {
 		return {};
 	},
 	computed: {
 		// IDs
-		reviewsSectionID(): string {
-			return SectionIDs.REVIEWS_SECTION;
+		newSectionID(): string {
+			return SectionIDs.NEWS_SECTION;
 		},
 
 		// Text
 		canvasTitle(): string {
-			return this.$t("common.cards.canvas.pages.reviews.title");
+			return this.$t("common.cards.canvas.pages.news.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("common.cards.canvas.pages.reviews.subtitle");
+			return this.$t("common.cards.canvas.pages.news.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("common.cards.canvas.pages.reviews.btnText");
+			return this.$t("common.cards.canvas.pages.news.btnText");
 		},
 		sectionTitle(): string {
-			return this.$t("common.sections.allReviews.title");
+			return this.$t("common.sections.allNews.title");
 		},
 		sectionSubtitle(): string {
-			return this.$t("common.sections.allReviews.subtitle");
+			return this.$t("common.sections.allNews.subtitle");
 		},
 
-		// IMG's
+		// Filter data
+		/*filter(): INewsFilterState {
+			return this.storeNews.getNewsFilterOptionsState;
+		},
+		*/
+
+		// IMGs
 		src(): string {
-			return ReviewsPNG;
+			return NewsPNG;
 		},
 
 		// Events
@@ -99,7 +95,7 @@ export default defineComponent({
 			const eventStrOne: string = newValue;
 			const eventStrTwo: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
 
-			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.REVIEWS_SECTION) as HTMLDivElement;
+			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.NEWS_SECTION) as HTMLDivElement;
 
 			if (newValue) {
 				const areEventsEqual: boolean = compareEventStrings(eventStrOne, eventStrTwo);
@@ -114,9 +110,9 @@ export default defineComponent({
 	setup() {
 		const storeCommon = useCommonStore();
 		const storeHeader = useHeaderStore();
-		const storeReviews = useReviewsStore();
+		const storeNews = useNewsStore();
 		const storeEvent = useGlobalEventStore();
-		return { storeCommon, storeHeader, storeReviews, storeEvent };
+		return { storeCommon, storeHeader, storeNews, storeEvent };
 	},
 	created(): void {
 		this.storeCommon.setIsCanvasComponentActive(true);
@@ -128,5 +124,5 @@ export default defineComponent({
 	},
 });
 </script>
-@src/interfaces/common/pages/reviews/interfaces-reviews @src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section
-@src/stores/pages/information/stores-pages-reveiws
+@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/information/stores-pages-news
+@src/stores/events/store-events @src/stores/header/store-header

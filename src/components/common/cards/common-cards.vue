@@ -85,3 +85,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/stores/events/store-events

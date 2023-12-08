@@ -19,9 +19,9 @@ import { RouteRecordName } from "vue-router";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useHeaderStore from "@stores/header/stores-header";
-import useBathroomStore from "@stores/pages/stores-pages-bathroom";
-import useGlobalEventStore from "@stores/events/stores-events";
+import useHeaderStore from "@stores/header/store-header";
+import useNewbuildStore from "@stores/pages/service/store-pages-newbuild";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
 import Page from "@components/common/pages/common-pages.vue";
@@ -35,52 +35,51 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@interfaces/common/interfaces-common";
-import { IBathroomData } from "@interfaces/common/pages/service/bathroom/interfaces-common-pages-service-bathroom";
+} from "@declaration/common/interfaces/interface-common";
+import { INewbuildData } from "@declaration/common/interfaces/pages/service/interface-common-pages-service-newbuild";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@utils/functions/utils-functions";
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/functions/constants-common-utils-functions";
 
 // IMGs
-import BathroomPNG from "@assets/png/bathrooms/bathroom.jpg";
+import NewbuildPNG from "@assets/png/newbuilds/newbuild.jpg";
 
 export default defineComponent({
-	name: "bathroom-page-component",
+	name: "newbuild-page-component",
 	components: {
 		"page-component": Page,
 		"sign-up-newsletter-dialog-component": SignUpNewsletterDialog,
 		"sign-up-newsletter-form-component": SignUpNewsletterForm,
 	},
-	data(): IBathroomData {
+	data(): INewbuildData {
 		return {};
 	},
 	computed: {
 		// Text
 		canvasTitle(): string {
-			return this.$t("common.cards.canvas.pages.bathroom.title");
+			return this.$t("common.cards.canvas.pages.newbuild.title");
 		},
 		canvasSubtitle(): string {
-			return this.$t("common.cards.canvas.pages.bathroom.subtitle");
+			return this.$t("common.cards.canvas.pages.newbuild.subtitle");
 		},
 		canvasBtnText(): string {
-			return this.$t("common.cards.canvas.pages.bathroom.btnText");
+			return this.$t("common.cards.canvas.pages.newbuild.btnText");
 		},
 
 		// IMGs
 		src(): string {
-			return BathroomPNG;
+			return NewbuildPNG;
 		},
 
 		// Data
 		dialogData(): ICommonSignUpNewsletterDialogData {
-			return this.storeBathroom.getSignUpNewsletterDialogData;
+			return this.storeNewbuild.getSignUpNewsletterDialogData;
 		},
 		formsData(): ICommonFormsPagesData {
-			return this.storeBathroom.getFormsData;
+			return this.storeNewbuild.getFormsData;
 		},
 
 		// Events
@@ -113,9 +112,9 @@ export default defineComponent({
 	setup() {
 		const storeCommon = useCommonStore();
 		const storeHeader = useHeaderStore();
-		const storeBathroom = useBathroomStore();
+		const storeNewbuild = useNewbuildStore();
 		const storeEvent = useGlobalEventStore();
-		return { storeCommon, storeHeader, storeBathroom, storeEvent };
+		return { storeCommon, storeHeader, storeNewbuild, storeEvent };
 	},
 	created(): void {
 		/* Set inital state of store */
@@ -128,11 +127,12 @@ export default defineComponent({
 
 		/* Set inital localisation state in store */
 		//// Dialogs
-		this.storeBathroom.setSignUpNewsletterDialogData();
+		this.storeNewbuild.setSignUpNewsletterDialogData();
 
 		//// Forms
-		this.storeBathroom.setFormsData();
+		this.storeNewbuild.setFormsData();
 	},
 });
 </script>
-@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/service/stores-pages-bathroom
+@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/service/stores-pages-newbuild
+@src/stores/events/store-events @src/stores/header/store-header
