@@ -1,23 +1,19 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import IHeaderState from "@interfaces/common/header/interfaces-common-header";
-import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
-import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
+import IHeaderState from "@declaration/common/interfaces/header/interfaces-common-header";
+import IHeaderNavigationData from "@declaration/common/interfaces/header/navigation/interfaces-common-header-navigation";
+import { IAppBarIcons } from "@declaration/common/interfaces/header/appBar/interfaces-common-header-appbar";
 
 // Enums
-import { AppBarDensity } from "@enums/sizing/enums-sizing";
-import { StoreIDs } from "@enums/IDs/enums-ids-stores";
+import { AppBarDensity } from "@src/enums/common/sizing/enums-sizing";
+import { StoreIDs } from "@src/enums/common/IDs/enums-ids-stores";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
-// Utils
-import {
-	headerAppbarIcons,
-	headerAppbarIconNames,
-	headerNavigationIcons,
-} from "@utils/text/common/header/utils-text-common-header";
+// Constants
+import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@constants/common";
 import { pageAllNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
 
 const useHeaderStore = defineStore(StoreIDs.HEADER_STORE_ID, {

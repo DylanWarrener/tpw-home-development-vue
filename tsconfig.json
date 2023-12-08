@@ -11,25 +11,25 @@
 		/* Modules */
 		"module": "ESNext",
 		"moduleResolution": "node",
-		"resolveJsonModule": true,
+		//"resolveJsonModule": true,
 		"paths": {
 			"@src/*": ["./src/*"],
 			"@assets/*": ["./src/assets/*"],
 			"@components/*": ["./src/components/*"],
-			"@interfaces/*": ["./src/interfaces/*"],
+			"@constants/*": ["./src/constants/*"],
 			"@locales/*": ["./src/locales/*"],
 			"@pages/*": ["./src/pages/*"],
 			"@plugins/*": ["./src/plugins/*"],
 			"@stores/*": ["./src/stores/*"],
 			"@themes/*": ["./src/themes/*"],
 			"@utils/*": ["./src/utils/*"],
-			"@types/*": ["./src/types/*"],
+			"@declaration/*": ["./src/declaration/*"],
 			"@enums/*": ["./src/enums/*"],
 			"@styles/*": ["./src/styles/*"]
 		},
-		"typeRoots": ["./src/declaration"],
 
 		/* Emit */
+		"importsNotUsedAsValues": "remove",
 		"noEmit": true,
 		"sourceMap": true,
 
@@ -42,11 +42,11 @@
 
 		/* Language and Environment */
 		"jsx": "preserve",
-		"target": "ESNEXT",
+		"target": "ESNEXT"
 
 		/* Completeness */
-		"skipLibCheck": true
+		//"skipLibCheck": true
 	},
-	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+	"include": ["src/**/*.ts", "src/**/*.vue"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

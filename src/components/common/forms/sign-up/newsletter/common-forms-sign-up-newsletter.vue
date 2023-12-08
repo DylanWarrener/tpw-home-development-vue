@@ -7,7 +7,7 @@
 			:prepend-inner-icon="firstnameIcon"
 			:label="data.name.firstname.label"
 			:placeholder="data.name.firstname.placeholder"
-			:rules="[isNotEmpty, isGreaterThanThreeCharacters, isLessThanThreeWords]"
+			:rules="[isNameValid]"
 			v-model="data.name.firstname.value"
 		></common-text-field-component>
 	</v-col>
@@ -20,7 +20,7 @@
 			:prepend-inner-icon="lastnameIcon"
 			:label="data.name.lastname.label"
 			:placeholder="data.name.lastname.placeholder"
-			:rules="[isNotEmpty, isGreaterThanThreeCharacters, isLessThanThreeWords]"
+			:rules="[isNameValid]"
 			v-model="data.name.lastname.value"
 		></common-text-field-component>
 	</v-col>
@@ -28,13 +28,14 @@
 	<!-- Email address -->
 	<v-col>
 		<common-text-field-component
+			persistent-hint
 			class="forms_input"
 			type="email"
 			color="inverted"
 			:prepend-inner-icon="emailIcon"
 			:label="data.email.label"
 			:placeholder="data.email.placeholder"
-			:rules="[isNotEmpty]"
+			:rules="[isEmailValid]"
 			v-model="data.email.value"
 		></common-text-field-component>
 	</v-col>
@@ -53,7 +54,7 @@ import CommonTextField from "@components/common/text-field/common-text-field.vue
 import { ICommonFormsSignUpNewsletterData } from "@interfaces/common/interfaces-common";
 
 // Utils
-import { isNotEmpty, isGreaterThanThreeCharacters, isLessThanThreeWords } from "@utils/functions/validation/utils-functions-validation";
+import { isNameValid, isEmailValid } from "@utils/functions/validation/utils-functions-validation";
 
 export default defineComponent({
 	name: "sign-up-form-newsletter-component",
@@ -75,14 +76,11 @@ export default defineComponent({
 	},
 	methods: {
 		// Validation
-		isNotEmpty(newValue: string): boolean | string {
-			return isNotEmpty(this.$t, newValue);
+		isNameValid(newValue: string): boolean | string {
+			return isNameValid(this.$t, newValue);
 		},
-		isGreaterThanThreeCharacters(newValue: string): boolean | string {
-			return isGreaterThanThreeCharacters(this.$t, newValue);
-		},
-		isLessThanThreeWords(newValue: string): boolean | string {
-			return isLessThanThreeWords(this.$t, newValue);
+		isEmailValid(newValue: string): boolean | string {
+			return isEmailValid(this.$t, newValue);
 		},
 	},
 	setup() {

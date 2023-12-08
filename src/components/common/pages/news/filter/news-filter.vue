@@ -134,3 +134,4 @@ export default defineComponent({
 	}
 }
 </style>
+@src/enums/common/enums

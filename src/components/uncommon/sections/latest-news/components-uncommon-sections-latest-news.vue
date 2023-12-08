@@ -75,3 +75,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/stores/pages/information/stores-pages-news

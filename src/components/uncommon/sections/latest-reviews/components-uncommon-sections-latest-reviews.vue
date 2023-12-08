@@ -108,3 +108,4 @@ export default defineComponent({
 	},
 });
 </script>
+@src/enums/common/IDs/enums-ids-btn @src/stores/pages/information/stores-pages-reveiws

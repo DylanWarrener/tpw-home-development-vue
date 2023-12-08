@@ -2,6 +2,7 @@
 	<v-text-field
 		clearable
 		persistent-clear
+		persistent-counter
 		style="min-width: 55ch; min-height: 6rem"
 		hide-details="auto"
 		variant="outlined"
