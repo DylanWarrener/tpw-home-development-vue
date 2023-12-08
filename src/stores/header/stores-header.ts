@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import IHeaderState from "@declaration/common/interfaces/header/interfaces-common-header";
+import IHeaderState from "@src/declaration/common/interfaces/header/interface-common-header";
 import IHeaderNavigationData from "@declaration/common/interfaces/header/navigation/interfaces-common-header-navigation";
 import { IAppBarIcons } from "@declaration/common/interfaces/header/appBar/interfaces-common-header-appbar";
 

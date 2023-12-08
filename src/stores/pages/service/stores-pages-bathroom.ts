@@ -7,7 +7,7 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@declaration/common/interfaces/interfaces-common";
+} from "@src/declaration/common/interfaces/interface-common";
 import IBathroomState from "@declaration/common/interfaces/pages/service/bathroom/interfaces-common-pages-service-bathroom";
 
 // Localisation

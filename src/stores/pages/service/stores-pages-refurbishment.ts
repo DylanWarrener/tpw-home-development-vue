@@ -7,7 +7,7 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@declaration/common/interfaces/interfaces-common";
+} from "@src/declaration/common/interfaces/interface-common";
 import IRefurbishmentState from "@declaration/common/interfaces/pages/service/refurbishment/interfaces-common-pages-service-refurbishment";
 
 // Localisation

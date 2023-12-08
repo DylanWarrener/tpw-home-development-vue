@@ -4,7 +4,7 @@ import {
 	IContactState,
 	IContactInfoState,
 	IContactFormState,
-} from "@declaration/common/interfaces/pages/info/contact/interfaces-common-pages-info-contact";
+} from "@src/declaration/common/interfaces/pages/info/interface-common-pages-info-contact";
 
 const useContactStore = defineStore("contact-store", {
 	state: (): IContactState => ({

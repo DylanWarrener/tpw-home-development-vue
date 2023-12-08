@@ -7,7 +7,7 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@declaration/common/interfaces/interfaces-common";
+} from "@src/declaration/common/interfaces/interface-common";
 import IExtensionState from "@declaration/common/interfaces/pages/service/extension/interfaces-common-pages-service-extension";
 
 // Localisation

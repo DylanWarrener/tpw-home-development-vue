@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import IAboutState from "@declaration/common/interfaces/pages/info/about/interfaces-common-pages-info-about";
+import IAboutState from "@src/declaration/common/interfaces/pages/info/interface-common-pages-info-about";
 
 // Images
 import Face1JPG from "@assets/png/about/faces/face-1.jpg";

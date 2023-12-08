@@ -7,7 +7,7 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@declaration/common/interfaces/interfaces-common";
+} from "@src/declaration/common/interfaces/interface-common";
 import INewbuildState from "@declaration/common/interfaces/pages/service/newbuild/interfaces-common-pages-service-newbuild";
 
 // Localisation

@@ -7,8 +7,8 @@ import {
 
 	//// Forms
 	ICommonFormsPagesData,
-} from "@declaration/common/interfaces/interfaces-common";
-import IHomeState from "@declaration/common/interfaces/pages/info/home/interfaces-common-pages-info-home";
+} from "@src/declaration/common/interfaces/interface-common";
+import IHomeState from "@src/declaration/common/interfaces/pages/info/interface-common-pages-info-home";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";

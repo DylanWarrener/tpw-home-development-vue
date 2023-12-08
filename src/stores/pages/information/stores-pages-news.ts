@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import INewsState from "@declaration/common/interfaces/pages/info/news/interfaces-common-pages-info-news";
+import INewsState from "@src/declaration/common/interfaces/pages/info/interface-common-pages-info-news";
 //import INewsDropdownState from "@interfaces/news/dropdown/interface-news-dropdown";
 //import INewsSectionsState from "@src/interfaces/news/sections/interface-news-sections";
 //import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
