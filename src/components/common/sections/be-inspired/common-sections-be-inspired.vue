@@ -63,11 +63,11 @@ import Carousel from "@components/common/carousel/common-carousel.vue";
 import Dropdown from "@components/common/dropdown/common-dropdown.vue";
 
 // Interface
-import ISectionBeInspiredData from "@interfaces/common/sections/be-inspired/interfaces-common-sections-be-inspired";
-import { ICommonAvailableStyles } from "@interfaces/common/interfaces-common";
+import { ISectionBeInspiredData } from "@declaration/common/interfaces/sections/interface-common-sections";
+import { ICommonAvailableStyles } from "@declaration/common/interfaces/interface-common";
 
-// Utils
-import { pageServiceNames } from "@utils/text/common/pages/utils-text-common-pages";
+// Constants
+import { pageServiceNames } from "@constants/common/objects/constants-common-utils-objects";
 
 // Kitchen PNGs
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";

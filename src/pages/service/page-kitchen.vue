@@ -20,7 +20,7 @@ import { RouteRecordName } from "vue-router";
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
 import useHeaderStore from "@stores/header/store-header";
-import useKitchenStore from "@stores/pages/service/store-pages-kitchen";
+import useKitchenStore from "@stores/pages/service/store-pages-service-kitchen";
 import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
@@ -42,7 +42,7 @@ import { IKitchenData } from "@declaration/common/interfaces/pages/service/inter
 import { BtnIDs, SectionIDs } from "@enums/common/enums";
 
 // Utils
-import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/utils/functions/constants-common-utils-functions";
+import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/functions/constants-common-utils-functions";
 
 // IMGs
 import KitchenPNG from "@assets/png/kitchens/kitchen.jpg";
@@ -135,4 +135,4 @@ export default defineComponent({
 });
 </script>
 @src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/service/stores-pages-kitchen
-@src/stores/events/store-events @src/stores/header/store-header
+@src/stores/events/store-events @src/stores/header/store-header @src/stores/pages/service/store-pages-service-kitchen

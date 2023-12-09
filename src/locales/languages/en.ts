@@ -2,8 +2,11 @@
 //import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
 
 // Utils text data
-import { headerAppbarIconNames, headerAppbarIconTooltips, headerNavigationIcons } from "@utils/text/common/header/utils-text-common-header";
-import { cardBtnBeInspired } from "@utils/text/common/utils-text-common";
+import {
+	headerAppbarIconNames,
+	headerAppbarIconTooltips,
+	headerNavigationIcons,
+} from "@constants/common/objects/header/constants-common-objects-header";
 import {
 	pageServiceNames,
 	pageInfoNames,
@@ -11,7 +14,8 @@ import {
 	pageInfoLinks,
 	pageAllNames,
 	pageAllLinks,
-} from "@src/utils/text/common/pages/utils-text-common-pages";
+} from "@constants/common/objects/constants-common-utils-objects";
+import { cardBtnBeInspired } from "@constants/common/primitive/constants-common-primitive";
 
 // Vuetify's default messages
 import defaultText from "vuetify/lib/locale/en.mjs";

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import { IFooterState, IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/common/footer/interfaces-common-footer";
+import IFooterState from "@declaration/common/interfaces/footer/interface-common-footer";
 
 // SVGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
@@ -113,11 +113,7 @@ const useFooterStore = defineStore("footerStore", {
 			},
 		},
 	}),
-	getters: {
-		getFirstColData: (state): IFooterFirstColData => state.data.firstCol,
-		getSecondColData: (state): IFooterSecondColData => state.data.secondCol,
-		getThirdColData: (state): IFooterThirdColData => state.data.thirdCol,
-	},
+	getters: {},
 	actions: {},
 });
 

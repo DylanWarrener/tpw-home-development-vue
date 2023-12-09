@@ -15,11 +15,11 @@ import { defineComponent } from "vue";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useFooterStore from "@src/stores/footer/stores-footer";
-import useGlobalEventStore from "@src/stores/events/stores-events";
+import useFooterStore from "@stores/footer/store-footer";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Interfaces
-import { IFooterData } from "@interfaces/common/footer/interfaces-common-footer";
+import { IFooterData } from "@declaration/common/interfaces/footer/interface-common-footer";
 //import { IFooterData, IFooterFirstColData, IFooterSecondColData, IFooterThirdColData } from "@interfaces/footer/interface-footer";
 
 export default defineComponent({

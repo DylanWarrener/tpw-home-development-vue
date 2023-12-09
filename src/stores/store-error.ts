@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-const useErrorStore = defineStore("errorStore", {
+const useErrorStore = defineStore("error-store", {
 	state() {
 		return {};
 	},

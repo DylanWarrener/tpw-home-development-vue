@@ -1,20 +1,17 @@
 import { defineStore } from "pinia";
 
 // Interfaces
-import IHeaderState from "@src/declaration/common/interfaces/header/interface-common-header";
-import IHeaderNavigationData from "@declaration/common/interfaces/header/navigation/interfaces-common-header-navigation";
-import { IAppBarIcons } from "@declaration/common/interfaces/header/appBar/interfaces-common-header-appbar";
+import IHeaderState, { IHeaderAppBarIcons, IHeaderNavigationData } from "@declaration/common/interfaces/header/interface-common-header";
 
 // Enums
-import { AppBarDensity } from "@src/enums/common/sizing/enums-sizing";
-import { StoreIDs } from "@src/enums/common/IDs/enums-ids-stores";
+import { AppBarDensity, StoreIDs } from "@enums/common/enums";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
 // Constants
-import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@constants/common";
-import { pageAllNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
+import { headerAppbarIcons, headerAppbarIconNames, headerNavigationIcons } from "@constants/common/objects/header/constants-common-objects-header";
+import { pageAllNamesAsArrayKeys } from "@constants/common/arrays/constants-common-utils-arrays";
 
 const useHeaderStore = defineStore(StoreIDs.HEADER_STORE_ID, {
 	state: (): IHeaderState => ({
@@ -118,7 +115,7 @@ const useHeaderStore = defineStore(StoreIDs.HEADER_STORE_ID, {
 		//// App bar
 		getDrawer: (state: IHeaderState): boolean => state.drawer,
 		getAppBarHeight: (state: IHeaderState): number => state.appBarHeight,
-		getAllAppBarIcons: (state: IHeaderState): IAppBarIcons => state.appBarIcons,
+		getAllAppBarIcons: (state: IHeaderState): IHeaderAppBarIcons => state.appBarIcons,
 		getNavigationItems: (state: IHeaderState): IHeaderNavigationData[] => state.navigation,
 	},
 	actions: {

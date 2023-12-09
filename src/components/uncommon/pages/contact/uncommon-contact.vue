@@ -23,7 +23,7 @@ import { defineComponent } from "vue";
 //import ContactForm from "@components/containers/contact/contact-form.vue";
 
 // Stores
-import useContactStore from "@stores/pages/stores-pages-contact";
+import useContactStore from "@stores/pages/info/store-pages-info-contact";
 
 // Interfaces
 //import { IContactInfoState, IContactFormState } from "@interfaces/contact/interface-contact";

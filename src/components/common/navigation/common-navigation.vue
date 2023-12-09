@@ -11,15 +11,15 @@
 import { defineComponent } from "vue";
 
 // Store
-import useHeaderStore from "@stores/header/stores-header";
+import useHeaderStore from "@stores/header/store-header";
 
 // Interface
-import IHeaderNavigation from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
+import { IHeaderNavigationData } from "@declaration/common/interfaces/header/interface-common-header";
 
 export default defineComponent({
 	name: "navigation-component",
 	props: {
-		navigation: { type: Array<IHeaderNavigation>, required: true },
+		navigation: { type: Array<IHeaderNavigationData>, required: true },
 	},
 	computed: {
 		// Read & Write

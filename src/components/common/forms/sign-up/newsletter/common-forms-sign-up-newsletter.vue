@@ -51,10 +51,10 @@ import { useCommonStore } from "@plugins/pinia/pinia";
 import CommonTextField from "@components/common/text-field/common-text-field.vue";
 
 // Interfaces
-import { ICommonFormsSignUpNewsletterData } from "@interfaces/common/interfaces-common";
+import { ICommonFormsSignUpNewsletterData } from "@declaration/common/interfaces/interface-common";
 
 // Utils
-import { isNameValid, isEmailValid } from "@utils/functions/validation/utils-functions-validation";
+import { isNameValid, isEmailValid } from "@constants/common/functions/validation/constants-common-functions-validation";
 
 export default defineComponent({
 	name: "sign-up-form-newsletter-component",

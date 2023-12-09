@@ -1,10 +1,7 @@
-// Interfaces
-import ICommonThemes from "@src/interfaces/uncommon/themes/interfaces-uncommon-themes";
-
 // Colours
-import colors from "vuetify/lib/util/colors";
+import colors from "vuetify/lib/util/colors.mjs";
 
-const colours: any = {
+const colours = {
 	primary: "#8E898D",
 	secondary: "#3C354E",
 	accent: "#7F017F",
@@ -17,7 +14,7 @@ const colours: any = {
 	orange: "#FFA500",
 };
 
-export const light: ICommonThemes = {
+export const light = {
 	dark: false,
 	colors: {
 		default: colours.black,
@@ -39,7 +36,7 @@ export const light: ICommonThemes = {
 	},
 };
 
-export const dark: ICommonThemes = {
+export const dark = {
 	dark: true,
 	colors: {
 		default: colours.white,

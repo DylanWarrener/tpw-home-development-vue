@@ -17,7 +17,7 @@ import CommonForms from "@components/common/forms/common-forms.vue";
 import CommonFormsSignUpNewsletter from "@components/common/forms/sign-up/newsletter/common-forms-sign-up-newsletter.vue";
 
 // Interfaces
-import { ICommonFormsSignUpNewsletterData } from "@interfaces/common/interfaces-common";
+import { ICommonFormsSignUpNewsletterData } from "@declaration/common/interfaces/interface-common";
 
 export default defineComponent({
 	name: "sign-up-newsletter-form-component",

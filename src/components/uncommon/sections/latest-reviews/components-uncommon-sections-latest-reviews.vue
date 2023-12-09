@@ -47,13 +47,13 @@ import Section from "@components/common/sections/common-sections.vue";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useReviewsStore from "@stores/pages/stores-pages-reveiws";
+import useReviewsStore from "@stores/pages/info/store-pages-info-reveiws";
 
 // IMGs
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
+import { BtnIDs } from "@enums/common/enums";
 
 export default defineComponent({
 	name: "reviews-component",

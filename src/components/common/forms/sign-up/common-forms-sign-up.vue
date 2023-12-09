@@ -100,7 +100,7 @@ import CommonTextField from "@components/common/text-field/common-text-field.vue
 import CommonFormsSignUp from "@components/common/forms/sign-up/newsletter/common-forms-sign-up-newsletter.vue";
 
 // Interfaces
-import { ICommonFormsData } from "@interfaces/common/interfaces-common";
+import { ICommonFormsData } from "@declaration/common/interfaces/interface-common";
 
 export default defineComponent({
 	name: "sign-up-form-component",

@@ -6,16 +6,16 @@ import ICommonState, {
 	ICommonFormsData,
 	// Sections
 	ICommonAvailableStyles,
-} from "@interfaces/common/interfaces-common";
+} from "@declaration/common/interfaces/interface-common";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 
 // Data
-import { pageServiceNamesAsArrayKeys } from "@utils/text/common/pages/utils-text-common-pages";
+import { pageServiceNamesAsArrayKeys } from "@constants/common/arrays/constants-common-utils-arrays";
 
 // Enums
-import { StoreIDs } from "@src/enums/common/IDs/enums-ids-stores";
+import { StoreIDs } from "@enums/common/enums";
 
 // Kitchen PNGs (different styles of kitchens, using the available materials)
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";

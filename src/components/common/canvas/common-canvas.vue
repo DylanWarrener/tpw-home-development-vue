@@ -23,7 +23,7 @@ import { defineComponent } from "vue";
 import Card from "@components/common/cards/common-cards.vue";
 
 // Enums
-import { BtnIDs } from "@enums/IDs/enums-ids-btn";
+import { BtnIDs } from "@enums/common/enums";
 
 export default defineComponent({
 	name: "canvas-component",

@@ -38,7 +38,7 @@ import { defineComponent } from "vue";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
-import useNewsStore from "@src/stores/pages/stores-pages-news";
+import useNewsStore from "@stores/pages/info/store-pages-info-news";
 
 // Components
 import Section from "@components/common/sections/common-sections.vue";

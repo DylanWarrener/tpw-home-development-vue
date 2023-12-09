@@ -43,10 +43,10 @@ import { useCommonStore } from "@plugins/pinia/pinia";
 import Card from "@components/common/cards/common-cards.vue";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import { ICommonSignUpNewsletterDialogData } from "@declaration/common/interfaces/interface-common";
 
 // Enums
-import { CardBtnIDs } from "@enums/IDs/enums-ids-btn";
+import { CardBtnIDs } from "@enums/common/enums";
 
 export default defineComponent({
 	name: "dialog-component",

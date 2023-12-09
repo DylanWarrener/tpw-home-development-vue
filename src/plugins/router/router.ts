@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Utils
-import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks } from "@utils/text/common/pages/utils-text-common-pages";
+import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks } from "@constants/common/objects/constants-common-utils-objects";
 
 // Child components -> dynamically imported (only imported when requested to reduce bundle size)
-const Home = () => import("@pages/pages-home.vue");
-const Kitchens = () => import("@pages/pages-kitchen.vue");
-const Bathrooms = () => import("@pages/pages-bathroom.vue");
-const Newbuilds = () => import("@pages/pages-newbuild.vue");
-const Extensions = () => import("@pages/pages-extension.vue");
-const Refurbishments = () => import("@pages/pages-refurbishment.vue");
-const Contact = () => import("@pages/pages-contact.vue");
-const About = () => import("@pages/pages-about.vue");
-const News = () => import("@pages/pages-news.vue");
-const Reviews = () => import("@pages/pages-reviews.vue");
+const Home = () => import("@pages/info/page-home.vue");
+const Kitchens = () => import("@pages/service/page-kitchen.vue");
+const Bathrooms = () => import("@pages/service/page-bathroom.vue");
+const Newbuilds = () => import("@pages/service/page-newbuild.vue");
+const Extensions = () => import("@pages/service/page-extension.vue");
+const Refurbishments = () => import("@pages/service/page-refurbishment.vue");
+const Contact = () => import("@pages/info/page-contact.vue");
+const About = () => import("@pages/info/page-about.vue");
+const News = () => import("@pages/info/page-news.vue");
+const Reviews = () => import("@pages/info/page-reviews.vue");
 
 // Routes
 const router = createRouter({

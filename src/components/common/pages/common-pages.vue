@@ -62,10 +62,10 @@ import ProcessOfElimination from "@components/uncommon/sections/process-of-elimi
 import LatestReviews from "@components/uncommon/sections/latest-reviews/components-uncommon-sections-latest-reviews.vue";
 
 // Interfaces
-import { ICommonSignUpNewsletterDialogData } from "@interfaces/common/interfaces-common";
+import { ICommonSignUpNewsletterDialogData } from "@declaration/common/interfaces/interface-common";
 
 // Enums
-import { SectionIDs } from "@enums/IDs/enums-ids-section";
+import { SectionIDs } from "@enums/common/enums";
 
 export default defineComponent({
 	name: "page-content-component",

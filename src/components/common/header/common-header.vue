@@ -28,7 +28,7 @@ import { defineComponent } from "vue";
 import { RouteRecordName } from "vue-router";
 
 // Stores
-import useHeaderStore from "@stores/header/stores-header";
+import useHeaderStore from "@stores/header/store-header";
 
 // Components
 import HeaderNav from "@components/common/header/navigation/common-header-navigation.vue";
@@ -36,11 +36,10 @@ import Logo from "@components/common/header/navigation/logo/common-header-naviga
 import SVG from "@components/common/svg/common-svg.vue";
 
 // Interfaces
-import { IHeaderData } from "@interfaces/common/header/interfaces-common-header";
-import { IAppBarIcons } from "@interfaces/common/header/appBar/interfaces-common-header-appbar";
+import { IHeaderData, IHeaderAppBarIcons } from "@declaration/common/interfaces/header/interface-common-header";
 
 // Utils
-import { headerAppbarIconNames } from "@utils/text/common/header/utils-text-common-header";
+import { headerAppbarIconNames } from "@constants/common/objects/header/constants-common-objects-header";
 
 // IMGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
@@ -76,7 +75,7 @@ export default defineComponent({
 		iconLogoSVG(): string {
 			return LogoSVG;
 		},
-		appBarIcons(): IAppBarIcons {
+		appBarIcons(): IHeaderAppBarIcons {
 			return this.storeHeader.getAllAppBarIcons;
 		},
 

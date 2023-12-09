@@ -6,13 +6,13 @@
 import { defineComponent } from "vue";
 
 // Store
-import useHeaderStore from "@stores/header/stores-header";
+import useHeaderStore from "@stores/header/store-header";
 
 // Components
 import Nav from "@components/common/navigation/common-navigation.vue";
 
 // Interfaces
-import IHeaderNavigationData from "@interfaces/common/header/navigation/interfaces-common-header-navigation";
+import { IHeaderNavigationData } from "@declaration/common/interfaces/header/interface-common-header";
 
 export default defineComponent({
 	name: "header-navigation-component",
@@ -30,4 +30,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/stores/header/store-header

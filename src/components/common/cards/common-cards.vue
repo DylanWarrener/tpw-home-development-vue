@@ -45,13 +45,13 @@
 import { defineComponent } from "vue";
 
 // Stores
-import useGlobalEventStore from "@stores/events/stores-events";
+import useGlobalEventStore from "@stores/events/store-events";
 
 // Interfaces
 import { RouteRecordName } from "vue-router";
 
 // Utils
-import { buildEventString } from "@utils/functions/utils-functions";
+import { buildEventString } from "@constants/common/functions/constants-common-utils-functions";
 
 export default defineComponent({
 	name: "card-component",
@@ -85,4 +85,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/stores/events/store-events
