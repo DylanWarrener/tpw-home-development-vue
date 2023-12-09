@@ -1,6 +1,3 @@
-// Interfaces
-//import { ICommonLocalesVuetifyTextualData } from "@src/interfaces/common/locales/interfaces-common-locales";
-
 // Utils text data
 import {
 	headerAppbarIconNames,
