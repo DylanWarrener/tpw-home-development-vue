@@ -3,6 +3,9 @@ import { defineStore } from "pinia";
 // Interfaces
 import IFooterState from "@declaration/common/interfaces/footer/interface-common-footer";
 
+// Localisation
+import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
+
 // SVGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
 import FacebookSVG from "@assets/svg/socials/facebook.svg?raw";
@@ -11,20 +14,20 @@ import LinkedInSVG from "@assets/svg/socials/linkedin.svg?raw";
 import TwitterSVG from "@assets/svg/socials/twitter.svg?raw";
 import YoutubeSVG from "@assets/svg/socials/youtube.svg?raw";
 
-const useFooterStore = defineStore("footerStore", {
+const useFooterStore = defineStore("footer-store", {
 	state: (): IFooterState => ({
-		data: {
-			firstCol: {
+		footerData: {
+			message: "Want to keep up-date with TPW?",
+			btnText: "Subscribe",
+			logo: {
 				src: LogoSVG,
-				message: "Want to keep up-date with TPW?",
-				input: {
-					label: "Email address",
-					placeholder: "person@gmail.com",
-				},
-				btnText: "Subscribe",
 			},
-			secondCol: {
-				pageNavItems: {
+			input: {
+				label: "Email address",
+				placeholder: "person@gmail.com",
+			},
+			navigation: {
+				service: {
 					title: "Pages",
 					items: [
 						{
@@ -49,7 +52,7 @@ const useFooterStore = defineStore("footerStore", {
 						},
 					],
 				},
-				infoNavItems: {
+				info: {
 					title: "Information",
 					items: [
 						{
@@ -75,46 +78,59 @@ const useFooterStore = defineStore("footerStore", {
 					],
 				},
 			},
-			thirdCol: {
-				title: "Get in Touch",
+			contact: {
 				addressLine1: "41 Snowley Park",
 				addressLine2: "March, Peterborough",
 				addressLine3: "PE71JQ",
 				email: "email@gmail.com",
 				number: "(+44) 07464 599 396",
+			},
+			socials: {
+				title: "Get in Touch",
 				socialTitle: "Follow Us:",
-				socials: [
-					{
-						name: "Facebook",
-						link: "https://www.facebook.com/Dy1an.r.warrener/",
+				items: {
+					facebook: {
 						icon: FacebookSVG,
+						link: "https://www.facebook.com/Dy1an.r.warrener/",
+						tooltip: "",
 					},
-					{
-						name: "Instagram",
-						link: "https://www.instagram.com/d.r.w.dev/",
+					instagram: {
 						icon: InstagramSVG,
+						link: "https://www.instagram.com/d.r.w.dev/",
+						tooltip: "",
 					},
-					{
-						name: "LinkedIn",
-						link: "https://www.linkedin.com/in/dylan-w-a523a112a/",
+					linkedIn: {
 						icon: LinkedInSVG,
+						link: "https://www.linkedin.com/in/dylan-w-a523a112a/",
+						tooltip: "",
 					},
-					{
-						name: "Twitter",
-						link: "https://twitter.com/dy1anwarrener",
+					twitter: {
 						icon: TwitterSVG,
+						link: "https://twitter.com/dy1anwarrener",
+						tooltip: "",
 					},
-					{
-						name: "Youtube",
-						link: "https://www.youtube.com/channel/UCz6FdtGKQH4_bUSlvTSAcqQ",
+					youtube: {
 						icon: YoutubeSVG,
+						link: "https://www.youtube.com/channel/UCz6FdtGKQH4_bUSlvTSAcqQ",
+						tooltip: "",
 					},
-				],
+				},
+			},
+			copyright: {
+				title: "",
+				date: "",
+				location: "",
 			},
 		},
 	}),
-	getters: {},
-	actions: {},
+	getters: {
+		getFooterData: (state: IFooterState) => state.footerData,
+	},
+	actions: {
+		/* GETTERS */
+		/* SETTERS */
+		setFooterData(): void {},
+	},
 });
 
 export default useFooterStore;

@@ -17,7 +17,7 @@ import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 import { iconClose } from "@constants/common/primitive/constants-common-primitive";
 
 // Enums
-import { StoreIDs } from "@enums/common/enums";
+import { StoreIDs } from "@src/enums/common/enums-common";
 
 // IMGs
 import NewsLetterThree from "@assets/png/newsletter/newsletter-3.jpg";

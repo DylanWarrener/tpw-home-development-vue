@@ -79,4 +79,4 @@ export default defineComponent({
 	border: thin solid rgb(var(--v-theme-inverted));
 }
 </style>
-@src/enums/common/IDs/enums-ids-btn
+@src/enums/common/IDs/enums-ids-btn @src/enums/common/enums-common

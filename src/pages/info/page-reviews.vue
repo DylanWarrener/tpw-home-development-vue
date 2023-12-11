@@ -129,4 +129,4 @@ export default defineComponent({
 </script>
 @src/interfaces/common/pages/reviews/interfaces-reviews @src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section
 @src/stores/pages/information/stores-pages-reveiws @src/stores/events/store-events @src/stores/header/store-header
-@src/stores/pages/info/store-pages-reveiws
+@src/stores/pages/info/store-pages-reveiws @src/enums/common/enums-common

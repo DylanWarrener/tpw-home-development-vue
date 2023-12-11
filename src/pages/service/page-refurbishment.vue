@@ -136,3 +136,4 @@ export default defineComponent({
 </script>
 @src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/service/stores-pages-refurbishment
 @src/stores/events/store-events @src/stores/header/store-header @src/stores/pages/service/store-pages-service-refurbishment
+@src/enums/common/enums-common

@@ -138,4 +138,4 @@ export default defineComponent({
 	}
 }
 </style>
-@src/enums/common/enums
+@src/enums/common/enums @src/enums/common/enums-common

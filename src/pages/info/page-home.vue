@@ -175,4 +175,4 @@ export default defineComponent({
 	},
 });
 </script>
-@src/constants/common/utils/functions/constants-common-utils @src/stores/pages/info/store-pages-home
+@src/constants/common/utils/functions/constants-common-utils @src/stores/pages/info/store-pages-home @src/enums/common/enums-common

@@ -15,7 +15,7 @@ import { i18nInstance } from "@plugins/vuei18n/vue-i18n";
 import { pageServiceNamesAsArrayKeys } from "@constants/common/arrays/constants-common-utils-arrays";
 
 // Enums
-import { StoreIDs } from "@enums/common/enums";
+import { StoreIDs } from "@src/enums/common/enums-common";
 
 // Kitchen PNGs (different styles of kitchens, using the available materials)
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
