@@ -2,44 +2,25 @@ export default interface IFooterState {
 	footerData: IFooterStateData;
 }
 export interface IFooterStateData {
-	message: string;
-	btnText: string;
+	icons: {
+		backToTop: {
+			icon: string;
+			tooltip: string;
+			showTooltip: boolean;
+		};
+	};
+	top: IFooterStateTopSectionData;
+	middle: IFooterStateMiddleSectionData;
+	bottom: IFooterStateBottomSectionData;
+}
+export interface IFooterStateTopSectionData {
 	logo: {
 		src: string;
 	};
-	input: {
-		label: string;
-		placeholder: string;
-	};
-	navigation: {
-		service: IFooterStateNavigationData;
-		info: IFooterStateNavigationData;
-	};
-	contact: {
-		addressLine1: string;
-		addressLine2: string;
-		addressLine3: string;
-		email: string;
-		number: string;
-	};
 	socials: {
 		title: string;
-		socialTitle: string;
 		items: IFooterStateSocialItemsData;
 	};
-	copyright: {
-		title: string;
-		date: string;
-		location: string;
-	};
-}
-interface IFooterStateNavigationData {
-	title: string;
-	items: IFooterStateNavigationItemsData[];
-}
-interface IFooterStateNavigationItemsData {
-	title: string;
-	value: number;
 }
 interface IFooterStateSocialItemsData {
 	facebook: IFooterStateSocialItemsInfoData;
@@ -52,5 +33,36 @@ interface IFooterStateSocialItemsInfoData {
 	icon: string;
 	link: string;
 	tooltip: string;
+}
+export interface IFooterStateMiddleSectionData {
+	contact: {
+		title: string;
+		address: {
+			icon: string;
+			line1: string;
+			line2: string;
+			line3: string;
+		};
+		email: IFooterStateMiddleSectionPropertiesData;
+		number: IFooterStateMiddleSectionPropertiesData;
+	};
+	navigation: {
+		service: IFooterStateNavigationData;
+		information: IFooterStateNavigationData;
+	};
+}
+interface IFooterStateMiddleSectionPropertiesData {
+	icon: string;
+	value: string;
+}
+interface IFooterStateNavigationData {
+	title: string;
+	items: string[];
+}
+export interface IFooterStateBottomSectionData {
+	copyright: {
+		title: string;
+		location: string;
+	};
 }
 export interface IFooterData {}

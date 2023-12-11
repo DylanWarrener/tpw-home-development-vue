@@ -1,3 +1,35 @@
+// ---------------------------------------------------------------------------------------------------------
+// PAGES
+// ---------------------------------------------------------------------------------------------------------
+export enum Page {
+	ID = "page",
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// BUTTONS
+// ---------------------------------------------------------------------------------------------------------
+export enum Btn {
+	/* Card */
+	CANVAS_CARD_ID = "btn-canvas-card-id",
+	DIALOG_CARD_ID = "btn-dialog-card-id",
+
+	/* Sections */
+	ALL_REVIEWS_ID = "btn-all-reviews-id",
+	ALL_NEWS_ID = "btn-all-news-id",
+	CONTACT_ID = "btn-contact-id",
+	ABOUT_ID = "btn-about-id",
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// NAVIGATION
+// ---------------------------------------------------------------------------------------------------------
+export enum ExternalNavigate {
+	BLANK = "_blank",
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// OTHER
+// ---------------------------------------------------------------------------------------------------------
 export enum FilterSortBy {
 	ASCENDING,
 	DESCENDING,
@@ -5,19 +37,4 @@ export enum FilterSortBy {
 export enum FilterRefineBy {
 	TYPE = "type",
 	DATE = "date",
-}
-export enum BtnIDs {
-	CANVAS_CARD_BTN_ID = "canvas_card_btn",
-	ALL_REVIEWS_BTN_ID = "all_reviews_btn",
-	CONTACT_BTN_ID = "contact_btn",
-}
-export enum CardBtnIDs {
-	CANVAS_CARD_BTN_ID = "canvas_card_btn",
-	DIALOG_CARD_BTN_ID = "dialog_card_btn",
-}
-export enum EventNames {
-	CARD_CANVAS_BTN_CLICKED = "CardCanvasBtnClicked",
-}
-export enum ExternalNavigate {
-	BLANK = "_blank",
 }

@@ -1,109 +1,25 @@
 <template>
 	<v-container fluid class="bg-inverted container">
-		<v-row no-gutters>
-			<!-- Logo stuff -->
-			<v-col class="pa-4 d-flex flex-column justify-space-between align-center">
-				<svg-component
-					width="100%"
-					height="100px"
-					:svg-content="dataFooter.logo.src"
-					@svg-clicked="internalNavigate(txtPageHome)"
-				></svg-component>
-				<p>{{ dataFooter.message }}</p>
-				<div class="w-75">
-					<v-text-field
-						clearable
-						:label="dataFooter.input.label"
-						:placeholder="dataFooter.input.placeholder"
-						variant="underlined"
-					></v-text-field>
-					<v-btn class="w-100" variant="outlined">{{ dataFooter.btnText }}</v-btn>
-				</div>
-			</v-col>
+		<!-- Back to top icon -->
+		<div id="back-to-top-container">
+			<v-tooltip location="top" v-model="footerData.icons.backToTop.showTooltip">
+				<template #activator="{ props }">
+					<v-btn icon v-bind="props" @click.stop="scrollToElement()">
+						<v-icon>{{ footerData.icons.backToTop.icon }}</v-icon>
+					</v-btn>
+				</template>
+				<span>{{ footerData.icons.backToTop.tooltip }}</span>
+			</v-tooltip>
+		</div>
 
-			<v-divider vertical></v-divider>
+		<!-- Footer top -->
+		<footer-section-top-component :data="footerData.top"></footer-section-top-component>
 
-			<!-- Navigation stuff -->
-			<v-col class="pa-4" cols="5">
-				<v-row no-gutters class="h-100">
-					<v-col>
-						<h4 class="text-center">{{ dataFooter.navigation.service.title }}</h4>
-						<v-list density="compact" :items="dataFooter.navigation.service.items"></v-list>
-					</v-col>
-					<v-col>
-						<h4 class="text-center">{{ dataFooter.navigation.info.title }}</h4>
-						<v-list density="compact" :items="dataFooter.navigation.info.items"></v-list>
-					</v-col>
-				</v-row>
-			</v-col>
+		<!-- Footer middle -->
+		<footer-section-middle-component :data="footerData.middle"></footer-section-middle-component>
 
-			<v-divider vertical></v-divider>
-
-			<!-- Get in touch stuff -->
-			<v-col class="pa-4">
-				<h4 class="pb-2 text-center">{{ dataFooter.socials.title }}</h4>
-				<!-- Address -->
-				<v-row no-gutters>
-					<v-col class="d-flex justify-center align-center" cols="2">
-						<v-icon icon="mdi-map-marker-radius"></v-icon>
-					</v-col>
-					<v-col>
-						<p class="text-capitalize">{{ dataFooter.contact.addressLine1 }}</p>
-						<p class="text-capitalize">{{ dataFooter.contact.addressLine2 }}</p>
-						<p class="text-uppercase">{{ dataFooter.contact.addressLine3 }}</p>
-					</v-col>
-				</v-row>
-
-				<v-divider class="my-4"></v-divider>
-
-				<!-- Email -->
-				<v-row no-gutters>
-					<v-col class="d-flex justify-center align-center" cols="2">
-						<v-icon icon="mdi-email-fast"></v-icon>
-					</v-col>
-					<v-col>
-						<p>{{ dataFooter.contact.email }}</p>
-					</v-col>
-				</v-row>
-
-				<v-divider class="my-4"></v-divider>
-
-				<!-- Mobile -->
-				<v-row no-gutters>
-					<v-col class="d-flex justify-center align-center" cols="2">
-						<v-icon icon="mdi-phone"></v-icon>
-					</v-col>
-					<v-col>
-						<p>{{ dataFooter.contact.number }}</p>
-					</v-col>
-				</v-row>
-
-				<v-divider class="my-4"></v-divider>
-
-				<!-- Socials -->
-				<v-row no-gutters>
-					<p class="py-4 w-100 text-center">{{ dataFooter.socials.socialTitle }}</p>
-					<v-col class="d-flex justify-space-evenly">
-						<template v-for="social in dataFooter.socials.items">
-							<v-btn icon variant="flat" density="comfortable" @click="externalNavigate(social.link)">
-								<v-icon>
-									<template #default>
-										<svg-component :svg-content="social.icon"></svg-component>
-									</template>
-								</v-icon>
-							</v-btn>
-						</template>
-					</v-col>
-				</v-row>
-			</v-col>
-		</v-row>
-
-		<v-row no-gutters>
-			<v-col>
-				<p class="text-center">&copy; {{ new Date().getFullYear() }} {{ dataFooter.copyright.title }}</p>
-				<p class="text-center">{{ dataFooter.copyright.location }}</p>
-			</v-col>
-		</v-row>
+		<!-- Footer bottom -->
+		<footer-section-bottom-component :data="footerData.bottom"></footer-section-bottom-component>
 	</v-container>
 </template>
 
@@ -112,51 +28,81 @@ import { defineComponent } from "vue";
 
 // Stores
 import { useCommonStore } from "@plugins/pinia/pinia";
+import useHeaderStore from "@stores/header/store-header";
 import useFooterStore from "@stores/footer/store-footer";
 import useGlobalEventStore from "@stores/events/store-events";
 
 // Components
-import SVG from "@components/common/svg/common-svg.vue";
+import FooterTop from "@components/common/footer/section/top/common-footer-section-top.vue";
+import FooterMiddle from "@components/common/footer/section/middle/common-footer-section-middle.vue";
+import FooterBottom from "@components/common/footer/section/bottom/common-footer-section-bottom.vue";
 
 // Interfaces
 import { IFooterData, IFooterStateData } from "@declaration/common/interfaces/footer/interface-common-footer";
 
 // Utils
-import { pageInfoNames } from "@constants/common/objects/constants-common-utils-objects";
+import { scrollToElement } from "@constants/common/functions/constants-common-utils-functions";
+
+// Enums
+import { Page } from "@enums/common/enums-common";
 
 export default defineComponent({
 	name: "footer-component",
 	components: {
-		"svg-component": SVG,
+		"footer-section-top-component": FooterTop,
+		"footer-section-middle-component": FooterMiddle,
+		"footer-section-bottom-component": FooterBottom,
 	},
 	data(): IFooterData {
 		return {};
 	},
 	computed: {
-		// Text
-		txtPageHome(): string {
-			return pageInfoNames.home;
-		},
-
 		// Data
-		dataFooter(): IFooterStateData {
+		footerData(): IFooterStateData {
 			return this.storeFooter.getFooterData;
+		},
+		appBarHeight(): number {
+			return this.storeHeader.getAppBarHeight;
 		},
 	},
 	methods: {
 		// Utils
-		internalNavigate(routeName: string): void {
-			this.$router.push(routeName);
-		},
-		externalNavigate(url: string): void {
-			window.open(url, "_blank");
+		scrollToElement(): void {
+			const targetElement: HTMLDivElement = document.getElementById(Page.ID) as HTMLDivElement;
+			scrollToElement(targetElement.offsetTop - this.appBarHeight);
 		},
 	},
 	setup() {
 		const storeCommon = useCommonStore();
+		const storeHeader = useHeaderStore();
 		const storeFooter = useFooterStore();
 		const storeEvent = useGlobalEventStore();
-		return { storeCommon, storeFooter, storeEvent };
+		return { storeCommon, storeHeader, storeFooter, storeEvent };
+	},
+	created(): void {
+		this.storeFooter.setFooterData();
 	},
 });
 </script>
+
+<style lang="scss">
+#back-to-top-container {
+	position: fixed;
+	bottom: 1%;
+	left: 5%;
+	transform: translateX(-50%);
+
+	.v-btn {
+		background-color: rgb(var(--v-theme-accent));
+		color: rgb(var(--v-theme-inverted));
+
+		&:hover {
+			.v-icon {
+				animation-name: move-up-from-center;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
+			}
+		}
+	}
+}
+</style>

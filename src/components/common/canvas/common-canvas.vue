@@ -23,7 +23,7 @@ import { defineComponent } from "vue";
 import Card from "@components/common/cards/common-cards.vue";
 
 // Enums
-import { BtnIDs } from "@enums/common/enums";
+import { Btn } from "@enums/common/enums-common";
 
 export default defineComponent({
 	name: "canvas-component",
@@ -38,7 +38,7 @@ export default defineComponent({
 	},
 	computed: {
 		canvasCardBtnID(): string {
-			return BtnIDs.CANVAS_CARD_BTN_ID;
+			return Btn.CANVAS_CARD_ID;
 		},
 	},
 });
@@ -51,4 +51,3 @@ export default defineComponent({
 	max-height: 100vh;
 }
 </style>
-@src/enums/common/IDs/enums-ids-btn @src/enums/common/enums-common

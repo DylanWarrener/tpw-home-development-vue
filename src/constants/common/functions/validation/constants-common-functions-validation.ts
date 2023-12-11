@@ -32,7 +32,6 @@ const emailValidators = {
  * @returns {boolean|string} - True, if the value is a valid name, otherwise returns the key to the error text.
  */
 export function isNameValid(translationFunction: Function, newValue: string): boolean | string {
-	debugger;
 	let retVal: boolean | string = false;
 	if (!!newValue) {
 		for (const [_, validatorFunction] of Object.entries(nameValidators)) {
@@ -52,7 +51,6 @@ export function isNameValid(translationFunction: Function, newValue: string): bo
  * @returns {boolean|string} - True, if the value is a valid email, otherwise returns the key to the error text.
  */
 export function isEmailValid(translationFunction: Function, newValue: string): boolean | string {
-	debugger;
 	let retVal: boolean | string = false;
 	if (!!newValue) {
 		for (const [_, validatorFunction] of Object.entries(emailValidators)) {

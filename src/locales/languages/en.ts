@@ -438,18 +438,57 @@ const en = {
 			},
 		},
 		footer: {
+			icons: {
+				backToTop: {
+					tooltip: "Back to top?",
+				},
+			},
 			navigation: {
-				serviceItems: {
+				service: {
+					title: "Service",
 					names: pageServiceNames,
 					links: pageServiceLinks,
 				},
-				infoItems: {
+				information: {
+					title: "Information",
 					names: pageInfoNames,
 					links: pageInfoLinks,
 				},
 			},
-			copyrightText: "TPW Home Developments, All Rights Reserved",
-			location: "United Kingdom - Cambridgeshire - March",
+			socials: {
+				title: "Follow Us",
+				items: {
+					facebook: {
+						tooltip: "Facebook",
+					},
+					instagram: {
+						tooltip: "Instagram",
+					},
+					linkedIn: {
+						tooltip: "LinkedIn",
+					},
+					twitter: {
+						tooltip: "Twitter",
+					},
+					youtube: {
+						tooltip: "YouTube",
+					},
+				},
+			},
+			contact: {
+				title: "Get in touch?",
+				address: {
+					line1: "41 Snowley Park, March",
+					line2: "Peterborough, Cambridgeshire, UK",
+					line3: "PE7 1JQ",
+				},
+				number: "(+44) 07464 599 396",
+				email: "tpw-development@gmail.com",
+			},
+			copyright: {
+				title: "TPW Home Developments, All Rights Reserved",
+				location: "United Kingdom - Cambridgeshire - March",
+			},
 		},
 	},
 	uncommon: {

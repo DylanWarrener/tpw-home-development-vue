@@ -11,10 +11,10 @@ import {
 // PAGES
 // ---------------------------------------------------------------------------------------------------------
 export const pageServiceNamesAsArrayKeys: string[] = Object.keys(pageServiceNames).map((key) => key);
-export const pageServiceNamesAsArrayValues: string[] = Object.entries(pageServiceNames).map((array) => array[1]);
+export const PAGE_SERVICE_NAMES_AS_ARRAY_VALUES: string[] = Object.entries(pageServiceNames).map((array) => array[1]);
 export const pageServiceLinksAsArray: string[] = Object.keys(pageServiceLinks).map((key) => key);
 export const pageInfoNamesAsArrayKeys: string[] = Object.keys(pageInfoNames).map((key) => key);
-export const pageInfoNamesAsArrayValues: string[] = Object.entries(pageInfoNames).map((array) => array[1]);
+export const PAGE_INFORMATION_NAMES_AS_ARRAY_VALUES: string[] = Object.entries(pageInfoNames).map((array) => array[1]);
 export const pageInfoLinksAsArrayValues: string[] = Object.entries(pageInfoLinks).map((array) => array[1]);
 export const pageAllNamesAsArrayKeys: string[] = Object.keys(pageAllNames).map((key) => key);
 export const pageAllNamesAsArrayValues: string[] = Object.entries(pageAllNames).map((array) => array[1]);

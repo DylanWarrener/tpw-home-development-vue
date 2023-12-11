@@ -46,7 +46,7 @@ import { defineComponent } from "vue";
 //import INewsFilterState from "@interfaces/news/filters/interface-news-filters";
 
 // Enums
-import { FilterRefineBy } from "@enums/common/enums";
+import { FilterRefineBy } from "@enums/common/enums-common";
 
 export default defineComponent({
 	name: "news-filter-component",

@@ -32,7 +32,8 @@ import { IContactData } from "@declaration/common/interfaces/pages/info/interfac
 import ContactPNG from "@assets/png/contact/contact.jpg";
 
 // Enums
-import { BtnIDs, SectionIDs } from "@enums/common/enums";
+import { Btn } from "@enums/common/enums-common";
+import { SectionIDs } from "@enums/common/sections/enums-common-sections";
 
 // Utils
 import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/functions/constants-common-utils-functions";
@@ -88,7 +89,7 @@ export default defineComponent({
 			const appBarHeight: number = this.storeHeader.getAppBarHeight;
 
 			const eventStrOne: string = newValue;
-			const eventStrTwo: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
+			const eventStrTwo: string = buildEventString(pageName.toString(), Btn.CANVAS_CARD_ID);
 
 			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.CONTACT_SECTION) as HTMLDivElement;
 
@@ -119,6 +120,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/enums/common/IDs/enums-ids-btn@src/enums/common/IDs/enums-ids-section @src/stores/pages/information/stores-pages-contact
-@src/stores/events/store-events @src/stores/header/store-header @src/constants/common/utils/functions/constants-common-utils
-@src/stores/pages/info/store-pages-contact @src/enums/common/enums-common

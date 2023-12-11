@@ -41,7 +41,8 @@ import TwitterSVG from "@assets/svg/socials/twitter.svg?raw";
 import YoutubeSVG from "@assets/svg/socials/youtube.svg?raw";
 
 // Enums
-import { BtnIDs, SectionIDs } from "@enums/common/enums";
+import { Btn } from "@enums/common/enums-common";
+import { SectionIDs } from "@enums/common/sections/enums-common-sections";
 
 // Constants
 import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/functions/constants-common-utils-functions";
@@ -129,7 +130,7 @@ export default defineComponent({
 			const appBarHeight: number = this.storeHeader.getAppBarHeight;
 
 			const eventStrOne: string = newValue;
-			const eventStrTwo: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
+			const eventStrTwo: string = buildEventString(pageName.toString(), Btn.CANVAS_CARD_ID);
 
 			let targetElement: HTMLDivElement = document.getElementById(SectionIDs.ABOUT_SECTION) as HTMLDivElement;
 

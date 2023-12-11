@@ -1,5 +1,5 @@
 <template>
-	<v-container fluid class="pa-0">
+	<v-container fluid class="pa-0" :id="pageID">
 		<v-row class="ma-0 pa-0">
 			<v-col class="pa-0" cols="12">
 				<v-sheet class="w-100 h-100">
@@ -65,7 +65,8 @@ import LatestReviews from "@components/uncommon/sections/latest-reviews/componen
 import { ICommonSignUpNewsletterDialogData } from "@declaration/common/interfaces/interface-common";
 
 // Enums
-import { SectionIDs } from "@enums/common/enums";
+import { Page } from "@enums/common/enums-common";
+import { SectionIDs } from "@enums/common/sections/enums-common-sections";
 
 export default defineComponent({
 	name: "page-content-component",
@@ -86,6 +87,9 @@ export default defineComponent({
 	},
 	computed: {
 		// IDs
+		pageID(): string {
+			return Page.ID;
+		},
 		beInspiredSectionID(): string {
 			return SectionIDs.BE_INSPIRED_SECTION;
 		},

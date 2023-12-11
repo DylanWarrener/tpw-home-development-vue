@@ -177,6 +177,7 @@
 
 /* V-BTN */
 .v-btn {
+	//border: 2px solid red;
 	cursor: pointer;
 	text-transform: uppercase;
 	background-color: transparent;
@@ -198,12 +199,12 @@
 	}
 
 	span {
-		//border: 2px solid red;
+		//border: 2px solid yellow;
 		cursor: pointer;
 	}
 
 	.v-icon {
-		//border: 2px solid red;
+		//border: 2px solid blue;
 		cursor: pointer;
 	}
 
@@ -216,11 +217,14 @@
 	}
 
 	.v-btn__content {
-		//border: 2px solid red;
+		//border: 2px solid blue;
 		cursor: pointer;
-		font-size: typeography.$font_size_pc_btn;
 
 		.v-icon {
+			//border: 2px solid orange;
+			cursor: pointer;
+			fill: rgb(var(--v-theme-default));
+
 			svg {
 				cursor: pointer;
 
@@ -237,7 +241,7 @@
 
 /* V-ICONS */
 .v-icon {
-	font-size: typeography.$font_size_pc_body;
+	//font-size: typeography.$font_size_pc_body;
 }
 
 /* V-WINDOW */

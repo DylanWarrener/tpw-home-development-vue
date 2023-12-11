@@ -46,7 +46,7 @@ import Card from "@components/common/cards/common-cards.vue";
 import { ICommonSignUpNewsletterDialogData } from "@declaration/common/interfaces/interface-common";
 
 // Enums
-import { CardBtnIDs } from "@enums/common/enums";
+import { Btn } from "@enums/common/enums-common";
 
 export default defineComponent({
 	name: "dialog-component",
@@ -58,7 +58,7 @@ export default defineComponent({
 	},
 	data() {
 		return {
-			dialogCardBtnID: CardBtnIDs.DIALOG_CARD_BTN_ID,
+			dialogCardBtnID: Btn.DIALOG_CARD_ID,
 		};
 	},
 	computed: {

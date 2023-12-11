@@ -1,7 +1,10 @@
 <template>
-	<div class="clickable" :style="`width: ${width}; height: ${height}`" @click="navigateTo">
-		<svg xmlns="http://www.w3.org/2000/svg" :innerHTML="svgContent" width="100%" height="100%" :style="style"></svg>
-	</div>
+	<div
+		class="svg-container d-flex justify-center align-center"
+		:style="`width: ${width}; height: ${height}`"
+		:innerHTML="svgContent"
+		@click="navigateTo"
+	></div>
 </template>
 
 <script lang="ts">
@@ -22,14 +25,3 @@ export default defineComponent({
 	},
 });
 </script>
-
-<style scoped lang="scss">
-svg {
-	width: 100%;
-	height: 100%;
-	//fill: blue;
-	//display: inline-block;
-	//vertical-align: baseline;
-	//margin-bottom: -2px;
-}
-</style>

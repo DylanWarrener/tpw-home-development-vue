@@ -48,7 +48,8 @@ import {
 import { IHomeData } from "@declaration/common/interfaces/pages/info/interface-common-pages-info-home";
 
 // Enums
-import { BtnIDs, SectionIDs } from "@enums/common/enums";
+import { Btn } from "@enums/common/enums-common";
+import { SectionIDs } from "@enums/common/sections/enums-common-sections";
 
 // Utils
 import { buildEventString, compareEventStrings, scrollToElement } from "@constants/common/functions/constants-common-utils-functions";
@@ -107,9 +108,9 @@ export default defineComponent({
 			if (!newValue) return;
 
 			const pageName: RouteRecordName = this.$route.name!;
-			const eventStrCanvasCardBtn: string = buildEventString(pageName.toString(), BtnIDs.CANVAS_CARD_BTN_ID);
-			const eventStrLatestNewsBtn: string = buildEventString(pageName.toString(), BtnIDs.ALL_REVIEWS_BTN_ID);
-			const eventStrFooterContactBtn: string = buildEventString(pageName.toString(), BtnIDs.CONTACT_BTN_ID);
+			const eventStrCanvasCardBtn: string = buildEventString(pageName.toString(), Btn.CANVAS_CARD_ID);
+			const eventStrLatestNewsBtn: string = buildEventString(pageName.toString(), Btn.ALL_REVIEWS_ID);
+			const eventStrFooterContactBtn: string = buildEventString(pageName.toString(), Btn.CONTACT_ID);
 			const appBarHeight: number = this.storeHeader.getAppBarHeight;
 
 			const eventStrOne: string = newValue;

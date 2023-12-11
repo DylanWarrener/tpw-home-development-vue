@@ -53,7 +53,7 @@ import useReviewsStore from "@stores/pages/info/store-pages-info-reveiws";
 import AscotLightGreyDustPNG from "@assets/png/kitchens/ascot-light-gret-dust.jpg";
 
 // Enums
-import { BtnIDs } from "@enums/common/enums";
+import { Btn } from "@enums/common/enums-common";
 
 export default defineComponent({
 	name: "reviews-component",
@@ -90,7 +90,7 @@ export default defineComponent({
 	computed: {
 		// IDs
 		allReviewsBtnID(): string {
-			return BtnIDs.ALL_REVIEWS_BTN_ID;
+			return Btn.ALL_REVIEWS_ID;
 		},
 
 		// Text

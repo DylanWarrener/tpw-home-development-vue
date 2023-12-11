@@ -4,7 +4,8 @@ import { defineStore } from "pinia";
 import IHeaderState, { IHeaderAppBarIcons, IHeaderNavigationData } from "@declaration/common/interfaces/header/interface-common-header";
 
 // Enums
-import { AppBarDensity, StoreIDs } from "@src/enums/common/enums-common";
+import { StoreIDs } from "@enums/common/stores/enums-common-stores";
+import { AppBarDensity } from "@enums/common/header/enums-common-header";
 
 // Localisation
 import { i18nInstance } from "@plugins/vuei18n/vue-i18n";

@@ -1,10 +1,10 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
 	<v-app-bar class="bg-background-secondary" scroll-behavior="hide">
-		<svg-component width="200px" height="100%" :svg-content="iconLogoSVG" @svg-clicked="navigateTo(txtPageHome)"></svg-component>
+		<svg-component width="20rem" height="100%" :svg-content="iconLogoSVG" @svg-clicked="navigateTo(txtPageHome)"></svg-component>
 		<v-tooltip location="bottom" v-model="appBarIcons.menu.showTooltip">
 			<template #activator="{ props }">
-				<v-btn icon :id="appBarIcons.menu.id" v-bind="props" @click.stop="drawer = !drawer">
+				<v-btn icon variant="flat" :id="appBarIcons.menu.id" v-bind="props" @click.stop="drawer = !drawer">
 					<v-icon :id="appBarIcons.menu.id">{{ appBarIcons.menu.icon }}</v-icon>
 				</v-btn>
 			</template>
@@ -13,7 +13,7 @@
 		<v-app-bar-title class="text-capitalize">{{ txtAppBarTitle }}</v-app-bar-title>
 		<v-tooltip location="bottom" v-model="item.showTooltip" v-for="(item, index) in appBarIcons.others">
 			<template #activator="{ props }">
-				<v-btn icon :key="index" v-bind="props" @click="appBarIconClicked">
+				<v-btn icon variant="flat" :key="index" v-bind="props" @click="appBarIconClicked">
 					<v-icon :id="item.id" :key="index">{{ item.icon }}</v-icon>
 				</v-btn>
 			</template>
@@ -129,4 +129,3 @@ export default defineComponent({
 	},
 });
 </script>
-@src/stores/header/store-header
