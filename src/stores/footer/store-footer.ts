@@ -16,7 +16,7 @@ import {
 } from "@constants/common/primitive/constants-common-primitive";
 
 // Icons
-import { iconArrowUpThick, ICON_LOCATION } from "@constants/common/primitive/constants-common-primitive";
+import { iconArrowUpThick, ICON_LOCATION, ICON_EMAIL, ICON_TELEPHONE } from "@constants/common/primitive/constants-common-primitive";
 
 // SVGs
 import LogoSVG from "@assets/svg/logo/logo.svg?raw";
@@ -81,11 +81,11 @@ const useFooterStore = defineStore("footer-store", {
 						line3: "",
 					},
 					email: {
-						icon: "",
+						icon: ICON_EMAIL,
 						value: "",
 					},
 					number: {
-						icon: "",
+						icon: ICON_TELEPHONE,
 						value: "",
 					},
 				},

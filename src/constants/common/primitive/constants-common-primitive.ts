@@ -10,6 +10,7 @@ export const iconClose: string = "mdi-close";
 export const iconArrowUpThick: string = "mdi-arrow-up-thick";
 export const ICON_LOCATION: string = "mdi-map-marker";
 export const ICON_EMAIL: string = "mdi-email";
+export const ICON_TELEPHONE: string = "mdi-phone";
 
 // ---------------------------------------------------------------------------------------------------------
 // SOCIALS

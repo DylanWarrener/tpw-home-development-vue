@@ -445,12 +445,12 @@ const en = {
 			},
 			navigation: {
 				service: {
-					title: "Service",
+					title: "Service pages",
 					names: pageServiceNames,
 					links: pageServiceLinks,
 				},
 				information: {
-					title: "Information",
+					title: "Information pages",
 					names: pageInfoNames,
 					links: pageInfoLinks,
 				},

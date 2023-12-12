@@ -1,5 +1,5 @@
 <template>
-	<v-row dense style="border: 2px solid blue">
+	<v-row dense class="py-4">
 		<v-col cols="12">
 			<p class="text-center">&copy; {{ new Date().getFullYear() }} {{ data.copyright.title }}</p>
 			<p class="text-center">{{ data.copyright.location }}</p>

@@ -1,38 +1,59 @@
 <template>
-	<v-row dense style="border: 2px solid green">
+	<v-row dense>
 		<!-- Contact info -->
-		<v-col cols="12" sm="12" md="12" lg="4" xl="4" xxl="4" style="border: 2px solid green">
+		<v-col cols="12" sm="12" md="12" lg="4" xl="4" xxl="4" class="d-flex flex-column">
 			<h4 class="text-center">{{ data.contact.title }}</h4>
 			<!-- Address -->
-			<v-row dense style="border: 2px solid red">
-				<v-col cols="3" style="border: 2px solid green">
+			<v-row dense>
+				<v-col cols="3" class="d-flex justify-center align-center">
 					<v-icon :icon="data.contact.address.icon"></v-icon>
 				</v-col>
-				<v-col cols="9" style="border: 2px solid green"></v-col>
+				<v-col cols="9" class="d-flex flex-column justify-center">
+					<p>{{ data.contact.address.line1 }}</p>
+					<p>{{ data.contact.address.line2 }}</p>
+					<p>{{ data.contact.address.line3 }}</p>
+				</v-col>
 			</v-row>
 
 			<!-- Number -->
-			<v-row dense style="border: 2px solid red">
-				<v-col cols="3" style="border: 2px solid green">
+			<v-row dense>
+				<v-col cols="3" class="d-flex justify-center align-center">
 					<v-icon :icon="data.contact.number.icon"></v-icon>
 				</v-col>
-				<v-col cols="9" style="border: 2px solid green"></v-col>
+				<v-col cols="9" class="d-flex flex-column justify-center">
+					<p>{{ data.contact.number.value }}</p>
+				</v-col>
 			</v-row>
 
 			<!-- Email -->
-			<v-row dense style="border: 2px solid red">
-				<v-col cols="3" style="border: 2px solid green">
+			<v-row dense>
+				<v-col cols="3" class="d-flex justify-center align-center">
 					<v-icon :icon="data.contact.email.icon"></v-icon>
 				</v-col>
-				<v-col cols="9" style="border: 2px solid green"></v-col>
+				<v-col cols="9" class="d-flex flex-column justify-center">
+					<p>{{ data.contact.email.value }}</p>
+				</v-col>
 			</v-row>
 		</v-col>
+		<v-divider vertical></v-divider>
 
 		<!-- Navigation - service pages -->
-		<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4" style="border: 2px solid green">Navigation - service pages</v-col>
+		<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4">
+			<h4 class="text-center">{{ data.navigation.service.title }}</h4>
+			<v-list>
+				<v-list-item :title="item" :key="index" v-for="(item, index) in data.navigation.service.items"></v-list-item>
+			</v-list>
+		</v-col>
+		<v-divider vertical></v-divider>
 
 		<!-- Navigation - info pages -->
-		<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4" style="border: 2px solid green">Navigation - info pages</v-col>
+		<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4">
+			<h4 class="text-center">{{ data.navigation.information.title }}</h4>
+			<v-list>
+				<v-list-item :title="item" :key="index" v-for="(item, index) in data.navigation.information.items"></v-list-item>
+			</v-list>
+		</v-col>
+		<v-divider></v-divider>
 	</v-row>
 </template>
 

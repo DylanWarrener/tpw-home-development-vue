@@ -1,12 +1,12 @@
 <template>
-	<v-row dense style="border: 2px solid red">
+	<v-row dense>
 		<!-- Logo -->
 		<v-col cols="12" sm="4" md="4" lg="4" xl="4" xxl="4">
 			<svg-component height="10rem" :svg-content="data.logo.src" @svg-clicked="internalNavigate(txtPageHome)"></svg-component>
 		</v-col>
 
 		<!-- Socials -->
-		<v-col cols="12" sm="8" md="8" lg="8" xl="8" xxl="8" class="d-flex justify-space-evenly align-center" style="border: 2px solid blue">
+		<v-col cols="12" sm="8" md="8" lg="8" xl="8" xxl="8" class="d-flex justify-space-evenly align-center">
 			<p>{{ data.socials.title }}</p>
 			<template v-for="social in data.socials.items">
 				<v-btn icon variant="flat" @click="externalNavigate(social.link)">
@@ -18,6 +18,7 @@
 				</v-btn>
 			</template>
 		</v-col>
+		<v-divider></v-divider>
 	</v-row>
 </template>
 
