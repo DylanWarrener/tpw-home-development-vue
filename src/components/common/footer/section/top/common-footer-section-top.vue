@@ -8,15 +8,13 @@
 		<!-- Socials -->
 		<v-col cols="12" sm="8" md="8" lg="8" xl="8" xxl="8" class="d-flex justify-space-evenly align-center">
 			<p>{{ data.socials.title }}</p>
-			<template v-for="social in data.socials.items">
-				<v-btn icon variant="flat" @click="externalNavigate(social.link)">
-					<v-icon>
-						<template #default>
-							<svg-component :svg-content="social.icon"></svg-component>
-						</template>
-					</v-icon>
-				</v-btn>
-			</template>
+			<v-btn icon variant="flat" v-for="social in data.socials.items" @click="externalNavigate(social.link)">
+				<v-icon>
+					<template #default>
+						<svg-component :svg-content="social.icon"></svg-component>
+					</template>
+				</v-icon>
+			</v-btn>
 		</v-col>
 		<v-divider></v-divider>
 	</v-row>

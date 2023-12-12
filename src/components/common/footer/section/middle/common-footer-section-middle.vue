@@ -37,7 +37,35 @@
 		</v-col>
 		<v-divider vertical></v-divider>
 
-		<!-- Navigation - service pages -->
+		<!-- Navigation -->
+		<template v-for="item in data.navigation">
+			<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4">
+				<h4 class="text-center">{{ item.title }}</h4>
+				<v-list nav>
+					<v-list-item :title="navItem" :key="index" v-for="(navItem, index) in item.items"></v-list-item>
+				</v-list>
+			</v-col>
+			<v-divider vertical v-if="item.divider"></v-divider>
+			<v-divider v-else></v-divider>
+		</template>
+	</v-row>
+</template>
+
+<script lang="ts">
+/*
+<!-- Navigation -->
+		<template v-for="item in data.navigation">
+			<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4">
+				<h4 class="text-center">{{ item.title }}</h4>
+				<v-list nav>
+					<v-list-item :title="navItem" :key="index" v-for="(navItem, index) in item.items"></v-list-item>
+				</v-list>
+			</v-col>
+			<v-divider vertical v-if="item.divider"></v-divider>
+			<v-divider v-else></v-divider>
+		</template>
+
+<!-- Navigation - service pages -->
 		<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4">
 			<h4 class="text-center">{{ data.navigation.service.title }}</h4>
 			<v-list>
@@ -54,10 +82,7 @@
 			</v-list>
 		</v-col>
 		<v-divider></v-divider>
-	</v-row>
-</template>
-
-<script lang="ts">
+*/
 import { defineComponent } from "vue";
 
 // Interfaces

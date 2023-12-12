@@ -93,10 +93,12 @@ const useFooterStore = defineStore("footer-store", {
 					service: {
 						title: "",
 						items: [],
+						divider: true,
 					},
 					information: {
 						title: "",
 						items: [],
+						divider: false,
 					},
 				},
 			},

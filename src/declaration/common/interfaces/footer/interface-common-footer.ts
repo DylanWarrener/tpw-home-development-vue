@@ -58,6 +58,7 @@ interface IFooterStateMiddleSectionPropertiesData {
 interface IFooterStateNavigationData {
 	title: string;
 	items: string[];
+	divider: boolean;
 }
 export interface IFooterStateBottomSectionData {
 	copyright: {
