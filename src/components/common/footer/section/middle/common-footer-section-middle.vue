@@ -41,8 +41,15 @@
 		<template v-for="item in data.navigation">
 			<v-col cols="12" sm="6" md="6" lg="4" xl="4" xxl="4">
 				<h4 class="text-center">{{ item.title }}</h4>
-				<v-list nav>
-					<v-list-item :title="navItem" :key="index" v-for="(navItem, index) in item.items"></v-list-item>
+				<v-list nav class="d-flex flex-column justify-center align-center" style="border: 2px solid red">
+					<v-list-item
+						class="pl-8"
+						min-width="20rem"
+						:title="navItem"
+						:key="index"
+						v-for="(navItem, index) in item.items"
+						style="border: 2px solid blue"
+					></v-list-item>
 				</v-list>
 			</v-col>
 			<v-divider vertical v-if="item.divider"></v-divider>
@@ -93,5 +100,6 @@ export default defineComponent({
 	props: {
 		data: { type: Object as () => IFooterStateMiddleSectionData, required: true },
 	},
+	computed: {},
 });
 </script>
