@@ -41,7 +41,8 @@ const en = {
 			lessThanThreeCharacters: "The value entered must be a word greater than or equal to 3 characters!",
 			greaterThanThreeWords: "The value entered must be less than or equal to 3 words!",
 			email: {
-				invalidUsername: "The value must only contain one or more of the following: letters from A-Z, digits, periods, hyphens",
+				invalidUsername:
+					"The value must only contain one or more of the following: letters from A-Z, digits, periods, hyphens",
 				invalidAt: "The @ symbol must be added!",
 				invalidMailServer: "The mail server is invalid!",
 				invalidDomain: "The domain is invalid!",
@@ -214,7 +215,8 @@ const en = {
 				link: pageInfoLinks.contact,
 				images: {},
 				title: "Contact Details",
-				subtitle: "Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
+				subtitle:
+					"Please do not hesitate to contact us by either giving us a call or filling out the provided form.",
 				message:
 					"We are committed to responding to all inquiries within 24 hours on business days. Your questions are important to us, and we will be delighted to provide you with the information you seek.",
 			},
@@ -359,7 +361,8 @@ const en = {
 			pages: {
 				home: {
 					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
-					messageTermsAndConditions: "all our service pages: kitchens, bathrooms, newbuilds, extensions, and refurbishments",
+					messageTermsAndConditions:
+						"all our service pages: kitchens, bathrooms, newbuilds, extensions, and refurbishments",
 				},
 				kitchen: {
 					messageInfo: "@.capitalize:common.forms.defaultMessageInfo",
@@ -483,7 +486,7 @@ const en = {
 					line3: "PE7 1JQ",
 				},
 				number: "(+44) 07464 599 396",
-				email: "tpw-development@gmail.com",
+				email: "tpw-development{'@'}gmail.com",
 			},
 			copyright: {
 				title: "TPW Home Developments, All Rights Reserved",
