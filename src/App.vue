@@ -1,5 +1,5 @@
 <template>
-	<v-layout>
+	<v-layout ref="app" style="width: 100vw; border: 4px solid black">
 		<header-component></header-component>
 		<v-main>
 			<router-view></router-view>

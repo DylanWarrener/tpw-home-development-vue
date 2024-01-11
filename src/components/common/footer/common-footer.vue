@@ -1,5 +1,5 @@
 <template>
-	<v-container fluid class="bg-inverted container">
+	<v-container fluid class="bg-inverted container" style="border: 4px solid red">
 		<!-- Back to top icon -->
 		<div id="back-to-top-container">
 			<v-tooltip location="top" v-model="footerData.icons.backToTop.showTooltip">
@@ -13,13 +13,19 @@
 		</div>
 
 		<!-- Footer top -->
-		<footer-section-top-component :data="footerData.top"></footer-section-top-component>
+		<footer-section-top-component :data="footerData.top" style="border: 4px solid red"></footer-section-top-component>
 
 		<!-- Footer middle -->
-		<footer-section-middle-component :data="footerData.middle"></footer-section-middle-component>
+		<footer-section-middle-component
+			:data="footerData.middle"
+			style="border: 4px solid black"
+		></footer-section-middle-component>
 
 		<!-- Footer bottom -->
-		<footer-section-bottom-component :data="footerData.bottom"></footer-section-bottom-component>
+		<footer-section-bottom-component
+			:data="footerData.bottom"
+			style="border: 4px solid blue"
+		></footer-section-bottom-component>
 	</v-container>
 </template>
 

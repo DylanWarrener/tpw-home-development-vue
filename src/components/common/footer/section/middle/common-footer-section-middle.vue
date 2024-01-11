@@ -1,41 +1,50 @@
 <template>
 	<v-row dense>
 		<!-- Contact info -->
-		<v-col cols="12" sm="12" md="12" lg="4" xl="4" xxl="4" class="d-flex flex-column">
-			<h4 class="text-center">{{ data.contact.title }}</h4>
-			<!-- Address -->
-			<v-row dense>
-				<v-col cols="3" class="d-flex justify-center align-center">
-					<v-icon :icon="data.contact.address.icon"></v-icon>
-				</v-col>
-				<v-col cols="9" class="d-flex flex-column justify-center">
-					<p>{{ data.contact.address.line1 }}</p>
-					<p>{{ data.contact.address.line2 }}</p>
-					<p>{{ data.contact.address.line3 }}</p>
-				</v-col>
-			</v-row>
+		<v-col cols="12" sm="12" md="12" lg="4" xl="4" xxl="4" class="d-flex flex-column" style="border: 4px solid blue">
+			<v-container fluid style="border: 4px solid blue">
+				<v-row dense style="border: 4px solid green">
+					<h4 class="w-100 text-center" style="border: 4px solid red">{{ data.contact.title }}</h4>
 
-			<!-- Number -->
-			<v-row dense>
-				<v-col cols="3" class="d-flex justify-center align-center">
-					<v-icon :icon="data.contact.number.icon"></v-icon>
-				</v-col>
-				<v-col cols="9" class="d-flex flex-column justify-center">
-					<p>{{ data.contact.number.value }}</p>
-				</v-col>
-			</v-row>
+					<!-- Address -->
+					<v-col cols="12" md="6" lg="12" xl="12" xxl="12" style="border: 4px solid purple">
+						<v-row dense style="border: 4px solid orange">
+							<v-col cols="3" class="d-flex justify-center align-center">
+								<v-icon :icon="data.contact.address.icon"></v-icon>
+							</v-col>
+							<v-col cols="9" class="d-flex flex-column justify-center">
+								<p>{{ data.contact.address.line1 }}</p>
+								<p>{{ data.contact.address.line2 }}</p>
+								<p>{{ data.contact.address.line3 }}</p>
+							</v-col>
+						</v-row>
+					</v-col>
 
-			<!-- Email -->
-			<v-row dense>
-				<v-col cols="3" class="d-flex justify-center align-center">
-					<v-icon :icon="data.contact.email.icon"></v-icon>
-				</v-col>
-				<v-col cols="9" class="d-flex flex-column justify-center">
-					<p>{{ data.contact.email.value }}</p>
-				</v-col>
-			</v-row>
+					<!-- Number & Email -->
+					<v-col cols="12" md="6" lg="12" xl="12" xxl="12" style="border: 4px solid black">
+						<v-row dense class="d-flex" style="height: 100%; border: 4px solid red">
+							<!-- Number -->
+							<v-col cols="3" class="d-flex justify-center align-center">
+								<v-icon :icon="data.contact.number.icon"></v-icon>
+							</v-col>
+							<v-col cols="9" class="d-flex flex-column justify-center">
+								<p>{{ data.contact.number.value }}</p>
+							</v-col>
+
+							<!-- Email -->
+							<v-col cols="3" class="d-flex justify-center align-center">
+								<v-icon :icon="data.contact.email.icon"></v-icon>
+							</v-col>
+							<v-col cols="9" class="d-flex flex-column justify-center">
+								<p>{{ data.contact.email.value }}</p>
+							</v-col>
+						</v-row>
+					</v-col>
+				</v-row>
+			</v-container>
 		</v-col>
-		<v-divider vertical></v-divider>
+		<v-divider vertical v-if="isDisplayLargeAndUp"></v-divider>
+		<v-divider v-else></v-divider>
 
 		<!-- Navigation -->
 		<template v-for="item in data.navigation">
@@ -100,6 +109,10 @@ export default defineComponent({
 	props: {
 		data: { type: Object as () => IFooterStateMiddleSectionData, required: true },
 	},
-	computed: {},
+	computed: {
+		isDisplayLargeAndUp(): boolean {
+			return this.$vuetify.display.lgAndUp;
+		},
+	},
 });
 </script>
