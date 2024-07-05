@@ -1,7 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Utils
-import { pageServiceNames, pageInfoNames, pageServiceLinks, pageInfoLinks } from "@constants/common/objects/constants-common-utils-objects";
+import {
+	pageServiceNames,
+	pageInfoNames,
+	pageServiceLinks,
+	pageInfoLinks,
+} from "@constants/common/objects/constants-common-utils-objects";
 
 // Child components -> dynamically imported (only imported when requested to reduce bundle size)
 const Home = () => import("@pages/info/page-home.vue");
@@ -24,7 +29,11 @@ const router = createRouter({
 		{ path: `${pageServiceLinks.bathroom}`, name: `${pageServiceNames.bathroom}`, component: Bathrooms },
 		{ path: `${pageServiceLinks.newbuild}`, name: `${pageServiceNames.newbuild}`, component: Newbuilds },
 		{ path: `${pageServiceLinks.extension}`, name: `${pageServiceNames.extension}`, component: Extensions },
-		{ path: `${pageServiceLinks.refurbishment}`, name: `${pageServiceNames.refurbishment}`, component: Refurbishments },
+		{
+			path: `${pageServiceLinks.refurbishment}`,
+			name: `${pageServiceNames.refurbishment}`,
+			component: Refurbishments,
+		},
 		{ path: `${pageInfoLinks.contact}`, name: `${pageInfoNames.contact}`, component: Contact },
 		{ path: `${pageInfoLinks.about}`, name: `${pageInfoNames.about}`, component: About },
 		{ path: `${pageInfoLinks.news}`, name: `${pageInfoNames.news}`, component: News },

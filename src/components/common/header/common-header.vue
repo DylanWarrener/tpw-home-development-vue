@@ -1,7 +1,12 @@
 <template>
 	<!--<v-system-bar color="blue"></v-system-bar>-->
 	<v-app-bar class="bg-background-secondary" scroll-behavior="hide">
-		<svg-component width="20rem" height="100%" :svg-content="iconLogoSVG" @svg-clicked="navigateTo(txtPageHome)"></svg-component>
+		<svg-component
+			width="20rem"
+			height="100%"
+			:svg-content="iconLogoSVG"
+			@svg-clicked="navigateTo(txtPageHome)"
+		></svg-component>
 		<v-tooltip location="bottom" v-model="appBarIcons.menu.showTooltip">
 			<template #activator="{ props }">
 				<v-btn icon variant="flat" :id="appBarIcons.menu.id" v-bind="props" @click.stop="drawer = !drawer">

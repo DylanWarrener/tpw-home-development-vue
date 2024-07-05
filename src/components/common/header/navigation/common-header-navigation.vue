@@ -12,7 +12,7 @@ import useHeaderStore from "@stores/header/store-header";
 import Nav from "@components/common/navigation/common-navigation.vue";
 
 // Interfaces
-import { IHeaderNavigationData } from "@declaration/common/interfaces/header/interface-common-header";
+import { IHeaderNavigationData } from "@declaration/common/interfaces/header/interface-common-header.js";
 
 export default defineComponent({
 	name: "header-navigation-component",

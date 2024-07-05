@@ -9,8 +9,8 @@
 		"noFallthroughCasesInSwitch": true,
 
 		/* Modules */
-		"module": "ESNext",
-		"moduleResolution": "node",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 		//"resolveJsonModule": true,
 		"paths": {
 			"@src/*": ["./src/*"],
@@ -27,6 +27,7 @@
 			"@enums/*": ["./src/enums/*"],
 			"@styles/*": ["./src/styles/*"]
 		},
+		"types": ["node"],
 
 		/* Emit */
 		"importsNotUsedAsValues": "remove",
